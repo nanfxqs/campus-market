@@ -41,6 +41,7 @@ func TestSaleInvalidAttemptsAreNotRecorded(t *testing.T) {
 	seller := request("POST", "/auth/login", `{"username":"seller","password":"CampusDemo123!"}`, 200)["accessToken"].(string)
 	buyer := request("POST", "/auth/login", `{"username":"buyer","password":"CampusDemo123!"}`, 200)["accessToken"].(string)
 	id := authRequest(t, base, "POST", "/products", seller, bodyJSON(t, productBody("textbooks", map[string]any{"author": "A"})), 201)["id"].(string)
+	authRequest(t, base, "POST", "/products", seller, bodyJSON(t, productBody("textbooks", map[string]any{"author": "A", "sale": "fake"})), 400)
 	path := "/products/" + id + "/sale"
 	authRequest(t, base, "POST", path, "", `{}`, 401)
 	authRequest(t, base, "POST", path, buyer, `{"buyerId":"seller","priceCents":1,"idempotencyKey":"other"}`, 403)
@@ -68,12 +69,7 @@ func TestSaleConcurrentExactlyOnce(t *testing.T) {
 			token := request("POST", "/auth/login", `{"username":"seller","password":"CampusDemo123!"}`, 200)["accessToken"].(string)
 			id := authRequest(t, base, "POST", "/products", token, bodyJSON(t, productBody("textbooks", map[string]any{"author": "A"})), 201)["id"].(string)
 			const n = 24
-			type response struct {
-				status int
-				body   string
-				err    error
-			}
-			results := make(chan response, n)
+			results := make(chan saleHTTPResult, n)
 			start := make(chan struct{})
 			for i := 0; i < n; i++ {
 				go func(i int) {
@@ -83,17 +79,7 @@ func TestSaleConcurrentExactlyOnce(t *testing.T) {
 						key = "shared"
 					}
 					body := fmt.Sprintf(`{"buyerId":"buyer","priceCents":4321,"idempotencyKey":%q}`, key)
-					req, _ := http.NewRequest("POST", base+"/products/"+id+"/sale", strings.NewReader(body))
-					req.Header.Set("Authorization", "Bearer "+token)
-					req.Header.Set("Content-Type", "application/json")
-					resp, err := http.DefaultClient.Do(req)
-					if err != nil {
-						results <- response{err: err}
-						return
-					}
-					b, err := io.ReadAll(resp.Body)
-					resp.Body.Close()
-					results <- response{status: resp.StatusCode, body: string(b), err: err}
+					results <- sendSaleRequest(base, id, token, body)
 				}(i)
 			}
 			close(start)
@@ -285,28 +271,12 @@ func TestSaleConcurrentKeyConflictRollsBackOtherProduct(t *testing.T) {
 	for i := 0; i < 2; i++ {
 		ids = append(ids, authRequest(t, base, "POST", "/products", token, bodyJSON(t, productBody("textbooks", map[string]any{"author": "A"})), 201)["id"].(string))
 	}
-	type result struct {
-		id     string
-		status int
-		body   string
-		err    error
-	}
-	results := make(chan result, 2)
+	results := make(chan saleHTTPResult, 2)
 	start := make(chan struct{})
 	for _, id := range ids {
 		go func(id string) {
 			<-start
-			req, _ := http.NewRequest("POST", base+"/products/"+id+"/sale", strings.NewReader(`{"buyerId":"buyer","priceCents":42,"idempotencyKey":"shared-products"}`))
-			req.Header.Set("Authorization", "Bearer "+token)
-			req.Header.Set("Content-Type", "application/json")
-			resp, err := http.DefaultClient.Do(req)
-			if err != nil {
-				results <- result{err: err}
-				return
-			}
-			body, err := io.ReadAll(resp.Body)
-			resp.Body.Close()
-			results <- result{id: id, status: resp.StatusCode, body: string(body), err: err}
+			results <- sendSaleRequest(base, id, token, `{"buyerId":"buyer","priceCents":42,"idempotencyKey":"shared-products"}`)
 		}(id)
 	}
 	close(start)
@@ -340,4 +310,29 @@ func TestSaleConcurrentKeyConflictRollsBackOtherProduct(t *testing.T) {
 	if authRequest(t, base, "GET", "/users/me", token, "", 200)["completedSales"] != float64(1) {
 		t.Fatal("duplicate seller count")
 	}
+}
+
+// Each concurrent test owns its barrier and assertions; only HTTP transport is shared.
+type saleHTTPResult struct {
+	id     string
+	status int
+	body   string
+	err    error
+}
+
+func sendSaleRequest(base, id, token, body string) saleHTTPResult {
+	req, err := http.NewRequest("POST", base+"/products/"+id+"/sale", strings.NewReader(body))
+	if err != nil {
+		return saleHTTPResult{err: err}
+	}
+	req.Header.Set("Authorization", "Bearer "+token)
+	req.Header.Set("Content-Type", "application/json")
+	client := http.Client{Timeout: 25 * time.Second}
+	resp, err := client.Do(req)
+	if err != nil {
+		return saleHTTPResult{err: err}
+	}
+	defer resp.Body.Close()
+	contents, err := io.ReadAll(resp.Body)
+	return saleHTTPResult{id: id, status: resp.StatusCode, body: string(contents), err: err}
 }

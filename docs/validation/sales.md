@@ -20,13 +20,13 @@
 
 事务采用 snapshot read concern 和 majority write concern。数据库条件更新 `products` 仲裁竞争，与 `listings` 删除、`users.completedSales` 增量及 `transactions` 插入共同提交。失败全部回滚；MongoDB 驱动重试写冲突后重新检查当前资格、期限及记录。
 
-`transactions._id_` 是唯一索引，ID 为 SHA-256(`卖家字节长度:卖家ID` + 原始幂等键)，长度前缀避免拼接歧义。每个卖家/键只允许一个结果，成功与业务失败永久保留、不设置 TTL。并发不同商品争用同键时，唯一键冲突会回滚整个输方事务，再读取胜方结果并检查内容。未来完整种子生成需要遵循此记录格式，不能将随机交易 ID 当作可重试幂等记录。商品和资格使用现有 `_id_` 等值索引，不增加不必要索引。
+`transactions._id_` 是唯一索引，ID 为 SHA-256(`卖家字节长度:卖家ID` + 原始幂等键)，长度前缀避免拼接歧义。每个卖家/键只允许一个结果，成功与业务失败永久保留、不设置 TTL。并发不同商品争用同键时，唯一键冲突会回滚整个输方事务，再读取胜方结果并检查内容。唯一键冲突后通过 majority 读确认胜方持久化结果。未来完整种子生成需要遵循此记录格式，不能将随机交易 ID 当作可重试幂等记录。商品和资格使用现有 `_id_` 等值索引，不增加不必要索引。
 
 ## 验证
 
 - TDD 首个 HTTP 成交测试在路由缺失时失败，实现后通过；OpenAPI 测试先因成交操作缺失失败，补齐契约后通过。
-- `TestSale*`：真实 HTTP/MongoDB 验证议价成交、服务器时间、原结果重试、自买自卖/非法买家/非所有者/非法金额拒绝且不产生记录；24 请求竞争恰好一次成交，24 同键请求返回一致原结果；不同商品并发同键冲突无部分更新；不同卖家键隔离；成功及失败幂等持久化。
-- 通过内部构造器注入时钟（没有新增导出接口或 HTTP 测试路由），仍从真实 HTTP 和 MongoDB 观察行为。`TestSaleExactExpirationHTTP` 精确验证 `expiresAt-1ms` 成功、`expiresAt` 和 `expiresAt+1ms` 失败。临时测试库暂停 TTL，过期资格仍在时必须拒绝。
+- `TestSale*`：真实 HTTP/MongoDB 验证议价成交、服务器时间、原结果重试、自买自卖/非法买家/非所有者/非法金额拒绝且不产生记录；24 请求竞争恰好一次成交，24 同键请求返回一致原结果；不同商品并发同键冲突无部分更新；保留属性 `sale` 不允许伪造；不同卖家键隔离；成功及失败幂等持久化。
+- 通过内部构造器注入时钟（没有新增导出接口或 HTTP 测试路由），仍从真实 HTTP 和 MongoDB 观察行为。`TestSaleExactExpirationHTTP` 精确验证 `expiresAt-1ms` 成功、`expiresAt` 和 `expiresAt+1ms` 失败。临时测试库暂停 TTL，过期资格仍在时必须拒绝。`TestSaleTransactionRetryAcrossExpirationHTTP` 通过独立 MongoDB 客户端并发修改档案，强制首次条件写发生事务重试，同时将时钟推进到到期时刻；重试重新检查期限，返回并持久化一条可重放业务失败，档案未成交、资格保留、成功记录及计数为 0。
 - `TestSaleRollbackOnPersistenceFailure` 在独立库对 `transactions` 配置真实 MongoDB 校验器，在档案、资格、计数修改之后拒绝成功记录写入。HTTP 返回 503；持久化观察：档案 `sold=false`、`sale` 缺失、资格仍在、交易记录 0、卖家计数 0。撤除故障后用同键重试成功。
 - 针对性测试、`go vet ./...` 和 OpenAPI 校验通过。全套测试与最终审查结果后附。
 

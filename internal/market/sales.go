@@ -47,7 +47,6 @@ type SaleAttempt struct {
 
 func saleRoutes(authorized *gin.RouterGroup, db *mongo.Database, confirmationTime func() time.Time) {
 	authorized.POST("/products/:id/sale", func(c *gin.Context) {
-
 		var input saleInput
 		if !decode(c, &input) {
 			return
@@ -162,7 +161,7 @@ func confirmSale(ctx context.Context, db *mongo.Database, product Product, input
 	}, options.Transaction().SetReadConcern(readconcern.Snapshot()).SetWriteConcern(writeconcern.Majority()))
 	if mongo.IsDuplicateKeyError(err) {
 		// A competing request committed this seller/key. Our entire transaction rolled back.
-		err = db.Collection("transactions").FindOne(ctx, bson.M{"_id": id}).Decode(&result)
+		err = db.Collection("transactions", options.Collection().SetReadConcern(readconcern.Majority())).FindOne(ctx, bson.M{"_id": id}).Decode(&result)
 	}
 	return result, err
 }
