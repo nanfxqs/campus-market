@@ -1,0 +1,35 @@
+2026/10/09 06:55:03 fixture ready users=2 active=27 history=0 transactions=0 candidates=67 search_ms=254 base=2026-10-09T06:55:02.09215879Z
+=== RUN   TestChineseSynonyms
+--- PASS: TestChineseSynonyms (0.14s)
+=== RUN   TestSearchChecksCurrentEligibility
+    persistence_test.go:240: current eligibility: 67 candidates, 24 eligible, 20 returned
+--- PASS: TestSearchChecksCurrentEligibility (0.05s)
+PASS
+ok  	github.com/nanfxqs/campus-market/validation	0.205s
+=== RUN   TestTransactionCommitAndRollback
+--- PASS: TestTransactionCommitAndRollback (0.06s)
+PASS
+ok  	github.com/nanfxqs/campus-market/validation	0.068s
+=== RUN   TestTTLRetainsArchiveAndForbidsSale
+    persistence_test.go:155: TTL physical deletion observed 26.074622247s after expiry; archive and history retained
+--- PASS: TestTTLRetainsArchiveAndForbidsSale (31.09s)
+PASS
+ok  	github.com/nanfxqs/campus-market/validation	31.097s
+2026/10/09 06:56:04 fixture ready users=10000 active=20000 history=180000 transactions=300000 candidates=20040 search_ms=2226 base=2026-10-09T06:55:51.267707698Z
+=== RUN   TestChineseSynonyms
+--- PASS: TestChineseSynonyms (4.31s)
+=== RUN   TestTransactionCommitAndRollback
+--- PASS: TestTransactionCommitAndRollback (0.45s)
+=== RUN   TestTTLRetainsArchiveAndForbidsSale
+    persistence_test.go:155: TTL physical deletion observed 32.174658594s after expiry; archive and history retained
+--- PASS: TestTTLRetainsArchiveAndForbidsSale (37.31s)
+=== RUN   TestScaleSearch
+    persistence_test.go:190: scale search candidates=20040 valid=20000 top=20 server_ms=1365 http=1.367256697s
+    persistence_test.go:190: scale search candidates=20040 valid=20000 top=20 server_ms=1447 http=1.448375974s
+    persistence_test.go:190: scale search candidates=20040 valid=20000 top=20 server_ms=1402 http=1.403250816s
+--- PASS: TestScaleSearch (4.32s)
+=== RUN   TestSearchChecksCurrentEligibility
+    persistence_test.go:240: current eligibility: 20040 candidates, 19997 eligible, 20 returned
+--- PASS: TestSearchChecksCurrentEligibility (1.39s)
+PASS
+ok  	github.com/nanfxqs/campus-market/validation	47.786s

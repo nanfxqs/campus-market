@@ -1,0 +1,18 @@
+=== RUN   TestChineseSynonyms
+--- PASS: TestChineseSynonyms (4.34s)
+=== RUN   TestTransactionCommitAndRollback
+--- PASS: TestTransactionCommitAndRollback (0.46s)
+=== RUN   TestTTLRetainsArchiveAndForbidsSale
+    persistence_test.go:159: expired listing remains physically present; HTTP rejects sale without writes before TTL cleanup
+    persistence_test.go:173: TTL physical deletion observed 53.398252998s after expiry; archive and history retained
+--- PASS: TestTTLRetainsArchiveAndForbidsSale (58.52s)
+=== RUN   TestScaleSearch
+    persistence_test.go:208: scale search candidates=20040 valid=20000 top=20 server_ms=1374 http=1.375833603s
+    persistence_test.go:208: scale search candidates=20040 valid=20000 top=20 server_ms=1252 http=1.253161254s
+    persistence_test.go:208: scale search candidates=20040 valid=20000 top=20 server_ms=1288 http=1.289564392s
+--- PASS: TestScaleSearch (4.01s)
+=== RUN   TestSearchChecksCurrentEligibility
+    persistence_test.go:258: current eligibility: 20040 candidates, 19997 eligible, 20 returned
+--- PASS: TestSearchChecksCurrentEligibility (1.30s)
+PASS
+ok  	github.com/nanfxqs/campus-market/validation	68.640s

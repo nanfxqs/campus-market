@@ -1,0 +1,48 @@
+name: campus-market-validation
+services:
+  mongo:
+    image: mongodb/mongodb-atlas-local:8.0.4@sha256:1ce32a37610486d753a81cc7ca9c719964679e37eb0aa8b4b521578b883d0147
+    hostname: mongo
+    volumes:
+      - mongo-data:/data/db
+      - mongo-config:/data/configdb
+      - search-data:/data/mongot
+    healthcheck:
+      test: [CMD, mongosh, --quiet, --eval, "quit(db.adminCommand({ping:1}).ok ? 0 : 1)"]
+      interval: 5s
+      timeout: 5s
+      retries: 60
+  api:
+    build: .
+    command: [serve]
+    environment:
+      MONGO_URI: mongodb://mongo:27017/?directConnection=true
+      DB_NAME: campus_validation
+    ports: ["127.0.0.1:8080:8080"]
+    depends_on:
+      mongo:
+        condition: service_healthy
+    healthcheck:
+      test: [CMD, /validation, health]
+      interval: 5s
+      timeout: 5s
+      retries: 60
+  verify:
+    profiles: [tools]
+    build:
+      context: .
+      target: tools
+    working_dir: /src
+    entrypoint: [go]
+    command: [test, -v, ./validation, -count=1, -timeout=12m]
+    environment:
+      MONGO_URI: mongodb://mongo:27017/?directConnection=true
+      DB_NAME: campus_validation
+      API_URL: http://api:8080
+    depends_on:
+      api:
+        condition: service_healthy
+volumes:
+  mongo-data:
+  mongo-config:
+  search-data:
