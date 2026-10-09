@@ -104,11 +104,15 @@ func tokenHash(token string) string {
 // New creates an API with a fixed access-token lifetime. Expiry is checked on
 // every authenticated request independently of MongoDB's delayed TTL cleanup.
 func New(db *mongo.Database, ttl time.Duration) http.Handler {
+	return newAPI(db, ttl, time.Now)
+}
+
+func newAPI(db *mongo.Database, ttl time.Duration, confirmationTime func() time.Time) http.Handler {
 	if ttl <= 0 {
 		panic("access token lifetime must be positive")
 	}
 	router := gin.New()
-	router.Use(gin.Recovery())
+	router.Use(gin.Recovery(), saleRequestLog)
 	router.GET("/health", func(c *gin.Context) {
 		if err := db.Client().Ping(c.Request.Context(), nil); err != nil {
 			fail(c, 503, "unavailable")
@@ -240,6 +244,7 @@ func New(db *mongo.Database, ttl time.Duration) http.Handler {
 		c.JSON(200, user)
 	})
 	productRoutes(router, authorized, db)
+	saleRoutes(authorized, db, confirmationTime)
 	router.GET("/search", func(c *gin.Context) { searchPage(c, db) })
 	router.GET("/openapi.json", func(c *gin.Context) { c.Data(200, "application/json", openAPI) })
 	router.GET("/docs", func(c *gin.Context) { c.Data(200, "text/html; charset=utf-8", []byte(swaggerHTML)) })

@@ -67,6 +67,7 @@ type ProductContent struct {
 	Attributes  map[string]any `bson:"attributes" json:"attributes"`
 }
 type Product struct {
+	Sale              *Sale  `bson:"sale,omitempty" json:"sale,omitempty"`
 	ID                string `bson:"_id" json:"id"`
 	ProductContent    `bson:",inline"`
 	SellerID          string    `bson:"sellerId" json:"sellerId"`
