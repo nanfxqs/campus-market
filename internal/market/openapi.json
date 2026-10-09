@@ -1,9 +1,9 @@
 {
   "openapi": "3.0.3",
   "info": {
-    "title": "Campus Market V1 Accounts",
+    "title": "Campus Market V1",
     "version": "1.0.0",
-    "description": "Seed accounts only. Access tokens expire after 3600 seconds. No registration, refresh or revocation. Requests are limited to 4096 bytes; unknown properties, empty patches and trailing JSON are rejected. Profile writes affect only the authenticated account; credit score stays preset."
+    "description": "Seed accounts only. Tokens expire after 3600 seconds. Account requests: at most 4096 bytes; product writes: at most 65536 bytes. Unknown fields and trailing JSON are rejected. Platform-maintained flat categories validate new writes using current rules; historical reads never revalidate. Product publication atomically creates the archive and independent sale eligibility. Eligibility expires exactly 60×24 hours after server publication time; TTL deletes only eligibility. Images are stored as URLs without reachability checks. Profile updates affect only the authenticated account; credit score stays preset."
   },
   "paths": {
     "/auth/login": {
@@ -177,7 +177,7 @@
                     "type": "string",
                     "maxLength": 2048,
                     "format": "uri",
-                    "pattern": "^https?://",
+                    "pattern": "^[hH][tT][tT][pP][sS]?://",
                     "description": "HTTP/HTTPS URL with hostname and no credentials; maximum 2048 UTF-8 bytes. Stored as an address; reachability is not checked."
                   }
                 }
@@ -248,6 +248,336 @@
           }
         }
       }
+    },
+    "/categories": {
+      "get": {
+        "summary": "Read flat categories and their current attribute rules and limits",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Categories"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "unavailable",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/products": {
+      "post": {
+        "summary": "Publish a product owned by the authenticated seller",
+        "description": "Atomic archive and 60-day eligibility creation. At most 65536 request bytes. Inputs follow current category rules. No caller-supplied seller, timestamps, initial price or availability.",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PublishProduct"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Product"
+                }
+              }
+            },
+            "headers": {
+              "Location": {
+                "description": "Relative detail URL of the new product",
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "invalid_input: malformed JSON, unknown fields, invalid values, rules, ID or cursor",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "unavailable: database or transaction error; publication is rolled back",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "unauthorized: missing, invalid or expired access token",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/products/{id}": {
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{24}$"
+          },
+          "description": "Product ID returned by publication."
+        }
+      ],
+      "get": {
+        "summary": "Read complete product, current seller and recent price history",
+        "description": "Public, including sold or delisted archives. Does not revalidate stored attributes after rule changes. Current seller nickname, avatar, creditScore and completedSales are read from users. Recent 5 actual price changes sorted by changedAt and ID descending; initial listing price is separate and new products have empty history.",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProductDetail"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "invalid_input: malformed JSON, unknown fields, invalid values, rules, ID or cursor",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "unavailable: database or transaction error; publication is rolled back",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "product_not_found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "summary": "Replace own available product content using current rules",
+        "description": "Full content replacement, not a partial patch. Only an unexpired, unsold product with current eligibility can be edited. Identity, timestamps, initial price and current price remain unchanged; price mutation is reserved for issue #7. At most 65536 bytes.",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ProductContent"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Product"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "invalid_input: malformed JSON, unknown fields, invalid values, rules, ID or cursor",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "unavailable: database or transaction error; publication is rolled back",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "unauthorized: missing, invalid or expired access token",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "forbidden: product belongs to another seller",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "product_not_found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "product_unavailable: sold, delisted or expired",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/products/{id}/price-history": {
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{24}$"
+          },
+          "description": "Product ID returned by publication."
+        }
+      ],
+      "get": {
+        "summary": "Read full price-change history with cursor pagination",
+        "description": "Read-only history; price mutation belongs to #7. Sort: changedAt then ID descending. Historical archives remain readable.",
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "default": 20,
+              "minimum": 1,
+              "maximum": 100
+            }
+          },
+          {
+            "name": "cursor",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "maxLength": 512
+            },
+            "description": "Opaque nextCursor from the prior response. Missing means the first page; malformed/empty cursors return 400. Format: base64url JSON with changedAt (RFC3339) and id (24 hexadecimal characters)."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PriceHistory"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "invalid_input: malformed JSON, unknown fields, invalid values, rules, ID or cursor",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "unavailable: database or transaction error; publication is rolled back",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "product_not_found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
@@ -308,12 +638,473 @@
                   "invalid_input",
                   "invalid_credentials",
                   "unauthorized",
-                  "unavailable"
+                  "unavailable",
+                  "forbidden",
+                  "product_not_found",
+                  "product_unavailable"
                 ]
               }
             }
           }
         }
+      },
+      "AttributeValue": {
+        "oneOf": [
+          {
+            "type": "string"
+          },
+          {
+            "type": "number"
+          },
+          {
+            "type": "boolean"
+          },
+          {
+            "type": "array",
+            "items": {
+              "oneOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "number"
+                },
+                {
+                  "type": "boolean"
+                }
+              ]
+            }
+          }
+        ],
+        "description": "Non-null scalar or array of non-null scalars. No nested objects or arrays. Extra arrays may mix scalar types. String/array limits are category-dependent: GET /categories supplies current write limits (defaults: 256 Unicode characters, 16 array elements). Historical reads return stored values regardless of current limits."
+      },
+      "ProductContent": {
+        "type": "object",
+        "properties": {
+          "categoryId": {
+            "type": "string",
+            "description": "ID from GET /categories. Platform defaults: textbooks, bicycles, electronics."
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 120,
+            "description": "1–120 Unicode characters; not whitespace-only."
+          },
+          "description": {
+            "type": "string",
+            "maxLength": 4000,
+            "nullable": true,
+            "description": "At most 4000 Unicode characters. Omitted or null becomes an empty string."
+          },
+          "condition": {
+            "type": "string",
+            "enum": [
+              "全新",
+              "几乎全新",
+              "轻度使用",
+              "明显使用"
+            ]
+          },
+          "images": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uri",
+              "pattern": "^[hH][tT][tT][pP][sS]?://",
+              "maxLength": 2048,
+              "description": "HTTP/HTTPS URL with a hostname and no credentials, at most 2048 UTF-8 bytes. No reachability check."
+            },
+            "minItems": 1,
+            "maxItems": 9
+          },
+          "attributes": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/AttributeValue"
+            },
+            "description": "Required object. Current rules and limits are returned by GET /categories. Defaults: at most 32 attributes, at most 16 extras, keys match [A-Za-z][A-Za-z0-9_]* and have at most 40 ASCII characters; strings at most 256 Unicode characters, arrays at most 16 elements. Category types: string, number, boolean and homogeneous string[]/number[]/boolean[]. Required rules require the key to be present. Extra attributes allow any scalar or mixed scalar array. Reserved keys (case-insensitive): id, categoryId, title, description, condition, images, attributes, sellerId, priceCents, initialPriceCents, publishedAt, expiresAt, sold, seller, available, priceHistory, priceHistoryUrl, buyerId, salePriceCents, confirmedAt. Nested objects and arrays, nulls and standard-field overrides are rejected. These are defaults, not immutable schema ceilings: use the returned current category limits for writes. Historical values are returned without revalidation."
+          }
+        },
+        "additionalProperties": false,
+        "example": {
+          "categoryId": "textbooks",
+          "title": "高等数学教材",
+          "description": "附学习笔记，可线下查看",
+          "condition": "轻度使用",
+          "images": [
+            "https://example.invalid/textbook.png"
+          ],
+          "attributes": {
+            "author": "张三",
+            "edition": 2,
+            "notes": true
+          }
+        },
+        "required": [
+          "categoryId",
+          "title",
+          "condition",
+          "images",
+          "attributes"
+        ]
+      },
+      "PublishProduct": {
+        "type": "object",
+        "properties": {
+          "categoryId": {
+            "type": "string",
+            "description": "ID from GET /categories. Platform defaults: textbooks, bicycles, electronics."
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 120,
+            "description": "1–120 Unicode characters; not whitespace-only."
+          },
+          "description": {
+            "type": "string",
+            "maxLength": 4000,
+            "nullable": true,
+            "description": "At most 4000 Unicode characters. Omitted or null becomes an empty string."
+          },
+          "condition": {
+            "type": "string",
+            "enum": [
+              "全新",
+              "几乎全新",
+              "轻度使用",
+              "明显使用"
+            ]
+          },
+          "images": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uri",
+              "pattern": "^[hH][tT][tT][pP][sS]?://",
+              "maxLength": 2048,
+              "description": "HTTP/HTTPS URL with a hostname and no credentials, at most 2048 UTF-8 bytes. No reachability check."
+            },
+            "minItems": 1,
+            "maxItems": 9
+          },
+          "attributes": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/AttributeValue"
+            },
+            "description": "Required object. Current rules and limits are returned by GET /categories. Defaults: at most 32 attributes, at most 16 extras, keys match [A-Za-z][A-Za-z0-9_]* and have at most 40 ASCII characters; strings at most 256 Unicode characters, arrays at most 16 elements. Category types: string, number, boolean and homogeneous string[]/number[]/boolean[]. Required rules require the key to be present. Extra attributes allow any scalar or mixed scalar array. Reserved keys (case-insensitive): id, categoryId, title, description, condition, images, attributes, sellerId, priceCents, initialPriceCents, publishedAt, expiresAt, sold, seller, available, priceHistory, priceHistoryUrl, buyerId, salePriceCents, confirmedAt. Nested objects and arrays, nulls and standard-field overrides are rejected. These are defaults, not immutable schema ceilings: use the returned current category limits for writes. Historical values are returned without revalidation."
+          },
+          "priceCents": {
+            "type": "integer",
+            "format": "int64",
+            "minimum": 1,
+            "maximum": 1000000000000,
+            "description": "Positive RMB cents (12345 = ¥123.45). JSON integer literal, never fractional cents; at most 1,000,000,000,000 cents."
+          }
+        },
+        "additionalProperties": false,
+        "example": {
+          "categoryId": "textbooks",
+          "title": "高等数学教材",
+          "description": "附学习笔记，可线下查看",
+          "condition": "轻度使用",
+          "images": [
+            "https://example.invalid/textbook.png"
+          ],
+          "attributes": {
+            "author": "张三",
+            "edition": 2,
+            "notes": true
+          },
+          "priceCents": 12345
+        },
+        "required": [
+          "categoryId",
+          "title",
+          "condition",
+          "images",
+          "attributes",
+          "priceCents"
+        ]
+      },
+      "Product": {
+        "type": "object",
+        "properties": {
+          "categoryId": {
+            "type": "string",
+            "description": "ID from GET /categories. Platform defaults: textbooks, bicycles, electronics."
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 120,
+            "description": "1–120 Unicode characters; not whitespace-only."
+          },
+          "description": {
+            "type": "string",
+            "maxLength": 4000,
+            "nullable": true,
+            "description": "At most 4000 Unicode characters. Omitted or null becomes an empty string."
+          },
+          "condition": {
+            "type": "string",
+            "enum": [
+              "全新",
+              "几乎全新",
+              "轻度使用",
+              "明显使用"
+            ]
+          },
+          "images": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uri",
+              "pattern": "^[hH][tT][tT][pP][sS]?://",
+              "maxLength": 2048,
+              "description": "HTTP/HTTPS URL with a hostname and no credentials, at most 2048 UTF-8 bytes. No reachability check."
+            },
+            "minItems": 1,
+            "maxItems": 9
+          },
+          "attributes": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/AttributeValue"
+            },
+            "description": "Required object. Current rules and limits are returned by GET /categories. Defaults: at most 32 attributes, at most 16 extras, keys match [A-Za-z][A-Za-z0-9_]* and have at most 40 ASCII characters; strings at most 256 Unicode characters, arrays at most 16 elements. Category types: string, number, boolean and homogeneous string[]/number[]/boolean[]. Required rules require the key to be present. Extra attributes allow any scalar or mixed scalar array. Reserved keys (case-insensitive): id, categoryId, title, description, condition, images, attributes, sellerId, priceCents, initialPriceCents, publishedAt, expiresAt, sold, seller, available, priceHistory, priceHistoryUrl, buyerId, salePriceCents, confirmedAt. Nested objects and arrays, nulls and standard-field overrides are rejected. These are defaults, not immutable schema ceilings: use the returned current category limits for writes. Historical values are returned without revalidation."
+          },
+          "id": {
+            "type": "string"
+          },
+          "sellerId": {
+            "type": "string",
+            "description": "From the authenticated access token, never caller supplied."
+          },
+          "priceCents": {
+            "type": "integer",
+            "format": "int64",
+            "minimum": 1,
+            "maximum": 1000000000000,
+            "description": "Positive RMB cents (12345 = ¥123.45). JSON integer literal, never fractional cents; at most 1,000,000,000,000 cents."
+          },
+          "initialPriceCents": {
+            "type": "integer",
+            "format": "int64",
+            "minimum": 1,
+            "maximum": 1000000000000,
+            "description": "Positive RMB cents (12345 = ¥123.45). JSON integer literal, never fractional cents; at most 1,000,000,000,000 cents."
+          },
+          "publishedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "expiresAt": {
+            "type": "string",
+            "format": "date-time",
+            "description": "publishedAt + 1440 hours; content edits do not extend it."
+          },
+          "sold": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "categoryId",
+          "title",
+          "description",
+          "condition",
+          "images",
+          "attributes",
+          "id",
+          "sellerId",
+          "priceCents",
+          "initialPriceCents",
+          "publishedAt",
+          "expiresAt",
+          "sold"
+        ]
+      },
+      "AttributeRule": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": [
+              "string",
+              "number",
+              "boolean",
+              "string[]",
+              "number[]",
+              "boolean[]"
+            ]
+          },
+          "required": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "type",
+          "required"
+        ]
+      },
+      "Category": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "rules": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/AttributeRule"
+            }
+          },
+          "limits": {
+            "type": "object",
+            "properties": {
+              "maxAttributes": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "maxExtraAttributes": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "maxKeyLength": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "maxStringLength": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "maxArrayLength": {
+                "type": "integer",
+                "minimum": 0
+              }
+            },
+            "required": [
+              "maxAttributes",
+              "maxExtraAttributes",
+              "maxKeyLength",
+              "maxStringLength",
+              "maxArrayLength"
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "rules",
+          "limits"
+        ]
+      },
+      "Categories": {
+        "type": "object",
+        "properties": {
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Category"
+            }
+          }
+        },
+        "required": [
+          "items"
+        ]
+      },
+      "PriceChange": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "productId": {
+            "type": "string"
+          },
+          "oldPriceCents": {
+            "type": "integer",
+            "format": "int64",
+            "minimum": 1,
+            "maximum": 1000000000000,
+            "description": "Positive RMB cents (12345 = ¥123.45). JSON integer literal, never fractional cents; at most 1,000,000,000,000 cents."
+          },
+          "newPriceCents": {
+            "type": "integer",
+            "format": "int64",
+            "minimum": 1,
+            "maximum": 1000000000000,
+            "description": "Positive RMB cents (12345 = ¥123.45). JSON integer literal, never fractional cents; at most 1,000,000,000,000 cents."
+          },
+          "changedAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "required": [
+          "id",
+          "productId",
+          "oldPriceCents",
+          "newPriceCents",
+          "changedAt"
+        ]
+      },
+      "PriceHistory": {
+        "type": "object",
+        "properties": {
+          "items": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PriceChange"
+            }
+          },
+          "nextCursor": {
+            "type": "string",
+            "description": "Empty at the end; otherwise opaque base64url (no padding) JSON with changedAt and id. Send unchanged as cursor."
+          }
+        },
+        "required": [
+          "items",
+          "nextCursor"
+        ]
+      },
+      "ProductDetail": {
+        "type": "object",
+        "properties": {
+          "product": {
+            "$ref": "#/components/schemas/Product"
+          },
+          "seller": {
+            "$ref": "#/components/schemas/Profile"
+          },
+          "available": {
+            "type": "boolean",
+            "description": "Current unexpired eligibility exists and product is unsold and unexpired. TTL delay does not extend availability."
+          },
+          "priceHistory": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PriceChange"
+            },
+            "maxItems": 5
+          },
+          "priceHistoryUrl": {
+            "type": "string",
+            "description": "Relative URL of the complete paginated price history."
+          }
+        },
+        "required": [
+          "product",
+          "seller",
+          "available",
+          "priceHistory",
+          "priceHistoryUrl"
+        ]
       }
     }
   }

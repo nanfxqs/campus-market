@@ -39,6 +39,9 @@ func main() {
 		log.Print("demo accounts: seller, buyer; password: CampusDemo123!")
 		return
 	}
+	if err := market.Initialize(ctx, db); err != nil {
+		log.Fatal(err)
+	}
 	server := http.Server{Addr: ":8080", Handler: market.New(db, time.Hour), ReadHeaderTimeout: 5 * time.Second, ReadTimeout: 10 * time.Second, WriteTimeout: 15 * time.Second, IdleTimeout: 60 * time.Second}
 	log.Fatal(server.ListenAndServe())
 }

@@ -21,6 +21,12 @@ import (
 
 func setup(t *testing.T, ttl time.Duration) (string, func(string, string, string, int) map[string]any) {
 	t.Helper()
+	base, request, _ := setupDatabase(t, ttl)
+	return base, request
+}
+
+func setupDatabase(t *testing.T, ttl time.Duration) (string, func(string, string, string, int) map[string]any, *mongo.Database) {
+	t.Helper()
 	uri := os.Getenv("MONGO_URI")
 	if uri == "" {
 		t.Fatal("MONGO_URI required: run docker compose run --rm verify test ./internal/market")
@@ -45,7 +51,7 @@ func setup(t *testing.T, ttl time.Duration) (string, func(string, string, string
 		t.Helper()
 		return authRequest(t, server.URL, method, path, "", body, want)
 	}
-	return server.URL, request
+	return server.URL, request, db
 }
 func TestSeedLogin(t *testing.T) {
 	_, request := setup(t, time.Hour)
@@ -111,6 +117,8 @@ func TestExpiredAccessToken(t *testing.T) {
 	time.Sleep(150 * time.Millisecond)
 	authRequest(t, base, "GET", "/users/me", token, "", 401)
 	authRequest(t, base, "PATCH", "/users/me", token, `{"nickname":"expired"}`, 401)
+	authRequest(t, base, "POST", "/products", token, bodyJSON(t, productBody("textbooks", map[string]any{"author": "A"})), 401)
+	authRequest(t, base, "PUT", "/products/012345678901234567890123", token, `{}`, 401)
 }
 
 func TestOpenAPIAndSwagger(t *testing.T) {

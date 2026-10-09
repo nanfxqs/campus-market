@@ -1,0 +1,116 @@
+ Container campus-market-validation-api-1 Running 
+ Container campus-market-validation-mongo-1 Running 
+ Container campus-market-validation-mongo-1 Waiting 
+ Container campus-market-validation-mongo-1 Healthy 
+ Container campus-market-validation-api-1 Waiting 
+ Container campus-market-validation-api-1 Healthy 
+ Container campus-market-validation-verify-run-2506bfed372f Creating 
+ Container campus-market-validation-verify-run-2506bfed372f Created 
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/unknown_category
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/required_author
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/author_type
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/number_type
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/boolean_type
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/array_type
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/nested_object
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/nested_array
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/null_scalar
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/null_array_element
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/null_attributes
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/too_many_extras
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/long_attribute_key
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/unsafe_key
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/long_attribute_string
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/long_array
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/long_string_in_array
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/zero_images
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/null_images
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/ten_images
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/file_URL
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/FTP_URL
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/relative_URL
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/missing_hostname
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/URL_credentials
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/long_URL
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/unknown_condition
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/missing_condition
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/empty_title
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/long_title
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/long_description
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/zero_price
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/negative_price
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/fractional_cents
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/price_limit
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/forged_seller
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/client_expiry
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/reserved_priceCents
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/reserved_images
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/reserved_condition
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/reserved_title
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/reserved_description
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/reserved_categoryId
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/reserved_sellerId
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/reserved_id
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/reserved_initialPriceCents
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/reserved_publishedAt
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/reserved_expiresAt
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/reserved_sold
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/reserved_priceHistory
+--- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries (0.78s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/unknown_category (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/required_author (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/author_type (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/number_type (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/boolean_type (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/array_type (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/nested_object (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/nested_array (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/null_scalar (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/null_array_element (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/null_attributes (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/too_many_extras (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/long_attribute_key (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/unsafe_key (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/long_attribute_string (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/long_array (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/long_string_in_array (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/zero_images (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/null_images (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/ten_images (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/file_URL (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/FTP_URL (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/relative_URL (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/missing_hostname (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/URL_credentials (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/long_URL (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/unknown_condition (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/missing_condition (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/empty_title (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/long_title (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/long_description (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/zero_price (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/negative_price (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/fractional_cents (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/price_limit (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/forged_seller (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/client_expiry (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/reserved_priceCents (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/reserved_images (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/reserved_condition (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/reserved_title (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/reserved_description (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/reserved_categoryId (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/reserved_sellerId (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/reserved_id (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/reserved_initialPriceCents (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/reserved_publishedAt (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/reserved_expiresAt (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/reserved_sold (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/reserved_priceHistory (0.00s)
+=== RUN   TestProductSwaggerContract
+--- PASS: TestProductSwaggerContract (0.34s)
+=== RUN   TestExpandedCategoryLimitsAndHistoricalReadsMatchContract
+--- PASS: TestExpandedCategoryLimitsAndHistoricalReadsMatchContract (0.42s)
+PASS
+ok  	github.com/nanfxqs/campus-market/internal/market	1.552s
