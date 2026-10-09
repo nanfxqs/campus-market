@@ -658,6 +658,43 @@
           }
         }
       }
+    },
+    "/search": {
+      "get": {
+        "summary": "Search currently eligible products with Chinese synonyms",
+        "description": "Search title and description using lucene.smartcn and bicycles_v1 (自行车／单车／脚踏车). Any analyzed query term may match. Returns relevance-ranked first 20 and total using identical current archive/listing eligibility checks. Index ingestion is asynchronous; no request-level snapshot or typo correction is promised. Every candidate batch is checked at its own current time. Repeated q is invalid; timeout or Search failure returns 503.",
+        "parameters": [
+          {
+            "name": "q",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 300
+            },
+            "description": "Nonblank valid UTF-8, maximum 300 bytes."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Eligible hits and total",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SearchResult"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "invalid_input"
+          },
+          "503": {
+            "description": "unavailable"
+          }
+        }
+      }
     }
   },
   "components": {
@@ -1204,6 +1241,104 @@
             "type": "string",
             "maxLength": 512,
             "description": "Cursor for the next page, or empty string when no further valid result existed at query time. Empty results use items: []."
+          }
+        }
+      },
+      "SearchHighlight": {
+        "type": "object",
+        "required": [
+          "path",
+          "texts"
+        ],
+        "properties": {
+          "path": {
+            "type": "string",
+            "enum": [
+              "title",
+              "description"
+            ]
+          },
+          "texts": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "value",
+                "type"
+              ],
+              "properties": {
+                "value": {
+                  "type": "string"
+                },
+                "type": {
+                  "type": "string",
+                  "enum": [
+                    "hit",
+                    "text"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      },
+      "SearchHit": {
+        "type": "object",
+        "required": [
+          "id",
+          "title",
+          "description",
+          "matchedFields",
+          "highlights"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "matchedFields": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "enum": [
+                "title",
+                "description"
+              ]
+            },
+            "description": "Fields with Search highlight hits, including synonym matches; both fields may appear."
+          },
+          "highlights": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SearchHighlight"
+            },
+            "description": "Plain text fragments: hit marks matched text, text marks surrounding context. Treat all values as text, not HTML."
+          }
+        }
+      },
+      "SearchResult": {
+        "type": "object",
+        "required": [
+          "total",
+          "results"
+        ],
+        "properties": {
+          "total": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "results": {
+            "type": "array",
+            "maxItems": 20,
+            "items": {
+              "$ref": "#/components/schemas/SearchHit"
+            }
           }
         }
       }

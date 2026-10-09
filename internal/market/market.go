@@ -240,6 +240,7 @@ func New(db *mongo.Database, ttl time.Duration) http.Handler {
 		c.JSON(200, user)
 	})
 	productRoutes(router, authorized, db)
+	router.GET("/search", func(c *gin.Context) { searchPage(c, db) })
 	router.GET("/openapi.json", func(c *gin.Context) { c.Data(200, "application/json", openAPI) })
 	router.GET("/docs", func(c *gin.Context) { c.Data(200, "text/html; charset=utf-8", []byte(swaggerHTML)) })
 	return router
