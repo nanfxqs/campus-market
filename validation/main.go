@@ -331,39 +331,22 @@ func seed(ctx context.Context, db *mongo.Database, large, reset bool) error {
 	if large {
 		users, active, history, transactions = 10000, 20000, 180000, 300000
 	}
-	docs := make([]interface{}, 0, 1000)
-	flush := func(collection string) error {
-		if len(docs) == 0 {
-			return nil
-		}
-		_, err := db.Collection(collection).InsertMany(ctx, docs)
-		docs = docs[:0]
-		return err
-	}
-	for i := 0; i < users; i++ {
+	if err := insertFixture(ctx, db.Collection("users"), users, func(i int) interface{} {
 		id := fmt.Sprintf("user-%06d", i)
+		count := 0
 		if i == 0 {
 			id = "seller"
+			count = history
 		}
 		if i == 1 {
 			id = "buyer"
 		}
-		count := 0
-		if i == 0 {
-			count = history
-		}
-		docs = append(docs, bson.M{"_id": id, "completedSales": count})
-		if len(docs) == 1000 {
-			if err := flush("users"); err != nil {
-				return err
-			}
-		}
-	}
-	if err := flush("users"); err != nil {
+		return bson.M{"_id": id, "completedSales": count}
+	}); err != nil {
 		return err
 	}
 	terms := []string{"自行车", "单车", "脚踏车"}
-	for i := 0; i < active+history+40; i++ {
+	if err := insertFixture(ctx, db.Collection("products"), active+history+40, func(i int) interface{} {
 		id := fmt.Sprintf("p-%06d", i)
 		title, description := "教材", "课程资料"
 		sold := i >= active && i < active+history
@@ -385,49 +368,30 @@ func seed(ctx context.Context, db *mongo.Database, large, reset bool) error {
 			description = title
 			sold = i%2 == 0
 		}
-		docs = append(docs, product{ID: id, Title: title, Description: description, Seller: "seller", Sold: sold, PriceHistory: []int{10000, 9000}})
-		if len(docs) == 1000 {
-			if err := flush("products"); err != nil {
-				return err
+		return product{ID: id, Title: title, Description: description, Seller: "seller", Sold: sold, PriceHistory: []int{10000, 9000}}
+	}); err != nil {
+		return err
+	}
+	if err := insertFixture(ctx, db.Collection("listings"), active+40, func(i int) interface{} {
+		id := i
+		expiry := now.Add(60 * 24 * time.Hour)
+		// Extra expired and sold entries expose stale search candidates and TTL lag.
+		if i >= active {
+			id = i + history
+			expiry = now.Add(-time.Hour)
+			if id%2 == 0 {
+				expiry = now.Add(time.Hour)
 			}
 		}
-	}
-	if err := flush("products"); err != nil {
+		return bson.M{"_id": fmt.Sprintf("p-%06d", id), "expiresAt": expiry}
+	}); err != nil {
 		return err
 	}
-	for i := 0; i < active; i++ {
-		docs = append(docs, bson.M{"_id": fmt.Sprintf("p-%06d", i), "expiresAt": now.Add(60 * 24 * time.Hour)})
-		if len(docs) == 1000 {
-			if err := flush("listings"); err != nil {
-				return err
-			}
-		}
-	}
-	if err := flush("listings"); err != nil {
-		return err
-	}
-	// Extra expired and sold entries expose stale search candidates and TTL lag.
-	for i := active + history; i < active+history+40; i++ {
-		expiry := now.Add(-time.Hour)
-		if i%2 == 0 {
-			expiry = now.Add(time.Hour)
-		}
-		docs = append(docs, bson.M{"_id": fmt.Sprintf("p-%06d", i), "expiresAt": expiry})
-	}
-	if err := flush("listings"); err != nil {
-		return err
-	}
-	for i := 0; i < transactions; i++ {
+	if err := insertFixture(ctx, db.Collection("transactions"), transactions, func(i int) interface{} {
 		success := i < history
 		pid := fmt.Sprintf("p-%06d", active+i%max(history, 1))
-		docs = append(docs, bson.M{"_id": fmt.Sprintf("history-%06d", i), "product": pid, "seller": "seller", "buyer": "buyer", "success": success, "priceCents": 8000})
-		if len(docs) == 1000 {
-			if err := flush("transactions"); err != nil {
-				return err
-			}
-		}
-	}
-	if err := flush("transactions"); err != nil {
+		return bson.M{"_id": fmt.Sprintf("history-%06d", i), "product": pid, "seller": "seller", "buyer": "buyer", "success": success, "priceCents": 8000}
+	}); err != nil {
 		return err
 	}
 	_, err = db.Collection("listings").Indexes().CreateOne(ctx, mongo.IndexModel{Keys: bson.D{{Key: "expiresAt", Value: 1}}, Options: options.Index().SetExpireAfterSeconds(0)})
@@ -453,4 +417,22 @@ func seed(ctx context.Context, db *mongo.Database, large, reset bool) error {
 		time.Sleep(time.Second)
 	}
 	return errors.New("Search readiness timed out: inspect products_v1 and synonyms_v1")
+}
+
+// insertFixture generates and writes one collection in bounded batches,
+// including the final partial batch. Empty fixtures perform no writes.
+func insertFixture(ctx context.Context, collection *mongo.Collection, count int, document func(int) interface{}) error {
+	const batchSize = 1000
+	docs := make([]interface{}, 0, batchSize)
+	for i := 0; i < count; i++ {
+		docs = append(docs, document(i))
+		if len(docs) == batchSize || i == count-1 {
+			if _, err := collection.InsertMany(ctx, docs); err != nil {
+				return err
+			}
+			clear(docs)
+			docs = docs[:0]
+		}
+	}
+	return nil
 }

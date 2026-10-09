@@ -1,0 +1,37 @@
+2026/10/09 07:25:34 fixture ready users=2 active=27 history=0 transactions=0 candidates=67 search_ms=20 base=2026-10-09T07:25:33.397069932Z
+=== RUN   TestChineseSynonyms
+--- PASS: TestChineseSynonyms (0.06s)
+=== RUN   TestSearchChecksCurrentEligibility
+    persistence_test.go:258: current eligibility: 67 candidates, 24 eligible, 20 returned
+--- PASS: TestSearchChecksCurrentEligibility (0.04s)
+PASS
+ok  	github.com/nanfxqs/campus-market/validation	0.109s
+=== RUN   TestTransactionCommitAndRollback
+--- PASS: TestTransactionCommitAndRollback (0.06s)
+PASS
+ok  	github.com/nanfxqs/campus-market/validation	0.067s
+=== RUN   TestTTLRetainsArchiveAndForbidsSale
+    persistence_test.go:159: expired listing remains physically present; HTTP rejects sale without writes before TTL cleanup
+    persistence_test.go:173: TTL physical deletion observed 7.047599429s after expiry; archive and history retained
+--- PASS: TestTTLRetainsArchiveAndForbidsSale (12.07s)
+PASS
+ok  	github.com/nanfxqs/campus-market/validation	12.078s
+2026/10/09 07:26:13 fixture ready users=10000 active=20000 history=180000 transactions=300000 candidates=20040 search_ms=1354 base=2026-10-09T07:26:02.966127109Z
+=== RUN   TestChineseSynonyms
+--- PASS: TestChineseSynonyms (3.84s)
+=== RUN   TestTransactionCommitAndRollback
+--- PASS: TestTransactionCommitAndRollback (0.45s)
+=== RUN   TestTTLRetainsArchiveAndForbidsSale
+    persistence_test.go:159: expired listing remains physically present; HTTP rejects sale without writes before TTL cleanup
+    persistence_test.go:173: TTL physical deletion observed 35.37819742s after expiry; archive and history retained
+--- PASS: TestTTLRetainsArchiveAndForbidsSale (40.50s)
+=== RUN   TestScaleSearch
+    persistence_test.go:208: scale search candidates=20040 valid=20000 top=20 server_ms=1265 http=1.267235789s
+    persistence_test.go:208: scale search candidates=20040 valid=20000 top=20 server_ms=1278 http=1.279262283s
+    persistence_test.go:208: scale search candidates=20040 valid=20000 top=20 server_ms=1423 http=1.424372496s
+--- PASS: TestScaleSearch (4.07s)
+=== RUN   TestSearchChecksCurrentEligibility
+    persistence_test.go:258: current eligibility: 20040 candidates, 19997 eligible, 20 returned
+--- PASS: TestSearchChecksCurrentEligibility (1.27s)
+PASS
+ok  	github.com/nanfxqs/campus-market/validation	50.133s
