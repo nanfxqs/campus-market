@@ -85,7 +85,7 @@ func awaitSearch(t *testing.T, base, query string, total int) map[string]any {
 }
 
 func TestSearchRefillsAfterCurrentEligibilityFiltering(t *testing.T) {
-	base, _, db := setupDatabase(t, time.Hour)
+	base, request, db := setupDatabase(t, time.Hour)
 	ctx := context.Background()
 	if _, err := db.Collection("listings").Indexes().DropOne(ctx, "expiresAt_1"); err != nil {
 		t.Fatal(err)
@@ -136,7 +136,12 @@ func TestSearchRefillsAfterCurrentEligibilityFiltering(t *testing.T) {
 		}
 	}
 
-	result := awaitSearch(t, base, "单车", 25)
+	start := time.Now()
+	result := request("GET", "/search?q=单车", "", 200)
+	t.Logf("70 indexed candidates; 45 currently invalid; search response elapsed=%s", time.Since(start))
+	if result["total"] != float64(25) {
+		t.Fatalf("current eligibility total: %v", result)
+	}
 	if len(result["results"].([]any)) != 20 {
 		t.Fatalf("not refilled: %v", result)
 	}
