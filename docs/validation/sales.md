@@ -31,3 +31,45 @@
 - 针对性测试、`go vet ./...` 和 OpenAPI 校验通过。全套测试与最终审查结果后附。
 
 Swagger 操作、JSON 契约和 HTML 通过 HTTP 测试；此记录不宣称浏览器内点击或 V2 性能验收。#2 可行性夹具限制固定数据库名，因此全套验证使用独立 Compose 项目 `campus-issue8-check`，避免与其他 agent 的夹具互相修改。
+
+## 最终验证与复现
+
+完整套件在 `ed00eaf` 通过：`go test -v ./... -count=1 -timeout=12m`，包括 `internal/market`（15.800s）和 `validation`（24.386s）。使用 #2 的小规模夹具（2 用户、27 件有效在售），不宣称完整种子规模或 V2 性能验收。`go vet ./...`、OpenAPI validator、`git diff --check` 通过。最后提交 `0fce4fa` 仅提取测试 HTTP 辅助函数，两项到期 HTTP 测试复查通过（0.842s）。[原始日志](issue8-tests.log) 包含完整套件及最后辅助函数整理后的定向复查输出。
+
+已有环境可运行本功能测试：
+
+```sh
+docker compose run --rm -e GIN_MODE=release -v "$PWD:/src" verify test -v ./internal/market -run TestSale -count=1 -timeout=3m
+```
+
+为隔离全套夹具，建立 `/tmp/issue8-compose.yaml`：
+
+```yaml
+services:
+  api:
+    ports: !reset []
+  market:
+    ports: !reset []
+```
+
+在本分支目录执行（该项目名和卷仅用于临时测试）：
+
+```sh
+export COMPOSE_PROJECT_NAME=campus-issue8-check
+export COMPOSE_FILE=compose.yaml:/tmp/issue8-compose.yaml
+docker compose up -d --build --wait api
+docker compose build verify
+docker compose run --rm api seed
+docker compose run --rm -e GIN_MODE=release -v "$PWD:/src" verify test -v ./... -count=1 -timeout=12m
+docker compose down -v
+```
+
+## Standards
+
+固定基准 `1e0006629a941e4566657a171a351397932d0d6d`，独立子代理审查至 `0fce4fa`：0 项文档规范违反，0 项剩余代码异味。初审指出两处并发/边界测试重复 HTTP 辅助代码，分别通过 `sendSaleRequest` 和 `saleBoundaryRequest` 提取传输、状态及 JSON 处理；各场景独立保留夹具、并发控制和行为断言，复审确认问题已解决。领域术语、事务设计、HTTP/持久化观察边界及内部时钟注入符合仓库约定与 ADR。
+
+## Spec
+
+独立子代理复审至 `0fce4fa`：0 项剩余发现，无明确需求遗漏、错误行为或范围扩张。初审发现并发事务重试跨到期边界缺少验证，现已加入真实 HTTP/MongoDB 测试，确认过期后重试返回持久化业务失败、无部分成交信息、成功记录或计数；原失败可幂等重放。
+
+审查统计：Standards 0 项；Spec 0 项，无遗留问题。分支保留供用户合并，未合并到 main。

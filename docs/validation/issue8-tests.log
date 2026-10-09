@@ -1,0 +1,311 @@
+ Container campus-issue8-check-api-1 Running 
+ Container campus-issue8-check-mongo-1 Running 
+ Container campus-issue8-check-mongo-1 Waiting 
+ Container campus-issue8-check-mongo-1 Healthy 
+ Container campus-issue8-check-api-1 Waiting 
+ Container campus-issue8-check-api-1 Healthy 
+ Container campus-issue8-check-verify-run-2149b675abae Creating 
+ Container campus-issue8-check-verify-run-2149b675abae Created 
+?   	github.com/nanfxqs/campus-market/cmd/market	[no test files]
+=== RUN   TestSaleExactExpirationHTTP
+=== RUN   TestSaleExactExpirationHTTP/-1ms
+    sales_expiry_test.go:89: expiry=2026-10-09T11:20:21.249Z confirmation=2026-10-09T11:20:21.248Z code=sold
+=== RUN   TestSaleExactExpirationHTTP/0s
+2026/10/09 11:20:21 sale request rejected status=409 seller="seller" product="6ac8cdf5817e93ba600fec67"
+    sales_expiry_test.go:89: expiry=2026-10-09T11:20:21.249Z confirmation=2026-10-09T11:20:21.249Z code=product_expired
+=== RUN   TestSaleExactExpirationHTTP/1ms
+2026/10/09 11:20:21 sale request rejected status=409 seller="seller" product="6ac8cdf5817e93ba600fec68"
+    sales_expiry_test.go:89: expiry=2026-10-09T11:20:21.249Z confirmation=2026-10-09T11:20:21.25Z code=product_expired
+--- PASS: TestSaleExactExpirationHTTP (0.58s)
+    --- PASS: TestSaleExactExpirationHTTP/-1ms (0.08s)
+    --- PASS: TestSaleExactExpirationHTTP/0s (0.09s)
+    --- PASS: TestSaleExactExpirationHTTP/1ms (0.07s)
+=== RUN   TestSaleTransactionRetryAcrossExpirationHTTP
+2026/10/09 11:20:21 sale request rejected status=409 seller="seller" product="6ac8cdf5817e93ba600fec6a"
+2026/10/09 11:20:21 sale request rejected status=409 seller="seller" product="6ac8cdf5817e93ba600fec6a"
+    sales_expiry_test.go:197: concurrent write forced transaction retry at expiry: no sale, eligibility retained, one replayable failure, no successful record or counter increment
+--- PASS: TestSaleTransactionRetryAcrossExpirationHTTP (0.41s)
+=== RUN   TestBrowseFiltersUnavailableAndOtherCategories
+--- PASS: TestBrowseFiltersUnavailableAndOtherCategories (0.79s)
+=== RUN   TestBrowseStablePaginationAndLimits
+--- PASS: TestBrowseStablePaginationAndLimits (0.36s)
+=== RUN   TestBrowseSwaggerContract
+--- PASS: TestBrowseSwaggerContract (0.34s)
+=== RUN   TestSeedLogin
+--- PASS: TestSeedLogin (0.52s)
+=== RUN   TestOwnProfileAndIdentityProtection
+--- PASS: TestOwnProfileAndIdentityProtection (0.49s)
+=== RUN   TestExpiredAccessToken
+--- PASS: TestExpiredAccessToken (0.52s)
+=== RUN   TestOpenAPIAndSwagger
+--- PASS: TestOpenAPIAndSwagger (0.34s)
+=== RUN   TestSeedCLIRefusesNonemptyDatabaseAndHashesCredentials
+    http_test.go:163: seed output: 2026/10/09 11:20:25 demo accounts: seller, buyer; password: CampusDemo123!
+    http_test.go:163: seed output: 2026/10/09 11:20:25 seed requires an empty database
+        exit status 1
+    http_test.go:163: seed output: 2026/10/09 11:20:25 MONGO_URI and a non-system DB_NAME are required
+        exit status 1
+--- PASS: TestSeedCLIRefusesNonemptyDatabaseAndHashesCredentials (0.55s)
+=== RUN   TestPublishHeterogeneousProductsAndReadCurrentSeller
+=== RUN   TestPublishHeterogeneousProductsAndReadCurrentSeller/textbooks
+=== RUN   TestPublishHeterogeneousProductsAndReadCurrentSeller/bicycles
+=== RUN   TestPublishHeterogeneousProductsAndReadCurrentSeller/electronics
+--- PASS: TestPublishHeterogeneousProductsAndReadCurrentSeller (0.42s)
+    --- PASS: TestPublishHeterogeneousProductsAndReadCurrentSeller/textbooks (0.01s)
+    --- PASS: TestPublishHeterogeneousProductsAndReadCurrentSeller/bicycles (0.01s)
+    --- PASS: TestPublishHeterogeneousProductsAndReadCurrentSeller/electronics (0.01s)
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/unknown_category
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/required_author
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/author_type
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/number_type
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/boolean_type
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/array_type
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/nested_object
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/nested_array
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/null_scalar
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/null_array_element
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/null_attributes
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/too_many_extras
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/long_attribute_key
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/unsafe_key
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/long_attribute_string
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/long_array
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/long_string_in_array
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/zero_images
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/null_images
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/ten_images
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/file_URL
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/FTP_URL
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/relative_URL
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/missing_hostname
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/URL_credentials
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/long_URL
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/unknown_condition
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/missing_condition
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/empty_title
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/long_title
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/long_description
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/zero_price
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/negative_price
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/fractional_cents
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/price_limit
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/forged_seller
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/client_expiry
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/reserved_priceCents
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/reserved_images
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/reserved_condition
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/reserved_title
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/reserved_description
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/reserved_categoryId
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/reserved_sellerId
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/reserved_id
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/reserved_initialPriceCents
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/reserved_publishedAt
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/reserved_expiresAt
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/reserved_sold
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/reserved_priceHistory
+--- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries (0.45s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/unknown_category (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/required_author (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/author_type (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/number_type (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/boolean_type (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/array_type (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/nested_object (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/nested_array (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/null_scalar (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/null_array_element (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/null_attributes (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/too_many_extras (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/long_attribute_key (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/unsafe_key (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/long_attribute_string (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/long_array (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/long_string_in_array (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/zero_images (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/null_images (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/ten_images (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/file_URL (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/FTP_URL (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/relative_URL (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/missing_hostname (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/URL_credentials (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/long_URL (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/unknown_condition (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/missing_condition (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/empty_title (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/long_title (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/long_description (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/zero_price (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/negative_price (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/fractional_cents (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/price_limit (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/forged_seller (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/client_expiry (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/reserved_priceCents (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/reserved_images (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/reserved_condition (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/reserved_title (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/reserved_description (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/reserved_categoryId (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/reserved_sellerId (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/reserved_id (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/reserved_initialPriceCents (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/reserved_publishedAt (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/reserved_expiresAt (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/reserved_sold (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/reserved_priceHistory (0.00s)
+=== RUN   TestRuleChangesPreserveReadsAndControlNewWritesAndOwnEdits
+--- PASS: TestRuleChangesPreserveReadsAndControlNewWritesAndOwnEdits (0.48s)
+=== RUN   TestUnavailableProductsRemainReadableButCannotBeEdited
+=== RUN   TestUnavailableProductsRemainReadableButCannotBeEdited/expired
+=== RUN   TestUnavailableProductsRemainReadableButCannotBeEdited/delisted
+=== RUN   TestUnavailableProductsRemainReadableButCannotBeEdited/sold
+--- PASS: TestUnavailableProductsRemainReadableButCannotBeEdited (0.46s)
+    --- PASS: TestUnavailableProductsRemainReadableButCannotBeEdited/expired (0.01s)
+    --- PASS: TestUnavailableProductsRemainReadableButCannotBeEdited/delisted (0.01s)
+    --- PASS: TestUnavailableProductsRemainReadableButCannotBeEdited/sold (0.01s)
+=== RUN   TestPublishingRollsBackArchiveWhenEligibilityCannotBeCreated
+--- PASS: TestPublishingRollsBackArchiveWhenEligibilityCannotBeCreated (0.41s)
+=== RUN   TestDetailShowsRecentPriceChangesAndLinksToCompleteHistory
+--- PASS: TestDetailShowsRecentPriceChangesAndLinksToCompleteHistory (0.44s)
+=== RUN   TestProductSwaggerContract
+--- PASS: TestProductSwaggerContract (0.34s)
+=== RUN   TestExpandedCategoryLimitsAndHistoricalReadsMatchContract
+--- PASS: TestExpandedCategoryLimitsAndHistoricalReadsMatchContract (0.42s)
+=== RUN   TestSaleConfirmationAndReplay
+2026/10/09 11:20:29 sale request rejected status=409 seller="seller" product="6ac8cdfd817e93ba600fec8c"
+--- PASS: TestSaleConfirmationAndReplay (0.45s)
+=== RUN   TestSaleInvalidAttemptsAreNotRecorded
+2026/10/09 11:20:30 sale request rejected status=401 seller="" product="6ac8cdfe817e93ba600fec8e"
+2026/10/09 11:20:30 sale request rejected status=403 seller="buyer" product="6ac8cdfe817e93ba600fec8e"
+2026/10/09 11:20:30 sale request rejected status=400 seller="seller" product="6ac8cdfe817e93ba600fec8e"
+2026/10/09 11:20:30 sale request rejected status=400 seller="seller" product="6ac8cdfe817e93ba600fec8e"
+2026/10/09 11:20:30 sale request rejected status=400 seller="seller" product="6ac8cdfe817e93ba600fec8e"
+2026/10/09 11:20:30 sale request rejected status=400 seller="seller" product="6ac8cdfe817e93ba600fec8e"
+2026/10/09 11:20:30 sale request rejected status=400 seller="seller" product="6ac8cdfe817e93ba600fec8e"
+2026/10/09 11:20:30 sale request rejected status=400 seller="seller" product="6ac8cdfe817e93ba600fec8e"
+2026/10/09 11:20:30 sale request rejected status=400 seller="seller" product="6ac8cdfe817e93ba600fec8e"
+2026/10/09 11:20:30 sale request rejected status=400 seller="seller" product="6ac8cdfe817e93ba600fec8e"
+2026/10/09 11:20:30 sale request rejected status=400 seller="seller" product="6ac8cdfe817e93ba600fec8e"
+2026/10/09 11:20:30 sale request rejected status=400 seller="seller" product="6ac8cdfe817e93ba600fec8e"
+--- PASS: TestSaleInvalidAttemptsAreNotRecorded (0.47s)
+=== RUN   TestSaleConcurrentExactlyOnce
+=== RUN   TestSaleConcurrentExactlyOnce/sameKey=false
+2026/10/09 11:20:30 sale request rejected status=409 seller="seller" product="6ac8cdfe817e93ba600fec90"
+2026/10/09 11:20:30 sale request rejected status=409 seller="seller" product="6ac8cdfe817e93ba600fec90"
+2026/10/09 11:20:30 sale request rejected status=409 seller="seller" product="6ac8cdfe817e93ba600fec90"
+2026/10/09 11:20:30 sale request rejected status=409 seller="seller" product="6ac8cdfe817e93ba600fec90"
+2026/10/09 11:20:30 sale request rejected status=409 seller="seller" product="6ac8cdfe817e93ba600fec90"
+2026/10/09 11:20:30 sale request rejected status=409 seller="seller" product="6ac8cdfe817e93ba600fec90"
+2026/10/09 11:20:30 sale request rejected status=409 seller="seller" product="6ac8cdfe817e93ba600fec90"
+2026/10/09 11:20:30 sale request rejected status=409 seller="seller" product="6ac8cdfe817e93ba600fec90"
+2026/10/09 11:20:30 sale request rejected status=409 seller="seller" product="6ac8cdfe817e93ba600fec90"
+2026/10/09 11:20:30 sale request rejected status=409 seller="seller" product="6ac8cdfe817e93ba600fec90"
+2026/10/09 11:20:30 sale request rejected status=409 seller="seller" product="6ac8cdfe817e93ba600fec90"
+2026/10/09 11:20:30 sale request rejected status=409 seller="seller" product="6ac8cdfe817e93ba600fec90"
+2026/10/09 11:20:30 sale request rejected status=409 seller="seller" product="6ac8cdfe817e93ba600fec90"
+2026/10/09 11:20:30 sale request rejected status=409 seller="seller" product="6ac8cdfe817e93ba600fec90"
+2026/10/09 11:20:30 sale request rejected status=409 seller="seller" product="6ac8cdfe817e93ba600fec90"
+2026/10/09 11:20:30 sale request rejected status=409 seller="seller" product="6ac8cdfe817e93ba600fec90"
+2026/10/09 11:20:30 sale request rejected status=409 seller="seller" product="6ac8cdfe817e93ba600fec90"
+2026/10/09 11:20:30 sale request rejected status=409 seller="seller" product="6ac8cdfe817e93ba600fec90"
+2026/10/09 11:20:30 sale request rejected status=409 seller="seller" product="6ac8cdfe817e93ba600fec90"
+2026/10/09 11:20:30 sale request rejected status=409 seller="seller" product="6ac8cdfe817e93ba600fec90"
+2026/10/09 11:20:30 sale request rejected status=409 seller="seller" product="6ac8cdfe817e93ba600fec90"
+2026/10/09 11:20:30 sale request rejected status=409 seller="seller" product="6ac8cdfe817e93ba600fec90"
+2026/10/09 11:20:30 sale request rejected status=409 seller="seller" product="6ac8cdfe817e93ba600fec90"
+2026/10/09 11:20:30 sale request rejected status=409 seller="seller" product="6ac8cdfe817e93ba600fec90"
+2026/10/09 11:20:30 sale request rejected status=409 seller="seller" product="6ac8cdfe817e93ba600fec90"
+=== RUN   TestSaleConcurrentExactlyOnce/sameKey=true
+2026/10/09 11:20:31 sale request rejected status=409 seller="seller" product="6ac8cdff817e93ba600fec92"
+2026/10/09 11:20:31 sale request rejected status=409 seller="seller" product="6ac8cdff817e93ba600fec92"
+--- PASS: TestSaleConcurrentExactlyOnce (0.89s)
+    --- PASS: TestSaleConcurrentExactlyOnce/sameKey=false (0.46s)
+    --- PASS: TestSaleConcurrentExactlyOnce/sameKey=true (0.43s)
+=== RUN   TestSaleSellerKeyScopeAndProductConflict
+2026/10/09 11:20:31 sale request rejected status=409 seller="seller" product="6ac8cdff817e93ba600fec95"
+--- PASS: TestSaleSellerKeyScopeAndProductConflict (0.51s)
+=== RUN   TestSaleUnavailableRecordsAndTTLDelay
+=== RUN   TestSaleUnavailableRecordsAndTTLDelay/before
+=== RUN   TestSaleUnavailableRecordsAndTTLDelay/at
+2026/10/09 11:20:31 sale request rejected status=409 seller="seller" product="6ac8cdff817e93ba600fec99"
+2026/10/09 11:20:31 sale request rejected status=409 seller="seller" product="6ac8cdff817e93ba600fec99"
+=== RUN   TestSaleUnavailableRecordsAndTTLDelay/after
+2026/10/09 11:20:31 sale request rejected status=409 seller="seller" product="6ac8cdff817e93ba600fec9a"
+2026/10/09 11:20:31 sale request rejected status=409 seller="seller" product="6ac8cdff817e93ba600fec9a"
+=== RUN   TestSaleUnavailableRecordsAndTTLDelay/listing_expired
+2026/10/09 11:20:32 sale request rejected status=409 seller="seller" product="6ac8cdff817e93ba600fec9b"
+2026/10/09 11:20:32 sale request rejected status=409 seller="seller" product="6ac8cdff817e93ba600fec9b"
+=== RUN   TestSaleUnavailableRecordsAndTTLDelay/delisted
+2026/10/09 11:20:32 sale request rejected status=409 seller="seller" product="6ac8ce00817e93ba600fec9c"
+2026/10/09 11:20:32 sale request rejected status=409 seller="seller" product="6ac8ce00817e93ba600fec9c"
+--- PASS: TestSaleUnavailableRecordsAndTTLDelay (0.47s)
+    --- PASS: TestSaleUnavailableRecordsAndTTLDelay/before (0.02s)
+    --- PASS: TestSaleUnavailableRecordsAndTTLDelay/at (0.01s)
+    --- PASS: TestSaleUnavailableRecordsAndTTLDelay/after (0.01s)
+    --- PASS: TestSaleUnavailableRecordsAndTTLDelay/listing_expired (0.01s)
+    --- PASS: TestSaleUnavailableRecordsAndTTLDelay/delisted (0.01s)
+=== RUN   TestSaleRollbackOnPersistenceFailure
+2026/10/09 11:20:32 sale transaction failed product="6ac8ce00817e93ba600fec9e": write exception: write errors: [Document failed validation: {"failingDocumentId": "db3360f0f64abfb24e7450c04054fc4fc0f1bd2c5d4b53a2c7070bd7cff2056b","details": {"operatorName": "$eq","specifiedAs": {"success": false},"reason": "comparison failed","consideredValue": true}}]
+2026/10/09 11:20:32 sale request rejected status=503 seller="seller" product="6ac8ce00817e93ba600fec9e"
+    sales_test.go:240: persisted rollback evidence: archive unsold, sale absent, eligibility retained, transactions=0, completedSales=0
+--- PASS: TestSaleRollbackOnPersistenceFailure (0.43s)
+=== RUN   TestSaleOpenAPIContract
+--- PASS: TestSaleOpenAPIContract (0.36s)
+=== RUN   TestSaleConcurrentKeyConflictRollsBackOtherProduct
+2026/10/09 11:20:33 sale request rejected status=409 seller="seller" product="6ac8ce01817e93ba600feca1"
+--- PASS: TestSaleConcurrentKeyConflictRollsBackOtherProduct (0.42s)
+=== RUN   TestSearchChineseSynonymsAndExplanations
+--- PASS: TestSearchChineseSynonymsAndExplanations (1.42s)
+=== RUN   TestSearchRefillsAfterCurrentEligibilityFiltering
+--- PASS: TestSearchRefillsAfterCurrentEligibilityFiltering (1.71s)
+=== RUN   TestSearchSwaggerContract
+--- PASS: TestSearchSwaggerContract (0.34s)
+PASS
+ok  	github.com/nanfxqs/campus-market/internal/market	15.800s
+=== RUN   TestChineseSynonyms
+--- PASS: TestChineseSynonyms (0.16s)
+=== RUN   TestTransactionCommitAndRollback
+--- PASS: TestTransactionCommitAndRollback (0.11s)
+=== RUN   TestTTLRetainsArchiveAndForbidsSale
+    persistence_test.go:159: expired listing remains physically present; HTTP rejects sale without writes before TTL cleanup
+    persistence_test.go:173: TTL physical deletion observed 19.057696227s after expiry; archive and history retained
+--- PASS: TestTTLRetainsArchiveAndForbidsSale (24.08s)
+=== RUN   TestScaleSearch
+    persistence_test.go:183: run after --large fixture with SCALE=1
+--- SKIP: TestScaleSearch (0.00s)
+=== RUN   TestSearchChecksCurrentEligibility
+    persistence_test.go:258: current eligibility: 67 candidates, 24 eligible, 20 returned
+--- PASS: TestSearchChecksCurrentEligibility (0.04s)
+PASS
+ok  	github.com/nanfxqs/campus-market/validation	24.386s
+ Container campus-issue8-check-mongo-1 Running 
+ Container campus-issue8-check-api-1 Running 
+ Container campus-issue8-check-mongo-1 Waiting 
+ Container campus-issue8-check-mongo-1 Healthy 
+ Container campus-issue8-check-api-1 Waiting 
+ Container campus-issue8-check-api-1 Healthy 
+ Container campus-issue8-check-verify-run-e7e1281e8811 Creating 
+ Container campus-issue8-check-verify-run-e7e1281e8811 Created 
+=== RUN   TestSaleExactExpirationHTTP
+=== RUN   TestSaleExactExpirationHTTP/-1ms
+    sales_expiry_test.go:71: expiry=2026-10-09T11:21:31.611Z confirmation=2026-10-09T11:21:31.61Z code=sold
+=== RUN   TestSaleExactExpirationHTTP/0s
+2026/10/09 11:21:31 sale request rejected status=409 seller="seller" product="6ac8ce3bedc3e2ce2a5c1e05"
+    sales_expiry_test.go:71: expiry=2026-10-09T11:21:31.611Z confirmation=2026-10-09T11:21:31.611Z code=product_expired
+=== RUN   TestSaleExactExpirationHTTP/1ms
+2026/10/09 11:21:31 sale request rejected status=409 seller="seller" product="6ac8ce3bedc3e2ce2a5c1e06"
+    sales_expiry_test.go:71: expiry=2026-10-09T11:21:31.611Z confirmation=2026-10-09T11:21:31.612Z code=product_expired
+--- PASS: TestSaleExactExpirationHTTP (0.47s)
+    --- PASS: TestSaleExactExpirationHTTP/-1ms (0.07s)
+    --- PASS: TestSaleExactExpirationHTTP/0s (0.06s)
+    --- PASS: TestSaleExactExpirationHTTP/1ms (0.06s)
+=== RUN   TestSaleTransactionRetryAcrossExpirationHTTP
+2026/10/09 11:21:32 sale request rejected status=409 seller="seller" product="6ac8ce3cedc3e2ce2a5c1e08"
+2026/10/09 11:21:32 sale request rejected status=409 seller="seller" product="6ac8ce3cedc3e2ce2a5c1e08"
+    sales_expiry_test.go:161: concurrent write forced transaction retry at expiry: no sale, eligibility retained, one replayable failure, no successful record or counter increment
+--- PASS: TestSaleTransactionRetryAcrossExpirationHTTP (0.37s)
+PASS
+ok  	github.com/nanfxqs/campus-market/internal/market	0.842s
