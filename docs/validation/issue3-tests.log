@@ -1,0 +1,84 @@
+ Container campus-market-validation-api-1 Running 
+ Container campus-market-validation-mongo-1 Running 
+ Container campus-market-validation-mongo-1 Waiting 
+ Container campus-market-validation-mongo-1 Healthy 
+ Container campus-market-validation-api-1 Waiting 
+ Container campus-market-validation-api-1 Healthy 
+ Container campus-market-validation-verify-run-212d89f2c8dd Creating 
+ Container campus-market-validation-verify-run-212d89f2c8dd Created 
+?   	github.com/nanfxqs/campus-market/cmd/market	[no test files]
+=== RUN   TestSeedLogin
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /health                   --> github.com/nanfxqs/campus-market/internal/market.New.func1 (2 handlers)
+[GIN-debug] POST   /auth/login               --> github.com/nanfxqs/campus-market/internal/market.New.func2 (2 handlers)
+[GIN-debug] GET    /users/me                 --> github.com/nanfxqs/campus-market/internal/market.New.func4 (3 handlers)
+[GIN-debug] PATCH  /users/me                 --> github.com/nanfxqs/campus-market/internal/market.New.func5 (3 handlers)
+[GIN-debug] GET    /openapi.json             --> github.com/nanfxqs/campus-market/internal/market.New.func6 (2 handlers)
+[GIN-debug] GET    /docs                     --> github.com/nanfxqs/campus-market/internal/market.New.func7 (2 handlers)
+--- PASS: TestSeedLogin (1.36s)
+=== RUN   TestOwnProfileAndIdentityProtection
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /health                   --> github.com/nanfxqs/campus-market/internal/market.New.func1 (2 handlers)
+[GIN-debug] POST   /auth/login               --> github.com/nanfxqs/campus-market/internal/market.New.func2 (2 handlers)
+[GIN-debug] GET    /users/me                 --> github.com/nanfxqs/campus-market/internal/market.New.func4 (3 handlers)
+[GIN-debug] PATCH  /users/me                 --> github.com/nanfxqs/campus-market/internal/market.New.func5 (3 handlers)
+[GIN-debug] GET    /openapi.json             --> github.com/nanfxqs/campus-market/internal/market.New.func6 (2 handlers)
+[GIN-debug] GET    /docs                     --> github.com/nanfxqs/campus-market/internal/market.New.func7 (2 handlers)
+--- PASS: TestOwnProfileAndIdentityProtection (0.80s)
+=== RUN   TestExpiredAccessToken
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /health                   --> github.com/nanfxqs/campus-market/internal/market.New.func1 (2 handlers)
+[GIN-debug] POST   /auth/login               --> github.com/nanfxqs/campus-market/internal/market.New.func2 (2 handlers)
+[GIN-debug] GET    /users/me                 --> github.com/nanfxqs/campus-market/internal/market.New.func4 (3 handlers)
+[GIN-debug] PATCH  /users/me                 --> github.com/nanfxqs/campus-market/internal/market.New.func5 (3 handlers)
+[GIN-debug] GET    /openapi.json             --> github.com/nanfxqs/campus-market/internal/market.New.func6 (2 handlers)
+[GIN-debug] GET    /docs                     --> github.com/nanfxqs/campus-market/internal/market.New.func7 (2 handlers)
+--- PASS: TestExpiredAccessToken (0.61s)
+=== RUN   TestOpenAPIAndSwagger
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /health                   --> github.com/nanfxqs/campus-market/internal/market.New.func1 (2 handlers)
+[GIN-debug] POST   /auth/login               --> github.com/nanfxqs/campus-market/internal/market.New.func2 (2 handlers)
+[GIN-debug] GET    /users/me                 --> github.com/nanfxqs/campus-market/internal/market.New.func4 (3 handlers)
+[GIN-debug] PATCH  /users/me                 --> github.com/nanfxqs/campus-market/internal/market.New.func5 (3 handlers)
+[GIN-debug] GET    /openapi.json             --> github.com/nanfxqs/campus-market/internal/market.New.func6 (2 handlers)
+[GIN-debug] GET    /docs                     --> github.com/nanfxqs/campus-market/internal/market.New.func7 (2 handlers)
+--- PASS: TestOpenAPIAndSwagger (0.44s)
+=== RUN   TestSeedCLIRefusesNonemptyDatabaseAndHashesCredentials
+    http_test.go:165: seed output: 2026/10/09 07:54:34 demo accounts: seller, buyer; password: CampusDemo123!
+    http_test.go:165: seed output: 2026/10/09 07:54:34 seed requires an empty database
+        exit status 1
+    http_test.go:165: seed output: 2026/10/09 07:54:34 MONGO_URI and a non-system DB_NAME are required
+        exit status 1
+--- PASS: TestSeedCLIRefusesNonemptyDatabaseAndHashesCredentials (0.82s)
+PASS
+ok  	github.com/nanfxqs/campus-market/internal/market	4.042s
+=== RUN   TestChineseSynonyms
+--- PASS: TestChineseSynonyms (5.06s)
+=== RUN   TestTransactionCommitAndRollback
+--- PASS: TestTransactionCommitAndRollback (0.48s)
+=== RUN   TestTTLRetainsArchiveAndForbidsSale
+    persistence_test.go:159: expired listing remains physically present; HTTP rejects sale without writes before TTL cleanup
+    persistence_test.go:173: TTL physical deletion observed 21.376452438s after expiry; archive and history retained
+--- PASS: TestTTLRetainsArchiveAndForbidsSale (26.50s)
+=== RUN   TestScaleSearch
+    persistence_test.go:208: scale search candidates=20040 valid=20000 top=20 server_ms=1287 http=1.289579517s
+    persistence_test.go:208: scale search candidates=20040 valid=20000 top=20 server_ms=1354 http=1.355198828s
+    persistence_test.go:208: scale search candidates=20040 valid=20000 top=20 server_ms=1302 http=1.303532843s
+--- PASS: TestScaleSearch (4.06s)
+=== RUN   TestSearchChecksCurrentEligibility
+    persistence_test.go:258: current eligibility: 20040 candidates, 19997 eligible, 20 returned
+--- PASS: TestSearchChecksCurrentEligibility (1.38s)
+PASS
+ok  	github.com/nanfxqs/campus-market/validation	37.486s

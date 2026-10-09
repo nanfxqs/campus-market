@@ -4,6 +4,8 @@ COPY go.mod go.sum ./
 RUN go mod download
 COPY . .
 RUN go build -o /validation ./validation
+RUN go build -o /market ./cmd/market
 FROM debian:bookworm-slim@sha256:7c7b2c966bc9ee8cedfeef67e0e279108992c77681fa595db4a9d65c06ccc587
 COPY --from=tools /validation /validation
+COPY --from=tools /market /market
 ENTRYPOINT ["/validation"]
