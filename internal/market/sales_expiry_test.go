@@ -48,25 +48,7 @@ func TestSaleExactExpirationHTTP(t *testing.T) {
 			now := deadline.Add(offset)
 			server := httptest.NewServer(newAPI(db, time.Hour, func() time.Time { return now }))
 			defer server.Close()
-			request := func(path, body, token string, want int) map[string]any {
-				t.Helper()
-				req, _ := http.NewRequest("POST", server.URL+path, bytes.NewBufferString(body))
-				req.Header.Set("Content-Type", "application/json")
-				req.Header.Set("Authorization", "Bearer "+token)
-				resp, err := http.DefaultClient.Do(req)
-				if err != nil {
-					t.Fatal(err)
-				}
-				defer resp.Body.Close()
-				var result map[string]any
-				if err := json.NewDecoder(resp.Body).Decode(&result); err != nil {
-					t.Fatal(err)
-				}
-				if resp.StatusCode != want {
-					t.Fatalf("status=%d want=%d %v", resp.StatusCode, want, result)
-				}
-				return result
-			}
+			request := saleBoundaryRequest(t, server.URL)
 			token := request("/auth/login", `{"username":"seller","password":"CampusDemo123!"}`, "", 200)["accessToken"].(string)
 			id := primitive.NewObjectID().Hex()
 			if _, err := db.Collection("products").InsertOne(ctx, Product{ID: id, SellerID: "seller", PublishedAt: deadline.Add(-1440 * time.Hour), ExpiresAt: deadline, Sold: false}); err != nil {
@@ -140,25 +122,7 @@ func TestSaleTransactionRetryAcrossExpirationHTTP(t *testing.T) {
 	t.Cleanup(func() { client.Disconnect(context.Background()) })
 	server := httptest.NewServer(newAPI(client.Database(name), time.Hour, func() time.Time { return time.UnixMilli(clock.Load()) }))
 	defer server.Close()
-	request := func(path, body, token string, want int) map[string]any {
-		t.Helper()
-		req, _ := http.NewRequest("POST", server.URL+path, bytes.NewBufferString(body))
-		req.Header.Set("Content-Type", "application/json")
-		req.Header.Set("Authorization", "Bearer "+token)
-		resp, err := http.DefaultClient.Do(req)
-		if err != nil {
-			t.Fatal(err)
-		}
-		defer resp.Body.Close()
-		var result map[string]any
-		if err := json.NewDecoder(resp.Body).Decode(&result); err != nil {
-			t.Fatal(err)
-		}
-		if resp.StatusCode != want {
-			t.Fatalf("status=%d want=%d %v", resp.StatusCode, want, result)
-		}
-		return result
-	}
+	request := saleBoundaryRequest(t, server.URL)
 	token := request("/auth/login", `{"username":"seller","password":"CampusDemo123!"}`, "", 200)["accessToken"].(string)
 	body := `{"buyerId":"buyer","priceCents":101,"idempotencyKey":"retry-expiry"}`
 	result := request("/products/"+id+"/sale", body, token, 409)
@@ -195,4 +159,26 @@ func TestSaleTransactionRetryAcrossExpirationHTTP(t *testing.T) {
 		t.Fatalf("counter=%d err=%v", seller.CompletedSales, err)
 	}
 	t.Log("concurrent write forced transaction retry at expiry: no sale, eligibility retained, one replayable failure, no successful record or counter increment")
+}
+
+func saleBoundaryRequest(t *testing.T, base string) func(string, string, string, int) map[string]any {
+	return func(path, body, token string, want int) map[string]any {
+		t.Helper()
+		req, _ := http.NewRequest("POST", base+path, bytes.NewBufferString(body))
+		req.Header.Set("Content-Type", "application/json")
+		req.Header.Set("Authorization", "Bearer "+token)
+		resp, err := http.DefaultClient.Do(req)
+		if err != nil {
+			t.Fatal(err)
+		}
+		defer resp.Body.Close()
+		var result map[string]any
+		if err := json.NewDecoder(resp.Body).Decode(&result); err != nil {
+			t.Fatal(err)
+		}
+		if resp.StatusCode != want {
+			t.Fatalf("status=%d want=%d %v", resp.StatusCode, want, result)
+		}
+		return result
+	}
 }
