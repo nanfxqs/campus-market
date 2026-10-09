@@ -345,6 +345,86 @@
             }
           }
         }
+      },
+      "get": {
+        "summary": "Browse valid sale listings in one flat category",
+        "description": "Public endpoint. Excludes sold archives, removed sale eligibility, and expiry at or before request validation time, independently of delayed TTL deletion. Sort: publishedAt descending, then product ID descending. Static data pagination has no duplicates or omissions. Concurrent inserts, edits, sales and expiry do not provide a pagination snapshot. Copy nextCursor into cursor for the same category; limit may change between pages.",
+        "parameters": [
+          {
+            "name": "categoryId",
+            "in": "query",
+            "required": true,
+            "description": "Exact platform category ID from GET /categories; no child categories. Missing or empty is 400; unknown is 404.",
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 64
+            },
+            "example": "textbooks"
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "default": 20,
+              "minimum": 1,
+              "maximum": 100
+            },
+            "description": "Omitted defaults to 20. Empty, noninteger, out-of-range or repeated values return 400."
+          },
+          {
+            "name": "cursor",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "maxLength": 512
+            },
+            "description": "Opaque nextCursor from prior page; omit for first page. Unpadded base64url JSON containing categoryId, publishedAt (nonzero RFC3339 timestamp at millisecond precision), id (24 lowercase hex characters). Maximum 512 characters. Empty, malformed, unknown fields, trailing JSON, wrong-category or repeated cursor is 400. Cursor is a position, not a snapshot or authorization token."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProductPage"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "invalid_input: missing/empty/overlong/repeated categoryId, invalid limit or cursor",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "unavailable: database query failed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "category_not_found: unknown platform category",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
       }
     },
     "/products/{id}": {
@@ -1105,6 +1185,27 @@
           "priceHistory",
           "priceHistoryUrl"
         ]
+      },
+      "ProductPage": {
+        "type": "object",
+        "required": [
+          "items",
+          "nextCursor"
+        ],
+        "properties": {
+          "items": {
+            "type": "array",
+            "maxItems": 100,
+            "items": {
+              "$ref": "#/components/schemas/Product"
+            }
+          },
+          "nextCursor": {
+            "type": "string",
+            "maxLength": 512,
+            "description": "Cursor for the next page, or empty string when no further valid result existed at query time. Empty results use items: []."
+          }
+        }
       }
     }
   }

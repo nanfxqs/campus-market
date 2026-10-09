@@ -48,6 +48,9 @@ func Initialize(ctx context.Context, db *mongo.Database) error {
 	if _, err := db.Collection("listings").Indexes().CreateOne(ctx, mongo.IndexModel{Keys: bson.D{{Key: "expiresAt", Value: 1}}, Options: options.Index().SetExpireAfterSeconds(0)}); err != nil {
 		return err
 	}
+	if _, err := db.Collection("products").Indexes().CreateOne(ctx, mongo.IndexModel{Keys: bson.D{{Key: "categoryId", Value: 1}, {Key: "sold", Value: 1}, {Key: "publishedAt", Value: -1}, {Key: "_id", Value: -1}}, Options: options.Index().SetName("category_browse")}); err != nil {
+		return err
+	}
 	_, err := db.Collection("priceChanges").Indexes().CreateOne(ctx, mongo.IndexModel{Keys: bson.D{{Key: "productId", Value: 1}, {Key: "changedAt", Value: -1}, {Key: "_id", Value: -1}}})
 	return err
 }
@@ -79,6 +82,7 @@ type PriceChange struct {
 }
 
 func productRoutes(router *gin.Engine, authorized *gin.RouterGroup, db *mongo.Database) {
+	router.GET("/products", func(c *gin.Context) { browsePage(c, db) })
 	router.GET("/categories", func(c *gin.Context) {
 		cursor, err := db.Collection("categories").Find(c.Request.Context(), bson.M{}, options.Find().SetSort(bson.D{{Key: "_id", Value: 1}}))
 		if err != nil {

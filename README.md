@@ -48,4 +48,6 @@ docker compose run --rm verify test -v ./internal/market -count=1
 
 分类规则由平台维护 `categories` 集合，未开放学生修改规则的接口。`products` 保留档案；`listings` 只承载在售资格和到期时间，其 `expiresAt` 使用零秒 TTL 索引。发布通过事务共同写入两者，失败会全部回滚；期限为服务端发布时间加 1440 小时。到期、已成交或资格移除后不能修改内容，但详情和历史仍可读取。`priceChanges` 独立存放改价记录，并按商品、改价时间和 ID 建索引。
 
+`GET /products?categoryId=textbooks` 按指定平面分类浏览有效在售商品，发布时间及 ID 倒序；默认 20 条，`limit` 为 1–100，响应 `nextCursor` 可用于同分类下一页的 `cursor`。缺失/非法参数返回 400，未知分类返回 404；到期条目即使 TTL 尚未删除也会排除。静态数据分页无重复无遗漏，并发变化不承诺快照。Swagger `/docs` 可直接执行。索引及验证见 [浏览验证记录](docs/validation/browse.md)。
+
 [商品验证记录](docs/validation/products.md) 包含 HTTP、规则演化和事务回滚证据。
