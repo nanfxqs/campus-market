@@ -488,7 +488,7 @@
       },
       "put": {
         "summary": "Replace own available product content using current rules",
-        "description": "Full content replacement, not a partial patch. Only an unexpired, unsold product with current eligibility can be edited. Identity, timestamps, initial price and current price remain unchanged; price mutation is reserved for issue #7. At most 65536 bytes.",
+        "description": "Full content replacement, not a partial patch. Only an unexpired, unsold product with current eligibility can be edited. Identity, timestamps, initial price and current price remain unchanged; use PATCH /products/{id}/price to change price. At most 65536 bytes.",
         "security": [
           {
             "bearerAuth": []
@@ -593,7 +593,7 @@
       ],
       "get": {
         "summary": "Read full price-change history with cursor pagination",
-        "description": "Read-only history; price mutation belongs to #7. Sort: changedAt then ID descending. Historical archives remain readable.",
+        "description": "Permanent history of actual price changes, excluding initial listing price and same-price requests. Sort: changedAt then ID descending. Historical archives remain readable. Pagination is not a snapshot across concurrent changes; continue with nextCursor until it is empty.",
         "parameters": [
           {
             "name": "limit",
@@ -692,6 +692,111 @@
           },
           "503": {
             "description": "unavailable"
+          }
+        }
+      }
+    },
+    "/products/{id}/price": {
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{24}$"
+          },
+          "description": "Product ID returned by publication."
+        }
+      ],
+      "patch": {
+        "summary": "Change own eligible product price",
+        "description": "Authenticate using POST /auth/login, authorize in Swagger, publish using POST /products, then change price here. Only the owner of an unsold, unexpired product with an active listing can change price. Initial price and expiresAt remain unchanged. Actual changes atomically persist old/new integer cents and server changedAt; identical price creates no history. Read GET /products/{id} for the latest 5 changes and GET /products/{id}/price-history for all changes. Unknown fields are rejected; at most 4096 request bytes.",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ChangePrice"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Current product after atomic price/history commit; same-price request succeeds without adding history.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Product"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "invalid_input: invalid ID, missing/invalid integer price, unknown fields or more than 4096 request bytes.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "unauthorized: missing, invalid or expired bearer token.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "forbidden: caller does not own product.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "product_not_found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "product_unavailable: expired, delisted or sold; same-price requests also require eligibility.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "unavailable: database/transaction failure; price and history changes roll back together.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
           }
         }
       }
@@ -1340,6 +1445,25 @@
               "$ref": "#/components/schemas/SearchHit"
             }
           }
+        }
+      },
+      "ChangePrice": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "priceCents"
+        ],
+        "properties": {
+          "priceCents": {
+            "type": "integer",
+            "format": "int64",
+            "minimum": 1,
+            "maximum": 1000000000000,
+            "description": "RMB in integer cents, same bounds as publication."
+          }
+        },
+        "example": {
+          "priceCents": 12000
         }
       }
     }
