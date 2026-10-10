@@ -1,8 +1,6 @@
 package market
 
 import (
-	"encoding/base64"
-	"encoding/json"
 	"errors"
 	"time"
 	"unicode/utf8"
@@ -18,7 +16,8 @@ func sellerHome(c *gin.Context, db *mongo.Database) {
 		fail(c, 400, "invalid_input")
 		return
 	}
-	limit, cursor, ok := parsePage(c, "", id)
+	scope := sellerPageScope(id)
+	limit, cursor, ok := parsePage(c, scope)
 	if !ok {
 		return
 	}
@@ -36,10 +35,7 @@ func sellerHome(c *gin.Context, db *mongo.Database) {
 	// not the remaining page. A single facet keeps count/list eligibility identical.
 	page := mongo.Pipeline{}
 	if cursor != nil {
-		page = append(page, bson.D{{Key: "$match", Value: bson.M{"$or": bson.A{
-			bson.M{"publishedAt": bson.M{"$lt": cursor.PublishedAt}},
-			bson.M{"publishedAt": cursor.PublishedAt, "_id": bson.M{"$lt": cursor.ID}},
-		}}}})
+		page = append(page, bson.D{{Key: "$match", Value: pagePosition(cursor)}})
 	}
 	page = append(page, bson.D{{Key: "$limit", Value: int64(limit + 1)}}, bson.D{{Key: "$project", Value: bson.M{"eligibility": 0}}})
 	pipeline := eligibleProducts(bson.M{"sellerId": id}, time.Now())
@@ -61,20 +57,10 @@ func sellerHome(c *gin.Context, db *mongo.Database) {
 		fail(c, 503, "unavailable")
 		return
 	}
-	items := result[0].Items
-	if items == nil {
-		items = []Product{}
-	}
+	items, next := finishPage(result[0].Items, limit, scope)
 	count := int64(0)
 	if len(result[0].Counts) != 0 {
 		count = result[0].Counts[0].Total
-	}
-	next := ""
-	if len(items) > limit {
-		items = items[:limit]
-		last := items[len(items)-1]
-		data, _ := json.Marshal(browseCursor{SellerID: id, PublishedAt: last.PublishedAt, ID: last.ID})
-		next = base64.RawURLEncoding.EncodeToString(data)
 	}
 	c.JSON(200, gin.H{"profile": profile, "creditScore": profile.CreditScore, "completedSales": profile.CompletedSales, "currentOnSaleCount": count, "items": items, "nextCursor": next})
 }

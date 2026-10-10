@@ -22,7 +22,54 @@ type browseCursor struct {
 	ID          string    `json:"id"`
 }
 
-func parsePage(c *gin.Context, category, seller string) (int, *browseCursor, bool) {
+// pageScope represents exactly one of the two supported browsing scopes.
+// The cursor's wire fields remain separate for backwards compatibility.
+type pageScope struct {
+	seller bool
+	id     string
+}
+
+func categoryPageScope(id string) pageScope { return pageScope{id: id} }
+func sellerPageScope(id string) pageScope   { return pageScope{seller: true, id: id} }
+
+func (s pageScope) cursor(last Product) browseCursor {
+	value := browseCursor{PublishedAt: last.PublishedAt, ID: last.ID}
+	if s.seller {
+		value.SellerID = s.id
+	} else {
+		value.CategoryID = s.id
+	}
+	return value
+}
+
+func (s pageScope) matches(value browseCursor) bool {
+	want := s.cursor(Product{})
+	return value.CategoryID == want.CategoryID && value.SellerID == want.SellerID
+}
+
+func pagePosition(cursor *browseCursor) bson.M {
+	if cursor == nil {
+		return bson.M{}
+	}
+	return bson.M{"$or": bson.A{
+		bson.M{"publishedAt": bson.M{"$lt": cursor.PublishedAt}},
+		bson.M{"publishedAt": cursor.PublishedAt, "_id": bson.M{"$lt": cursor.ID}},
+	}}
+}
+
+func finishPage(items []Product, limit int, scope pageScope) ([]Product, string) {
+	if items == nil {
+		items = []Product{}
+	}
+	if len(items) <= limit {
+		return items, ""
+	}
+	items = items[:limit]
+	data, _ := json.Marshal(scope.cursor(items[len(items)-1]))
+	return items, base64.RawURLEncoding.EncodeToString(data)
+}
+
+func parsePage(c *gin.Context, scope pageScope) (int, *browseCursor, bool) {
 	limit := 20
 	if raw, exists := c.Request.URL.Query()["limit"]; exists {
 		if len(raw) != 1 {
@@ -46,7 +93,7 @@ func parsePage(c *gin.Context, category, seller string) (int, *browseCursor, boo
 		value := browseCursor{}
 		decoder := json.NewDecoder(bytes.NewReader(data))
 		decoder.DisallowUnknownFields()
-		if err != nil || decoder.Decode(&value) != nil || decoder.Decode(new(any)) != io.EOF || value.CategoryID != category || value.SellerID != seller || value.PublishedAt.IsZero() || !value.PublishedAt.Equal(value.PublishedAt.Truncate(time.Millisecond)) {
+		if err != nil || decoder.Decode(&value) != nil || decoder.Decode(new(any)) != io.EOF || !scope.matches(value) || value.PublishedAt.IsZero() || !value.PublishedAt.Equal(value.PublishedAt.Truncate(time.Millisecond)) {
 			fail(c, 400, "invalid_input")
 			return 0, nil, false
 		}
@@ -66,7 +113,8 @@ func browsePage(c *gin.Context, db *mongo.Database) {
 		fail(c, 400, "invalid_input")
 		return
 	}
-	limit, cursor, ok := parsePage(c, category, "")
+	scope := categoryPageScope(category)
+	limit, cursor, ok := parsePage(c, scope)
 	if !ok {
 		return
 	}
@@ -79,10 +127,8 @@ func browsePage(c *gin.Context, db *mongo.Database) {
 		fail(c, 503, "unavailable")
 		return
 	}
-	filter := bson.M{"categoryId": category}
-	if cursor != nil {
-		filter["$or"] = bson.A{bson.M{"publishedAt": bson.M{"$lt": cursor.PublishedAt}}, bson.M{"publishedAt": cursor.PublishedAt, "_id": bson.M{"$lt": cursor.ID}}}
-	}
+	filter := pagePosition(cursor)
+	filter["categoryId"] = category
 	pipeline := eligibleProducts(filter, time.Now())
 	pipeline = append(pipeline, bson.D{{Key: "$limit", Value: int64(limit + 1)}}, bson.D{{Key: "$project", Value: bson.M{"eligibility": 0}}})
 	rows, err := db.Collection("products").Aggregate(c.Request.Context(), pipeline)
@@ -95,13 +141,7 @@ func browsePage(c *gin.Context, db *mongo.Database) {
 		fail(c, 503, "unavailable")
 		return
 	}
-	next := ""
-	if len(items) > limit {
-		items = items[:limit]
-		last := items[len(items)-1]
-		data, _ := json.Marshal(browseCursor{CategoryID: category, PublishedAt: last.PublishedAt, ID: last.ID})
-		next = base64.RawURLEncoding.EncodeToString(data)
-	}
+	items, next := finishPage(items, limit, scope)
 	c.JSON(200, gin.H{"items": items, "nextCursor": next})
 }
 

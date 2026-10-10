@@ -137,3 +137,61 @@ git diff --check
 无范围扩张或已识别错误。Swagger 浏览器手动操作仍未实测。
 
 审查汇总：Standards 0 项硬性违反、3 项非阻塞维护建议；Spec 0 项发现。
+
+## 三项维护建议修复
+
+本轮从 `5b630f4`（实现提交 `810f625`）开始，初始工作树干净。
+按用户确认执行上述三项建议，不改变外部接口或扩展业务范围：
+
+- 分类浏览与卖家主页共用 `pagePosition` 的键集过滤和 `finishPage` 的
+  截页、空列表及下一游标编码规则。主页仍只在 facet 的 page 分支应用
+  游标，完整 count 不受游标影响。
+- `parsePage` 改为接收小作用域 `pageScope`，调用处通过分类/卖家专用
+  构造函数表达选择，不再传入两个互斥字符串。内部作用域只有两种选择；
+  外部仍是原有无填充 Base64URL JSON，保留 `categoryId`/`sellerId`、
+  `publishedAt`、`id` 字段和原有作用域校验，没有新增通用游标框架。
+- TTL 清理前资格测试改用结构化表格，显式设置卖家、成交状态、档案期限
+  和条目期限（零值表示没有在售条目）。`name` 仅作为商品显示标题，
+  不再控制夹具行为。
+
+沿用已确认的真实 HTTP/MongoDB seam 和现有行为测试，不测试内部辅助函数；
+本次是保持行为的维护重构，没有新增业务行为或新测试场景。
+宿主无 Go，Go 文件使用 tools 镜像中的 gofmt 格式化。最终单进程顺序执行：
+
+```sh
+docker compose run --rm --no-deps -v "$PWD:/src" verify test ./internal/market \
+  -run 'TestSellerHome|TestBrowse' -count=1 -timeout=4m
+docker compose run --rm --no-deps -v "$PWD:/src" verify vet ./...
+git diff --check
+```
+
+定向测试通过（`internal/market 4.844s`），vet 和空白检查通过。
+期间一次工具批次误重复启动测试，触发既有秒粒度测试库碰撞
+（重复键/数据库删除中）；所有重复调用结束后，以单个调用串行重跑以上命令通过。
+此异常不是重构行为失败，也未扩大范围修改通用测试库命名。
+Compose 报告已有孤立容器，仅记录警告，未清理这些容器。
+
+未启动 api、未重置 `campus_validation`、未提交。
+本轮未执行完整应用测试、独立审查、Search/TTL 物理删除验证、性能验证或
+Swagger 浏览器操作；完整应用测试、独立审查及 commit 由父代理继续执行。
+上方旧实现的完整验证记录保留，不视为本轮重构后的完整验证。
+
+### 本轮最终验证与复查
+
+父代理运行完整应用测试包：
+
+```sh
+docker compose run --rm --no-deps -e GIN_MODE=release -v "$PWD:/src" \
+  verify test ./internal/market -count=1 -timeout=4m
+git diff --check
+```
+
+完整应用包通过（29.641s），空白检查通过。本轮没有重跑独立
+`validation` 套件、部署复现、TTL 物理删除证据、性能基准或浏览器操作。
+
+独立双轴审查固定基准为 `5b630f4`：
+
+- Standards：0 项硬性违反，0 项新的维护建议；共享分页规则、作用域类型
+  和表格夹具符合仓库规范及领域决策。
+- Spec：0 项发现；三项维护修复完成，未发现分页、游标格式或夹具语义回归，
+  无范围扩张。完整在售 count 仍不受游标过滤影响。

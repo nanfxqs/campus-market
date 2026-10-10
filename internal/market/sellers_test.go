@@ -124,25 +124,27 @@ func TestSellerHomeExcludesUnavailableBeforeTTLCleanup(t *testing.T) {
 		t.Fatal(err)
 	}
 	now := time.Now().UTC().Truncate(time.Millisecond)
-	for i, state := range []string{"valid", "other", "sold", "delisted", "expiredArchive", "expiredListing"} {
+	fixtures := []struct {
+		name          string
+		seller        string
+		sold          bool
+		archiveExpiry time.Time
+		listingExpiry time.Time
+	}{
+		{name: "valid", seller: "seller", archiveExpiry: now.Add(time.Hour), listingExpiry: now.Add(time.Hour)},
+		{name: "other", seller: "buyer", archiveExpiry: now.Add(time.Hour), listingExpiry: now.Add(time.Hour)},
+		{name: "sold", seller: "seller", sold: true, archiveExpiry: now.Add(time.Hour), listingExpiry: now.Add(time.Hour)},
+		{name: "delisted", seller: "seller", archiveExpiry: now.Add(time.Hour)},
+		{name: "expiredArchive", seller: "seller", archiveExpiry: now, listingExpiry: now.Add(time.Hour)},
+		{name: "expiredListing", seller: "seller", archiveExpiry: now.Add(time.Hour), listingExpiry: now},
+	}
+	for i, fixture := range fixtures {
 		id := fmt.Sprintf("%024x", i+1)
-		seller := "seller"
-		if state == "other" {
-			seller = "buyer"
-		}
-		expiry := now.Add(time.Hour)
-		if state == "expiredArchive" {
-			expiry = now
-		}
-		if _, err := db.Collection("products").InsertOne(ctx, bson.M{"_id": id, "sellerId": seller, "categoryId": "textbooks", "publishedAt": now, "expiresAt": expiry, "sold": state == "sold", "title": state}); err != nil {
+		if _, err := db.Collection("products").InsertOne(ctx, bson.M{"_id": id, "sellerId": fixture.seller, "categoryId": "textbooks", "publishedAt": now, "expiresAt": fixture.archiveExpiry, "sold": fixture.sold, "title": fixture.name}); err != nil {
 			t.Fatal(err)
 		}
-		if state != "delisted" {
-			deadline := now.Add(time.Hour)
-			if state == "expiredListing" {
-				deadline = now
-			}
-			if _, err := db.Collection("listings").InsertOne(ctx, bson.M{"_id": id, "expiresAt": deadline}); err != nil {
+		if !fixture.listingExpiry.IsZero() {
+			if _, err := db.Collection("listings").InsertOne(ctx, bson.M{"_id": id, "expiresAt": fixture.listingExpiry}); err != nil {
 				t.Fatal(err)
 			}
 		}
