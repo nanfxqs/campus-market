@@ -800,6 +800,126 @@
           }
         }
       }
+    },
+    "/products/{id}/sale": {
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{24}$"
+          },
+          "description": "Product ID returned by publication."
+        }
+      ],
+      "post": {
+        "tags": [
+          "Sales"
+        ],
+        "summary": "Seller confirms an offline sale atomically",
+        "description": "Only the owner may confirm. Product archive, sale eligibility removal, successful transaction and seller completedSales are committed in one majority-acknowledged MongoDB transaction, using a conditional product update to arbitrate competitors. Same seller/key and same product/buyer/price replay the original result (including concurrent retries); differing content yields idempotency_conflict. Different sellers may use the same key. Validated business failures are permanently recorded and replayed without adding a transaction or incrementing completedSales. Auth, input, missing product, ownership and infrastructure failures only enter logs. Eligibility requires both archive and listing expiry strictly greater than the server confirmation time; equality and later fail even while TTL has not removed the listing. No cancellation, relisting or backdated confirmation. Body limit 4096 bytes; unknown fields and trailing JSON rejected. No transaction is recorded for idempotency_conflict.",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SaleInput"
+              },
+              "example": {
+                "buyerId": "buyer",
+                "priceCents": 10001,
+                "idempotencyKey": "offline-sale-001"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Committed sale or original successful replay. success=true, code=sold.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SaleAttempt"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "invalid_input (including self-sale, missing/invalid key, non-integer or non-positive price) or invalid_buyer. No transaction created.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "unauthorized. No transaction created.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "forbidden: caller is not product owner. No transaction created.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "product_not_found. No transaction created.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Business failure SaleAttempt (success=false, code product_sold/product_expired/product_delisted), or Error with idempotency_conflict for a reused seller/key with different product, buyer or price. Business failures replay identically; key conflicts create no record.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/SaleAttempt"
+                    },
+                    {
+                      "$ref": "#/components/schemas/Error"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "unavailable: infrastructure failure. No partial state is committed. Retry with the original key/body; an ambiguous commit is resolved by its persisted result.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
@@ -945,7 +1065,7 @@
             "additionalProperties": {
               "$ref": "#/components/schemas/AttributeValue"
             },
-            "description": "Required object. Current rules and limits are returned by GET /categories. Defaults: at most 32 attributes, at most 16 extras, keys match [A-Za-z][A-Za-z0-9_]* and have at most 40 ASCII characters; strings at most 256 Unicode characters, arrays at most 16 elements. Category types: string, number, boolean and homogeneous string[]/number[]/boolean[]. Required rules require the key to be present. Extra attributes allow any scalar or mixed scalar array. Reserved keys (case-insensitive): id, categoryId, title, description, condition, images, attributes, sellerId, priceCents, initialPriceCents, publishedAt, expiresAt, sold, seller, available, priceHistory, priceHistoryUrl, buyerId, salePriceCents, confirmedAt. Nested objects and arrays, nulls and standard-field overrides are rejected. These are defaults, not immutable schema ceilings: use the returned current category limits for writes. Historical values are returned without revalidation."
+            "description": "Required object. Current rules and limits are returned by GET /categories. Defaults: at most 32 attributes, at most 16 extras, keys match [A-Za-z][A-Za-z0-9_]* and have at most 40 ASCII characters; strings at most 256 Unicode characters, arrays at most 16 elements. Category types: string, number, boolean and homogeneous string[]/number[]/boolean[]. Required rules require the key to be present. Extra attributes allow any scalar or mixed scalar array. Reserved keys (case-insensitive): id, categoryId, title, description, condition, images, attributes, sellerId, priceCents, initialPriceCents, publishedAt, expiresAt, sold, sale, seller, available, priceHistory, priceHistoryUrl, buyerId, salePriceCents, confirmedAt. Nested objects and arrays, nulls and standard-field overrides are rejected. These are defaults, not immutable schema ceilings: use the returned current category limits for writes. Historical values are returned without revalidation."
           }
         },
         "additionalProperties": false,
@@ -1016,7 +1136,7 @@
             "additionalProperties": {
               "$ref": "#/components/schemas/AttributeValue"
             },
-            "description": "Required object. Current rules and limits are returned by GET /categories. Defaults: at most 32 attributes, at most 16 extras, keys match [A-Za-z][A-Za-z0-9_]* and have at most 40 ASCII characters; strings at most 256 Unicode characters, arrays at most 16 elements. Category types: string, number, boolean and homogeneous string[]/number[]/boolean[]. Required rules require the key to be present. Extra attributes allow any scalar or mixed scalar array. Reserved keys (case-insensitive): id, categoryId, title, description, condition, images, attributes, sellerId, priceCents, initialPriceCents, publishedAt, expiresAt, sold, seller, available, priceHistory, priceHistoryUrl, buyerId, salePriceCents, confirmedAt. Nested objects and arrays, nulls and standard-field overrides are rejected. These are defaults, not immutable schema ceilings: use the returned current category limits for writes. Historical values are returned without revalidation."
+            "description": "Required object. Current rules and limits are returned by GET /categories. Defaults: at most 32 attributes, at most 16 extras, keys match [A-Za-z][A-Za-z0-9_]* and have at most 40 ASCII characters; strings at most 256 Unicode characters, arrays at most 16 elements. Category types: string, number, boolean and homogeneous string[]/number[]/boolean[]. Required rules require the key to be present. Extra attributes allow any scalar or mixed scalar array. Reserved keys (case-insensitive): id, categoryId, title, description, condition, images, attributes, sellerId, priceCents, initialPriceCents, publishedAt, expiresAt, sold, sale, seller, available, priceHistory, priceHistoryUrl, buyerId, salePriceCents, confirmedAt. Nested objects and arrays, nulls and standard-field overrides are rejected. These are defaults, not immutable schema ceilings: use the returned current category limits for writes. Historical values are returned without revalidation."
           },
           "priceCents": {
             "type": "integer",
@@ -1096,7 +1216,7 @@
             "additionalProperties": {
               "$ref": "#/components/schemas/AttributeValue"
             },
-            "description": "Required object. Current rules and limits are returned by GET /categories. Defaults: at most 32 attributes, at most 16 extras, keys match [A-Za-z][A-Za-z0-9_]* and have at most 40 ASCII characters; strings at most 256 Unicode characters, arrays at most 16 elements. Category types: string, number, boolean and homogeneous string[]/number[]/boolean[]. Required rules require the key to be present. Extra attributes allow any scalar or mixed scalar array. Reserved keys (case-insensitive): id, categoryId, title, description, condition, images, attributes, sellerId, priceCents, initialPriceCents, publishedAt, expiresAt, sold, seller, available, priceHistory, priceHistoryUrl, buyerId, salePriceCents, confirmedAt. Nested objects and arrays, nulls and standard-field overrides are rejected. These are defaults, not immutable schema ceilings: use the returned current category limits for writes. Historical values are returned without revalidation."
+            "description": "Required object. Current rules and limits are returned by GET /categories. Defaults: at most 32 attributes, at most 16 extras, keys match [A-Za-z][A-Za-z0-9_]* and have at most 40 ASCII characters; strings at most 256 Unicode characters, arrays at most 16 elements. Category types: string, number, boolean and homogeneous string[]/number[]/boolean[]. Required rules require the key to be present. Extra attributes allow any scalar or mixed scalar array. Reserved keys (case-insensitive): id, categoryId, title, description, condition, images, attributes, sellerId, priceCents, initialPriceCents, publishedAt, expiresAt, sold, sale, seller, available, priceHistory, priceHistoryUrl, buyerId, salePriceCents, confirmedAt. Nested objects and arrays, nulls and standard-field overrides are rejected. These are defaults, not immutable schema ceilings: use the returned current category limits for writes. Historical values are returned without revalidation."
           },
           "id": {
             "type": "string"
@@ -1130,6 +1250,9 @@
           },
           "sold": {
             "type": "boolean"
+          },
+          "sale": {
+            "$ref": "#/components/schemas/Sale"
           }
         },
         "required": [
@@ -1464,6 +1587,116 @@
         },
         "example": {
           "priceCents": 12000
+        }
+      },
+      "Sale": {
+        "type": "object",
+        "required": [
+          "buyerId",
+          "priceCents",
+          "confirmedAt"
+        ],
+        "properties": {
+          "buyerId": {
+            "type": "string"
+          },
+          "priceCents": {
+            "type": "integer",
+            "format": "int64",
+            "minimum": 1,
+            "maximum": 1000000000000,
+            "description": "Positive integer RMB cents; may differ from the listing price. Maximum 1,000,000,000,000 cents."
+          },
+          "confirmedAt": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Server confirmation time, UTC, millisecond precision. Cannot be supplied or amended by clients."
+          }
+        }
+      },
+      "SaleInput": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "buyerId",
+          "priceCents",
+          "idempotencyKey"
+        ],
+        "properties": {
+          "buyerId": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 64,
+            "description": "Another registered user; self-sales are rejected."
+          },
+          "priceCents": {
+            "type": "integer",
+            "format": "int64",
+            "minimum": 1,
+            "maximum": 1000000000000,
+            "description": "Positive integer RMB cents; may differ from the listing price. Maximum 1,000,000,000,000 cents."
+          },
+          "idempotencyKey": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 128,
+            "description": "1–128 UTF-8 bytes, not whitespace-only. Exact string, scoped to the authenticated seller; retained permanently with the transaction result."
+          }
+        }
+      },
+      "SaleAttempt": {
+        "type": "object",
+        "required": [
+          "id",
+          "sellerId",
+          "productId",
+          "buyerId",
+          "priceCents",
+          "idempotencyKey",
+          "success",
+          "code",
+          "confirmedAt"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "sellerId": {
+            "type": "string"
+          },
+          "productId": {
+            "type": "string"
+          },
+          "buyerId": {
+            "type": "string"
+          },
+          "priceCents": {
+            "type": "integer",
+            "format": "int64",
+            "minimum": 1,
+            "maximum": 1000000000000,
+            "description": "Positive integer RMB cents; may differ from the listing price. Maximum 1,000,000,000,000 cents."
+          },
+          "idempotencyKey": {
+            "type": "string"
+          },
+          "success": {
+            "type": "boolean"
+          },
+          "code": {
+            "type": "string",
+            "enum": [
+              "sold",
+              "product_sold",
+              "product_expired",
+              "product_delisted"
+            ]
+          },
+          "confirmedAt": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Server time of this attempt; retries return the original timestamp."
+          }
         }
       }
     }

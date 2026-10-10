@@ -24,7 +24,7 @@ func validImage(s string) bool {
 }
 func reservedAttribute(key string) bool {
 	switch strings.ToLower(key) {
-	case "id", "categoryid", "title", "description", "condition", "images", "attributes", "sellerid", "pricecents", "initialpricecents", "publishedat", "expiresat", "sold", "seller", "available", "pricehistory", "pricehistoryurl", "buyerid", "salepricecents", "confirmedat":
+	case "id", "categoryid", "title", "description", "condition", "images", "attributes", "sellerid", "pricecents", "initialpricecents", "publishedat", "expiresat", "sold", "sale", "seller", "available", "pricehistory", "pricehistoryurl", "buyerid", "salepricecents", "confirmedat":
 		return true
 	}
 	return false
