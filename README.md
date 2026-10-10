@@ -1,12 +1,20 @@
 # campus-market
 
-校园二手交易平台课程项目，已提供本地搜索、事务与 TTL 的 Go/Gin 可行性验证入口；完整 V1 功能仍在实施。
+校园二手交易平台课程项目，提供 Go/Gin + MongoDB/Search 的 V1 功能基线。
 
 - [项目要求](docs/assignment.md)
 - [版本路线图](ROADMAP.md)
 - [V1 功能与测试 spec](https://github.com/nanfxqs/campus-market/issues/1)
 - [开发与验收计划](docs/development-plan.md)
 - [领域术语](GLOSSARY.md) 与 [架构决策](docs/adr/)
+
+## V1 统一验收
+
+```sh
+scripts/validate-v1.sh
+```
+
+从独立的新容器/卷启动，导入完整种子、等待数据库/Search 就绪，验证八项核心功能及所有权、并发、幂等和 TTL 持久化，运行静态检查与完整测试，输出 `docs/validation/v1-run.md`，最后清理本次环境。前置条件、资源预算、逐条启动/导入命令、索引理由及真实记录见 [V1 验收说明](docs/validation/v1.md)。本次验证为当前机器的干净容器环境，第二台物理机器尚未实测；V2 正式性能验收、完整资源报告与 V3 CLI 尚未完成。
 
 本地验证环境：`docker compose up -d --build --wait`。首次运行完整实验：`scripts/validate.sh`；重跑使用显式 `--reset`。见[复现步骤与实测记录](docs/validation/local-feasibility.md)。
 

@@ -1,0 +1,50 @@
+# Isolated acceptance stack: project-scoped fresh volumes, no host ports.
+services:
+  mongo:
+    extends:
+      file: compose.yaml
+      service: mongo
+  market:
+    build: .
+    entrypoint: [/market]
+    command: [serve]
+    environment:
+      MONGO_URI: mongodb://mongo:27017/?directConnection=true
+      DB_NAME: campus_v1
+    depends_on:
+      mongo:
+        condition: service_healthy
+    healthcheck:
+      test: [CMD, /validation, health]
+      interval: 5s
+      timeout: 5s
+      retries: 60
+  api:
+    build: .
+    command: [serve]
+    environment:
+      MONGO_URI: mongodb://mongo:27017/?directConnection=true
+      DB_NAME: campus_validation
+    depends_on:
+      mongo:
+        condition: service_healthy
+    healthcheck:
+      test: [CMD, /validation, health]
+      interval: 5s
+      timeout: 5s
+      retries: 60
+  verify:
+    profiles: [tools]
+    build:
+      context: .
+      target: tools
+    working_dir: /src
+    entrypoint: [go]
+    environment:
+      MONGO_URI: mongodb://mongo:27017/?directConnection=true
+      DB_NAME: campus_validation
+      API_URL: http://api:8080
+volumes:
+  mongo-data:
+  mongo-config:
+  search-data:
