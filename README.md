@@ -10,12 +10,29 @@
 
 本地验证环境：`docker compose up -d --build --wait`。首次运行完整实验：`scripts/validate.sh`；重跑使用显式 `--reset`。见[复现步骤与实测记录](docs/validation/local-feasibility.md)。
 
+## 可复现种子数据（#12）
+
+```sh
+docker compose build market
+docker compose up -d mongo --wait
+# 默认完整规模；仅导入指定的空实验库
+docker compose run --rm --no-deps -e DB_NAME=campus_market_experiment market seed \
+  --random-seed 42 --base-time 2026-10-10T00:00:00Z
+# 恢复相同初始状态：原命令加 --reset，仅删除 DB_NAME 指定的库
+```
+
+默认 `full` 为 10,000 用户、20,000 在售商品、180,000 已成交商品、300,000 交易记录；`--mode small` 为其 1/100 规模，适合功能验证。`--mode stress` 在独立数据库生成 30,000 件可成交商品，不执行 V2 压测。`--mode demo` 仅生成两个演示账号。
+
+**时间基准不等于冻结时钟。** 默认日期固定，真实 API 与 MongoDB TTL 仍使用当前时间。换日期验收时，选定并记录接近当前 UTC 日期的 `--base-time`，之后复用该值；不要用未来时间延长出售资格。旧时间基准的数据会正常到期，不能声称仍有 20,000 件有效在售商品。种子命令成功前不要启动面向该库的 API；导入失败可能留下部分数据，须显式重置后重建。
+
+完整命令、数据库只读核验入口、重置边界与实测结果见[种子验证记录](docs/validation/seeds.md)。
+
 ## 种子账号与资料 API（#3）
 
 ```sh
 docker compose up -d --build --wait
-# 仅向空的 campus_market 数据库导入；再次运行会拒绝，不覆盖已有资料。
-docker compose run --rm market seed
+# 仅向空的 campus_market 数据库导入两个演示账号；再次运行会拒绝。
+docker compose run --rm market seed --mode demo
 ```
 
 打开 http://localhost:8081/docs，执行 `POST /auth/login`：演示用户名 `seller` 或 `buyer`，密码均为 `CampusDemo123!`。将响应中的 `accessToken` 粘贴到 **Authorize**，随后调用 `GET /users/me` 和 `PATCH /users/me`。令牌有效期为 3600 秒，过期后重新登录。Swagger UI 的固定版本资源从 unpkg 加载，需要网络；机器可读契约在 `/openapi.json`。
@@ -28,7 +45,7 @@ docker compose build verify
 docker compose run --rm verify test -v ./internal/market -count=1
 ```
 
-这两个账号是最小演示数据，不替代 #12 的完整种子交付。独立运行可用 `MONGO_URI=... DB_NAME=... /market serve|seed`；种子命令拒绝非空及系统数据库，无隐式重置。
+`--mode demo` 是最小演示数据；默认 `seed` 生成完整数据。独立运行可用 `MONGO_URI=... DB_NAME=... /market serve|seed`；种子命令拒绝非空及系统数据库，无隐式重置。
 
 验证结果与边界说明：[账号验证记录](docs/validation/accounts.md)。
 
