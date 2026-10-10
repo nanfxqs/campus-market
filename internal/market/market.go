@@ -243,6 +243,7 @@ func newAPI(db *mongo.Database, ttl time.Duration, confirmationTime func() time.
 		}
 		c.JSON(200, user)
 	})
+	router.GET("/users/:id/home", func(c *gin.Context) { sellerHome(c, db) })
 	productRoutes(router, authorized, db)
 	saleRoutes(authorized, db, confirmationTime)
 	router.GET("/search", func(c *gin.Context) { searchPage(c, db) })

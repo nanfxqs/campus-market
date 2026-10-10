@@ -6,6 +6,38 @@
     "description": "Seed accounts only. Tokens expire after 3600 seconds. Account requests: at most 4096 bytes; product writes: at most 65536 bytes. Unknown fields and trailing JSON are rejected. Platform-maintained flat categories validate new writes using current rules; historical reads never revalidate. Product publication atomically creates the archive and independent sale eligibility. Eligibility expires exactly 60×24 hours after server publication time; TTL deletes only eligibility. Images are stored as URLs without reachability checks. Profile updates affect only the authenticated account; credit score stays preset."
   },
   "paths": {
+    "/users/{id}/home": {
+      "get": {
+        "summary": "Read a seller's current public home",
+        "description": "Returns the current profile, preset credit score, atomically maintained completed-sales count, and eligible on-sale products across categories. Items use publishedAt then id descending. Both archive and listing must be unexpired and the archive unsold; TTL cleanup need not have run. currentOnSaleCount covers the full eligible set before pagination. Cursor is opaque, seller-bound, and cannot be reused with category browsing. Pages are live, not a snapshot across requests; profile and products are separate reads.",
+        "security": [],
+        "parameters": [
+          {"name": "id", "in": "path", "required": true, "description": "User ID, at most 64 UTF-8 bytes.", "schema": {"type": "string", "minLength": 1, "maxLength": 64}},
+          {"name": "limit", "in": "query", "schema": {"type": "integer", "minimum": 1, "maximum": 100, "default": 20}},
+          {"name": "cursor", "in": "query", "description": "Opaque nextCursor returned for this seller. Empty, repeated, malformed, or wrong-scope cursors are invalid.", "schema": {"type": "string", "maxLength": 512}}
+        ],
+        "responses": {
+          "200": {
+            "description": "Current seller home; items is an empty array and nextCursor an empty string at the end.",
+            "content": {"application/json": {"schema": {
+              "type": "object",
+              "required": ["profile", "creditScore", "completedSales", "currentOnSaleCount", "items", "nextCursor"],
+              "properties": {
+                "profile": {"$ref": "#/components/schemas/Profile"},
+                "creditScore": {"type": "integer"},
+                "completedSales": {"type": "integer", "minimum": 0},
+                "currentOnSaleCount": {"type": "integer", "format": "int64", "minimum": 0},
+                "items": {"type": "array", "items": {"$ref": "#/components/schemas/Product"}},
+                "nextCursor": {"type": "string"}
+              }
+            }}}
+          },
+          "400": {"description": "invalid_input: invalid user ID or pagination input.", "content": {"application/json": {"schema": {"$ref": "#/components/schemas/Error"}}}},
+          "404": {"description": "user_not_found", "content": {"application/json": {"schema": {"$ref": "#/components/schemas/Error"}}}},
+          "503": {"description": "unavailable", "content": {"application/json": {"schema": {"$ref": "#/components/schemas/Error"}}}}
+        }
+      }
+    },
     "/auth/login": {
       "post": {
         "summary": "Log in using a seeded account",

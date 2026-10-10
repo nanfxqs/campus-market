@@ -19,9 +19,13 @@ func TestSaleConfirmationAndReplay(t *testing.T) {
 	p := authRequest(t, base, "POST", "/products", token, bodyJSON(t, productBody("textbooks", map[string]any{"author": "A"})), 201)
 	id := p["id"].(string)
 	body := `{"buyerId":"buyer","priceCents":10001,"idempotencyKey":"first-sale"}`
+	assertSellerHomeCounts(t, base, "seller", 0, 1)
 	before := time.Now().Add(-time.Millisecond)
 	result := authRequest(t, base, "POST", "/products/"+id+"/sale", token, body, 200)
+	assertSellerHomeCounts(t, base, "seller", 1, 0)
 	replay := authRequest(t, base, "POST", "/products/"+id+"/sale", token, body, 200)
+	assertSellerHomeCounts(t, base, "seller", 1, 0)
+	assertSellerHomeCounts(t, base, "buyer", 0, 0)
 	if bodyJSON(t, result) != bodyJSON(t, replay) || result["success"] != true || result["priceCents"] != float64(10001) {
 		t.Fatalf("sale/replay: %v %v", result, replay)
 	}
@@ -116,6 +120,7 @@ func TestSaleConcurrentExactlyOnce(t *testing.T) {
 			if successes != want {
 				t.Fatalf("success responses %d want %d", successes, want)
 			}
+			assertSellerHomeCounts(t, base, "seller", 1, 0)
 			saleCount(t, db, "transactions", bson.M{"success": true}, 1)
 			saleCount(t, db, "transactions", bson.M{}, records)
 			saleCount(t, db, "listings", bson.M{"_id": id}, 0)
@@ -129,6 +134,7 @@ func TestSaleConcurrentExactlyOnce(t *testing.T) {
 			if bodyJSON(t, r1) != bodyJSON(t, r2) {
 				t.Fatal("failure not replayed")
 			}
+			assertSellerHomeCounts(t, base, "seller", 1, 0)
 			saleCount(t, db, "transactions", bson.M{}, records+1)
 		})
 	}
@@ -229,7 +235,9 @@ func TestSaleRollbackOnPersistenceFailure(t *testing.T) {
 	token := request("POST", "/auth/login", `{"username":"seller","password":"CampusDemo123!"}`, 200)["accessToken"].(string)
 	id := authRequest(t, base, "POST", "/products", token, bodyJSON(t, productBody("textbooks", map[string]any{"author": "A"})), 201)["id"].(string)
 	body := `{"buyerId":"buyer","priceCents":987,"idempotencyKey":"rollback"}`
+	assertSellerHomeCounts(t, base, "seller", 0, 1)
 	authRequest(t, base, "POST", "/products/"+id+"/sale", token, body, 503)
+	assertSellerHomeCounts(t, base, "seller", 0, 1)
 	detail := request("GET", "/products/"+id, "", 200)
 	product := detail["product"].(map[string]any)
 	if product["sold"] != false || product["sale"] != nil || detail["available"] != true || detail["seller"].(map[string]any)["completedSales"] != float64(0) {
@@ -242,6 +250,7 @@ func TestSaleRollbackOnPersistenceFailure(t *testing.T) {
 		t.Fatal(err)
 	}
 	authRequest(t, base, "POST", "/products/"+id+"/sale", token, body, 200)
+	assertSellerHomeCounts(t, base, "seller", 1, 0)
 	saleCount(t, db, "transactions", bson.M{"success": true}, 1)
 }
 
@@ -305,6 +314,7 @@ func TestSaleConcurrentKeyConflictRollsBackOtherProduct(t *testing.T) {
 	if successes != 1 || conflicts != 1 {
 		t.Fatalf("successes=%d conflicts=%d", successes, conflicts)
 	}
+	assertSellerHomeCounts(t, base, "seller", 1, 1)
 	saleCount(t, db, "transactions", bson.M{}, 1)
 	saleCount(t, db, "listings", bson.M{}, 1)
 	if authRequest(t, base, "GET", "/users/me", token, "", 200)["completedSales"] != float64(1) {
