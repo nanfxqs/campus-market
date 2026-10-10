@@ -52,7 +52,10 @@ func Initialize(ctx context.Context, db *mongo.Database) error {
 		return err
 	}
 	_, err := db.Collection("priceChanges").Indexes().CreateOne(ctx, mongo.IndexModel{Keys: bson.D{{Key: "productId", Value: 1}, {Key: "changedAt", Value: -1}, {Key: "_id", Value: -1}}})
-	return err
+	if err != nil {
+		return err
+	}
+	return initializeSearch(ctx, db)
 }
 
 type ProductContent struct {
