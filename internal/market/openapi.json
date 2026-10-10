@@ -924,8 +924,8 @@
     "/categories/{id}/condition-counts": {
       "get": {
         "operationId": "categoryConditionCounts",
-        "summary": "指定平面分类的有效在售商品新旧程度统计",
-        "description": "公开接口。固定按全新、几乎全新、轻度使用、明显使用返回四档，零数量保留。排除已成交、资格移除、商品档案或资格已到期的商品，不依赖 TTL 清理；按查询时刻校验，不承诺并发写入的请求级事务快照。",
+        "summary": "Count currently eligible products by condition in a flat category",
+        "description": "Public endpoint. Returns all four condition grades in a fixed order: new, like new, lightly used, and visibly used, including zero counts. Excludes sold products, removed listings, and products whose archive or listing has expired, without relying on TTL cleanup. Eligibility is checked at query time; no request-level transaction snapshot is promised for concurrent writes.",
         "parameters": [
           {
             "name": "id",
@@ -940,7 +940,7 @@
         ],
         "responses": {
           "200": {
-            "description": "固定四档统计",
+            "description": "Counts for all four condition grades in a fixed order.",
             "content": {
               "application/json": {
                 "schema": {
@@ -950,7 +950,7 @@
             }
           },
           "400": {
-            "description": "invalid_input：分类 ID 超长",
+            "description": "invalid_input: category ID exceeds the maximum length.",
             "content": {
               "application/json": {
                 "schema": {
@@ -960,7 +960,7 @@
             }
           },
           "404": {
-            "description": "category_not_found：分类不存在",
+            "description": "category_not_found: category does not exist.",
             "content": {
               "application/json": {
                 "schema": {
@@ -970,7 +970,7 @@
             }
           },
           "503": {
-            "description": "unavailable：数据库不可用",
+            "description": "unavailable: database unavailable.",
             "content": {
               "application/json": {
                 "schema": {
@@ -1774,7 +1774,7 @@
             "type": "array",
             "minItems": 4,
             "maxItems": 4,
-            "description": "固定顺序：全新、几乎全新、轻度使用、明显使用",
+            "description": "Fixed order: new, like new, lightly used, and visibly used. Condition values use the Chinese labels defined in the enum.",
             "items": {
               "type": "object",
               "required": [
