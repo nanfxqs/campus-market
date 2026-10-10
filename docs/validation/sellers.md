@@ -96,3 +96,44 @@ diff 空白检查通过。Go 文件使用 tools 镜像中的 gofmt 格式化。
   操作 Swagger；这些不由定向 HTTP 测试或 vet 替代。完整套件和 review 由父代理执行。
   TTL 测试证明清理前资格正确，不声称本轮重新验证了 TTL 实际删除时序。
 - 没有 commit。
+
+## 最终验证
+
+父代理完成实现后的串行验证：
+
+```sh
+docker compose run --rm --no-deps -e SCALE=1 -e GIN_MODE=release \
+  -v "$PWD:/src" verify test ./... -count=1 -timeout=12m
+docker compose run --rm --no-deps -v "$PWD:/src" verify vet ./...
+uvx --from openapi-spec-validator openapi-spec-validator internal/market/openapi.json
+git diff --check
+```
+
+完整套件通过：`internal/market` 29.188s，`validation` 57.731s；
+包括真实 Search、事务及 TTL 物理清理验证。vet、OpenAPI 校验及空白检查通过。
+这不代表已完成 V2 性能验收，也不替代人工 Swagger 浏览器操作。
+
+首次完整套件运行失败：误并行启动的测试进程触发秒粒度测试库名称碰撞，
+独立 validation 套件还因 api 未启动和旧夹具污染失败。恢复 api 时发现宿主
+8080 端口被占用，因此没有停止占用端口的现有服务，而是运行不发布宿主端口、
+带 Compose 服务别名的临时 api 容器，重建专用 `campus_validation` 大规模夹具，
+再以单个测试进程串行运行以上完整命令。临时 api 容器在验证后移除。
+重建只作用于验证数据库，不作用于应用数据库 `campus_market`。
+
+实现提交：`810f625`。双轴审查以 `6894561` 为固定基准。
+
+## Standards
+
+独立审查未发现文档规范违反（0 项）。有 3 项判断性维护建议：
+共享键集游标过滤及下一游标编码、用小型作用域类型表达分类/卖家互斥关系、
+用结构化表格替代测试夹具中的状态字符串。这些不是业务错误或验收阻塞项，
+本次保留为后续整理建议，不扩大已验证实现的重构范围。现有 HTTP 测试已覆盖
+两种分页的确定排序及游标作用域隔离。
+
+## Spec
+
+独立审查 0 项发现：当前资料、信用分、成交数、有效在售列表及完整 count、
+分页复用、TTL 延迟排除、成交幂等/竞争/回滚计数、OpenAPI 和索引说明符合 #9，
+无范围扩张或已识别错误。Swagger 浏览器手动操作仍未实测。
+
+审查汇总：Standards 0 项硬性违反、3 项非阻塞维护建议；Spec 0 项发现。
