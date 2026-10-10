@@ -91,9 +91,13 @@ func saleRoutes(authorized *gin.RouterGroup, db *mongo.Database, confirmationTim
 	})
 }
 
+func saleAttemptID(sellerID, key string) string {
+	digest := sha256.Sum256([]byte(fmt.Sprintf("%d:%s%s", len(sellerID), sellerID, key)))
+	return hex.EncodeToString(digest[:])
+}
+
 func confirmSale(ctx context.Context, db *mongo.Database, product Product, input saleInput, confirmationTime func() time.Time) (SaleAttempt, error) {
-	digest := sha256.Sum256([]byte(fmt.Sprintf("%d:%s%s", len(product.SellerID), product.SellerID, input.IdempotencyKey)))
-	id := hex.EncodeToString(digest[:])
+	id := saleAttemptID(product.SellerID, input.IdempotencyKey)
 	session, err := db.Client().StartSession()
 	if err != nil {
 		return SaleAttempt{}, err

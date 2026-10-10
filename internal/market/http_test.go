@@ -14,6 +14,7 @@ import (
 
 	"github.com/nanfxqs/campus-market/internal/market"
 	"go.mongodb.org/mongo-driver/bson"
+	"go.mongodb.org/mongo-driver/bson/primitive"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 	"golang.org/x/crypto/bcrypt"
@@ -37,10 +38,10 @@ func setupDatabase(t *testing.T, ttl time.Duration) (string, func(string, string
 	if err != nil {
 		t.Fatal(err)
 	}
-	name := "campus_auth_test_" + time.Now().Format("150405000000000")
+	name := "campus_auth_test_" + primitive.NewObjectID().Hex()
 	db := client.Database(name)
 	t.Cleanup(func() { db.Drop(context.Background()); client.Disconnect(context.Background()) })
-	command := exec.Command("go", "run", "../../cmd/market", "seed")
+	command := exec.Command("go", "run", "../../cmd/market", "seed", "--mode=demo")
 	command.Env = append(os.Environ(), "DB_NAME="+name)
 	if out, err := command.CombinedOutput(); err != nil {
 		t.Fatalf("seed: %s %v", out, err)
@@ -153,11 +154,11 @@ func TestSeedCLIRefusesNonemptyDatabaseAndHashesCredentials(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	name := "campus_seed_test_" + time.Now().Format("150405000000000")
+	name := "campus_seed_test_" + primitive.NewObjectID().Hex()
 	db := client.Database(name)
 	t.Cleanup(func() { db.Drop(context.Background()); client.Disconnect(context.Background()) })
 	seed := func(name string) error {
-		cmd := exec.Command("go", "run", "../../cmd/market", "seed")
+		cmd := exec.Command("go", "run", "../../cmd/market", "seed", "--mode=demo")
 		cmd.Env = append(os.Environ(), "DB_NAME="+name)
 		out, err := cmd.CombinedOutput()
 		t.Logf("seed output: %s", out)

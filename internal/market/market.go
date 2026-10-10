@@ -38,7 +38,7 @@ type session struct {
 }
 
 // Seed adds two demo accounts only to an empty, explicitly named database.
-// It never drops or overwrites existing data. Full-scale seeds belong to #12.
+// It never drops or overwrites existing data. SeedDataset provides experiment modes.
 func Seed(ctx context.Context, db *mongo.Database) error {
 	names, err := db.ListCollectionNames(ctx, bson.M{})
 	if err != nil {
