@@ -247,6 +247,7 @@ func newAPI(db *mongo.Database, ttl time.Duration, confirmationTime func() time.
 	saleRoutes(authorized, db, confirmationTime)
 	router.GET("/search", func(c *gin.Context) { searchPage(c, db) })
 	priceRoutes(authorized, db)
+	statisticsRoutes(router, db)
 	router.GET("/openapi.json", func(c *gin.Context) { c.Data(200, "application/json", openAPI) })
 	router.GET("/docs", func(c *gin.Context) { c.Data(200, "text/html; charset=utf-8", []byte(swaggerHTML)) })
 	return router

@@ -920,6 +920,67 @@
           }
         }
       }
+    },
+    "/categories/{id}/condition-counts": {
+      "get": {
+        "operationId": "categoryConditionCounts",
+        "summary": "指定平面分类的有效在售商品新旧程度统计",
+        "description": "公开接口。固定按全新、几乎全新、轻度使用、明显使用返回四档，零数量保留。排除已成交、资格移除、商品档案或资格已到期的商品，不依赖 TTL 清理；按查询时刻校验，不承诺并发写入的请求级事务快照。",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 64
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "固定四档统计",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ConditionCounts"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "invalid_input：分类 ID 超长",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "category_not_found：分类不存在",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "unavailable：数据库不可用",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
@@ -1696,6 +1757,47 @@
             "type": "string",
             "format": "date-time",
             "description": "Server time of this attempt; retries return the original timestamp."
+          }
+        }
+      },
+      "ConditionCounts": {
+        "type": "object",
+        "required": [
+          "categoryId",
+          "items"
+        ],
+        "properties": {
+          "categoryId": {
+            "type": "string"
+          },
+          "items": {
+            "type": "array",
+            "minItems": 4,
+            "maxItems": 4,
+            "description": "固定顺序：全新、几乎全新、轻度使用、明显使用",
+            "items": {
+              "type": "object",
+              "required": [
+                "condition",
+                "count"
+              ],
+              "properties": {
+                "condition": {
+                  "type": "string",
+                  "enum": [
+                    "全新",
+                    "几乎全新",
+                    "轻度使用",
+                    "明显使用"
+                  ]
+                },
+                "count": {
+                  "type": "integer",
+                  "format": "int64",
+                  "minimum": 0
+                }
+              }
+            }
           }
         }
       }
