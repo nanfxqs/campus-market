@@ -9,7 +9,7 @@ import (
 	"go.mongodb.org/mongo-driver/mongo"
 )
 
-func statisticsRoutes(router *gin.Engine, db *mongo.Database) {
+func statisticsRoutes(router *gin.Engine, db *mongo.Database, clock func() time.Time) {
 	router.GET("/categories/:id/condition-counts", func(c *gin.Context) {
 		category := c.Param("id")
 		if len(category) > 64 {
@@ -25,7 +25,7 @@ func statisticsRoutes(router *gin.Engine, db *mongo.Database) {
 			fail(c, 503, "unavailable")
 			return
 		}
-		now := time.Now()
+		now := clock()
 		pipeline := mongo.Pipeline{
 			{{Key: "$match", Value: bson.M{"categoryId": category, "sold": false, "expiresAt": bson.M{"$gt": now}}}},
 			{{Key: "$lookup", Value: bson.M{"from": "listings", "localField": "_id", "foreignField": "_id", "as": "eligibility"}}},

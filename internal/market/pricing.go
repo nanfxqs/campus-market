@@ -11,7 +11,7 @@ import (
 	"go.mongodb.org/mongo-driver/mongo/options"
 )
 
-func priceRoutes(authorized *gin.RouterGroup, db *mongo.Database) {
+func priceRoutes(authorized *gin.RouterGroup, db *mongo.Database, clock func() time.Time) {
 	authorized.PATCH("/products/:id/price", func(c *gin.Context) {
 		var product Product
 		if !loadProduct(c, db, &product) {
@@ -39,7 +39,7 @@ func priceRoutes(authorized *gin.RouterGroup, db *mongo.Database) {
 		defer session.EndSession(c.Request.Context())
 		var updated Product
 		_, err = session.WithTransaction(c.Request.Context(), func(sc mongo.SessionContext) (any, error) {
-			now := time.Now().UTC().Truncate(time.Millisecond)
+			now := clock().UTC().Truncate(time.Millisecond)
 			if err := db.Collection("listings").FindOne(sc, bson.M{"_id": product.ID, "expiresAt": bson.M{"$gt": now}}).Err(); err != nil {
 				return nil, err
 			}

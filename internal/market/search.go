@@ -36,7 +36,7 @@ func initializeSearch(ctx context.Context, db *mongo.Database) error {
 	return err
 }
 
-func searchPage(c *gin.Context, db *mongo.Database) {
+func searchPage(c *gin.Context, db *mongo.Database, clock func() time.Time) {
 	values := c.Request.URL.Query()["q"]
 	if len(values) != 1 || !utf8.ValidString(values[0]) || strings.TrimSpace(values[0]) == "" || len(values[0]) > 300 {
 		fail(c, 400, "invalid_input")
@@ -44,7 +44,7 @@ func searchPage(c *gin.Context, db *mongo.Database) {
 	}
 	ctx, cancel := context.WithTimeout(c.Request.Context(), 10*time.Second)
 	defer cancel()
-	result, err := search(ctx, db, values[0])
+	result, err := search(ctx, db, values[0], clock)
 	if err != nil {
 		fail(c, 503, "unavailable")
 		return
@@ -71,7 +71,7 @@ type searchResult struct {
 	Results []searchHit `json:"results"`
 }
 
-func search(ctx context.Context, db *mongo.Database, q string) (searchResult, error) {
+func search(ctx context.Context, db *mongo.Database, q string, clock func() time.Time) (searchResult, error) {
 	result := searchResult{Results: []searchHit{}}
 	// No limit before eligibility checking: invalid high-ranking candidates must
 	// neither inflate the total nor hide qualified candidates beyond the first 20.
@@ -94,7 +94,7 @@ func search(ctx context.Context, db *mongo.Database, q string) (searchResult, er
 		for _, h := range batch {
 			ids = append(ids, h.ID)
 		}
-		now := time.Now().UTC()
+		now := clock().UTC()
 		cur, err := db.Collection("listings").Aggregate(ctx, mongo.Pipeline{
 			{{Key: "$match", Value: bson.M{"_id": bson.M{"$in": ids}, "expiresAt": bson.M{"$gt": now}}}},
 			{{Key: "$lookup", Value: bson.M{"from": "products", "localField": "_id", "foreignField": "_id", "as": "product"}}},

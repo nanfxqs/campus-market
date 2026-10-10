@@ -88,8 +88,8 @@ type PriceChange struct {
 	ChangedAt     time.Time `bson:"changedAt" json:"changedAt"`
 }
 
-func productRoutes(router *gin.Engine, authorized *gin.RouterGroup, db *mongo.Database) {
-	router.GET("/products", func(c *gin.Context) { browsePage(c, db) })
+func productRoutes(router *gin.Engine, authorized *gin.RouterGroup, db *mongo.Database, clock func() time.Time) {
+	router.GET("/products", func(c *gin.Context) { browsePage(c, db, clock) })
 	router.GET("/categories", func(c *gin.Context) {
 		cursor, err := db.Collection("categories").Find(c.Request.Context(), bson.M{}, options.Find().SetSort(bson.D{{Key: "_id", Value: 1}}))
 		if err != nil {
@@ -118,7 +118,7 @@ func productRoutes(router *gin.Engine, authorized *gin.RouterGroup, db *mongo.Da
 		if !validateContent(c, db, input.ProductContent) {
 			return
 		}
-		now := time.Now().UTC().Truncate(time.Millisecond)
+		now := clock().UTC().Truncate(time.Millisecond)
 		p := Product{ID: primitive.NewObjectID().Hex(), ProductContent: input.ProductContent, SellerID: c.GetString("userID"), PriceCents: input.PriceCents, InitialPriceCents: input.PriceCents, PublishedAt: now, ExpiresAt: now.Add(1440 * time.Hour)}
 		session, err := db.Client().StartSession()
 		if err != nil {
@@ -161,7 +161,7 @@ func productRoutes(router *gin.Engine, authorized *gin.RouterGroup, db *mongo.Da
 		defer session.EndSession(c.Request.Context())
 		var edited Product
 		_, err = session.WithTransaction(c.Request.Context(), func(sc mongo.SessionContext) (any, error) {
-			now := time.Now()
+			now := clock()
 			// Read eligibility and update the archive in the same transaction.
 			// Concurrent sale updates to this archive cause a transaction retry.
 			if err := db.Collection("listings").FindOne(sc, bson.M{"_id": current.ID, "expiresAt": bson.M{"$gt": now}}).Err(); err != nil {
@@ -190,7 +190,7 @@ func productRoutes(router *gin.Engine, authorized *gin.RouterGroup, db *mongo.Da
 			fail(c, 503, "unavailable")
 			return
 		}
-		count, err := db.Collection("listings").CountDocuments(c.Request.Context(), bson.M{"_id": p.ID, "expiresAt": bson.M{"$gt": time.Now()}})
+		count, err := db.Collection("listings").CountDocuments(c.Request.Context(), bson.M{"_id": p.ID, "expiresAt": bson.M{"$gt": clock()}})
 		if err != nil {
 			fail(c, 503, "unavailable")
 			return
@@ -200,7 +200,7 @@ func productRoutes(router *gin.Engine, authorized *gin.RouterGroup, db *mongo.Da
 			fail(c, 503, "unavailable")
 			return
 		}
-		c.JSON(200, gin.H{"product": p, "seller": seller, "available": count == 1 && !p.Sold && p.ExpiresAt.After(time.Now()), "priceHistory": history, "priceHistoryUrl": "/products/" + p.ID + "/price-history"})
+		c.JSON(200, gin.H{"product": p, "seller": seller, "available": count == 1 && !p.Sold && p.ExpiresAt.After(clock()), "priceHistory": history, "priceHistoryUrl": "/products/" + p.ID + "/price-history"})
 	})
 	router.GET("/products/:id/price-history", func(c *gin.Context) {
 		var p Product

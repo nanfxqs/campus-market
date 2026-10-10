@@ -68,3 +68,7 @@ docker compose run --rm verify test -v ./internal/market -count=1
 `GET /products?categoryId=textbooks` 按指定平面分类浏览有效在售商品，发布时间及 ID 倒序；默认 20 条，`limit` 为 1–100，响应 `nextCursor` 可用于同分类下一页的 `cursor`。缺失/非法参数返回 400，未知分类返回 404；到期条目即使 TTL 尚未删除也会排除。静态数据分页无重复无遗漏，并发变化不承诺快照。Swagger `/docs` 可直接执行。索引及验证见 [浏览验证记录](docs/validation/browse.md)。
 
 [商品验证记录](docs/validation/products.md) 包含 HTTP、规则演化和事务回滚证据。
+
+## 自动下架生命周期验收（#11）
+
+运行 `scripts/validate-expiry.sh`，生成 Markdown 实测记录 `docs/validation/expiry-run.md`；可传入其他结果路径。入口启动 MongoDB/Search、构建测试工具并通过真实 HTTP 验证到期前、恰好到期及之后的浏览、搜索、改价、成交、主页和分类统计，复用并发成交与跨到期事务重试检查，再观察 MongoDB TTL 删除独立在售条目。测试使用独立数据库，不重置现有数据。详情、图片和改价历史继续可读，到期不能改价、修改内容或重新上架；TTL 延迟不延长出售资格。3 分钟观察超时仅为测试诊断边界。见[生命周期验证记录](docs/validation/expiry.md)。

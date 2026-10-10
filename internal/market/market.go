@@ -107,7 +107,7 @@ func New(db *mongo.Database, ttl time.Duration) http.Handler {
 	return newAPI(db, ttl, time.Now)
 }
 
-func newAPI(db *mongo.Database, ttl time.Duration, confirmationTime func() time.Time) http.Handler {
+func newAPI(db *mongo.Database, ttl time.Duration, clock func() time.Time) http.Handler {
 	if ttl <= 0 {
 		panic("access token lifetime must be positive")
 	}
@@ -243,12 +243,12 @@ func newAPI(db *mongo.Database, ttl time.Duration, confirmationTime func() time.
 		}
 		c.JSON(200, user)
 	})
-	router.GET("/users/:id/home", func(c *gin.Context) { sellerHome(c, db) })
-	productRoutes(router, authorized, db)
-	saleRoutes(authorized, db, confirmationTime)
-	router.GET("/search", func(c *gin.Context) { searchPage(c, db) })
-	priceRoutes(authorized, db)
-	statisticsRoutes(router, db)
+	router.GET("/users/:id/home", func(c *gin.Context) { sellerHome(c, db, clock) })
+	productRoutes(router, authorized, db, clock)
+	saleRoutes(authorized, db, clock)
+	router.GET("/search", func(c *gin.Context) { searchPage(c, db, clock) })
+	priceRoutes(authorized, db, clock)
+	statisticsRoutes(router, db, clock)
 	router.GET("/openapi.json", func(c *gin.Context) { c.Data(200, "application/json", openAPI) })
 	router.GET("/docs", func(c *gin.Context) { c.Data(200, "text/html; charset=utf-8", []byte(swaggerHTML)) })
 	return router

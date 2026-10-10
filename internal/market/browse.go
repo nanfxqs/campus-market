@@ -107,7 +107,7 @@ func parsePage(c *gin.Context, scope pageScope) (int, *browseCursor, bool) {
 	return limit, cursor, true
 }
 
-func browsePage(c *gin.Context, db *mongo.Database) {
+func browsePage(c *gin.Context, db *mongo.Database, clock func() time.Time) {
 	category := c.Query("categoryId")
 	if category == "" || len(category) > 64 || len(c.Request.URL.Query()["categoryId"]) != 1 {
 		fail(c, 400, "invalid_input")
@@ -129,7 +129,7 @@ func browsePage(c *gin.Context, db *mongo.Database) {
 	}
 	filter := pagePosition(cursor)
 	filter["categoryId"] = category
-	pipeline := eligibleProducts(filter, time.Now())
+	pipeline := eligibleProducts(filter, clock())
 	pipeline = append(pipeline, bson.D{{Key: "$limit", Value: int64(limit + 1)}}, bson.D{{Key: "$project", Value: bson.M{"eligibility": 0}}})
 	rows, err := db.Collection("products").Aggregate(c.Request.Context(), pipeline)
 	if err != nil {

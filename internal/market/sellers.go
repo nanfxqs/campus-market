@@ -10,7 +10,7 @@ import (
 	"go.mongodb.org/mongo-driver/mongo"
 )
 
-func sellerHome(c *gin.Context, db *mongo.Database) {
+func sellerHome(c *gin.Context, db *mongo.Database, clock func() time.Time) {
 	id := c.Param("id")
 	if len(id) == 0 || len(id) > 64 || !utf8.ValidString(id) {
 		fail(c, 400, "invalid_input")
@@ -38,7 +38,7 @@ func sellerHome(c *gin.Context, db *mongo.Database) {
 		page = append(page, bson.D{{Key: "$match", Value: pagePosition(cursor)}})
 	}
 	page = append(page, bson.D{{Key: "$limit", Value: int64(limit + 1)}}, bson.D{{Key: "$project", Value: bson.M{"eligibility": 0}}})
-	pipeline := eligibleProducts(bson.M{"sellerId": id}, time.Now())
+	pipeline := eligibleProducts(bson.M{"sellerId": id}, clock())
 	pipeline = append(pipeline, bson.D{{Key: "$facet", Value: bson.M{
 		"items": page, "counts": mongo.Pipeline{bson.D{{Key: "$count", Value: "total"}}},
 	}}})
