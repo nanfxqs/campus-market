@@ -4,13 +4,15 @@
 
 ## V1：功能基线版
 
-- [ ] 验证本地 MongoDB Search 中文同义词搜索、命中解释与有效在售过滤。
-- [ ] 验证 TTL 清理独立在售条目，保留商品档案且到期立即禁止成交。
-- [ ] 完成可复现种子数据、全部 8 项核心功能及必要的认证、改价和卖家信息接口。
-- [ ] 提供 REST API、OpenAPI / Swagger UI、Go 功能与并发正确性测试、Docker Compose 一键启动和导入。
-- [ ] 提供各核心功能的可执行验证入口，为 V2 实测提供基础。
+- [x] 验证本地 MongoDB Search 中文同义词搜索、命中解释与有效在售过滤。
+- [x] 验证 TTL 清理独立在售条目，保留商品档案且到期立即禁止成交。
+- [x] 完成可复现种子数据、全部 8 项核心功能及必要的认证、改价和卖家信息接口。
+- [x] 提供 REST API、OpenAPI / Swagger UI、Go 功能与并发正确性测试、Docker Compose 一键启动和导入。
+- [x] 提供各核心功能的可执行验证入口，为 V2 实测提供基础。
 
 V1 为功能基线，不代表已经完成课程全部性能验收。实施需求与测试边界见 [V1 spec #1](https://github.com/nanfxqs/campus-market/issues/1)；仓库保留 [spec 文档副本](docs/specs/v1.md)，后续变更以 issue tracker 为准并同步副本。
+
+V1 已于 2026-10-10 完成 12/12 子任务（#2–#13），父 spec #1 已关闭。统一验收入口 `scripts/validate-v1.sh`，见 [V1 验收记录](docs/validation/v1.md)。已验证当前机器的全新容器/卷复现，第二台物理机器尚未实测；V2/V3 状态保持如下。
 
 ## V2：完整性能验收与架构优化（规划）
 
