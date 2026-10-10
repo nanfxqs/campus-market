@@ -18,7 +18,7 @@
 
 ## Standards
 
-独立子代理审查：0 项规范违规。1 项可选维护建议：发布校验与统计的四档枚举可集中定义。V1 四档固定，当前两处一致，本次保留现有校验以控制范围。
+独立子代理审查：0 项规范违规。原有 1 项可选维护建议已修复：`conditions.go` 集中定义四档有序列表，发布校验和统计共同使用，测试保留独立的预期值。
 
 ## Spec
 
@@ -27,3 +27,5 @@
 独立环境首次完整运行因未导入 validation 规模夹具失败，应用包全部通过。按 `scripts/validate.sh` 导入 `api seed --large --reset`：10,000 用户、20,000 在售、180,000 历史、300,000 交易记录；随后重跑完整套件。OpenAPI 官方结构校验工具 `openapi-spec-validator` 校验通过。
 
 最终完整套件通过：`docker compose -p campus-issue10-check -f compose.yaml -f /tmp/issue10-compose.yaml run --rm -e SCALE=1 -e GIN_MODE=release -v /tmp/campus-market-issue10:/src verify test -v ./... -count=1 -timeout=12m`。应用包 8.606s，validation 包 57.001s；真实 TTL 在到期后约 45.246s 观察到资格物理删除，档案与历史保留。独立环境最终 `go vet ./...` 亦通过。
+
+2026-10-10 枚举去重验证：完整应用测试包 `go test ./internal/market -count=1` 通过（12.155s），包含品相非法值拒绝、四档统计及契约测试；`go vet ./...` 通过。此处为应用包验证，未重跑独立 validation 环境套件。

@@ -50,7 +50,7 @@ func statisticsRoutes(router *gin.Engine, db *mongo.Database) {
 			counts[row.Condition] = row.Count
 		}
 		items := []gin.H{}
-		for _, condition := range []string{"全新", "几乎全新", "轻度使用", "明显使用"} {
+		for _, condition := range productConditions {
 			items = append(items, gin.H{"condition": condition, "count": counts[condition]})
 		}
 		c.JSON(200, gin.H{"categoryId": category, "items": items})

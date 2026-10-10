@@ -4,6 +4,7 @@ import (
 	"math"
 	"net/url"
 	"regexp"
+	"slices"
 	"strings"
 	"unicode/utf8"
 
@@ -65,9 +66,7 @@ func validateContent(c *gin.Context, db *mongo.Database, p ProductContent) bool 
 		fail(c, 400, "invalid_input")
 		return false
 	}
-	switch p.Condition {
-	case "全新", "几乎全新", "轻度使用", "明显使用":
-	default:
+	if !slices.Contains(productConditions, p.Condition) {
 		fail(c, 400, "invalid_input")
 		return false
 	}
