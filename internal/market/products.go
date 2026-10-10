@@ -51,6 +51,9 @@ func Initialize(ctx context.Context, db *mongo.Database) error {
 	if _, err := db.Collection("products").Indexes().CreateOne(ctx, mongo.IndexModel{Keys: bson.D{{Key: "categoryId", Value: 1}, {Key: "sold", Value: 1}, {Key: "publishedAt", Value: -1}, {Key: "_id", Value: -1}}, Options: options.Index().SetName("category_browse")}); err != nil {
 		return err
 	}
+	if _, err := db.Collection("products").Indexes().CreateOne(ctx, mongo.IndexModel{Keys: bson.D{{Key: "sellerId", Value: 1}, {Key: "sold", Value: 1}, {Key: "publishedAt", Value: -1}, {Key: "_id", Value: -1}}, Options: options.Index().SetName("seller_browse")}); err != nil {
+		return err
+	}
 	_, err := db.Collection("priceChanges").Indexes().CreateOne(ctx, mongo.IndexModel{Keys: bson.D{{Key: "productId", Value: 1}, {Key: "changedAt", Value: -1}, {Key: "_id", Value: -1}}})
 	if err != nil {
 		return err
