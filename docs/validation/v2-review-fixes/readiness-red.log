@@ -1,0 +1,36 @@
+FE
+======================================================================
+ERROR: test_unready_cohort_fails_with_finite_observation_log (experiments.test_search_readiness_cli.Readiness.test_unready_cohort_fails_with_finite_observation_log)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/campus-v2-review-fixes/experiments/test_search_readiness_cli.py", line 8, in test_unready_cohort_fails_with_finite_observation_log
+    self.exercise([42],False)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^
+  File "/tmp/campus-v2-review-fixes/experiments/test_search_readiness_cli.py", line 22, in exercise
+    rs=[json.loads(x) for x in p.read_text().splitlines()]
+                               ~~~~~~~~~~~^^
+  File "/usr/lib/python3.14/pathlib/__init__.py", line 787, in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors, newline=newline) as f:
+         ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/pathlib/__init__.py", line 771, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/tmp/tmp4g2fq09o/observations.jsonl'
+
+======================================================================
+FAIL: test_retries_http_failure_and_incomplete_cohort_with_raw_observations (experiments.test_search_readiness_cli.Readiness.test_retries_http_failure_and_incomplete_cohort_with_raw_observations)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/campus-v2-review-fixes/experiments/test_search_readiness_cli.py", line 6, in test_retries_http_failure_and_incomplete_cohort_with_raw_observations
+    self.exercise([500,42,16667],True)
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/campus-v2-review-fixes/experiments/test_search_readiness_cli.py", line 21, in exercise
+    self.assertEqual(r.returncode==0,success,r.stderr);self.assertLess(time.monotonic()-begin,1)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False != True : python3: can't open file '/tmp/campus-v2-review-fixes/scripts/search_readiness.py': [Errno 2] No such file or directory
+
+
+----------------------------------------------------------------------
+Ran 2 tests in 1.006s
+
+FAILED (failures=1, errors=1)

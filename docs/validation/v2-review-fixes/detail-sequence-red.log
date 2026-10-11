@@ -1,0 +1,15 @@
+F
+======================================================================
+FAIL: test_duplicate_detail_sequence_receipt_is_rejected (experiments.test_acceptance_binding.CorruptedArtifacts.test_duplicate_detail_sequence_receipt_is_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/campus-v2-review-fixes/experiments/test_acceptance_binding.py", line 81, in test_duplicate_detail_sequence_receipt_is_rejected
+    r=self.stage('detail-A-hotspot',p);self.assertNotEqual(r.returncode,0,r.stdout)
+                                       ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 0 == 0 : {"configuration": "A", "state": "disabled", "pattern": "hotspot", "poolSHA256": "4180065e92b77e9da98e8f88e287f6927a2b754943676b234bcc31967932f384", "identity": ["campus-v2-detail-formal23", "campus_v2_detail_formal23", 1791701624571946740], "formalPassed": true, "requests": 62384, "throughputPerSecond": 1039.7333333333333, "latencyMs": {"median": 32.51380999790854, "p95": 47.174456994980574, "p99": 55.287463997956365}, "telemetry": {"disabled": 62384, "missing": 0, "mongoQueries": 249536, "mongoBsonBytes": 93877855, "cacheErrors": 0, "hitRate": null}, "cacheHealthy": true}
+
+
+----------------------------------------------------------------------
+Ran 1 test in 1.815s
+
+FAILED (failures=1)

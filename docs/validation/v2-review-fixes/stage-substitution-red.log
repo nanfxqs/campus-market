@@ -1,0 +1,15 @@
+F
+======================================================================
+FAIL: test_one_sale_cannot_fill_nine_formal_slots (experiments.test_acceptance_binding.Binding.test_one_sale_cannot_fill_nine_formal_slots)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/campus-v2-review-fixes/experiments/test_acceptance_binding.py", line 13, in test_one_sale_cannot_fill_nine_formal_slots
+    self.assertNotEqual(r.returncode,0,r.stdout)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 0 == 0 : {"passed": true, "experiments": 28, "errors": []}
+
+
+----------------------------------------------------------------------
+Ran 1 test in 11.851s
+
+FAILED (failures=1)

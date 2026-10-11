@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Full-pool paired detail Locust experiments; reset only explicitly dedicated cache."""
 import argparse,concurrent.futures,gzip,hashlib,json,os,pathlib,random,signal,subprocess,sys,time,urllib.request
+from search_readiness import wait_for_full_cohort
 ROOT=pathlib.Path(__file__).resolve().parents[1]
 p=argparse.ArgumentParser(description=__doc__)
 p.add_argument('--project',required=True);p.add_argument('--database',required=True);p.add_argument('--api',required=True);p.add_argument('--configuration',choices=['A','B','C'],required=True);p.add_argument('--state',choices=['disabled','cold','hot'],required=True);p.add_argument('--pattern',choices=['hotspot','dispersed'],required=True);p.add_argument('--output',type=pathlib.Path,required=True);p.add_argument('--duration',type=float,default=60);p.add_argument('--idle-seconds',type=float,default=30);p.add_argument('--seed',type=int,default=42);p.add_argument('--formal',action='store_true');p.add_argument('--locust',help='explicit pinned Locust executable; default frozen project runtime');p.add_argument('--confirm-isolated-cache',action='store_true')
@@ -43,18 +44,7 @@ pool={'ids':pool_ids,'seed':a.seed,'pattern':a.pattern,'sha256':hashlib.sha256(j
 with gzip.open(out/'pool.json.gz','wt',compresslevel=3) as f:json.dump(pool,f,separators=(',',':'))
 # Search ingestion is preparation; it does not warm product-detail cache.
 if a.formal:
-    deadline=time.monotonic()+180
-    with (out/'search-readiness.jsonl').open('w') as observations:
-        while True:
-            try:
-                with urllib.request.urlopen(a.api+'/search?q=%E5%8D%95%E8%BD%A6',timeout=15) as response: search=json.load(response)
-                ready=search.get('total')==16667
-                observations.write(json.dumps({'unixNs':time.time_ns(),'expected':16667,'actual':search.get('total'),'ready':ready})+'\n');observations.flush()
-                if ready:break
-            except Exception as error:
-                observations.write(json.dumps({'unixNs':time.time_ns(),'error':str(error)})+'\n');observations.flush()
-            if time.monotonic()>deadline:raise TimeoutError('full Search cohort not ready within180seconds')
-            time.sleep(1)
+    wait_for_full_cohort(a.api,out/'search-readiness.jsonl','detail')
 # Explicit exclusive experiment cache, checked against exact project above.
 redis_cmd('FLUSHDB');save('cache-empty.json',{'dbsize':int(redis_cmd('DBSIZE')),'unixNs':time.time_ns()})
 if int(redis_cmd('DBSIZE'))!=0:raise RuntimeError('cache was not empty after explicit reset')
@@ -77,7 +67,7 @@ locust=[a.locust] if a.locust else ['uv','run','--frozen','--project',str(ROOT/'
 version=command([*locust,'--version'])
 locust_executable=a.locust or command(['uv','run','--frozen','--project',str(ROOT/'experiments'),'python','-c','import shutil;print(shutil.which("locust"))']).strip()
 if '2.46.6' not in version:raise RuntimeError('pinned Locust2.46.6 required')
-save('invocation.json',{**vars(a),'output':str(out),'fullDataset':full,'locustVersion':version,'git':command(['git','rev-parse','HEAD']).strip(),'gitStatus':command(['git','status','--short']),'sourceHashes':{str(f.relative_to(ROOT)):hashlib.sha256(f.read_bytes()).hexdigest() for f in (ROOT/'scripts/run-detail-load.py',ROOT/'experiments/detail_locust.py',ROOT/'experiments/summarize_details.py')}})
+save('invocation.json',{**vars(a),'output':str(out),'fullDataset':full,'locustVersion':version,'git':command(['git','rev-parse','HEAD']).strip(),'gitStatus':command(['git','status','--short']),'sourceHashes':{str(f.relative_to(ROOT)):hashlib.sha256(f.read_bytes()).hexdigest() for f in (ROOT/'scripts/run-detail-load.py',ROOT/'scripts/search_readiness.py',ROOT/'experiments/detail_locust.py',ROOT/'experiments/summarize_details.py')}})
 env={**os.environ,'DETAIL_OUTPUT':str(out),'DETAIL_CONFIGURATION':a.configuration,'DETAIL_DURATION':str(a.duration),'DETAIL_FORMAL':'1' if a.formal else '0'}
 command([sys.executable,str(ROOT/'scripts/measure-v2.py'),'--project',a.project,'--database',a.database,'--output',str(out/'idle-resources'),'--phase','idle','--seconds',str(a.idle_seconds),'--locust',locust_executable,'--git-base','integration/v2'])
 client=None;collector=None
