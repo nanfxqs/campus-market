@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "/tmp/campus-v2-functions/scripts/measure-functions.py", line 102, in <module>
+    ready = search_wait('单车',initial['bicycles'])
+            ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/campus-v2-functions/scripts/measure-functions.py", line 82, in search_wait
+    last = http('GET', '/search?q='+urllib.parse.quote(query))
+  File "/tmp/campus-v2-functions/scripts/measure-functions.py", line 73, in http
+    return request(*positional, **keywords)[0]
+           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/campus-v2-functions/scripts/measure-functions.py", line 69, in request
+    raise AssertionError((method, path, response.status, data))
+AssertionError: ('GET', '/search?q=%E5%8D%95%E8%BD%A6', 503, {'error': {'code': 'unavailable'}})

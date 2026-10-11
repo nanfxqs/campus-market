@@ -1,0 +1,16 @@
+{
+  "result": "PASS",
+  "measured_samples": 800,
+  "warmups": 8,
+  "features": [
+    "publish",
+    "category_browse",
+    "search",
+    "detail",
+    "seller_home",
+    "sale",
+    "automatic_delist",
+    "category_statistics"
+  ],
+  "quantiles_match_raw": true
+}

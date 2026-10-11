@@ -1,0 +1,15 @@
+{"method": "POST", "path": "/auth/login", "status": 200, "cache": null, "cacheErrors": null}
+{"method": "POST", "path": "/products", "status": 201, "cache": null, "cacheErrors": null}
+{"command": ["docker", "exec", "4793afccb766", "redis-cli", "CONFIG", "GET", "maxmemory"], "exit": 0, "stdout": "maxmemory\n134217728\n", "stderr": ""}
+{"command": ["docker", "exec", "4793afccb766", "redis-cli", "CONFIG", "GET", "maxmemory-policy"], "exit": 0, "stdout": "maxmemory-policy\nallkeys-lru\n", "stderr": ""}
+{"command": ["docker", "exec", "4793afccb766", "redis-cli", "FLUSHDB"], "exit": 0, "stdout": "OK\n", "stderr": ""}
+{"command": ["docker", "exec", "4793afccb766", "redis-cli", "CONFIG", "SET", "maxmemory-policy", "noeviction"], "exit": 0, "stdout": "OK\n", "stderr": ""}
+{"command": ["docker", "exec", "4793afccb766", "redis-cli", "CONFIG", "SET", "maxmemory", "1"], "exit": 0, "stdout": "OK\n", "stderr": ""}
+{"method": "GET", "path": "/products/6acb2c26bde379619714a4ac", "status": 200, "cache": "miss", "cacheErrors": null}
+{"command": ["docker", "exec", "4793afccb766", "redis-cli", "CONFIG", "SET", "maxmemory", "134217728"], "exit": 0, "stdout": "OK\n", "stderr": ""}
+{"command": ["docker", "exec", "4793afccb766", "redis-cli", "CONFIG", "SET", "maxmemory-policy", "allkeys-lru"], "exit": 0, "stdout": "OK\n", "stderr": ""}
+Traceback (most recent call last):
+  File "/tmp/campus-v2-details/tools/details/verify_cache_errors.py", line 23, in <module>
+    data,h=http('GET',path);assert data['product']['title']=='Cache error metric';assert h['X-Detail-Cache']=='miss' and h['X-Detail-Cache-Errors']=='1'
+                                                                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

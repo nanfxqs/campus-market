@@ -1,0 +1,3 @@
+campus-v2-functions22-api-a-1
+campus-v2-functions22-redis-1
+campus-v2-functions22-mongo-1

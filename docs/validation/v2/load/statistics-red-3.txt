@@ -1,0 +1,14 @@
+..E
+======================================================================
+ERROR: test_timeout_commit_is_reconciled_separately_from_on_time_success (test_sales_artifacts.SaleArtifactStatistics.test_timeout_commit_is_reconciled_separately_from_on_time_success)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/campus-v2-load/experiments/test_sales_artifacts.py", line 55, in test_timeout_commit_is_reconciled_separately_from_on_time_success
+    self.assertEqual(result['database']['newSuccessfulProducts'],['p3'])
+                     ~~~~~~^^^^^^^^^^^^
+KeyError: 'database'
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.221s
+
+FAILED (errors=1)

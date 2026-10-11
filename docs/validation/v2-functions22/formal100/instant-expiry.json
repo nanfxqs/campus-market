@@ -1,0 +1,21 @@
+{
+  "result": "PASS",
+  "expires_at": "2026-10-11T06:21:18.323Z",
+  "fixtures": [
+    "6acb2ada29a10805af4d5caf",
+    "6acb2ada29a10805af4d5cb1",
+    "6acb2ada29a10805af4d5cb3",
+    "6acb2ada29a10805af4d5cb5",
+    "6acb2ada29a10805af4d5cb7",
+    "6acb2ada29a10805af4d5cb9",
+    "6acb2ada29a10805af4d5cbb",
+    "6acb2ada29a10805af4d5cbd",
+    "6acb2ada29a10805af4d5cbf",
+    "6acb2ada29a10805af4d5cc1"
+  ],
+  "search_total": 0,
+  "home_count_decrement": 10,
+  "statistics_count_decrement": 10,
+  "rejected_sales": 10,
+  "archives_and_history_retained": 10
+}
