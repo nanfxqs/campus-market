@@ -1,0 +1,2 @@
+{"phase": "preparation", "feature": null, "sample": null, "method": "POST", "path": "/auth/login", "status": 200, "expected_status": 200, "elapsed_ms": 115.513915, "response_bytes": 165, "upstream": null}
+{"phase": "preparation", "feature": null, "sample": null, "method": "GET", "path": "/search?q=%E5%8D%95%E8%BD%A6", "status": 503, "expected_status": 200, "elapsed_ms": 77.430417, "response_bytes": 32, "upstream": null, "response": {"error": {"code": "unavailable"}}}

@@ -1,0 +1,4 @@
+?? docs/validation/v2-functions22/exclusive-projects-before.txt
+?? docs/validation/v2-functions22/exclusive-projects-measurement.txt
+?? docs/validation/v2-functions22/formal-preparation.log
+?? docs/validation/v2-functions22/formal100.log
