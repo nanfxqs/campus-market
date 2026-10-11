@@ -1,0 +1,16 @@
+ Container campus-v2-lb21-redis-1 Stopping 
+ Container campus-v2-lb21-mongo-1 Stopping 
+ Container campus-v2-lb21-redis-1 Stopped 
+ Container campus-v2-lb21-redis-1 Removing 
+ Container campus-v2-lb21-redis-1 Removed 
+ Container campus-v2-lb21-mongo-1 Stopped 
+ Container campus-v2-lb21-mongo-1 Removing 
+ Container campus-v2-lb21-mongo-1 Removed 
+ Volume campus-v2-lb21_search-data Removing 
+ Volume campus-v2-lb21_mongo-data Removing 
+ Volume campus-v2-lb21_mongo-config Removing 
+ Network campus-v2-lb21_default Removing 
+ Network campus-v2-lb21_default Resource is still in use 
+ Volume campus-v2-lb21_search-data Removed 
+ Volume campus-v2-lb21_mongo-data Removed 
+ Volume campus-v2-lb21_mongo-config Removed 
