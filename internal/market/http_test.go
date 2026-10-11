@@ -46,7 +46,11 @@ func setupDatabase(t *testing.T, ttl time.Duration) (string, func(string, string
 	if out, err := command.CombinedOutput(); err != nil {
 		t.Fatalf("seed: %s %v", out, err)
 	}
-	server := httptest.NewServer(market.New(db, ttl))
+	handler := market.New(db, ttl)
+	if os.Getenv("CACHE_TEST_ENABLED") == "true" {
+		handler = market.NewWithCache(db, ttl, market.RedisConfig{Address: os.Getenv("REDIS_ADDR")})
+	}
+	server := httptest.NewServer(handler)
 	t.Cleanup(server.Close)
 	request := func(method, path, body string, want int) map[string]any {
 		t.Helper()
