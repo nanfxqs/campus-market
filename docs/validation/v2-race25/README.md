@@ -1,0 +1,21 @@
+# Independent sale competition and idempotent replay (#25)
+
+Formal commands, executed sequentially in an exclusive experiment window:
+
+```sh
+scripts/validate-races.sh --configuration A --output /tmp/race-A-NEW --port 8087
+scripts/validate-races.sh --configuration B --output /tmp/race-B-NEW --port 8087
+scripts/validate-races.sh --configuration C --output /tmp/race-C-NEW --port 8087
+```
+
+Every invocation creates a fresh `campus-v2-race-*` Compose project, waits for actual MongoDB/Search readiness using the owned nonce probe helper, seeds demo seller/buyer accounts, and publishes independent fixtures through HTTP. It never consumes or resets the dedicated 30,000-product formal performance pool. The output directory must be new; exit and signal traps preserve service logs and remove only the project's containers, network and volumes. Cleanup failure or remaining owned resources fails the invocation. A/B use direct single-instance HTTP; C uses Nginx and requires both `X-Upstream-Addr` values in every group and in sequential same-key and changed-body retries.
+
+Each formal configuration runs 100 sequential groups. Each group publishes one valid product, then readies 50 worker threads at a barrier; the main thread releases all 50, with no application retries. Distinct keys, legitimate seller authentication, registered buyer and integer price are used. Raw records retain observed dispatch offsets/spread rather than claiming the OS sends 50 packets at precisely the same instant. Exactly one HTTP 200 successful sale and 49 HTTP 409 `product_sold` results are required. Transport errors, 5xx infrastructure failures and unexpected business/protocol results have separate classifications and invalidate that group.
+
+Each group performs read-only external MongoDB verification of exactly one successful transaction with the expected buyer and price, sold archive and sale facts, no eligibility listing, and seller count exactly one above the pre-group current profile. Every successful HTTP result ID must match the single stored successful transaction ID. Groups run sequentially with one seller so per-group count changes are unambiguous. No cross-collection transactional snapshot is added to production.
+
+A separate product receives 50 simultaneous same-key/same-content requests and four sequential replays; all 54 must succeed with the canonical one result ID, yet database facts and seller delta remain one. Four same-key requests with a changed price must return `idempotency_conflict`. In C the sequential replays and changed-body requests must each demonstrably reach both upstream instances, using the existing observable proxy header. No sticky-session assumption is used.
+
+`responses.jsonl` preserves every competition/retry status, JSON response, key, upstream, elapsed time and classification without login tokens. `database-facts.jsonl` preserves external commands' raw results and group facts. `summary.json` separates success/conflict/infrastructure/other failures and includes per-phase statistics; combined statistics are explicitly all competition plus replay requests. Preparation/login/publish/profile/DB checks are excluded from request latency statistics. Elapsed milliseconds cover the urllib HTTP operation through response JSON decoding; request object construction is outside that timer. Median and nearest-rank P95/P99 use each stated category's observed sample count; empty samples produce null values. This experiment is separate from normal uncontended sale performance and its conflict rate is not a normal workload error rate.
+
+A short functional run uses `--groups 2 --functional`. It is always labeled functional, and formal mode refuses a group count other than 100. `functional-C/` records the initial real-service test: two groups each achieved one success and 49 conflicts with correct MongoDB facts; the independent retry achieved 54 successes/four changed-body conflicts with only one stored successful sale and counter increment. Both upstreams were observed, cleanup exited zero, and no owned resources remain. Formal A/B/C runs subsequently passed all 100 groups each in the exclusive window; see `formal-results.md` and the full raw `formal-A/`, `formal-B/`, `formal-C/` directories. The functional result is retained separately and does not substitute for those formal runs.
