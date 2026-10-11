@@ -1,0 +1,4 @@
+ Container campus-v2-race-20261011063222-852974-api-b-run-991ea58243b1 Creating 
+ Container campus-v2-race-20261011063222-852974-api-b-run-991ea58243b1 Created 
+{"baseTime":"2026-10-10T00:00:00Z","counts":{"users":2,"active":0,"sold":0,"transactions":0,"priceChanges":0},"database":"campus_v2_race","mode":"demo","randomSeed":42}
+2026/10/11 06:32:44 demo accounts: seller, buyer; password: CampusDemo123!

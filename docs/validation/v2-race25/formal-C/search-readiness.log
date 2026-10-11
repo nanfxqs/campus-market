@@ -1,0 +1,7 @@
+{"at": "2026-10-11T06:34:24Z", "database": "campus_v2_readiness_3aa7dcb09c4adba09449e698b798cd52", "returnCode": 1, "stdout": "", "stderr": "MongoPoolClearedError: Connection pool for mongo:27017 was cleared because another operation failed with: \"interrupted at shutdown\"\n"}
+{"at": "2026-10-11T06:34:27Z", "database": "campus_v2_readiness_3aa7dcb09c4adba09449e698b798cd52", "returnCode": 1, "stdout": "", "stderr": "MongoServerError: PlanExecutor error during aggregation :: caused by :: Error connecting to Search Index Management service.\n"}
+{"at": "2026-10-11T06:34:29Z", "database": "campus_v2_readiness_3aa7dcb09c4adba09449e698b798cd52", "returnCode": 0, "stdout": "[]\n", "stderr": ""}
+{"at": "2026-10-11T06:34:32Z", "database": "campus_v2_readiness_3aa7dcb09c4adba09449e698b798cd52", "returnCode": 0, "stdout": "[]\n", "stderr": ""}
+{"at": "2026-10-11T06:34:34Z", "database": "campus_v2_readiness_3aa7dcb09c4adba09449e698b798cd52", "returnCode": 0, "stdout": "[]\n", "stderr": ""}
+{"at": "2026-10-11T06:34:35Z", "database": "campus_v2_readiness_3aa7dcb09c4adba09449e698b798cd52", "returnCode": 0, "stdout": "{\"ok\":1,\"dropped\":\"campus_v2_readiness_3aa7dcb09c4adba09449e698b798cd52\"}\n", "stderr": ""}
+{"result": "ready", "project": "campus-v2-race-20261011063416-872671", "probeDatabaseDropped": "campus_v2_readiness_3aa7dcb09c4adba09449e698b798cd52"}

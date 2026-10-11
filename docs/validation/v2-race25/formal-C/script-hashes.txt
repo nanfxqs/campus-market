@@ -1,0 +1,3 @@
+6401abb21f7efa1064b66630ddab2f6f7f640240e32478b7921182611fffd488  scripts/race-experiment.py
+9ad808946325bda7dab2fd8a7284208e8d5e5830db740609cbfc2704f4bc3864  scripts/validate-races.sh
+828da5a6b9d39e38610665e9367b8a09db32dd605217e6f70aa6ba081941f9a7  scripts/wait-v2-mongo.py
