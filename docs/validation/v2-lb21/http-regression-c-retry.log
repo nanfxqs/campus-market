@@ -1,0 +1,9 @@
+ Container campus-v2-lb21-tools-run-3616e160c926 Creating 
+ Container campus-v2-lb21-tools-run-3616e160c926 Created 
+=== RUN   TestV1FullSeedHTTP
+    v1_test.go:20: Search index readiness timeout query="单车" expected=6667 last=map[error:map[code:unavailable]]
+--- FAIL: TestV1FullSeedHTTP (189.06s)
+FAIL
+FAIL	github.com/nanfxqs/campus-market/internal/market	189.072s
+FAIL
+

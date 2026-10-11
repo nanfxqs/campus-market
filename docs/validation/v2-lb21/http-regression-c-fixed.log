@@ -1,0 +1,11 @@
+ Container campus-v2-lb21-tools-run-89db8d51d1eb Creating 
+ Container campus-v2-lb21-tools-run-89db8d51d1eb Created 
+=== RUN   TestV1FullSeedHTTP
+    v1_test.go:30: full seed: synonym search total=6667, top 20 with matched fields
+    v1_test.go:74: full seed: publish, browse, detail/current profile, price history, seller home, sale/replay and ownership PASS
+=== RUN   TestV1FullSeedHTTP/full-seed_expiry
+    v1_test.go:148: full seed: expired bicycle excluded from all browse pages, Search total and statistics; sale/price rejected; archive/images/history retained
+--- PASS: TestV1FullSeedHTTP (4.39s)
+    --- PASS: TestV1FullSeedHTTP/full-seed_expiry (2.34s)
+PASS
+ok  	github.com/nanfxqs/campus-market/internal/market	4.401s

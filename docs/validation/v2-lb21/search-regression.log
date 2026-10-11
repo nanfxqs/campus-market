@@ -1,0 +1,74 @@
+ Container campus-v2-lb21-tools-run-2abbd231e984 Creating 
+ Container campus-v2-lb21-tools-run-2abbd231e984 Created 
+=== RUN   TestSearchChineseSynonymsAndExplanations
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /health                   --> github.com/nanfxqs/campus-market/internal/market.newAPIWithCache.func1 (3 handlers)
+[GIN-debug] POST   /auth/login               --> github.com/nanfxqs/campus-market/internal/market.newAPIWithCache.func2 (3 handlers)
+[GIN-debug] GET    /users/me                 --> github.com/nanfxqs/campus-market/internal/market.newAPIWithCache.func4 (4 handlers)
+[GIN-debug] PATCH  /users/me                 --> github.com/nanfxqs/campus-market/internal/market.newAPIWithCache.func5 (4 handlers)
+[GIN-debug] GET    /users/:id/home           --> github.com/nanfxqs/campus-market/internal/market.newAPIWithCache.func6 (3 handlers)
+[GIN-debug] GET    /products                 --> github.com/nanfxqs/campus-market/internal/market.productRoutes.func1 (3 handlers)
+[GIN-debug] GET    /categories               --> github.com/nanfxqs/campus-market/internal/market.productRoutes.func2 (3 handlers)
+[GIN-debug] POST   /products                 --> github.com/nanfxqs/campus-market/internal/market.productRoutes.func3 (4 handlers)
+[GIN-debug] PUT    /products/:id             --> github.com/nanfxqs/campus-market/internal/market.productRoutes.func4 (4 handlers)
+[GIN-debug] GET    /products/:id             --> github.com/nanfxqs/campus-market/internal/market.productRoutes.func5 (3 handlers)
+[GIN-debug] GET    /products/:id/price-history --> github.com/nanfxqs/campus-market/internal/market.productRoutes.func6 (3 handlers)
+[GIN-debug] POST   /products/:id/sale        --> github.com/nanfxqs/campus-market/internal/market.saleRoutes.func1 (4 handlers)
+[GIN-debug] GET    /search                   --> github.com/nanfxqs/campus-market/internal/market.newAPIWithCache.func7 (3 handlers)
+[GIN-debug] PATCH  /products/:id/price       --> github.com/nanfxqs/campus-market/internal/market.priceRoutes.func1 (4 handlers)
+[GIN-debug] GET    /categories/:id/condition-counts --> github.com/nanfxqs/campus-market/internal/market.statisticsRoutes.func1 (3 handlers)
+[GIN-debug] GET    /openapi.json             --> github.com/nanfxqs/campus-market/internal/market.newAPIWithCache.func8 (3 handlers)
+[GIN-debug] GET    /docs                     --> github.com/nanfxqs/campus-market/internal/market.newAPIWithCache.func9 (3 handlers)
+--- PASS: TestSearchChineseSynonymsAndExplanations (2.28s)
+=== RUN   TestSearchRefillsAfterCurrentEligibilityFiltering
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /health                   --> github.com/nanfxqs/campus-market/internal/market.newAPIWithCache.func1 (3 handlers)
+[GIN-debug] POST   /auth/login               --> github.com/nanfxqs/campus-market/internal/market.newAPIWithCache.func2 (3 handlers)
+[GIN-debug] GET    /users/me                 --> github.com/nanfxqs/campus-market/internal/market.newAPIWithCache.func4 (4 handlers)
+[GIN-debug] PATCH  /users/me                 --> github.com/nanfxqs/campus-market/internal/market.newAPIWithCache.func5 (4 handlers)
+[GIN-debug] GET    /users/:id/home           --> github.com/nanfxqs/campus-market/internal/market.newAPIWithCache.func6 (3 handlers)
+[GIN-debug] GET    /products                 --> github.com/nanfxqs/campus-market/internal/market.productRoutes.func1 (3 handlers)
+[GIN-debug] GET    /categories               --> github.com/nanfxqs/campus-market/internal/market.productRoutes.func2 (3 handlers)
+[GIN-debug] POST   /products                 --> github.com/nanfxqs/campus-market/internal/market.productRoutes.func3 (4 handlers)
+[GIN-debug] PUT    /products/:id             --> github.com/nanfxqs/campus-market/internal/market.productRoutes.func4 (4 handlers)
+[GIN-debug] GET    /products/:id             --> github.com/nanfxqs/campus-market/internal/market.productRoutes.func5 (3 handlers)
+[GIN-debug] GET    /products/:id/price-history --> github.com/nanfxqs/campus-market/internal/market.productRoutes.func6 (3 handlers)
+[GIN-debug] POST   /products/:id/sale        --> github.com/nanfxqs/campus-market/internal/market.saleRoutes.func1 (4 handlers)
+[GIN-debug] GET    /search                   --> github.com/nanfxqs/campus-market/internal/market.newAPIWithCache.func7 (3 handlers)
+[GIN-debug] PATCH  /products/:id/price       --> github.com/nanfxqs/campus-market/internal/market.priceRoutes.func1 (4 handlers)
+[GIN-debug] GET    /categories/:id/condition-counts --> github.com/nanfxqs/campus-market/internal/market.statisticsRoutes.func1 (3 handlers)
+[GIN-debug] GET    /openapi.json             --> github.com/nanfxqs/campus-market/internal/market.newAPIWithCache.func8 (3 handlers)
+[GIN-debug] GET    /docs                     --> github.com/nanfxqs/campus-market/internal/market.newAPIWithCache.func9 (3 handlers)
+    search_test.go:141: 70 indexed candidates; 45 currently invalid; search response elapsed=22.366399ms
+--- PASS: TestSearchRefillsAfterCurrentEligibilityFiltering (2.01s)
+=== RUN   TestSearchSwaggerContract
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /health                   --> github.com/nanfxqs/campus-market/internal/market.newAPIWithCache.func1 (3 handlers)
+[GIN-debug] POST   /auth/login               --> github.com/nanfxqs/campus-market/internal/market.newAPIWithCache.func2 (3 handlers)
+[GIN-debug] GET    /users/me                 --> github.com/nanfxqs/campus-market/internal/market.newAPIWithCache.func4 (4 handlers)
+[GIN-debug] PATCH  /users/me                 --> github.com/nanfxqs/campus-market/internal/market.newAPIWithCache.func5 (4 handlers)
+[GIN-debug] GET    /users/:id/home           --> github.com/nanfxqs/campus-market/internal/market.newAPIWithCache.func6 (3 handlers)
+[GIN-debug] GET    /products                 --> github.com/nanfxqs/campus-market/internal/market.productRoutes.func1 (3 handlers)
+[GIN-debug] GET    /categories               --> github.com/nanfxqs/campus-market/internal/market.productRoutes.func2 (3 handlers)
+[GIN-debug] POST   /products                 --> github.com/nanfxqs/campus-market/internal/market.productRoutes.func3 (4 handlers)
+[GIN-debug] PUT    /products/:id             --> github.com/nanfxqs/campus-market/internal/market.productRoutes.func4 (4 handlers)
+[GIN-debug] GET    /products/:id             --> github.com/nanfxqs/campus-market/internal/market.productRoutes.func5 (3 handlers)
+[GIN-debug] GET    /products/:id/price-history --> github.com/nanfxqs/campus-market/internal/market.productRoutes.func6 (3 handlers)
+[GIN-debug] POST   /products/:id/sale        --> github.com/nanfxqs/campus-market/internal/market.saleRoutes.func1 (4 handlers)
+[GIN-debug] GET    /search                   --> github.com/nanfxqs/campus-market/internal/market.newAPIWithCache.func7 (3 handlers)
+[GIN-debug] PATCH  /products/:id/price       --> github.com/nanfxqs/campus-market/internal/market.priceRoutes.func1 (4 handlers)
+[GIN-debug] GET    /categories/:id/condition-counts --> github.com/nanfxqs/campus-market/internal/market.statisticsRoutes.func1 (3 handlers)
+[GIN-debug] GET    /openapi.json             --> github.com/nanfxqs/campus-market/internal/market.newAPIWithCache.func8 (3 handlers)
+[GIN-debug] GET    /docs                     --> github.com/nanfxqs/campus-market/internal/market.newAPIWithCache.func9 (3 handlers)
+--- PASS: TestSearchSwaggerContract (0.53s)
+PASS
+ok  	github.com/nanfxqs/campus-market/internal/market	4.833s

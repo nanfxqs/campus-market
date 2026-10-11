@@ -76,8 +76,11 @@ func search(ctx context.Context, db *mongo.Database, q string, clock func() time
 	// No limit before eligibility checking: invalid high-ranking candidates must
 	// neither inflate the total nor hide qualified candidates beyond the first 20.
 	pipeline := mongo.Pipeline{
-		{{Key: "$search", Value: bson.M{"index": "products_v1", "text": bson.M{"query": q, "path": bson.A{"title", "description"}, "synonyms": "bicycles_v1", "matchCriteria": "any"}, "highlight": bson.M{"path": bson.A{"title", "description"}}}}},
-		{{Key: "$project", Value: bson.M{"title": 1, "description": 1, "highlights": bson.M{"$meta": "searchHighlights"}}}},
+		{{Key: "$search", Value: bson.M{"index": "products_v1", "text": bson.M{"query": q, "path": bson.A{"title", "description"}, "synonyms": "bicycles_v1", "matchCriteria": "any"}}}},
+		// MongoDB's current archive filters historical Search candidates before
+		// eligibility joins. Listings are still checked below, including TTL lag.
+		{{Key: "$match", Value: bson.M{"sold": false, "expiresAt": bson.M{"$gt": clock().UTC()}}}},
+		{{Key: "$project", Value: bson.M{"_id": 1}}},
 	}
 	cursor, err := db.Collection("products").Aggregate(ctx, pipeline)
 	if err != nil {
@@ -124,14 +127,6 @@ func search(ctx context.Context, db *mongo.Database, q string, clock func() time
 			}
 			result.Total++
 			if len(result.Results) < 20 {
-				fields := map[string]bool{}
-				for _, v := range h.Highlights {
-					fields[v.Path] = true
-				}
-				for f := range fields {
-					h.MatchedFields = append(h.MatchedFields, f)
-				}
-				sort.Strings(h.MatchedFields)
 				result.Results = append(result.Results, h)
 			}
 		}
@@ -155,6 +150,50 @@ func search(ctx context.Context, db *mongo.Database, q string, clock func() time
 	}
 	if err := flush(); err != nil {
 		return result, err
+	}
+	if len(result.Results) == 0 {
+		return result, nil
+	}
+	// Only the selected, eligible page needs titles and highlights. Exact total
+	// still comes from checking every candidate, with no page limit before that.
+	ids := make([]string, 0, len(result.Results))
+	for _, hit := range result.Results {
+		ids = append(ids, hit.ID)
+	}
+	page, err := db.Collection("products").Aggregate(ctx, mongo.Pipeline{
+		{{Key: "$search", Value: bson.M{"index": "products_v1", "text": bson.M{"query": q, "path": bson.A{"title", "description"}, "synonyms": "bicycles_v1", "matchCriteria": "any"}, "highlight": bson.M{"path": bson.A{"title", "description"}}}}},
+		{{Key: "$match", Value: bson.M{"_id": bson.M{"$in": ids}}}},
+		{{Key: "$project", Value: bson.M{"title": 1, "description": 1, "highlights": bson.M{"$meta": "searchHighlights"}}}},
+		{{Key: "$limit", Value: len(ids)}},
+	})
+	if err != nil {
+		return result, err
+	}
+	defer page.Close(ctx)
+	hits := make(map[string]searchHit, len(ids))
+	for page.Next(ctx) {
+		var hit searchHit
+		if err := page.Decode(&hit); err != nil {
+			return result, err
+		}
+		fields := map[string]bool{}
+		for _, highlight := range hit.Highlights {
+			fields[highlight.Path] = true
+		}
+		for field := range fields {
+			hit.MatchedFields = append(hit.MatchedFields, field)
+		}
+		sort.Strings(hit.MatchedFields)
+		hits[hit.ID] = hit
+	}
+	if err := page.Err(); err != nil {
+		return result, err
+	}
+	result.Results = result.Results[:0]
+	for _, id := range ids {
+		if hit, ok := hits[id]; ok {
+			result.Results = append(result.Results, hit)
+		}
 	}
 	return result, nil
 }

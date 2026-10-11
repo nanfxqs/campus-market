@@ -1,0 +1,31 @@
+{"method": "POST", "path": "/auth/login", "status": 200, "upstream": "172.21.0.4:8080", "cache": null}
+{"method": "POST", "path": "/auth/login", "status": 200, "upstream": "172.21.0.5:8080", "cache": null}
+{"method": "POST", "path": "/products", "status": 201, "upstream": "172.21.0.4:8080", "cache": null}
+{"method": "POST", "path": "/products", "status": 401, "upstream": "172.21.0.5:8080", "cache": null}
+{"method": "PATCH", "path": "/products/6acb26278498a9fca1758dd5/price", "status": 403, "upstream": "172.21.0.4:8080", "cache": null}
+{"method": "PATCH", "path": "/products/6acb26278498a9fca1758dd5/price", "status": 400, "upstream": "172.21.0.5:8080", "cache": null}
+{"method": "GET", "path": "/products/6acb26278498a9fca1758dd5", "status": 200, "upstream": "172.21.0.4:8080", "cache": "miss"}
+{"method": "GET", "path": "/products/6acb26278498a9fca1758dd5", "status": 200, "upstream": "172.21.0.5:8080", "cache": "hit"}
+{"method": "PUT", "path": "/products/6acb26278498a9fca1758dd5", "status": 200, "upstream": "172.21.0.4:8080", "cache": null}
+{"method": "GET", "path": "/products/6acb26278498a9fca1758dd5", "status": 200, "upstream": "172.21.0.5:8080", "cache": "miss"}
+{"method": "PATCH", "path": "/products/6acb26278498a9fca1758dd5/price", "status": 200, "upstream": "172.21.0.4:8080", "cache": null}
+{"method": "PATCH", "path": "/users/me", "status": 200, "upstream": "172.21.0.5:8080", "cache": null}
+{"method": "GET", "path": "/products/6acb26278498a9fca1758dd5", "status": 200, "upstream": "172.21.0.4:8080", "cache": "hit"}
+{"method": "GET", "path": "/products?categoryId=textbooks", "status": 200, "upstream": "172.21.0.5:8080", "cache": null}
+{"method": "GET", "path": "/users/seller/home", "status": 200, "upstream": "172.21.0.4:8080", "cache": null}
+{"method": "GET", "path": "/categories/textbooks/condition-counts", "status": 200, "upstream": "172.21.0.5:8080", "cache": null}
+{"method": "GET", "path": "/openapi.json", "status": 200, "upstream": "172.21.0.4:8080", "cache": null}
+{"method": "GET", "path": "/search?q=nginxproxyunique1791698471161349660", "status": 200, "upstream": "172.21.0.5:8080", "cache": null}
+{"method": "GET", "path": "/search?q=nginxproxyunique1791698471161349660", "status": 200, "upstream": "172.21.0.4:8080", "cache": null}
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+{"method": "GET", "path": "/products/6acb26278498a9fca1758dd5", "status": 200, "upstream": "172.21.0.4:8080", "cache": "hit"}
+{"method": "PATCH", "path": "/products/6acb26278498a9fca1758dd5/price", "status": 409, "upstream": "172.21.0.5:8080", "cache": null}
+{"method": "POST", "path": "/products/6acb26278498a9fca1758dd5/sale", "status": 409, "upstream": "172.21.0.4:8080", "cache": null}
+{"method": "GET", "path": "/search?q=nginxproxyunique1791698471161349660", "status": 200, "upstream": "172.21.0.5:8080", "cache": null}
+{"result": "PASS", "coverage": ["authentication", "ownership", "validation", "cold/hot detail", "edit", "current price/profile/history", "browse", "seller home", "category statistics", "Search ingestion/current eligibility", "expired sale/price rejection", "retained archive"]}

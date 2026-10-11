@@ -1,0 +1,60 @@
+ Image campus-v2-lb21-tools Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 521B done
+#1 DONE 0.0s
+
+#2 [internal] load build definition from Dockerfile
+#2 transferring dockerfile: 491B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/golang:1.24.2-bookworm@sha256:79390b5e5af9ee6e7b1173ee3eac7fadf6751a545297672916b59bfa0ecf6f71
+#3 DONE 0.0s
+
+#4 [tools 1/7] FROM docker.io/library/golang:1.24.2-bookworm@sha256:79390b5e5af9ee6e7b1173ee3eac7fadf6751a545297672916b59bfa0ecf6f71
+#4 resolve docker.io/library/golang:1.24.2-bookworm@sha256:79390b5e5af9ee6e7b1173ee3eac7fadf6751a545297672916b59bfa0ecf6f71 0.0s done
+#4 DONE 0.0s
+
+#5 [tools 4/7] RUN go mod download
+#5 CACHED
+
+#6 [internal] load .dockerignore
+#6 transferring context: 62B done
+#6 DONE 0.0s
+
+#7 [internal] load build context
+#7 transferring context: 12.39kB done
+#7 DONE 0.0s
+
+#8 [tools 4/7] RUN go mod download
+#8 CACHED
+
+#9 [tools 2/7] WORKDIR /src
+#9 CACHED
+
+#10 [tools 3/7] COPY go.mod go.sum ./
+#10 CACHED
+
+#11 [tools 5/7] COPY . .
+#11 DONE 0.2s
+
+#12 [tools 6/7] RUN go build -o /validation ./validation
+#12 DONE 12.9s
+
+#13 [tools 7/7] RUN go build -o /market ./cmd/market
+#13 DONE 1.6s
+
+#14 exporting to image
+#14 exporting layers
+#14 exporting layers 4.3s done
+#14 exporting manifest sha256:397e392bf207a79c435d90b6fe508c1bd7d26564be34d1dd45c733e3329a3e83 done
+#14 exporting config sha256:3572b669f24d881cdecfc89081be429089c4b3091d4c9571652cf105a328aec2 done
+#14 exporting attestation manifest sha256:062dc3dca4310076fb0dcc40837b3df69c47524f41b7f4b449259b4066b084ca 0.0s done
+#14 exporting manifest list sha256:918d459d44acf09df93519c4dd781109fcdf435a92b40d55c45de9377f12eb32 done
+#14 naming to docker.io/library/campus-v2-lb21-tools:latest done
+#14 unpacking to docker.io/library/campus-v2-lb21-tools:latest
+#14 unpacking to docker.io/library/campus-v2-lb21-tools:latest 1.5s done
+#14 DONE 5.9s
+
+#15 resolving provenance for metadata file
+#15 DONE 0.0s
+ Image campus-v2-lb21-tools Built 
