@@ -1,0 +1,11 @@
+ Container campus-v2-regression-20261011080305-1304459-tools-run-e9a72d2bdd4c Creating 
+ Container campus-v2-regression-20261011080305-1304459-tools-run-e9a72d2bdd4c Created 
+=== RUN   TestV1FullSeedHTTP
+    v1_test.go:30: full seed: synonym search total=6667, top 20 with matched fields
+    v1_test.go:74: full seed: publish, browse, detail/current profile, price history, seller home, sale/replay and ownership PASS
+=== RUN   TestV1FullSeedHTTP/full-seed_expiry
+    v1_test.go:148: full seed: expired bicycle excluded from all browse pages, Search total and statistics; sale/price rejected; archive/images/history retained
+--- PASS: TestV1FullSeedHTTP (2.96s)
+    --- PASS: TestV1FullSeedHTTP/full-seed_expiry (1.70s)
+PASS
+ok  	github.com/nanfxqs/campus-market/internal/market	2.966s

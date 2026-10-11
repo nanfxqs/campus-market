@@ -1,0 +1,27 @@
+[
+  {
+    "measuredSource": "d7fe703",
+    "currentProductionDiff": [],
+    "orchestrationDiff": [
+      "experiments/detail_locust.py",
+      "experiments/summarize_details.py",
+      "experiments/test_formal_matrix.py",
+      "scripts/capture-v2-logs.py",
+      "scripts/race-experiment.py",
+      "scripts/run-detail-load.py",
+      "scripts/run-formal-sales.py",
+      "scripts/validate-races.sh"
+    ],
+    "interpretation": "No production API/cache/store/Compose/routing drift. Orchestrator changes add auxiliary capture/report budgets; detail summarizer correction accepts valid fallback while retaining cacheHealthy=false. Recomputed raw proofs do not claim current runner built old images."
+  },
+  {
+    "measuredSource": "1ed9b63",
+    "currentProductionDiff": [],
+    "orchestrationDiff": [
+      "scripts/capture-v2-logs.py",
+      "scripts/run-detail-load.py",
+      "scripts/run-formal-sales.py"
+    ],
+    "interpretation": "No production API/cache/store/Compose/routing drift. Orchestrator changes add auxiliary capture/report budgets; detail summarizer correction accepts valid fallback while retaining cacheHealthy=false. Recomputed raw proofs do not claim current runner built old images."
+  }
+]

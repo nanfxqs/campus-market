@@ -1,0 +1,4 @@
+ Container campus-v2-regression-20261011080305-1304459-api-a-run-2dc1daffbe55 Creating 
+ Container campus-v2-regression-20261011080305-1304459-api-a-run-2dc1daffbe55 Created 
+{"baseTime":"2026-10-11T00:00:00Z","counts":{"users":10000,"active":20000,"sold":180000,"transactions":300000,"priceChanges":500000},"database":"campus_v2_regression","mode":"full","randomSeed":42}
+2026/10/11 08:04:32 demo accounts: seller, buyer; password: CampusDemo123!

@@ -1,0 +1,211 @@
+{
+  "requiredIds": [
+    "A1",
+    "A2",
+    "A3",
+    "competition-A",
+    "B1",
+    "B2",
+    "B3",
+    "competition-B",
+    "C1",
+    "C2",
+    "C3",
+    "competition-C",
+    "detail-A-hotspot",
+    "detail-A-dispersed",
+    "detail-B-cold-hotspot",
+    "detail-B-hot-hotspot",
+    "detail-B-cold-dispersed",
+    "detail-B-hot-dispersed",
+    "detail-C-cold",
+    "detail-C-hot",
+    "functions",
+    "deployed-regression",
+    "fault",
+    "seed",
+    "cache-edit",
+    "cross-instance",
+    "failed-details",
+    "failed-preparation"
+  ],
+  "experiments": [
+    {
+      "id": "A1",
+      "kind": "sale",
+      "path": "docs/validation/v2/baseline/A-attempt-1/round-1"
+    },
+    {
+      "id": "A2",
+      "kind": "sale",
+      "path": "docs/validation/v2/baseline/A-attempt-1/round-2"
+    },
+    {
+      "id": "A3",
+      "kind": "sale",
+      "path": "docs/validation/v2/baseline/A-attempt-1/round-3"
+    },
+    {
+      "id": "competition-A",
+      "kind": "competition",
+      "path": "docs/validation/v2-race25/formal-A"
+    },
+    {
+      "id": "B1",
+      "kind": "sale",
+      "path": "docs/validation/v2-config24/formal-B/round-1"
+    },
+    {
+      "id": "B2",
+      "kind": "sale",
+      "path": "docs/validation/v2-config24/formal-B/round-2"
+    },
+    {
+      "id": "B3",
+      "kind": "sale",
+      "path": "docs/validation/v2-config24/formal-B/round-3"
+    },
+    {
+      "id": "competition-B",
+      "kind": "competition",
+      "path": "docs/validation/v2-race25/formal-B"
+    },
+    {
+      "id": "C1",
+      "kind": "sale",
+      "path": "docs/validation/v2-config24/formal-C/round-1"
+    },
+    {
+      "id": "C2",
+      "kind": "sale",
+      "path": "docs/validation/v2-config24/formal-C/round-2"
+    },
+    {
+      "id": "C3",
+      "kind": "sale",
+      "path": "docs/validation/v2-config24/formal-C/round-3"
+    },
+    {
+      "id": "competition-C",
+      "kind": "competition",
+      "path": "docs/validation/v2-race25/formal-C"
+    },
+    {
+      "id": "detail-A-hotspot",
+      "kind": "detail",
+      "path": "docs/validation/v2-details23/formal/A-hotspot"
+    },
+    {
+      "id": "detail-A-dispersed",
+      "kind": "detail",
+      "path": "docs/validation/v2-details23/formal/A-dispersed"
+    },
+    {
+      "id": "detail-B-cold-hotspot",
+      "kind": "detail",
+      "path": "docs/validation/v2-details23/formal/B-cold-hotspot"
+    },
+    {
+      "id": "detail-B-hot-hotspot",
+      "kind": "detail",
+      "path": "docs/validation/v2-details23/formal/B-hot-hotspot"
+    },
+    {
+      "id": "detail-B-cold-dispersed",
+      "kind": "detail",
+      "path": "docs/validation/v2-details23/formal/B-cold-dispersed"
+    },
+    {
+      "id": "detail-B-hot-dispersed",
+      "kind": "detail",
+      "path": "docs/validation/v2-details23/formal/B-hot-dispersed"
+    },
+    {
+      "id": "detail-C-cold",
+      "kind": "detail",
+      "path": "docs/validation/v2-config24/hotspot/C-cold"
+    },
+    {
+      "id": "detail-C-hot",
+      "kind": "detail",
+      "path": "docs/validation/v2-config24/hotspot/C-hot"
+    },
+    {
+      "id": "functions",
+      "kind": "functions",
+      "path": "docs/validation/v2-functions22/formal100"
+    },
+    {
+      "id": "deployed-regression",
+      "kind": "regression",
+      "path": "docs/validation/v2-unified26/regression-attempt-1"
+    },
+    {
+      "id": "fault",
+      "kind": "fault",
+      "path": "docs/validation/v2-fault20/run-20261011-06"
+    },
+    {
+      "id": "seed",
+      "kind": "proof",
+      "path": ".",
+      "scope": "full seed counts/identical restoration/cache clearing/refusal",
+      "files": [
+        "docs/validation/v2/seeds.md"
+      ]
+    },
+    {
+      "id": "cache-edit",
+      "kind": "proof",
+      "path": ".",
+      "scope": "versioned cache concurrent edit/current dynamic HTTP facts",
+      "files": [
+        "docs/validation/v2-cache19/http-cache.log"
+      ]
+    },
+    {
+      "id": "cross-instance",
+      "kind": "proof",
+      "path": ".",
+      "scope": "token/idempotency/current-content sharing and upstream dispatch",
+      "files": [
+        "docs/validation/v2-lb21/cross-instance.jsonl"
+      ]
+    },
+    {
+      "id": "failed-details",
+      "kind": "proof",
+      "path": ".",
+      "scope": "retained original overstrict rejection corrected without runtime change",
+      "files": [
+        "docs/validation/v2-details23/formal/B-cold-hotspot/summary-original-rejected.json"
+      ]
+    },
+    {
+      "id": "failed-preparation",
+      "kind": "proof",
+      "path": ".",
+      "scope": "retained pre-window Search503",
+      "files": [
+        "docs/validation/v2-functions22/formal100-preparation-failed/http.jsonl"
+      ]
+    }
+  ],
+  "sourceReuse": {
+    "measuredA": "d7fe703",
+    "measuredBC": "1ed9b63 atop f17c1e8",
+    "policy": "Recorded invocation/source/image hashes remain authoritative. Later changes add auxiliary gzip service capture and reported resource budgets; no API, workload, cutoff, TTL, timeout, quota or routing changes. Documentation and offline summary correction do not require repeat load. Deployment regression uses current integration API.",
+    "unavailable": "Old A/B/C sales and C hotspot server stdout unavailable after owned cleanup; client, DB, resource/storage and HTTP telemetry retained. No invented capture.",
+    "productionBaselines": [
+      "d7fe703",
+      "1ed9b63"
+    ]
+  },
+  "limitations": [
+    "Only one physical machine verified; cross-machine remains pending consideration.",
+    "C doubles total app quota and adds proxy; no equal-total-resource or Nginx-only causal claim.",
+    "Natural Redis timeouts/fallback are valid measured HTTP outcomes, cacheHealthy false is retained.",
+    "Hot dispersed prewarm900.503s exceeds TTL600s; whole-warm SET error exact total unavailable.",
+    "No P95/P99 pass threshold beyond spec. TTL interval is observation, not SLA."
+  ]
+}

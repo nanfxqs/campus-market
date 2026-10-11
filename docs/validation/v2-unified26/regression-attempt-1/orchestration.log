@@ -1,0 +1,231 @@
+ Image campus-v2-regression-20261011080305-1304459-api-c2 Building 
+ Image campus-v2-regression-20261011080305-1304459-tools Building 
+ Image campus-v2-regression-20261011080305-1304459-api-a Building 
+ Image campus-v2-regression-20261011080305-1304459-api-b Building 
+ Image campus-v2-regression-20261011080305-1304459-api-c1 Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 2.50kB done
+#1 DONE 0.0s
+
+#2 [api-c1 internal] load build definition from Dockerfile
+#2 transferring dockerfile:
+#2 transferring dockerfile: 491B done
+#2 DONE 0.0s
+
+#3 [api-c2 internal] load metadata for docker.io/library/debian:bookworm-slim@sha256:7c7b2c966bc9ee8cedfeef67e0e279108992c77681fa595db4a9d65c06ccc587
+#3 DONE 0.0s
+
+#4 [tools internal] load metadata for docker.io/library/golang:1.24.2-bookworm@sha256:79390b5e5af9ee6e7b1173ee3eac7fadf6751a545297672916b59bfa0ecf6f71
+#4 DONE 0.0s
+
+#5 [api-c1 internal] load .dockerignore
+#5 transferring context: 294B done
+#5 DONE 0.0s
+
+#6 [api-a stage-1 1/3] FROM docker.io/library/debian:bookworm-slim@sha256:7c7b2c966bc9ee8cedfeef67e0e279108992c77681fa595db4a9d65c06ccc587
+#6 resolve docker.io/library/debian:bookworm-slim@sha256:7c7b2c966bc9ee8cedfeef67e0e279108992c77681fa595db4a9d65c06ccc587 0.0s done
+#6 DONE 0.0s
+
+#7 [api-b tools 1/7] FROM docker.io/library/golang:1.24.2-bookworm@sha256:79390b5e5af9ee6e7b1173ee3eac7fadf6751a545297672916b59bfa0ecf6f71
+#7 resolve docker.io/library/golang:1.24.2-bookworm@sha256:79390b5e5af9ee6e7b1173ee3eac7fadf6751a545297672916b59bfa0ecf6f71 0.0s done
+#7 DONE 0.0s
+
+#8 [api-a internal] load build context
+#8 transferring context: 629.14kB done
+#8 DONE 0.0s
+
+#9 [api-b tools 2/7] WORKDIR /src
+#9 CACHED
+
+#10 [api-b tools 3/7] COPY go.mod go.sum ./
+#10 CACHED
+
+#11 [api-c2 tools 4/7] RUN go mod download
+#11 CACHED
+
+#12 [api-c1 tools 5/7] COPY . .
+#12 DONE 0.1s
+
+#13 [api-a tools 6/7] RUN go build -o /validation ./validation
+#13 DONE 7.7s
+
+#14 [api-c2 tools 7/7] RUN go build -o /market ./cmd/market
+#14 DONE 0.8s
+
+#15 [tools] exporting to image
+#15 exporting layers
+#15 ...
+
+#16 [api-c1 stage-1 2/3] COPY --from=tools /validation /validation
+#16 CACHED
+
+#17 [api-c1 stage-1 3/3] COPY --from=tools /market /market
+#17 CACHED
+
+#16 [api-b stage-1 2/3] COPY --from=tools /validation /validation
+#16 CACHED
+
+#17 [api-b stage-1 3/3] COPY --from=tools /market /market
+#17 CACHED
+
+#18 [api-c2] exporting to image
+#18 exporting layers done
+#18 exporting manifest sha256:c2077bdff4c3341ba90c321178264dcfae98ca42e9022f5968b6e6942e773164 0.0s done
+#18 exporting config sha256:2638b83ffad384bf1c6496514d59d50dd7ddd488c6d6e87bca8894b5199a0b48 0.0s done
+#18 exporting attestation manifest sha256:3ddcd71e5135eac1f4e19c3f7e66052e1b34f6d038970fee7a1172851aea832e 0.0s done
+#18 exporting manifest list sha256:92c4bb660f256b332bd900be402b4cf8bdeecbff96802aa376024b8f44a1b5d9 0.0s done
+#18 naming to docker.io/library/campus-v2-regression-20261011080305-1304459-api-c2:latest
+#18 naming to docker.io/library/campus-v2-regression-20261011080305-1304459-api-c2:latest 0.0s done
+#18 unpacking to docker.io/library/campus-v2-regression-20261011080305-1304459-api-c2:latest 0.0s done
+#18 DONE 0.1s
+
+#19 [api-c1] exporting to image
+#19 exporting layers done
+#19 exporting manifest sha256:852bdb2c7e08f6b1598bd1234bf84bc41160b38802afa4aeb61648be7cea1012 0.0s done
+#19 exporting config sha256:48b5fed418f007b57043134efc1483a559e80c5c1b55858cf37f1038750a69c3 0.0s done
+#19 exporting attestation manifest sha256:75013a14016ae2399829549f5f1b16a7ce90c9dd5021402fcb20cdaff37d6156 0.0s done
+#19 exporting manifest list sha256:779a291f5ee80821eea69b38edaa7ebab21317967850ee9d226e4a204d90895e 0.0s done
+#19 naming to docker.io/library/campus-v2-regression-20261011080305-1304459-api-c1:latest done
+#19 unpacking to docker.io/library/campus-v2-regression-20261011080305-1304459-api-c1:latest 0.0s done
+#19 DONE 0.1s
+
+#20 [api-a] exporting to image
+#20 exporting layers done
+#20 exporting manifest sha256:c0ba1fa00abe6ca785f058e048694739ba44498e462c545264993739036b206b 0.0s done
+#20 exporting config sha256:3bef85d0b87a778fe64f30d238148d72a2ef9e48e09a15c4f110f1f5074622a7 0.0s done
+#20 exporting attestation manifest sha256:8f4445d87e44690a3f94d0cb0e941bfe8d1143fe45d98d68747f16c546cd1afd 0.0s done
+#20 exporting manifest list sha256:99985079d2565f9014182ea3970f36efcd0b45554fd6c5960f4dcfcd476e40bd 0.0s done
+#20 naming to docker.io/library/campus-v2-regression-20261011080305-1304459-api-a:latest done
+#20 unpacking to docker.io/library/campus-v2-regression-20261011080305-1304459-api-a:latest 0.0s done
+#20 DONE 0.1s
+
+#21 [api-b] exporting to image
+#21 exporting layers done
+#21 exporting manifest sha256:69cbf146d6fc575f61e84feed997ba43b03752fce17b9d1359fc66b4ba21db40 0.0s done
+#21 exporting config sha256:bae859e6ef758915ff92040bbfa878a35f35186c5edf69745e0dd8e360caa113 0.0s done
+#21 exporting attestation manifest sha256:8c2ff9752589d7fd5a80e9e1bba4ae61b64a2c88c160d9f6422ccc285e13e183 0.0s done
+#21 exporting manifest list sha256:285bb3ba95edab845e3862fd13d6aab5be31e2bfbed4635980eb3c3453fb93b6 0.0s done
+#21 naming to docker.io/library/campus-v2-regression-20261011080305-1304459-api-b:latest done
+#21 unpacking to docker.io/library/campus-v2-regression-20261011080305-1304459-api-b:latest 0.0s done
+#21 DONE 0.1s
+
+#22 [api-b] resolving provenance for metadata file
+#22 DONE 0.1s
+
+#23 [api-a] resolving provenance for metadata file
+#23 DONE 0.1s
+
+#24 [api-c1] resolving provenance for metadata file
+#24 DONE 0.0s
+
+#25 [api-c2] resolving provenance for metadata file
+#25 DONE 0.0s
+
+#15 [tools] exporting to image
+#15 exporting layers 2.1s done
+#15 exporting manifest sha256:e925f250d8c4ee3dde48c2bef2e432d087f2d1eac0fb370209e9f1cb6e7a3e36 done
+#15 exporting config sha256:778564263c24f61b9cda0032b830f2f8e6f17eb3847ff2f762834dd972ccfc3b done
+#15 exporting attestation manifest sha256:b6943c12915e75ca0d2ad04d562758ced93332f0db2c2f780bf81f8010905fec done
+#15 exporting manifest list sha256:2e5a5f9059d8ac65dc409d439ac8166a2c36ce1bf4854239a52f88b44ea15d3f done
+#15 naming to docker.io/library/campus-v2-regression-20261011080305-1304459-tools:latest done
+#15 unpacking to docker.io/library/campus-v2-regression-20261011080305-1304459-tools:latest
+#15 unpacking to docker.io/library/campus-v2-regression-20261011080305-1304459-tools:latest 0.9s done
+#15 DONE 3.0s
+
+#26 [tools] resolving provenance for metadata file
+#26 DONE 0.0s
+ Image campus-v2-regression-20261011080305-1304459-api-c1 Built 
+ Image campus-v2-regression-20261011080305-1304459-api-c2 Built 
+ Image campus-v2-regression-20261011080305-1304459-tools Built 
+ Image campus-v2-regression-20261011080305-1304459-api-a Built 
+ Image campus-v2-regression-20261011080305-1304459-api-b Built 
+ Volume campus-v2-regression-20261011080305-1304459_search-data Creating 
+ Volume campus-v2-regression-20261011080305-1304459_search-data Creating 
+ Network campus-v2-regression-20261011080305-1304459_default Creating 
+ Volume campus-v2-regression-20261011080305-1304459_mongo-data Creating 
+ Volume campus-v2-regression-20261011080305-1304459_mongo-config Creating 
+ Volume campus-v2-regression-20261011080305-1304459_mongo-config Creating 
+ Volume campus-v2-regression-20261011080305-1304459_mongo-data Creating 
+ Network campus-v2-regression-20261011080305-1304459_default Creating 
+ Volume campus-v2-regression-20261011080305-1304459_search-data Created 
+ Volume campus-v2-regression-20261011080305-1304459_search-data Created 
+ Volume campus-v2-regression-20261011080305-1304459_mongo-config Created 
+ Volume campus-v2-regression-20261011080305-1304459_mongo-config Created 
+ Volume campus-v2-regression-20261011080305-1304459_mongo-data Created 
+ Volume campus-v2-regression-20261011080305-1304459_mongo-data Created 
+ Network campus-v2-regression-20261011080305-1304459_default Created 
+ Network campus-v2-regression-20261011080305-1304459_default Created 
+ Container campus-v2-regression-20261011080305-1304459-redis-1 Creating 
+ Container campus-v2-regression-20261011080305-1304459-mongo-1 Creating 
+ Container campus-v2-regression-20261011080305-1304459-redis-1 Created 
+ Container campus-v2-regression-20261011080305-1304459-mongo-1 Created 
+ Container campus-v2-regression-20261011080305-1304459-mongo-1 Starting 
+ Container campus-v2-regression-20261011080305-1304459-redis-1 Starting 
+ Container campus-v2-regression-20261011080305-1304459-mongo-1 Started 
+ Container campus-v2-regression-20261011080305-1304459-redis-1 Started 
+ Container campus-v2-regression-20261011080305-1304459-redis-1 Waiting 
+ Container campus-v2-regression-20261011080305-1304459-mongo-1 Waiting 
+ Container campus-v2-regression-20261011080305-1304459-mongo-1 Healthy 
+ Container campus-v2-regression-20261011080305-1304459-redis-1 Healthy 
+ Container campus-v2-regression-20261011080305-1304459-mongo-1 Running 
+ Container campus-v2-regression-20261011080305-1304459-api-a-1 Creating 
+ Container campus-v2-regression-20261011080305-1304459-api-a-1 Created 
+ Container campus-v2-regression-20261011080305-1304459-mongo-1 Waiting 
+ Container campus-v2-regression-20261011080305-1304459-mongo-1 Healthy 
+ Container campus-v2-regression-20261011080305-1304459-api-a-1 Starting 
+ Container campus-v2-regression-20261011080305-1304459-api-a-1 Started 
+ Container campus-v2-regression-20261011080305-1304459-api-a-1 Waiting 
+ Container campus-v2-regression-20261011080305-1304459-mongo-1 Waiting 
+ Container campus-v2-regression-20261011080305-1304459-mongo-1 Healthy 
+ Container campus-v2-regression-20261011080305-1304459-api-a-1 Healthy 
+deployed A regression passed
+ Container campus-v2-regression-20261011080305-1304459-api-a-1 Stopping 
+ Container campus-v2-regression-20261011080305-1304459-api-a-1 Stopped 
+ Container campus-v2-regression-20261011080305-1304459-mongo-1 Running 
+ Container campus-v2-regression-20261011080305-1304459-api-b-1 Creating 
+ Container campus-v2-regression-20261011080305-1304459-api-b-1 Created 
+ Container campus-v2-regression-20261011080305-1304459-mongo-1 Waiting 
+ Container campus-v2-regression-20261011080305-1304459-mongo-1 Healthy 
+ Container campus-v2-regression-20261011080305-1304459-api-b-1 Starting 
+ Container campus-v2-regression-20261011080305-1304459-api-b-1 Started 
+ Container campus-v2-regression-20261011080305-1304459-mongo-1 Waiting 
+ Container campus-v2-regression-20261011080305-1304459-api-b-1 Waiting 
+ Container campus-v2-regression-20261011080305-1304459-mongo-1 Healthy 
+ Container campus-v2-regression-20261011080305-1304459-api-b-1 Healthy 
+deployed B regression passed
+ Container campus-v2-regression-20261011080305-1304459-api-a-1 Stopping 
+ Container campus-v2-regression-20261011080305-1304459-api-b-1 Stopping 
+ Container campus-v2-regression-20261011080305-1304459-api-a-1 Stopped 
+ Container campus-v2-regression-20261011080305-1304459-api-b-1 Stopped 
+ Container campus-v2-regression-20261011080305-1304459-mongo-1 Running 
+ Container campus-v2-regression-20261011080305-1304459-api-c1-1 Creating 
+ Container campus-v2-regression-20261011080305-1304459-api-c1-1 Created 
+ Container campus-v2-regression-20261011080305-1304459-api-c2-1 Creating 
+ Container campus-v2-regression-20261011080305-1304459-api-c2-1 Created 
+ Container campus-v2-regression-20261011080305-1304459-nginx-1 Creating 
+ Container campus-v2-regression-20261011080305-1304459-nginx-1 Created 
+ Container campus-v2-regression-20261011080305-1304459-mongo-1 Waiting 
+ Container campus-v2-regression-20261011080305-1304459-mongo-1 Healthy 
+ Container campus-v2-regression-20261011080305-1304459-api-c1-1 Starting 
+ Container campus-v2-regression-20261011080305-1304459-api-c1-1 Started 
+ Container campus-v2-regression-20261011080305-1304459-mongo-1 Waiting 
+ Container campus-v2-regression-20261011080305-1304459-api-c1-1 Waiting 
+ Container campus-v2-regression-20261011080305-1304459-mongo-1 Healthy 
+ Container campus-v2-regression-20261011080305-1304459-api-c1-1 Healthy 
+ Container campus-v2-regression-20261011080305-1304459-api-c2-1 Starting 
+ Container campus-v2-regression-20261011080305-1304459-api-c2-1 Started 
+ Container campus-v2-regression-20261011080305-1304459-api-c2-1 Waiting 
+ Container campus-v2-regression-20261011080305-1304459-api-c1-1 Waiting 
+ Container campus-v2-regression-20261011080305-1304459-api-c1-1 Healthy 
+ Container campus-v2-regression-20261011080305-1304459-api-c2-1 Healthy 
+ Container campus-v2-regression-20261011080305-1304459-nginx-1 Starting 
+ Container campus-v2-regression-20261011080305-1304459-nginx-1 Started 
+ Container campus-v2-regression-20261011080305-1304459-api-c1-1 Waiting 
+ Container campus-v2-regression-20261011080305-1304459-api-c2-1 Waiting 
+ Container campus-v2-regression-20261011080305-1304459-nginx-1 Waiting 
+ Container campus-v2-regression-20261011080305-1304459-mongo-1 Waiting 
+ Container campus-v2-regression-20261011080305-1304459-api-c2-1 Healthy 
+ Container campus-v2-regression-20261011080305-1304459-api-c1-1 Healthy 
+ Container campus-v2-regression-20261011080305-1304459-mongo-1 Healthy 
+ Container campus-v2-regression-20261011080305-1304459-nginx-1 Healthy 
+deployed C regression passed

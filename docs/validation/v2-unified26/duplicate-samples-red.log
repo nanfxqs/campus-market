@@ -1,0 +1,14 @@
+F..
+======================================================================
+FAIL: test_duplicate_sample_receipts_do_not_satisfy_100_measurements (experiments.test_unified_evidence.Evidence.test_duplicate_sample_receipts_do_not_satisfy_100_measurements)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/campus-v2-unified/experiments/test_unified_evidence.py", line 18, in test_duplicate_sample_receipts_do_not_satisfy_100_measurements
+    p=pathlib.Path(td);self.fixture(p,duplicate=True);self.assertNotEqual(self.check(p).returncode,0)
+                                                      ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 0 == 0
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.149s
+
+FAILED (failures=1)
