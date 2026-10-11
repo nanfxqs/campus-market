@@ -1,0 +1,17 @@
+F
+======================================================================
+FAIL: test_deadline_inclusive_unique_new_success_excludes_duplicate_and_late (test_sales_artifacts.SaleArtifactStatistics.test_deadline_inclusive_unique_new_success_excludes_duplicate_and_late)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/campus-v2-load/experiments/test_sales_artifacts.py", line 24, in test_deadline_inclusive_unique_new_success_excludes_duplicate_and_late
+    result=self.run_artifacts([self.success('p1',10,10),self.success('p1',10,20),self.success('p2',10.001,30)])
+  File "/tmp/campus-v2-load/experiments/test_sales_artifacts.py", line 18, in run_artifacts
+    self.assertEqual(process.returncode,0,process.stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 2 != 0 : /usr/bin/python3: can't open file '/tmp/campus-v2-load/experiments/summarize_sales.py': [Errno 2] No such file or directory
+
+
+----------------------------------------------------------------------
+Ran 1 test in 0.024s
+
+FAILED (failures=1)

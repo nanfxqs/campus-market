@@ -1,0 +1,14 @@
+....E.
+======================================================================
+ERROR: test_recorded_barrier_requires_50_distinct_ready_users (test_sales_artifacts.SaleArtifactStatistics.test_recorded_barrier_requires_50_distinct_ready_users)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/campus-v2-load/experiments/test_sales_artifacts.py", line 92, in test_recorded_barrier_requires_50_distinct_ready_users
+    self.assertFalse(result['barrierValidated'])
+                     ~~~~~~^^^^^^^^^^^^^^^^^^^^
+KeyError: 'barrierValidated'
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.413s
+
+FAILED (errors=1)

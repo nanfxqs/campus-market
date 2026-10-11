@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "configuration": "B",
+  "project": "campus-v2-restore15",
+  "database": "campus_v2_restore15",
+  "api": "http://127.0.0.1:8082",
+  "manifest": "/tmp/campus-v2-load-short3-restore/manifest.json",
+  "output": "/tmp/campus-v2-load-short3",
+  "start_gate": null,
+  "formal": false,
+  "duration": 10.0,
+  "products": 1000,
+  "timeout": 25.0,
+  "retries": 2,
+  "settle": 2.0,
+  "sourceHashes": {
+    "scripts/run-sale-load.py": "adf69ac3501f413ba2a0bfc3dad274e694528dc3fc77c8ee74ddb94d775d99c4",
+    "scripts/snapshot-sale-load.js": "cc98cfb904867d3e6b91149541a78cd22382011a14161d5467867ccff5c908a1",
+    "experiments/sale_locust.py": "c8d3210f18221c6e9b721e8a1c0d0772a49e1657255a53b06c8ff16b89d71e43",
+    "experiments/summarize_sales.py": "6fe93bc33dfaa4d48926fcc632bbd3dbc346ca4f7e10a12e7736c01c1eec2919",
+    "experiments/uv.lock": "153494c2c43376000b5357e4ec1f76167803f8e047a7c97d8f75b2d52eb69aa7"
+  },
+  "locustVersion": "locust 2.46.6 from /tmp/campus-v2-load/experiments/.venv/lib/python3.12/site-packages/locust (Python 3.12.14)",
+  "startedUTC": "2026-10-11T06:16:12.369071+00:00",
+  "git": "ac4a418c1e8c2f28e2d57d82fc5313326ce1cd99",
+  "worktree": " M .dockerignore\n?? .gitignore\n?? docs/validation/v2/load.md\n?? docs/validation/v2/load/\n?? experiments/\n?? scripts/run-sale-load.py\n?? scripts/snapshot-sale-load.js\n"
+}
