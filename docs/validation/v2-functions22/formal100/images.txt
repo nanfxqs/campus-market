@@ -1,0 +1,4 @@
+CONTAINER                       REPOSITORY                    TAG                 PLATFORM            IMAGE ID            SIZE                CREATED
+campus-v2-functions22-api-a-1   <none>                        <none>              unknown             b72b231d54d7        0B                  N/A
+campus-v2-functions22-mongo-1   mongodb/mongodb-atlas-local   <none>              linux/amd64         1ce32a376104        2.01GB              12 days ago
+campus-v2-functions22-redis-1   redis                         <none>              linux/amd64         fbdbaea47b9a        173MB               21 months ago

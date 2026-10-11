@@ -1,0 +1,2 @@
+Filesystem       1B-blocks      Used   Available Use% Mounted on
+tmpfs          16612978688 248889344 16364089344   2% /tmp
