@@ -1,0 +1,3474 @@
+{
+  "configuration": "B",
+  "mode": "formal",
+  "groupsRequested": 100,
+  "requestsPerCompetitionGroup": 50,
+  "groups": [
+    {
+      "group": 0,
+      "sameKey": false,
+      "counts": {
+        "success": 1,
+        "business_conflict": 49,
+        "infrastructure_error": 0,
+        "other_failure": 0
+      },
+      "database": {
+        "productId": "6acb2d933eae28c05c451410",
+        "sold": true,
+        "sale": {
+          "buyerId": "buyer",
+          "priceCents": 10000,
+          "confirmedAt": "2026-10-11T06:32:51.213Z"
+        },
+        "successfulTransactions": [
+          {
+            "id": "d719c66c5b5efa6316ea7b483394e55596d75397e77706a98210fef8fedf5163",
+            "buyerId": "buyer",
+            "priceCents": 10000,
+            "key": "race-0-28"
+          }
+        ],
+        "listings": 0,
+        "sellerSales": 1
+      },
+      "sellerBefore": 0,
+      "upstreams": [],
+      "passed": true,
+      "dispatchSpreadMs": 13.358347001485527
+    },
+    {
+      "group": 1,
+      "sameKey": false,
+      "counts": {
+        "success": 1,
+        "business_conflict": 49,
+        "infrastructure_error": 0,
+        "other_failure": 0
+      },
+      "database": {
+        "productId": "6acb2d933eae28c05c451411",
+        "sold": true,
+        "sale": {
+          "buyerId": "buyer",
+          "priceCents": 10000,
+          "confirmedAt": "2026-10-11T06:32:51.858Z"
+        },
+        "successfulTransactions": [
+          {
+            "id": "d387f75c1ea4cf0420d9c42a2542b393d3609ad0028c0b46627ecc13439dc040",
+            "buyerId": "buyer",
+            "priceCents": 10000,
+            "key": "race-1-20"
+          }
+        ],
+        "listings": 0,
+        "sellerSales": 2
+      },
+      "sellerBefore": 1,
+      "upstreams": [],
+      "passed": true,
+      "dispatchSpreadMs": 28.061764998710714
+    },
+    {
+      "group": 2,
+      "sameKey": false,
+      "counts": {
+        "success": 1,
+        "business_conflict": 49,
+        "infrastructure_error": 0,
+        "other_failure": 0
+      },
+      "database": {
+        "productId": "6acb2d943eae28c05c451412",
+        "sold": true,
+        "sale": {
+          "buyerId": "buyer",
+          "priceCents": 10000,
+          "confirmedAt": "2026-10-11T06:32:52.471Z"
+        },
+        "successfulTransactions": [
+          {
+            "id": "524aa4447059d53ebc42f48b96661c0072875f5224c495efbcbd32728149f98b",
+            "buyerId": "buyer",
+            "priceCents": 10000,
+            "key": "race-2-8"
+          }
+        ],
+        "listings": 0,
+        "sellerSales": 3
+      },
+      "sellerBefore": 2,
+      "upstreams": [],
+      "passed": true,
+      "dispatchSpreadMs": 13.219884000136517
+    },
+    {
+      "group": 3,
+      "sameKey": false,
+      "counts": {
+        "success": 1,
+        "business_conflict": 49,
+        "infrastructure_error": 0,
+        "other_failure": 0
+      },
+      "database": {
+        "productId": "6acb2d953eae28c05c451413",
+        "sold": true,
+        "sale": {
+          "buyerId": "buyer",
+          "priceCents": 10000,
+          "confirmedAt": "2026-10-11T06:32:53.109Z"
+        },
+        "successfulTransactions": [
+          {
+            "id": "f126091e8b8fddc1ea0dc1f246c5b51e60f3ee45e7f64ccec129957d0f8d6f0d",
+            "buyerId": "buyer",
+            "priceCents": 10000,
+            "key": "race-3-6"
+          }
+        ],
+        "listings": 0,
+        "sellerSales": 4
+      },
+      "sellerBefore": 3,
+      "upstreams": [],
+      "passed": true,
+      "dispatchSpreadMs": 13.575980003224686
+    },
+    {
+      "group": 4,
+      "sameKey": false,
+      "counts": {
+        "success": 1,
+        "business_conflict": 49,
+        "infrastructure_error": 0,
+        "other_failure": 0
+      },
+      "database": {
+        "productId": "6acb2d953eae28c05c451414",
+        "sold": true,
+        "sale": {
+          "buyerId": "buyer",
+          "priceCents": 10000,
+          "confirmedAt": "2026-10-11T06:32:53.734Z"
+        },
+        "successfulTransactions": [
+          {
+            "id": "8a06e4894e42de100e0a021bf00497e2a6b6261c2afdd4b25139aafe49e31920",
+            "buyerId": "buyer",
+            "priceCents": 10000,
+            "key": "race-4-26"
+          }
+        ],
+        "listings": 0,
+        "sellerSales": 5
+      },
+      "sellerBefore": 4,
+      "upstreams": [],
+      "passed": true,
+      "dispatchSpreadMs": 15.571356998407282
+    },
+    {
+      "group": 5,
+      "sameKey": false,
+      "counts": {
+        "success": 1,
+        "business_conflict": 49,
+        "infrastructure_error": 0,
+        "other_failure": 0
+      },
+      "database": {
+        "productId": "6acb2d963eae28c05c451415",
+        "sold": true,
+        "sale": {
+          "buyerId": "buyer",
+          "priceCents": 10000,
+          "confirmedAt": "2026-10-11T06:32:54.350Z"
+        },
+        "successfulTransactions": [
+          {
+            "id": "1ab494aed72ca09f4656e4442b2b3707fff828bf3a069a4d6edf571a57185d43",
+            "buyerId": "buyer",
+            "priceCents": 10000,
+            "key": "race-5-6"
+          }
+        ],
+        "listings": 0,
+        "sellerSales": 6
+      },
+      "sellerBefore": 5,
+      "upstreams": [],
+      "passed": true,
+      "dispatchSpreadMs": 12.546666999696754
+    },
+    {
+      "group": 6,
+      "sameKey": false,
+      "counts": {
+        "success": 1,
+        "business_conflict": 49,
+        "infrastructure_error": 0,
+        "other_failure": 0
+      },
+      "database": {
+        "productId": "6acb2d963eae28c05c451416",
+        "sold": true,
+        "sale": {
+          "buyerId": "buyer",
+          "priceCents": 10000,
+          "confirmedAt": "2026-10-11T06:32:54.972Z"
+        },
+        "successfulTransactions": [
+          {
+            "id": "9bdbded8195afee8e3572d42bfe2ea38c6b4c4c59a3587c393e485a60f54bfd5",
+            "buyerId": "buyer",
+            "priceCents": 10000,
+            "key": "race-6-9"
+          }
+        ],
+        "listings": 0,
+        "sellerSales": 7
+      },
+      "sellerBefore": 6,
+      "upstreams": [],
+      "passed": true,
+      "dispatchSpreadMs": 15.136419999180362
+    },
+    {
+      "group": 7,
+      "sameKey": false,
+      "counts": {
+        "success": 1,
+        "business_conflict": 49,
+        "infrastructure_error": 0,
+        "other_failure": 0
+      },
+      "database": {
+        "productId": "6acb2d973eae28c05c451417",
+        "sold": true,
+        "sale": {
+          "buyerId": "buyer",
+          "priceCents": 10000,
+          "confirmedAt": "2026-10-11T06:32:55.610Z"
+        },
+        "successfulTransactions": [
+          {
+            "id": "a38853b929b865f2699bf757311ad853c7f84fde1b5e5f1b80a90032199ba259",
+            "buyerId": "buyer",
+            "priceCents": 10000,
+            "key": "race-7-33"
+          }
+        ],
+        "listings": 0,
+        "sellerSales": 8
+      },
+      "sellerBefore": 7,
+      "upstreams": [],
+      "passed": true,
+      "dispatchSpreadMs": 15.087143001437653
+    },
+    {
+      "group": 8,
+      "sameKey": false,
+      "counts": {
+        "success": 1,
+        "business_conflict": 49,
+        "infrastructure_error": 0,
+        "other_failure": 0
+      },
+      "database": {
+        "productId": "6acb2d983eae28c05c451418",
+        "sold": true,
+        "sale": {
+          "buyerId": "buyer",
+          "priceCents": 10000,
+          "confirmedAt": "2026-10-11T06:32:56.227Z"
+        },
+        "successfulTransactions": [
+          {
+            "id": "ea14f19d0687c94d7c79b842f72d9cb793f84b7d73fc76137b45f2f78e836c43",
+            "buyerId": "buyer",
+            "priceCents": 10000,
+            "key": "race-8-24"
+          }
+        ],
+        "listings": 0,
+        "sellerSales": 9
+      },
+      "sellerBefore": 8,
+      "upstreams": [],
+      "passed": true,
+      "dispatchSpreadMs": 27.22915799677139
+    },
+    {
+      "group": 9,
+      "sameKey": false,
+      "counts": {
+        "success": 1,
+        "business_conflict": 49,
+        "infrastructure_error": 0,
+        "other_failure": 0
+      },
+      "database": {
+        "productId": "6acb2d983eae28c05c451419",
+        "sold": true,
+        "sale": {
+          "buyerId": "buyer",
+          "priceCents": 10000,
+          "confirmedAt": "2026-10-11T06:32:56.836Z"
+        },
+        "successfulTransactions": [
+          {
+            "id": "14752a2183e1a591acb70d9284eb97e994e88a44f02a8f57231c4c696477a308",
+            "buyerId": "buyer",
+            "priceCents": 10000,
+            "key": "race-9-1"
+          }
+        ],
+        "listings": 0,
+        "sellerSales": 10
+      },
+      "sellerBefore": 9,
+      "upstreams": [],
+      "passed": true,
+      "dispatchSpreadMs": 15.433781998581253
+    },
+    {
+      "group": 10,
+      "sameKey": false,
+      "counts": {
+        "success": 1,
+        "business_conflict": 49,
+        "infrastructure_error": 0,
+        "other_failure": 0
+      },
+      "database": {
+        "productId": "6acb2d993eae28c05c45141a",
+        "sold": true,
+        "sale": {
+          "buyerId": "buyer",
+          "priceCents": 10000,
+          "confirmedAt": "2026-10-11T06:32:57.455Z"
+        },
+        "successfulTransactions": [
+          {
+            "id": "e8d4f1d4f245fc3fdccc5f09023d085a36d7f279354140248d3222a9121187e2",
+            "buyerId": "buyer",
+            "priceCents": 10000,
+            "key": "race-10-30"
+          }
+        ],
+        "listings": 0,
+        "sellerSales": 11
+      },
+      "sellerBefore": 10,
+      "upstreams": [],
+      "passed": true,
+      "dispatchSpreadMs": 21.70454600127414
+    },
+    {
+      "group": 11,
+      "sameKey": false,
+      "counts": {
+        "success": 1,
+        "business_conflict": 49,
+        "infrastructure_error": 0,
+        "other_failure": 0
+      },
+      "database": {
+        "productId": "6acb2d9a3eae28c05c45141b",
+        "sold": true,
+        "sale": {
+          "buyerId": "buyer",
+          "priceCents": 10000,
+          "confirmedAt": "2026-10-11T06:32:58.081Z"
+        },
+        "successfulTransactions": [
+          {
+            "id": "e083ee7d43237b449103393747ef809b070d4582207878096ca1748e3c58e67c",
+            "buyerId": "buyer",
+            "priceCents": 10000,
+            "key": "race-11-20"
+          }
+        ],
+        "listings": 0,
+        "sellerSales": 12
+      },
+      "sellerBefore": 11,
+      "upstreams": [],
+      "passed": true,
+      "dispatchSpreadMs": 23.62699699733639
+    },
+    {
+      "group": 12,
+      "sameKey": false,
+      "counts": {
+        "success": 1,
+        "business_conflict": 49,
+        "infrastructure_error": 0,
+        "other_failure": 0
+      },
+      "database": {
+        "productId": "6acb2d9a3eae28c05c45141c",
+        "sold": true,
+        "sale": {
+          "buyerId": "buyer",
+          "priceCents": 10000,
+          "confirmedAt": "2026-10-11T06:32:58.696Z"
+        },
+        "successfulTransactions": [
+          {
+            "id": "3bbbc06283b4a909d33549304c7c85e8dc5fda67f79f0b00f3d0a755ebb5752b",
+            "buyerId": "buyer",
+            "priceCents": 10000,
+            "key": "race-12-0"
+          }
+        ],
+        "listings": 0,
+        "sellerSales": 13
+      },
+      "sellerBefore": 12,
+      "upstreams": [],
+      "passed": true,
+      "dispatchSpreadMs": 29.15415999450488
+    },
+    {
+      "group": 13,
+      "sameKey": false,
+      "counts": {
+        "success": 1,
+        "business_conflict": 49,
+        "infrastructure_error": 0,
+        "other_failure": 0
+      },
+      "database": {
+        "productId": "6acb2d9b3eae28c05c45141d",
+        "sold": true,
+        "sale": {
+          "buyerId": "buyer",
+          "priceCents": 10000,
+          "confirmedAt": "2026-10-11T06:32:59.302Z"
+        },
+        "successfulTransactions": [
+          {
+            "id": "931ce3050438f083cee188fdef866768cb510cdaf0fecc02b07dfe1fadd043e5",
+            "buyerId": "buyer",
+            "priceCents": 10000,
+            "key": "race-13-28"
+          }
+        ],
+        "listings": 0,
+        "sellerSales": 14
+      },
+      "sellerBefore": 13,
+      "upstreams": [],
+      "passed": true,
+      "dispatchSpreadMs": 15.219694003462791
+    },
+    {
+      "group": 14,
+      "sameKey": false,
+      "counts": {
+        "success": 1,
+        "business_conflict": 49,
+        "infrastructure_error": 0,
+        "other_failure": 0
+      },
+      "database": {
+        "productId": "6acb2d9b3eae28c05c45141e",
+        "sold": true,
+        "sale": {
+          "buyerId": "buyer",
+          "priceCents": 10000,
+          "confirmedAt": "2026-10-11T06:32:59.925Z"
+        },
+        "successfulTransactions": [
+          {
+            "id": "69fbf8cf5341bfe22518648aac647aad6d52a3a30cd9a7590a35157b7aaba356",
+            "buyerId": "buyer",
+            "priceCents": 10000,
+            "key": "race-14-16"
+          }
+        ],
+        "listings": 0,
+        "sellerSales": 15
+      },
+      "sellerBefore": 14,
+      "upstreams": [],
+      "passed": true,
+      "dispatchSpreadMs": 11.495923004986253
+    },
+    {
+      "group": 15,
+      "sameKey": false,
+      "counts": {
+        "success": 1,
+        "business_conflict": 49,
+        "infrastructure_error": 0,
+        "other_failure": 0
+      },
+      "database": {
+        "productId": "6acb2d9c3eae28c05c45141f",
+        "sold": true,
+        "sale": {
+          "buyerId": "buyer",
+          "priceCents": 10000,
+          "confirmedAt": "2026-10-11T06:33:00.567Z"
+        },
+        "successfulTransactions": [
+          {
+            "id": "0d6fed45d67b3aa2b86205f386188ba9d9b8aea7eadf5804b64dc8748f4dbd58",
+            "buyerId": "buyer",
+            "priceCents": 10000,
+            "key": "race-15-28"
+          }
+        ],
+        "listings": 0,
+        "sellerSales": 16
+      },
+      "sellerBefore": 15,
+      "upstreams": [],
+      "passed": true,
+      "dispatchSpreadMs": 17.838621002738364
+    },
+    {
+      "group": 16,
+      "sameKey": false,
+      "counts": {
+        "success": 1,
+        "business_conflict": 49,
+        "infrastructure_error": 0,
+        "other_failure": 0
+      },
+      "database": {
+        "productId": "6acb2d9d3eae28c05c451420",
+        "sold": true,
+        "sale": {
+          "buyerId": "buyer",
+          "priceCents": 10000,
+          "confirmedAt": "2026-10-11T06:33:01.205Z"
+        },
+        "successfulTransactions": [
+          {
+            "id": "e09acc2de3101f6672bc86e02f49d68d1021834ae03441bc07b4edd4d4ee04de",
+            "buyerId": "buyer",
+            "priceCents": 10000,
+            "key": "race-16-15"
+          }
+        ],
+        "listings": 0,
+        "sellerSales": 17
+      },
+      "sellerBefore": 16,
+      "upstreams": [],
+      "passed": true,
+      "dispatchSpreadMs": 12.654137004574295
+    },
+    {
+      "group": 17,
+      "sameKey": false,
+      "counts": {
+        "success": 1,
+        "business_conflict": 49,
+        "infrastructure_error": 0,
+        "other_failure": 0
+      },
+      "database": {
+        "productId": "6acb2d9d3eae28c05c451421",
+        "sold": true,
+        "sale": {
+          "buyerId": "buyer",
+          "priceCents": 10000,
+          "confirmedAt": "2026-10-11T06:33:01.813Z"
+        },
+        "successfulTransactions": [
+          {
+            "id": "bd85b248088383736297eb2ddea5c724918f39d63a08890b5a47e7915acfa41d",
+            "buyerId": "buyer",
+            "priceCents": 10000,
+            "key": "race-17-40"
+          }
+        ],
+        "listings": 0,
+        "sellerSales": 18
+      },
+      "sellerBefore": 17,
+      "upstreams": [],
+      "passed": true,
+      "dispatchSpreadMs": 17.40836800308898
+    },
+    {
+      "group": 18,
+      "sameKey": false,
+      "counts": {
+        "success": 1,
+        "business_conflict": 49,
+        "infrastructure_error": 0,
+        "other_failure": 0
+      },
+      "database": {
+        "productId": "6acb2d9e3eae28c05c451422",
+        "sold": true,
+        "sale": {
+          "buyerId": "buyer",
+          "priceCents": 10000,
+          "confirmedAt": "2026-10-11T06:33:02.442Z"
+        },
+        "successfulTransactions": [
+          {
+            "id": "a63c3bf27109a12a34715f4321a2b195e5a60ad82765f916399f7ee5adfd00eb",
+            "buyerId": "buyer",
+            "priceCents": 10000,
+            "key": "race-18-16"
+          }
+        ],
+        "listings": 0,
+        "sellerSales": 19
+      },
+      "sellerBefore": 18,
+      "upstreams": [],
+      "passed": true,
+      "dispatchSpreadMs": 17.707457001961302
+    },
+    {
+      "group": 19,
+      "sameKey": false,
+      "counts": {
+        "success": 1,
+        "business_conflict": 49,
+        "infrastructure_error": 0,
+        "other_failure": 0
+      },
+      "database": {
+        "productId": "6acb2d9f3eae28c05c451423",
+        "sold": true,
+        "sale": {
+          "buyerId": "buyer",
+          "priceCents": 10000,
+          "confirmedAt": "2026-10-11T06:33:03.063Z"
+        },
+        "successfulTransactions": [
+          {
+            "id": "d64f1a70048cfc88800111305696471e28beee705a1df0b99b94f4a65051b243",
+            "buyerId": "buyer",
+            "priceCents": 10000,
+            "key": "race-19-2"
+          }
+        ],
+        "listings": 0,
+        "sellerSales": 20
+      },
+      "sellerBefore": 19,
+      "upstreams": [],
+      "passed": true,
+      "dispatchSpreadMs": 13.027535002038348
+    },
+    {
+      "group": 20,
+      "sameKey": false,
+      "counts": {
+        "success": 1,
+        "business_conflict": 49,
+        "infrastructure_error": 0,
+        "other_failure": 0
+      },
+      "database": {
+        "productId": "6acb2d9f3eae28c05c451424",
+        "sold": true,
+        "sale": {
+          "buyerId": "buyer",
+          "priceCents": 10000,
+          "confirmedAt": "2026-10-11T06:33:03.677Z"
+        },
+        "successfulTransactions": [
+          {
+            "id": "e6e81474a7dff9027be458c6cceea65e4a3f10db762a62fbc89ba2c8ffd8791c",
+            "buyerId": "buyer",
+            "priceCents": 10000,
+            "key": "race-20-12"
+          }
+        ],
+        "listings": 0,
+        "sellerSales": 21
+      },
+      "sellerBefore": 20,
+      "upstreams": [],
+      "passed": true,
+      "dispatchSpreadMs": 18.713576995651238
+    },
+    {
+      "group": 21,
+      "sameKey": false,
+      "counts": {
+        "success": 1,
+        "business_conflict": 49,
+        "infrastructure_error": 0,
+        "other_failure": 0
+      },
+      "database": {
+        "productId": "6acb2da03eae28c05c451425",
+        "sold": true,
+        "sale": {
+          "buyerId": "buyer",
+          "priceCents": 10000,
+          "confirmedAt": "2026-10-11T06:33:04.296Z"
+        },
+        "successfulTransactions": [
+          {
+            "id": "36f130928a88e968a8ffa3b42343f36a3064f1aec8480144c296fd818e379b8e",
+            "buyerId": "buyer",
+            "priceCents": 10000,
+            "key": "race-21-7"
+          }
+        ],
+        "listings": 0,
+        "sellerSales": 22
+      },
+      "sellerBefore": 21,
+      "upstreams": [],
+      "passed": true,
+      "dispatchSpreadMs": 14.770393005164806
+    },
+    {
+      "group": 22,
+      "sameKey": false,
+      "counts": {
+        "success": 1,
+        "business_conflict": 49,
+        "infrastructure_error": 0,
+        "other_failure": 0
+      },
+      "database": {
+        "productId": "6acb2da03eae28c05c451426",
+        "sold": true,
+        "sale": {
+          "buyerId": "buyer",
+          "priceCents": 10000,
+          "confirmedAt": "2026-10-11T06:33:04.908Z"
+        },
+        "successfulTransactions": [
+          {
+            "id": "15c171120a16d706e8a0d3a12c06f54fea16af580a9773025bd010f62a9a42b6",
+            "buyerId": "buyer",
+            "priceCents": 10000,
+            "key": "race-22-7"
+          }
+        ],
+        "listings": 0,
+        "sellerSales": 23
+      },
+      "sellerBefore": 22,
+      "upstreams": [],
+      "passed": true,
+      "dispatchSpreadMs": 16.34493200253928
+    },
+    {
+      "group": 23,
+      "sameKey": false,
+      "counts": {
+        "success": 1,
+        "business_conflict": 49,
+        "infrastructure_error": 0,
+        "other_failure": 0
+      },
+      "database": {
+        "productId": "6acb2da13eae28c05c451427",
+        "sold": true,
+        "sale": {
+          "buyerId": "buyer",
+          "priceCents": 10000,
+          "confirmedAt": "2026-10-11T06:33:05.520Z"
+        },
+        "successfulTransactions": [
+          {
+            "id": "eb16a37f77184a23491a13783f1e0f1c1323252b61a04d3cafa3a26d8ec42afe",
+            "buyerId": "buyer",
+            "priceCents": 10000,
+            "key": "race-23-30"
+          }
+        ],
+        "listings": 0,
+        "sellerSales": 24
+      },
+      "sellerBefore": 23,
+      "upstreams": [],
+      "passed": true,
+      "dispatchSpreadMs": 18.006783997407183
+    },
+    {
+      "group": 24,
+      "sameKey": false,
+      "counts": {
+        "success": 1,
+        "business_conflict": 49,
+        "infrastructure_error": 0,
+        "other_failure": 0
+      },
+      "database": {
+        "productId": "6acb2da23eae28c05c451428",
+        "sold": true,
+        "sale": {
+          "buyerId": "buyer",
+          "priceCents": 10000,
+          "confirmedAt": "2026-10-11T06:33:06.130Z"
+        },
+        "successfulTransactions": [
+          {
+            "id": "d33698a125af70037bb6e236010c559b822cdd3677ea585d96feec10b3d64d75",
+            "buyerId": "buyer",
+            "priceCents": 10000,
+            "key": "race-24-22"
+          }
+        ],
+        "listings": 0,
+        "sellerSales": 25
+      },
+      "sellerBefore": 24,
+      "upstreams": [],
+      "passed": true,
+      "dispatchSpreadMs": 21.092128001328092
+    },
+    {
+      "group": 25,
+      "sameKey": false,
+      "counts": {
+        "success": 1,
+        "business_conflict": 49,
+        "infrastructure_error": 0,
+        "other_failure": 0
+      },
+      "database": {
+        "productId": "6acb2da23eae28c05c451429",
+        "sold": true,
+        "sale": {
+          "buyerId": "buyer",
+          "priceCents": 10000,
+          "confirmedAt": "2026-10-11T06:33:06.756Z"
+        },
+        "successfulTransactions": [
+          {
+            "id": "a93cc0dc0c86a375537c83f0ed75e51b6c9dd1b65b25397d624c9592573d50b3",
+            "buyerId": "buyer",
+            "priceCents": 10000,
+            "key": "race-25-14"
+          }
+        ],
+        "listings": 0,
+        "sellerSales": 26
+      },
+      "sellerBefore": 25,
+      "upstreams": [],
+      "passed": true,
+      "dispatchSpreadMs": 26.21947500301758
+    },
+    {
+      "group": 26,
+      "sameKey": false,
+      "counts": {
+        "success": 1,
+        "business_conflict": 49,
+        "infrastructure_error": 0,
+        "other_failure": 0
+      },
+      "database": {
+        "productId": "6acb2da33eae28c05c45142a",
+        "sold": true,
+        "sale": {
+          "buyerId": "buyer",
+          "priceCents": 10000,
+          "confirmedAt": "2026-10-11T06:33:07.373Z"
+        },
+        "successfulTransactions": [
+          {
+            "id": "ed595d899af61c43c6b75f2f80f13f13b51c011d23039117c721d12a307a9f26",
+            "buyerId": "buyer",
+            "priceCents": 10000,
+            "key": "race-26-18"
+          }
+        ],
+        "listings": 0,
+        "sellerSales": 27
+      },
+      "sellerBefore": 26,
+      "upstreams": [],
+      "passed": true,
+      "dispatchSpreadMs": 23.43036200181814
+    },
+    {
+      "group": 27,
+      "sameKey": false,
+      "counts": {
+        "success": 1,
+        "business_conflict": 49,
+        "infrastructure_error": 0,
+        "other_failure": 0
+      },
+      "database": {
+        "productId": "6acb2da43eae28c05c45142b",
+        "sold": true,
+        "sale": {
+          "buyerId": "buyer",
+          "priceCents": 10000,
+          "confirmedAt": "2026-10-11T06:33:08.027Z"
+        },
+        "successfulTransactions": [
+          {
+            "id": "eb47c91ea76039f3bb82f884c0d9655f7cfb347a3166ddc4880e5f36ff31ff54",
+            "buyerId": "buyer",
+            "priceCents": 10000,
+            "key": "race-27-33"
+          }
+        ],
+        "listings": 0,
+        "sellerSales": 28
+      },
+      "sellerBefore": 27,
+      "upstreams": [],
+      "passed": true,
+      "dispatchSpreadMs": 17.70180200401228
+    },
+    {
+      "group": 28,
+      "sameKey": false,
+      "counts": {
+        "success": 1,
+        "business_conflict": 49,
+        "infrastructure_error": 0,
+        "other_failure": 0
+      },
+      "database": {
+        "productId": "6acb2da43eae28c05c45142c",
+        "sold": true,
+        "sale": {
+          "buyerId": "buyer",
+          "priceCents": 10000,
+          "confirmedAt": "2026-10-11T06:33:08.665Z"
+        },
+        "successfulTransactions": [
+          {
+            "id": "5920d05b557e3be2308159399e7b0806c0be8ea2a8c3869073707f4de39d6e7b",
+            "buyerId": "buyer",
+            "priceCents": 10000,
+            "key": "race-28-42"
+          }
+        ],
+        "listings": 0,
+        "sellerSales": 29
+      },
+      "sellerBefore": 28,
+      "upstreams": [],
+      "passed": true,
+      "dispatchSpreadMs": 19.852878998790402
+    },
+    {
+      "group": 29,
+      "sameKey": false,
+      "counts": {
+        "success": 1,
+        "business_conflict": 49,
+        "infrastructure_error": 0,
+        "other_failure": 0
+      },
+      "database": {
+        "productId": "6acb2da53eae28c05c45142d",
+        "sold": true,
+        "sale": {
+          "buyerId": "buyer",
+          "priceCents": 10000,
+          "confirmedAt": "2026-10-11T06:33:09.285Z"
+        },
+        "successfulTransactions": [
+          {
+            "id": "38bb454fe1dc24aa3a996162dc7c60c36381c1c3ab92ae8235c5e2ee310d1530",
+            "buyerId": "buyer",
+            "priceCents": 10000,
+            "key": "race-29-13"
+          }
+        ],
+        "listings": 0,
+        "sellerSales": 30
+      },
+      "sellerBefore": 29,
+      "upstreams": [],
+      "passed": true,
+      "dispatchSpreadMs": 16.461311999592
+    },
+    {
+      "group": 30,
+      "sameKey": false,
+      "counts": {
+        "success": 1,
+        "business_conflict": 49,
+        "infrastructure_error": 0,
+        "other_failure": 0
+      },
+      "database": {
+        "productId": "6acb2da53eae28c05c45142e",
+        "sold": true,
+        "sale": {
+          "buyerId": "buyer",
+          "priceCents": 10000,
+          "confirmedAt": "2026-10-11T06:33:09.902Z"
+        },
+        "successfulTransactions": [
+          {
+            "id": "9b0871d794d64f125972eebfab20c271546d77f09e0d1fa4dcb07c294277911d",
+            "buyerId": "buyer",
+            "priceCents": 10000,
+            "key": "race-30-20"
+          }
+        ],
+        "listings": 0,
+        "sellerSales": 31
+      },
+      "sellerBefore": 30,
+      "upstreams": [],
+      "passed": true,
+      "dispatchSpreadMs": 18.881563999457285
+    },
+    {
+      "group": 31,
+      "sameKey": false,
+      "counts": {
+        "success": 1,
+        "business_conflict": 49,
+        "infrastructure_error": 0,
+        "other_failure": 0
+      },
+      "database": {
+        "productId": "6acb2da63eae28c05c45142f",
+        "sold": true,
+        "sale": {
+          "buyerId": "buyer",
+          "priceCents": 10000,
+          "confirmedAt": "2026-10-11T06:33:10.529Z"
+        },
+        "successfulTransactions": [
+          {
+            "id": "b64257b9c9623fe4a4ff3e7e757a0d43e3b04c00f590087a2ee6f02efa59ca8a",
+            "buyerId": "buyer",
+            "priceCents": 10000,
+            "key": "race-31-18"
+          }
+        ],
+        "listings": 0,
+        "sellerSales": 32
+      },
+      "sellerBefore": 31,
+      "upstreams": [],
+      "passed": true,
+      "dispatchSpreadMs": 13.120343995979056
+    },
+    {
+      "group": 32,
+      "sameKey": false,
+      "counts": {
+        "success": 1,
+        "business_conflict": 49,
+        "infrastructure_error": 0,
+        "other_failure": 0
+      },
+      "database": {
+        "productId": "6acb2da73eae28c05c451430",
+        "sold": true,
+        "sale": {
+          "buyerId": "buyer",
+          "priceCents": 10000,
+          "confirmedAt": "2026-10-11T06:33:11.172Z"
+        },
+        "successfulTransactions": [
+          {
+            "id": "79415478708671fb9a4adaf67031618d4cae1ac9313e3de58619590e1e452aae",
+            "buyerId": "buyer",
+            "priceCents": 10000,
+            "key": "race-32-31"
+          }
+        ],
+        "listings": 0,
+        "sellerSales": 33
+      },
+      "sellerBefore": 32,
+      "upstreams": [],
+      "passed": true,
+      "dispatchSpreadMs": 19.70108900422929
+    },
+    {
+      "group": 33,
+      "sameKey": false,
+      "counts": {
+        "success": 1,
+        "business_conflict": 49,
+        "infrastructure_error": 0,
+        "other_failure": 0
+      },
+      "database": {
+        "productId": "6acb2da73eae28c05c451431",
+        "sold": true,
+        "sale": {
+          "buyerId": "buyer",
+          "priceCents": 10000,
+          "confirmedAt": "2026-10-11T06:33:11.812Z"
+        },
+        "successfulTransactions": [
+          {
+            "id": "cb5fd3d0a2becd7f7ce4ec8c68a3c0a6e5c52ae2397d2214e19fa4ebbe656f9f",
+            "buyerId": "buyer",
+            "priceCents": 10000,
+            "key": "race-33-12"
+          }
+        ],
+        "listings": 0,
+        "sellerSales": 34
+      },
+      "sellerBefore": 33,
+      "upstreams": [],
+      "passed": true,
+      "dispatchSpreadMs": 22.002754994900897
+    },
+    {
+      "group": 34,
+      "sameKey": false,
+      "counts": {
+        "success": 1,
+        "business_conflict": 49,
+        "infrastructure_error": 0,
+        "other_failure": 0
+      },
+      "database": {
+        "productId": "6acb2da83eae28c05c451432",
+        "sold": true,
+        "sale": {
+          "buyerId": "buyer",
+          "priceCents": 10000,
+          "confirmedAt": "2026-10-11T06:33:12.417Z"
+        },
+        "successfulTransactions": [
+          {
+            "id": "d6109f9b8d1515fe25bc9952845d676a8387b4cc24c25da4742ef2c4091deae9",
+            "buyerId": "buyer",
+            "priceCents": 10000,
+            "key": "race-34-22"
+          }
+        ],
+        "listings": 0,
+        "sellerSales": 35
+      },
+      "sellerBefore": 34,
+      "upstreams": [],
+      "passed": true,
+      "dispatchSpreadMs": 21.746065001934767
+    },
+    {
+      "group": 35,
+      "sameKey": false,
+      "counts": {
+        "success": 1,
+        "business_conflict": 49,
+        "infrastructure_error": 0,
+        "other_failure": 0
+      },
+      "database": {
+        "productId": "6acb2da93eae28c05c451433",
+        "sold": true,
+        "sale": {
+          "buyerId": "buyer",
+          "priceCents": 10000,
+          "confirmedAt": "2026-10-11T06:33:13.036Z"
+        },
+        "successfulTransactions": [
+          {
+            "id": "53ede5164e771c13804fa51db494baa99f6b6f47123f3aa005371e944e3b0d9f",
+            "buyerId": "buyer",
+            "priceCents": 10000,
+            "key": "race-35-6"
+          }
+        ],
+        "listings": 0,
+        "sellerSales": 36
+      },
+      "sellerBefore": 35,
+      "upstreams": [],
+      "passed": true,
+      "dispatchSpreadMs": 16.879235998203512
+    },
+    {
+      "group": 36,
+      "sameKey": false,
+      "counts": {
+        "success": 1,
+        "business_conflict": 49,
+        "infrastructure_error": 0,
+        "other_failure": 0
+      },
+      "database": {
+        "productId": "6acb2da93eae28c05c451434",
+        "sold": true,
+        "sale": {
+          "buyerId": "buyer",
+          "priceCents": 10000,
+          "confirmedAt": "2026-10-11T06:33:13.648Z"
+        },
+        "successfulTransactions": [
+          {
+            "id": "2f4364cebd84824b44df0643661a25f8951f7fcc8919fc6f3e050c7cf93f7414",
+            "buyerId": "buyer",
+            "priceCents": 10000,
+            "key": "race-36-20"
+          }
+        ],
+        "listings": 0,
+        "sellerSales": 37
+      },
+      "sellerBefore": 36,
+      "upstreams": [],
+      "passed": true,
+      "dispatchSpreadMs": 17.291463002038654
+    },
+    {
+      "group": 37,
+      "sameKey": false,
+      "counts": {
+        "success": 1,
+        "business_conflict": 49,
+        "infrastructure_error": 0,
+        "other_failure": 0
+      },
+      "database": {
+        "productId": "6acb2daa3eae28c05c451435",
+        "sold": true,
+        "sale": {
+          "buyerId": "buyer",
+          "priceCents": 10000,
+          "confirmedAt": "2026-10-11T06:33:14.287Z"
+        },
+        "successfulTransactions": [
+          {
+            "id": "c9fb7240dd110e27cfcb218fbaa04bd1cae5d8eb476ad4a4dfbe0e93f8d0b867",
+            "buyerId": "buyer",
+            "priceCents": 10000,
+            "key": "race-37-7"
+          }
+        ],
+        "listings": 0,
+        "sellerSales": 38
+      },
+      "sellerBefore": 37,
+      "upstreams": [],
+      "passed": true,
+      "dispatchSpreadMs": 16.501188001711853
+    },
+    {
+      "group": 38,
+      "sameKey": false,
+      "counts": {
+        "success": 1,
+        "business_conflict": 49,
+        "infrastructure_error": 0,
+        "other_failure": 0
+      },
+      "database": {
+        "productId": "6acb2daa3eae28c05c451436",
+        "sold": true,
+        "sale": {
+          "buyerId": "buyer",
+          "priceCents": 10000,
+          "confirmedAt": "2026-10-11T06:33:14.915Z"
+        },
+        "successfulTransactions": [
+          {
+            "id": "0570ccbc32b21707cf2799179bdd2d317cf996247452fb654164ba4641dec019",
+            "buyerId": "buyer",
+            "priceCents": 10000,
+            "key": "race-38-3"
+          }
+        ],
+        "listings": 0,
+        "sellerSales": 39
+      },
+      "sellerBefore": 38,
+      "upstreams": [],
+      "passed": true,
+      "dispatchSpreadMs": 23.68720599770313
+    },
+    {
+      "group": 39,
+      "sameKey": false,
+      "counts": {
+        "success": 1,
+        "business_conflict": 49,
+        "infrastructure_error": 0,
+        "other_failure": 0
+      },
+      "database": {
+        "productId": "6acb2dab3eae28c05c451437",
+        "sold": true,
+        "sale": {
+          "buyerId": "buyer",
+          "priceCents": 10000,
+          "confirmedAt": "2026-10-11T06:33:15.542Z"
+        },
+        "successfulTransactions": [
+          {
+            "id": "4cdda14f04ed349cff180089b1f43062a02b914bcff444fc373da749e889ef15",
+            "buyerId": "buyer",
+            "priceCents": 10000,
+            "key": "race-39-44"
+          }
+        ],
+        "listings": 0,
+        "sellerSales": 40
+      },
+      "sellerBefore": 39,
+      "upstreams": [],
+      "passed": true,
+      "dispatchSpreadMs": 15.109913001651876
+    },
+    {
+      "group": 40,
+      "sameKey": false,
+      "counts": {
+        "success": 1,
+        "business_conflict": 49,
+        "infrastructure_error": 0,
+        "other_failure": 0
+      },
+      "database": {
+        "productId": "6acb2dac3eae28c05c451438",
+        "sold": true,
+        "sale": {
+          "buyerId": "buyer",
+          "priceCents": 10000,
+          "confirmedAt": "2026-10-11T06:33:16.166Z"
+        },
+        "successfulTransactions": [
+          {
+            "id": "a0898f943f3905a3028c324e671c6d79aa01838e5020f5be5196b2ae95bbfd97",
+            "buyerId": "buyer",
+            "priceCents": 10000,
+            "key": "race-40-7"
+          }
+        ],
+        "listings": 0,
+        "sellerSales": 41
+      },
+      "sellerBefore": 40,
+      "upstreams": [],
+      "passed": true,
+      "dispatchSpreadMs": 20.317119000537787
+    },
+    {
+      "group": 41,
+      "sameKey": false,
+      "counts": {
+        "success": 1,
+        "business_conflict": 49,
+        "infrastructure_error": 0,
+        "other_failure": 0
+      },
+      "database": {
+        "productId": "6acb2dac3eae28c05c451439",
+        "sold": true,
+        "sale": {
+          "buyerId": "buyer",
+          "priceCents": 10000,
+          "confirmedAt": "2026-10-11T06:33:16.785Z"
+        },
+        "successfulTransactions": [
+          {
+            "id": "d8583478e89c5767b31f3817a399509b0e302ad3ed15d920899924ef6517327b",
+            "buyerId": "buyer",
+            "priceCents": 10000,
+            "key": "race-41-29"
+          }
+        ],
+        "listings": 0,
+        "sellerSales": 42
+      },
+      "sellerBefore": 41,
+      "upstreams": [],
+      "passed": true,
+      "dispatchSpreadMs": 13.774421000562143
+    },
+    {
+      "group": 42,
+      "sameKey": false,
+      "counts": {
+        "success": 1,
+        "business_conflict": 49,
+        "infrastructure_error": 0,
+        "other_failure": 0
+      },
+      "database": {
+        "productId": "6acb2dad3eae28c05c45143a",
+        "sold": true,
+        "sale": {
+          "buyerId": "buyer",
+          "priceCents": 10000,
+          "confirmedAt": "2026-10-11T06:33:17.414Z"
+        },
+        "successfulTransactions": [
+          {
+            "id": "eb515d061491469ca768fe2ce602f39108d7f10c9f794b14e9c12490949caf7b",
+            "buyerId": "buyer",
+            "priceCents": 10000,
+            "key": "race-42-7"
+          }
+        ],
+        "listings": 0,
+        "sellerSales": 43
+      },
+      "sellerBefore": 42,
+      "upstreams": [],
+      "passed": true,
+      "dispatchSpreadMs": 15.785007999511436
+    },
+    {
+      "group": 43,
+      "sameKey": false,
+      "counts": {
+        "success": 1,
+        "business_conflict": 49,
+        "infrastructure_error": 0,
+        "other_failure": 0
+      },
+      "database": {
+        "productId": "6acb2dae3eae28c05c45143b",
+        "sold": true,
+        "sale": {
+          "buyerId": "buyer",
+          "priceCents": 10000,
+          "confirmedAt": "2026-10-11T06:33:18.034Z"
+        },
+        "successfulTransactions": [
+          {
+            "id": "1ff725f00277bc631c4b43e9bfea81e636b00bc9488391defa8d97c894dbaaf2",
+            "buyerId": "buyer",
+            "priceCents": 10000,
+            "key": "race-43-9"
+          }
+        ],
+        "listings": 0,
+        "sellerSales": 44
+      },
+      "sellerBefore": 43,
+      "upstreams": [],
+      "passed": true,
+      "dispatchSpreadMs": 22.954841995669995
+    },
+    {
+      "group": 44,
+      "sameKey": false,
+      "counts": {
+        "success": 1,
+        "business_conflict": 49,
+        "infrastructure_error": 0,
+        "other_failure": 0
+      },
+      "database": {
+        "productId": "6acb2dae3eae28c05c45143c",
+        "sold": true,
+        "sale": {
+          "buyerId": "buyer",
+          "priceCents": 10000,
+          "confirmedAt": "2026-10-11T06:33:18.653Z"
+        },
+        "successfulTransactions": [
+          {
+            "id": "415daa67fd0a75864e666b13dda0ac7c5e80ff648b40875e707b6a5513675b23",
+            "buyerId": "buyer",
+            "priceCents": 10000,
+            "key": "race-44-18"
+          }
+        ],
+        "listings": 0,
+        "sellerSales": 45
+      },
+      "sellerBefore": 44,
+      "upstreams": [],
+      "passed": true,
+      "dispatchSpreadMs": 15.81480099412147
+    },
+    {
+      "group": 45,
+      "sameKey": false,
+      "counts": {
+        "success": 1,
+        "business_conflict": 49,
+        "infrastructure_error": 0,
+        "other_failure": 0
+      },
+      "database": {
+        "productId": "6acb2daf3eae28c05c45143d",
+        "sold": true,
+        "sale": {
+          "buyerId": "buyer",
+          "priceCents": 10000,
+          "confirmedAt": "2026-10-11T06:33:19.271Z"
+        },
+        "successfulTransactions": [
+          {
+            "id": "cbf4ca360371b992e3e1c5a92eb052bfbb3b215476760700fba58a3b1b7b8c17",
+            "buyerId": "buyer",
+            "priceCents": 10000,
+            "key": "race-45-12"
+          }
+        ],
+        "listings": 0,
+        "sellerSales": 46
+      },
+      "sellerBefore": 45,
+      "upstreams": [],
+      "passed": true,
+      "dispatchSpreadMs": 22.807479996117763
+    },
+    {
+      "group": 46,
+      "sameKey": false,
+      "counts": {
+        "success": 1,
+        "business_conflict": 49,
+        "infrastructure_error": 0,
+        "other_failure": 0
+      },
+      "database": {
+        "productId": "6acb2daf3eae28c05c45143e",
+        "sold": true,
+        "sale": {
+          "buyerId": "buyer",
+          "priceCents": 10000,
+          "confirmedAt": "2026-10-11T06:33:19.876Z"
+        },
+        "successfulTransactions": [
+          {
+            "id": "576fe517b03fd92d9f5377b6a66e42186af7f29a0870a692212ea7ac73e783aa",
+            "buyerId": "buyer",
+            "priceCents": 10000,
+            "key": "race-46-28"
+          }
+        ],
+        "listings": 0,
+        "sellerSales": 47
+      },
+      "sellerBefore": 46,
+      "upstreams": [],
+      "passed": true,
+      "dispatchSpreadMs": 20.763658001669683
+    },
+    {
+      "group": 47,
+      "sameKey": false,
+      "counts": {
+        "success": 1,
+        "business_conflict": 49,
+        "infrastructure_error": 0,
+        "other_failure": 0
+      },
+      "database": {
+        "productId": "6acb2db03eae28c05c45143f",
+        "sold": true,
+        "sale": {
+          "buyerId": "buyer",
+          "priceCents": 10000,
+          "confirmedAt": "2026-10-11T06:33:20.507Z"
+        },
+        "successfulTransactions": [
+          {
+            "id": "9ce3c419bff2446aaad34ded0f3b8a8b25b5d0e68d02a60a986ac22c79e2f146",
+            "buyerId": "buyer",
+            "priceCents": 10000,
+            "key": "race-47-16"
+          }
+        ],
+        "listings": 0,
+        "sellerSales": 48
+      },
+      "sellerBefore": 47,
+      "upstreams": [],
+      "passed": true,
+      "dispatchSpreadMs": 21.032192002166994
+    },
+    {
+      "group": 48,
+      "sameKey": false,
+      "counts": {
+        "success": 1,
+        "business_conflict": 49,
+        "infrastructure_error": 0,
+        "other_failure": 0
+      },
+      "database": {
+        "productId": "6acb2db13eae28c05c451440",
+        "sold": true,
+        "sale": {
+          "buyerId": "buyer",
+          "priceCents": 10000,
+          "confirmedAt": "2026-10-11T06:33:21.146Z"
+        },
+        "successfulTransactions": [
+          {
+            "id": "57e168ad1aec0f683fd6dec50b57b6216890d84d03098f0ebabe5441e75d13e2",
+            "buyerId": "buyer",
+            "priceCents": 10000,
+            "key": "race-48-1"
+          }
+        ],
+        "listings": 0,
+        "sellerSales": 49
+      },
+      "sellerBefore": 48,
+      "upstreams": [],
+      "passed": true,
+      "dispatchSpreadMs": 14.064746996155009
+    },
+    {
+      "group": 49,
+      "sameKey": false,
+      "counts": {
+        "success": 1,
+        "business_conflict": 49,
+        "infrastructure_error": 0,
+        "other_failure": 0
+      },
+      "database": {
+        "productId": "6acb2db13eae28c05c451441",
+        "sold": true,
+        "sale": {
+          "buyerId": "buyer",
+          "priceCents": 10000,
+          "confirmedAt": "2026-10-11T06:33:21.782Z"
+        },
+        "successfulTransactions": [
+          {
+            "id": "6fa14ca010b53942681b2dbd332ddd587ead44ee516dfcb997f9429a7498aa9f",
+            "buyerId": "buyer",
+            "priceCents": 10000,
+            "key": "race-49-48"
+          }
+        ],
+        "listings": 0,
+        "sellerSales": 50
+      },
+      "sellerBefore": 49,
+      "upstreams": [],
+      "passed": true,
+      "dispatchSpreadMs": 23.41791500657564
+    },
+    {
+      "group": 50,
+      "sameKey": false,
+      "counts": {
+        "success": 1,
+        "business_conflict": 49,
+        "infrastructure_error": 0,
+        "other_failure": 0
+      },
+      "database": {
+        "productId": "6acb2db23eae28c05c451442",
+        "sold": true,
+        "sale": {
+          "buyerId": "buyer",
+          "priceCents": 10000,
+          "confirmedAt": "2026-10-11T06:33:22.398Z"
+        },
+        "successfulTransactions": [
+          {
+            "id": "ed971608d7cdc40a334161cf444082813d7abbfa1dc8b9cd484e0dbb1e14ecb4",
+            "buyerId": "buyer",
+            "priceCents": 10000,
+            "key": "race-50-11"
+          }
+        ],
+        "listings": 0,
+        "sellerSales": 51
+      },
+      "sellerBefore": 50,
+      "upstreams": [],
+      "passed": true,
+      "dispatchSpreadMs": 23.52965300087817
+    },
+    {
+      "group": 51,
+      "sameKey": false,
+      "counts": {
+        "success": 1,
+        "business_conflict": 49,
+        "infrastructure_error": 0,
+        "other_failure": 0
+      },
+      "database": {
+        "productId": "6acb2db23eae28c05c451443",
+        "sold": true,
+        "sale": {
+          "buyerId": "buyer",
+          "priceCents": 10000,
+          "confirmedAt": "2026-10-11T06:33:23.019Z"
+        },
+        "successfulTransactions": [
+          {
+            "id": "0db552dddcfb5a8e3afafda3ebd03cb50af2897d0b329f18b5afcc3d548b9ff9",
+            "buyerId": "buyer",
+            "priceCents": 10000,
+            "key": "race-51-28"
+          }
+        ],
+        "listings": 0,
+        "sellerSales": 52
+      },
+      "sellerBefore": 51,
+      "upstreams": [],
+      "passed": true,
+      "dispatchSpreadMs": 16.38101199932862
+    },
+    {
+      "group": 52,
+      "sameKey": false,
+      "counts": {
+        "success": 1,
+        "business_conflict": 49,
+        "infrastructure_error": 0,
+        "other_failure": 0
+      },
+      "database": {
+        "productId": "6acb2db33eae28c05c451444",
+        "sold": true,
+        "sale": {
+          "buyerId": "buyer",
+          "priceCents": 10000,
+          "confirmedAt": "2026-10-11T06:33:23.648Z"
+        },
+        "successfulTransactions": [
+          {
+            "id": "4132210fb63158e59f87bd38bfeef1968f40e475f61799dda12cc6c24fe7798b",
+            "buyerId": "buyer",
+            "priceCents": 10000,
+            "key": "race-52-5"
+          }
+        ],
+        "listings": 0,
+        "sellerSales": 53
+      },
+      "sellerBefore": 52,
+      "upstreams": [],
+      "passed": true,
+      "dispatchSpreadMs": 18.461990002833772
+    },
+    {
+      "group": 53,
+      "sameKey": false,
+      "counts": {
+        "success": 1,
+        "business_conflict": 49,
+        "infrastructure_error": 0,
+        "other_failure": 0
+      },
+      "database": {
+        "productId": "6acb2db43eae28c05c451445",
+        "sold": true,
+        "sale": {
+          "buyerId": "buyer",
+          "priceCents": 10000,
+          "confirmedAt": "2026-10-11T06:33:24.269Z"
+        },
+        "successfulTransactions": [
+          {
+            "id": "28e6db73549260ef14a12514c0c5f90600ce618d163c10a589363af7a2f43e19",
+            "buyerId": "buyer",
+            "priceCents": 10000,
+            "key": "race-53-40"
+          }
+        ],
+        "listings": 0,
+        "sellerSales": 54
+      },
+      "sellerBefore": 53,
+      "upstreams": [],
+      "passed": true,
+      "dispatchSpreadMs": 24.743947004026268
+    },
+    {
+      "group": 54,
+      "sameKey": false,
+      "counts": {
+        "success": 1,
+        "business_conflict": 49,
+        "infrastructure_error": 0,
+        "other_failure": 0
+      },
+      "database": {
+        "productId": "6acb2db43eae28c05c451446",
+        "sold": true,
+        "sale": {
+          "buyerId": "buyer",
+          "priceCents": 10000,
+          "confirmedAt": "2026-10-11T06:33:24.940Z"
+        },
+        "successfulTransactions": [
+          {
+            "id": "99232d1ee4bff83f3ce9cd66b503c76a10602b5c57ed6b5d39d1d52a3b7dd578",
+            "buyerId": "buyer",
+            "priceCents": 10000,
+            "key": "race-54-22"
+          }
+        ],
+        "listings": 0,
+        "sellerSales": 55
+      },
+      "sellerBefore": 54,
+      "upstreams": [],
+      "passed": true,
+      "dispatchSpreadMs": 26.86258400353836
+    },
+    {
+      "group": 55,
+      "sameKey": false,
+      "counts": {
+        "success": 1,
+        "business_conflict": 49,
+        "infrastructure_error": 0,
+        "other_failure": 0
+      },
+      "database": {
+        "productId": "6acb2db53eae28c05c451447",
+        "sold": true,
+        "sale": {
+          "buyerId": "buyer",
+          "priceCents": 10000,
+          "confirmedAt": "2026-10-11T06:33:25.566Z"
+        },
+        "successfulTransactions": [
+          {
+            "id": "b9625098f2a8b7312bf43a01fcf1be6c8478903e815dddc175289b0d2cae0266",
+            "buyerId": "buyer",
+            "priceCents": 10000,
+            "key": "race-55-19"
+          }
+        ],
+        "listings": 0,
+        "sellerSales": 56
+      },
+      "sellerBefore": 55,
+      "upstreams": [],
+      "passed": true,
+      "dispatchSpreadMs": 17.5711130068521
+    },
+    {
+      "group": 56,
+      "sameKey": false,
+      "counts": {
+        "success": 1,
+        "business_conflict": 49,
+        "infrastructure_error": 0,
+        "other_failure": 0
+      },
+      "database": {
+        "productId": "6acb2db63eae28c05c451448",
+        "sold": true,
+        "sale": {
+          "buyerId": "buyer",
+          "priceCents": 10000,
+          "confirmedAt": "2026-10-11T06:33:26.197Z"
+        },
+        "successfulTransactions": [
+          {
+            "id": "e7ed56135753b7378c52ffc33d704655c741474344de6630917482a3886ff3d1",
+            "buyerId": "buyer",
+            "priceCents": 10000,
+            "key": "race-56-14"
+          }
+        ],
+        "listings": 0,
+        "sellerSales": 57
+      },
+      "sellerBefore": 56,
+      "upstreams": [],
+      "passed": true,
+      "dispatchSpreadMs": 16.003680000721943
+    },
+    {
+      "group": 57,
+      "sameKey": false,
+      "counts": {
+        "success": 1,
+        "business_conflict": 49,
+        "infrastructure_error": 0,
+        "other_failure": 0
+      },
+      "database": {
+        "productId": "6acb2db63eae28c05c451449",
+        "sold": true,
+        "sale": {
+          "buyerId": "buyer",
+          "priceCents": 10000,
+          "confirmedAt": "2026-10-11T06:33:26.830Z"
+        },
+        "successfulTransactions": [
+          {
+            "id": "6fcdc1579d1f00f736e9f55cdf789a37f8edc4ff77c1b3f8fbcaeec6a6997b60",
+            "buyerId": "buyer",
+            "priceCents": 10000,
+            "key": "race-57-31"
+          }
+        ],
+        "listings": 0,
+        "sellerSales": 58
+      },
+      "sellerBefore": 57,
+      "upstreams": [],
+      "passed": true,
+      "dispatchSpreadMs": 16.866565005329903
+    },
+    {
+      "group": 58,
+      "sameKey": false,
+      "counts": {
+        "success": 1,
+        "business_conflict": 49,
+        "infrastructure_error": 0,
+        "other_failure": 0
+      },
+      "database": {
+        "productId": "6acb2db73eae28c05c45144a",
+        "sold": true,
+        "sale": {
+          "buyerId": "buyer",
+          "priceCents": 10000,
+          "confirmedAt": "2026-10-11T06:33:27.451Z"
+        },
+        "successfulTransactions": [
+          {
+            "id": "7fa5ddb2009fe048eec42d6e2dabc6211b867d109b31b564b83a332dc935b7ac",
+            "buyerId": "buyer",
+            "priceCents": 10000,
+            "key": "race-58-25"
+          }
+        ],
+        "listings": 0,
+        "sellerSales": 59
+      },
+      "sellerBefore": 58,
+      "upstreams": [],
+      "passed": true,
+      "dispatchSpreadMs": 16.222660000494216
+    },
+    {
+      "group": 59,
+      "sameKey": false,
+      "counts": {
+        "success": 1,
+        "business_conflict": 49,
+        "infrastructure_error": 0,
+        "other_failure": 0
+      },
+      "database": {
+        "productId": "6acb2db83eae28c05c45144b",
+        "sold": true,
+        "sale": {
+          "buyerId": "buyer",
+          "priceCents": 10000,
+          "confirmedAt": "2026-10-11T06:33:28.065Z"
+        },
+        "successfulTransactions": [
+          {
+            "id": "a29dbac6212357c0e6e1706b829f13b10dc854a2de885f8bfa5153033c4e2660",
+            "buyerId": "buyer",
+            "priceCents": 10000,
+            "key": "race-59-16"
+          }
+        ],
+        "listings": 0,
+        "sellerSales": 60
+      },
+      "sellerBefore": 59,
+      "upstreams": [],
+      "passed": true,
+      "dispatchSpreadMs": 18.815546005498618
+    },
+    {
+      "group": 60,
+      "sameKey": false,
+      "counts": {
+        "success": 1,
+        "business_conflict": 49,
+        "infrastructure_error": 0,
+        "other_failure": 0
+      },
+      "database": {
+        "productId": "6acb2db83eae28c05c45144c",
+        "sold": true,
+        "sale": {
+          "buyerId": "buyer",
+          "priceCents": 10000,
+          "confirmedAt": "2026-10-11T06:33:28.695Z"
+        },
+        "successfulTransactions": [
+          {
+            "id": "3b21e4080be873e077cdc708a2d77f936403e441289e3dd5a5445a3bbe3bdb3d",
+            "buyerId": "buyer",
+            "priceCents": 10000,
+            "key": "race-60-25"
+          }
+        ],
+        "listings": 0,
+        "sellerSales": 61
+      },
+      "sellerBefore": 60,
+      "upstreams": [],
+      "passed": true,
+      "dispatchSpreadMs": 16.018874004657846
+    },
+    {
+      "group": 61,
+      "sameKey": false,
+      "counts": {
+        "success": 1,
+        "business_conflict": 49,
+        "infrastructure_error": 0,
+        "other_failure": 0
+      },
+      "database": {
+        "productId": "6acb2db93eae28c05c45144d",
+        "sold": true,
+        "sale": {
+          "buyerId": "buyer",
+          "priceCents": 10000,
+          "confirmedAt": "2026-10-11T06:33:29.338Z"
+        },
+        "successfulTransactions": [
+          {
+            "id": "cd751f2e80a8214cf2e04b4c5ae2a35f606ecf3cc20128948a6387eac2f95d48",
+            "buyerId": "buyer",
+            "priceCents": 10000,
+            "key": "race-61-32"
+          }
+        ],
+        "listings": 0,
+        "sellerSales": 62
+      },
+      "sellerBefore": 61,
+      "upstreams": [],
+      "passed": true,
+      "dispatchSpreadMs": 17.385863997333217
+    },
+    {
+      "group": 62,
+      "sameKey": false,
+      "counts": {
+        "success": 1,
+        "business_conflict": 49,
+        "infrastructure_error": 0,
+        "other_failure": 0
+      },
+      "database": {
+        "productId": "6acb2db93eae28c05c45144e",
+        "sold": true,
+        "sale": {
+          "buyerId": "buyer",
+          "priceCents": 10000,
+          "confirmedAt": "2026-10-11T06:33:29.959Z"
+        },
+        "successfulTransactions": [
+          {
+            "id": "b8b543cdc065e75d6201225c1b43aacdb694bc1be26756bcbcc61be214b3afa7",
+            "buyerId": "buyer",
+            "priceCents": 10000,
+            "key": "race-62-29"
+          }
+        ],
+        "listings": 0,
+        "sellerSales": 63
+      },
+      "sellerBefore": 62,
+      "upstreams": [],
+      "passed": true,
+      "dispatchSpreadMs": 18.179429003794212
+    },
+    {
+      "group": 63,
+      "sameKey": false,
+      "counts": {
+        "success": 1,
+        "business_conflict": 49,
+        "infrastructure_error": 0,
+        "other_failure": 0
+      },
+      "database": {
+        "productId": "6acb2dba3eae28c05c45144f",
+        "sold": true,
+        "sale": {
+          "buyerId": "buyer",
+          "priceCents": 10000,
+          "confirmedAt": "2026-10-11T06:33:30.587Z"
+        },
+        "successfulTransactions": [
+          {
+            "id": "ba61775d1aa85eb21bedc4730ce24d9877635f7a57036d2c35a512d22217eaef",
+            "buyerId": "buyer",
+            "priceCents": 10000,
+            "key": "race-63-23"
+          }
+        ],
+        "listings": 0,
+        "sellerSales": 64
+      },
+      "sellerBefore": 63,
+      "upstreams": [],
+      "passed": true,
+      "dispatchSpreadMs": 16.745324996009003
+    },
+    {
+      "group": 64,
+      "sameKey": false,
+      "counts": {
+        "success": 1,
+        "business_conflict": 49,
+        "infrastructure_error": 0,
+        "other_failure": 0
+      },
+      "database": {
+        "productId": "6acb2dbb3eae28c05c451450",
+        "sold": true,
+        "sale": {
+          "buyerId": "buyer",
+          "priceCents": 10000,
+          "confirmedAt": "2026-10-11T06:33:31.218Z"
+        },
+        "successfulTransactions": [
+          {
+            "id": "d31ec15e055f0b70379f5b328a341833e6671c882662bc64fcbe5ebc06eba77c",
+            "buyerId": "buyer",
+            "priceCents": 10000,
+            "key": "race-64-8"
+          }
+        ],
+        "listings": 0,
+        "sellerSales": 65
+      },
+      "sellerBefore": 64,
+      "upstreams": [],
+      "passed": true,
+      "dispatchSpreadMs": 14.616022999689449
+    },
+    {
+      "group": 65,
+      "sameKey": false,
+      "counts": {
+        "success": 1,
+        "business_conflict": 49,
+        "infrastructure_error": 0,
+        "other_failure": 0
+      },
+      "database": {
+        "productId": "6acb2dbb3eae28c05c451451",
+        "sold": true,
+        "sale": {
+          "buyerId": "buyer",
+          "priceCents": 10000,
+          "confirmedAt": "2026-10-11T06:33:31.836Z"
+        },
+        "successfulTransactions": [
+          {
+            "id": "a0448515f1e30689b01223bf7a8d15502673486162f815ca81173988a9bd8c86",
+            "buyerId": "buyer",
+            "priceCents": 10000,
+            "key": "race-65-4"
+          }
+        ],
+        "listings": 0,
+        "sellerSales": 66
+      },
+      "sellerBefore": 65,
+      "upstreams": [],
+      "passed": true,
+      "dispatchSpreadMs": 13.689653998881113
+    },
+    {
+      "group": 66,
+      "sameKey": false,
+      "counts": {
+        "success": 1,
+        "business_conflict": 49,
+        "infrastructure_error": 0,
+        "other_failure": 0
+      },
+      "database": {
+        "productId": "6acb2dbc3eae28c05c451452",
+        "sold": true,
+        "sale": {
+          "buyerId": "buyer",
+          "priceCents": 10000,
+          "confirmedAt": "2026-10-11T06:33:32.463Z"
+        },
+        "successfulTransactions": [
+          {
+            "id": "1c67fe12b60ca4da8e9b9a8d54e25f709ed48f3a2915720a70e86cdcd7c877e7",
+            "buyerId": "buyer",
+            "priceCents": 10000,
+            "key": "race-66-0"
+          }
+        ],
+        "listings": 0,
+        "sellerSales": 67
+      },
+      "sellerBefore": 66,
+      "upstreams": [],
+      "passed": true,
+      "dispatchSpreadMs": 17.8611160008586
+    },
+    {
+      "group": 67,
+      "sameKey": false,
+      "counts": {
+        "success": 1,
+        "business_conflict": 49,
+        "infrastructure_error": 0,
+        "other_failure": 0
+      },
+      "database": {
+        "productId": "6acb2dbd3eae28c05c451453",
+        "sold": true,
+        "sale": {
+          "buyerId": "buyer",
+          "priceCents": 10000,
+          "confirmedAt": "2026-10-11T06:33:33.082Z"
+        },
+        "successfulTransactions": [
+          {
+            "id": "803913e99a8cf4f701f13f3ebb534eae0e5ac3665adf3a12a04a2a24588e55e9",
+            "buyerId": "buyer",
+            "priceCents": 10000,
+            "key": "race-67-14"
+          }
+        ],
+        "listings": 0,
+        "sellerSales": 68
+      },
+      "sellerBefore": 67,
+      "upstreams": [],
+      "passed": true,
+      "dispatchSpreadMs": 24.275509000290185
+    },
+    {
+      "group": 68,
+      "sameKey": false,
+      "counts": {
+        "success": 1,
+        "business_conflict": 49,
+        "infrastructure_error": 0,
+        "other_failure": 0
+      },
+      "database": {
+        "productId": "6acb2dbd3eae28c05c451454",
+        "sold": true,
+        "sale": {
+          "buyerId": "buyer",
+          "priceCents": 10000,
+          "confirmedAt": "2026-10-11T06:33:33.693Z"
+        },
+        "successfulTransactions": [
+          {
+            "id": "a998c76df712e2b035717155f57acf44877a8c54d6eef2644d909883bfa9dab6",
+            "buyerId": "buyer",
+            "priceCents": 10000,
+            "key": "race-68-42"
+          }
+        ],
+        "listings": 0,
+        "sellerSales": 69
+      },
+      "sellerBefore": 68,
+      "upstreams": [],
+      "passed": true,
+      "dispatchSpreadMs": 14.99248799518682
+    },
+    {
+      "group": 69,
+      "sameKey": false,
+      "counts": {
+        "success": 1,
+        "business_conflict": 49,
+        "infrastructure_error": 0,
+        "other_failure": 0
+      },
+      "database": {
+        "productId": "6acb2dbe3eae28c05c451455",
+        "sold": true,
+        "sale": {
+          "buyerId": "buyer",
+          "priceCents": 10000,
+          "confirmedAt": "2026-10-11T06:33:34.290Z"
+        },
+        "successfulTransactions": [
+          {
+            "id": "eca47693d2bc156733c0d2f1bf8156bcaf67a3b8e525de409d0d7ebe3372e8fa",
+            "buyerId": "buyer",
+            "priceCents": 10000,
+            "key": "race-69-35"
+          }
+        ],
+        "listings": 0,
+        "sellerSales": 70
+      },
+      "sellerBefore": 69,
+      "upstreams": [],
+      "passed": true,
+      "dispatchSpreadMs": 15.30210700002499
+    },
+    {
+      "group": 70,
+      "sameKey": false,
+      "counts": {
+        "success": 1,
+        "business_conflict": 49,
+        "infrastructure_error": 0,
+        "other_failure": 0
+      },
+      "database": {
+        "productId": "6acb2dbe3eae28c05c451456",
+        "sold": true,
+        "sale": {
+          "buyerId": "buyer",
+          "priceCents": 10000,
+          "confirmedAt": "2026-10-11T06:33:34.916Z"
+        },
+        "successfulTransactions": [
+          {
+            "id": "095c3407eb3a992c5b33d47bc2598800a3e8d871ad8c31c6115915a3a1d14ac0",
+            "buyerId": "buyer",
+            "priceCents": 10000,
+            "key": "race-70-45"
+          }
+        ],
+        "listings": 0,
+        "sellerSales": 71
+      },
+      "sellerBefore": 70,
+      "upstreams": [],
+      "passed": true,
+      "dispatchSpreadMs": 26.561036000202876
+    },
+    {
+      "group": 71,
+      "sameKey": false,
+      "counts": {
+        "success": 1,
+        "business_conflict": 49,
+        "infrastructure_error": 0,
+        "other_failure": 0
+      },
+      "database": {
+        "productId": "6acb2dbf3eae28c05c451457",
+        "sold": true,
+        "sale": {
+          "buyerId": "buyer",
+          "priceCents": 10000,
+          "confirmedAt": "2026-10-11T06:33:35.545Z"
+        },
+        "successfulTransactions": [
+          {
+            "id": "ad2d506783521bbee5f1a6f06297bf75caf396f152ca3300615a2ab474420638",
+            "buyerId": "buyer",
+            "priceCents": 10000,
+            "key": "race-71-45"
+          }
+        ],
+        "listings": 0,
+        "sellerSales": 72
+      },
+      "sellerBefore": 71,
+      "upstreams": [],
+      "passed": true,
+      "dispatchSpreadMs": 19.284082001831848
+    },
+    {
+      "group": 72,
+      "sameKey": false,
+      "counts": {
+        "success": 1,
+        "business_conflict": 49,
+        "infrastructure_error": 0,
+        "other_failure": 0
+      },
+      "database": {
+        "productId": "6acb2dc03eae28c05c451458",
+        "sold": true,
+        "sale": {
+          "buyerId": "buyer",
+          "priceCents": 10000,
+          "confirmedAt": "2026-10-11T06:33:36.188Z"
+        },
+        "successfulTransactions": [
+          {
+            "id": "d96236c18588560c0ceeef38f1ef3654abcf177153f347674d7b7130067260fb",
+            "buyerId": "buyer",
+            "priceCents": 10000,
+            "key": "race-72-3"
+          }
+        ],
+        "listings": 0,
+        "sellerSales": 73
+      },
+      "sellerBefore": 72,
+      "upstreams": [],
+      "passed": true,
+      "dispatchSpreadMs": 12.975965000805445
+    },
+    {
+      "group": 73,
+      "sameKey": false,
+      "counts": {
+        "success": 1,
+        "business_conflict": 49,
+        "infrastructure_error": 0,
+        "other_failure": 0
+      },
+      "database": {
+        "productId": "6acb2dc03eae28c05c451459",
+        "sold": true,
+        "sale": {
+          "buyerId": "buyer",
+          "priceCents": 10000,
+          "confirmedAt": "2026-10-11T06:33:36.813Z"
+        },
+        "successfulTransactions": [
+          {
+            "id": "4a7eb9c586f663cd45b057bb341716b1123f9928e46d4d5b8b454b71123968f8",
+            "buyerId": "buyer",
+            "priceCents": 10000,
+            "key": "race-73-19"
+          }
+        ],
+        "listings": 0,
+        "sellerSales": 74
+      },
+      "sellerBefore": 73,
+      "upstreams": [],
+      "passed": true,
+      "dispatchSpreadMs": 12.568239006213844
+    },
+    {
+      "group": 74,
+      "sameKey": false,
+      "counts": {
+        "success": 1,
+        "business_conflict": 49,
+        "infrastructure_error": 0,
+        "other_failure": 0
+      },
+      "database": {
+        "productId": "6acb2dc13eae28c05c45145a",
+        "sold": true,
+        "sale": {
+          "buyerId": "buyer",
+          "priceCents": 10000,
+          "confirmedAt": "2026-10-11T06:33:37.440Z"
+        },
+        "successfulTransactions": [
+          {
+            "id": "4264dbb49cc6645c8ee77f8597d26cd4a7d3cbe74e60cdb68ca33810f293796a",
+            "buyerId": "buyer",
+            "priceCents": 10000,
+            "key": "race-74-32"
+          }
+        ],
+        "listings": 0,
+        "sellerSales": 75
+      },
+      "sellerBefore": 74,
+      "upstreams": [],
+      "passed": true,
+      "dispatchSpreadMs": 15.787090997037012
+    },
+    {
+      "group": 75,
+      "sameKey": false,
+      "counts": {
+        "success": 1,
+        "business_conflict": 49,
+        "infrastructure_error": 0,
+        "other_failure": 0
+      },
+      "database": {
+        "productId": "6acb2dc23eae28c05c45145b",
+        "sold": true,
+        "sale": {
+          "buyerId": "buyer",
+          "priceCents": 10000,
+          "confirmedAt": "2026-10-11T06:33:38.054Z"
+        },
+        "successfulTransactions": [
+          {
+            "id": "c0d50f3a21cc33ccaf5eec99fb88c955abf4c855ade86d080888d69754a2b081",
+            "buyerId": "buyer",
+            "priceCents": 10000,
+            "key": "race-75-12"
+          }
+        ],
+        "listings": 0,
+        "sellerSales": 76
+      },
+      "sellerBefore": 75,
+      "upstreams": [],
+      "passed": true,
+      "dispatchSpreadMs": 19.145519996527582
+    },
+    {
+      "group": 76,
+      "sameKey": false,
+      "counts": {
+        "success": 1,
+        "business_conflict": 49,
+        "infrastructure_error": 0,
+        "other_failure": 0
+      },
+      "database": {
+        "productId": "6acb2dc23eae28c05c45145c",
+        "sold": true,
+        "sale": {
+          "buyerId": "buyer",
+          "priceCents": 10000,
+          "confirmedAt": "2026-10-11T06:33:38.689Z"
+        },
+        "successfulTransactions": [
+          {
+            "id": "ba477b1b7bd941712331a4afe7c8ff8848e116a70994afb9b7cb676ff705c789",
+            "buyerId": "buyer",
+            "priceCents": 10000,
+            "key": "race-76-42"
+          }
+        ],
+        "listings": 0,
+        "sellerSales": 77
+      },
+      "sellerBefore": 76,
+      "upstreams": [],
+      "passed": true,
+      "dispatchSpreadMs": 16.907083998376038
+    },
+    {
+      "group": 77,
+      "sameKey": false,
+      "counts": {
+        "success": 1,
+        "business_conflict": 49,
+        "infrastructure_error": 0,
+        "other_failure": 0
+      },
+      "database": {
+        "productId": "6acb2dc33eae28c05c45145d",
+        "sold": true,
+        "sale": {
+          "buyerId": "buyer",
+          "priceCents": 10000,
+          "confirmedAt": "2026-10-11T06:33:39.311Z"
+        },
+        "successfulTransactions": [
+          {
+            "id": "ce5f974c3d167ccd64a3e74f5dcc6dd9db6c09aff6bad9c993f69f8df22a9393",
+            "buyerId": "buyer",
+            "priceCents": 10000,
+            "key": "race-77-31"
+          }
+        ],
+        "listings": 0,
+        "sellerSales": 78
+      },
+      "sellerBefore": 77,
+      "upstreams": [],
+      "passed": true,
+      "dispatchSpreadMs": 15.320344005886
+    },
+    {
+      "group": 78,
+      "sameKey": false,
+      "counts": {
+        "success": 1,
+        "business_conflict": 49,
+        "infrastructure_error": 0,
+        "other_failure": 0
+      },
+      "database": {
+        "productId": "6acb2dc33eae28c05c45145e",
+        "sold": true,
+        "sale": {
+          "buyerId": "buyer",
+          "priceCents": 10000,
+          "confirmedAt": "2026-10-11T06:33:39.954Z"
+        },
+        "successfulTransactions": [
+          {
+            "id": "c431ee5301804da20e799fd0a2a1f43444704d4e8a20e27f3fc0ecccbbd989b5",
+            "buyerId": "buyer",
+            "priceCents": 10000,
+            "key": "race-78-32"
+          }
+        ],
+        "listings": 0,
+        "sellerSales": 79
+      },
+      "sellerBefore": 78,
+      "upstreams": [],
+      "passed": true,
+      "dispatchSpreadMs": 33.55483800260117
+    },
+    {
+      "group": 79,
+      "sameKey": false,
+      "counts": {
+        "success": 1,
+        "business_conflict": 49,
+        "infrastructure_error": 0,
+        "other_failure": 0
+      },
+      "database": {
+        "productId": "6acb2dc43eae28c05c45145f",
+        "sold": true,
+        "sale": {
+          "buyerId": "buyer",
+          "priceCents": 10000,
+          "confirmedAt": "2026-10-11T06:33:40.583Z"
+        },
+        "successfulTransactions": [
+          {
+            "id": "58ef87a749f39c787be172ee750c61e7cac724c56e8c17976935040c1fd02b1d",
+            "buyerId": "buyer",
+            "priceCents": 10000,
+            "key": "race-79-30"
+          }
+        ],
+        "listings": 0,
+        "sellerSales": 80
+      },
+      "sellerBefore": 79,
+      "upstreams": [],
+      "passed": true,
+      "dispatchSpreadMs": 19.008820003364235
+    },
+    {
+      "group": 80,
+      "sameKey": false,
+      "counts": {
+        "success": 1,
+        "business_conflict": 49,
+        "infrastructure_error": 0,
+        "other_failure": 0
+      },
+      "database": {
+        "productId": "6acb2dc53eae28c05c451460",
+        "sold": true,
+        "sale": {
+          "buyerId": "buyer",
+          "priceCents": 10000,
+          "confirmedAt": "2026-10-11T06:33:41.217Z"
+        },
+        "successfulTransactions": [
+          {
+            "id": "e9f621940c73b93642ac67f44fa8a292af158c57715b46fbfac3cf5ba20a227d",
+            "buyerId": "buyer",
+            "priceCents": 10000,
+            "key": "race-80-13"
+          }
+        ],
+        "listings": 0,
+        "sellerSales": 81
+      },
+      "sellerBefore": 80,
+      "upstreams": [],
+      "passed": true,
+      "dispatchSpreadMs": 12.462991006032098
+    },
+    {
+      "group": 81,
+      "sameKey": false,
+      "counts": {
+        "success": 1,
+        "business_conflict": 49,
+        "infrastructure_error": 0,
+        "other_failure": 0
+      },
+      "database": {
+        "productId": "6acb2dc53eae28c05c451461",
+        "sold": true,
+        "sale": {
+          "buyerId": "buyer",
+          "priceCents": 10000,
+          "confirmedAt": "2026-10-11T06:33:41.830Z"
+        },
+        "successfulTransactions": [
+          {
+            "id": "baafa5816ae9a13c5960c8fbcbd74b242a7620fe108cc7497f4e2d04408a88b5",
+            "buyerId": "buyer",
+            "priceCents": 10000,
+            "key": "race-81-8"
+          }
+        ],
+        "listings": 0,
+        "sellerSales": 82
+      },
+      "sellerBefore": 81,
+      "upstreams": [],
+      "passed": true,
+      "dispatchSpreadMs": 16.89145500131417
+    },
+    {
+      "group": 82,
+      "sameKey": false,
+      "counts": {
+        "success": 1,
+        "business_conflict": 49,
+        "infrastructure_error": 0,
+        "other_failure": 0
+      },
+      "database": {
+        "productId": "6acb2dc63eae28c05c451462",
+        "sold": true,
+        "sale": {
+          "buyerId": "buyer",
+          "priceCents": 10000,
+          "confirmedAt": "2026-10-11T06:33:42.442Z"
+        },
+        "successfulTransactions": [
+          {
+            "id": "4bf2043005ed95046370cefa628e4c370ba63e3cddfb449c1e520a62387cc506",
+            "buyerId": "buyer",
+            "priceCents": 10000,
+            "key": "race-82-3"
+          }
+        ],
+        "listings": 0,
+        "sellerSales": 83
+      },
+      "sellerBefore": 82,
+      "upstreams": [],
+      "passed": true,
+      "dispatchSpreadMs": 17.434051995223854
+    },
+    {
+      "group": 83,
+      "sameKey": false,
+      "counts": {
+        "success": 1,
+        "business_conflict": 49,
+        "infrastructure_error": 0,
+        "other_failure": 0
+      },
+      "database": {
+        "productId": "6acb2dc73eae28c05c451463",
+        "sold": true,
+        "sale": {
+          "buyerId": "buyer",
+          "priceCents": 10000,
+          "confirmedAt": "2026-10-11T06:33:43.093Z"
+        },
+        "successfulTransactions": [
+          {
+            "id": "5e472731174bd813bc50c0d2affd58a287e246d93c9433d8a3bf539b8c367a9e",
+            "buyerId": "buyer",
+            "priceCents": 10000,
+            "key": "race-83-39"
+          }
+        ],
+        "listings": 0,
+        "sellerSales": 84
+      },
+      "sellerBefore": 83,
+      "upstreams": [],
+      "passed": true,
+      "dispatchSpreadMs": 19.596944999648258
+    },
+    {
+      "group": 84,
+      "sameKey": false,
+      "counts": {
+        "success": 1,
+        "business_conflict": 49,
+        "infrastructure_error": 0,
+        "other_failure": 0
+      },
+      "database": {
+        "productId": "6acb2dc73eae28c05c451464",
+        "sold": true,
+        "sale": {
+          "buyerId": "buyer",
+          "priceCents": 10000,
+          "confirmedAt": "2026-10-11T06:33:43.703Z"
+        },
+        "successfulTransactions": [
+          {
+            "id": "c3d6980453861390255d55b0421161b369c93d692ee7485db4a0c7b167883e9d",
+            "buyerId": "buyer",
+            "priceCents": 10000,
+            "key": "race-84-37"
+          }
+        ],
+        "listings": 0,
+        "sellerSales": 85
+      },
+      "sellerBefore": 84,
+      "upstreams": [],
+      "passed": true,
+      "dispatchSpreadMs": 23.76693500264082
+    },
+    {
+      "group": 85,
+      "sameKey": false,
+      "counts": {
+        "success": 1,
+        "business_conflict": 49,
+        "infrastructure_error": 0,
+        "other_failure": 0
+      },
+      "database": {
+        "productId": "6acb2dc83eae28c05c451465",
+        "sold": true,
+        "sale": {
+          "buyerId": "buyer",
+          "priceCents": 10000,
+          "confirmedAt": "2026-10-11T06:33:44.337Z"
+        },
+        "successfulTransactions": [
+          {
+            "id": "c22663dc29949f3ecb08e536ce4d1f547c5126a038c155a119a27698fb97e3a9",
+            "buyerId": "buyer",
+            "priceCents": 10000,
+            "key": "race-85-44"
+          }
+        ],
+        "listings": 0,
+        "sellerSales": 86
+      },
+      "sellerBefore": 85,
+      "upstreams": [],
+      "passed": true,
+      "dispatchSpreadMs": 21.054694007034414
+    },
+    {
+      "group": 86,
+      "sameKey": false,
+      "counts": {
+        "success": 1,
+        "business_conflict": 49,
+        "infrastructure_error": 0,
+        "other_failure": 0
+      },
+      "database": {
+        "productId": "6acb2dc83eae28c05c451466",
+        "sold": true,
+        "sale": {
+          "buyerId": "buyer",
+          "priceCents": 10000,
+          "confirmedAt": "2026-10-11T06:33:44.942Z"
+        },
+        "successfulTransactions": [
+          {
+            "id": "4de1bb9613a4d3071f65f719767ab1885bcf69934e47329de59c238c48382e1e",
+            "buyerId": "buyer",
+            "priceCents": 10000,
+            "key": "race-86-28"
+          }
+        ],
+        "listings": 0,
+        "sellerSales": 87
+      },
+      "sellerBefore": 86,
+      "upstreams": [],
+      "passed": true,
+      "dispatchSpreadMs": 15.798656997503713
+    },
+    {
+      "group": 87,
+      "sameKey": false,
+      "counts": {
+        "success": 1,
+        "business_conflict": 49,
+        "infrastructure_error": 0,
+        "other_failure": 0
+      },
+      "database": {
+        "productId": "6acb2dc93eae28c05c451467",
+        "sold": true,
+        "sale": {
+          "buyerId": "buyer",
+          "priceCents": 10000,
+          "confirmedAt": "2026-10-11T06:33:45.573Z"
+        },
+        "successfulTransactions": [
+          {
+            "id": "99f22cd655c9d5a5fcea61898941089047f760324bce61f8ba0e00d8c43d5e28",
+            "buyerId": "buyer",
+            "priceCents": 10000,
+            "key": "race-87-36"
+          }
+        ],
+        "listings": 0,
+        "sellerSales": 88
+      },
+      "sellerBefore": 87,
+      "upstreams": [],
+      "passed": true,
+      "dispatchSpreadMs": 28.24347699788632
+    },
+    {
+      "group": 88,
+      "sameKey": false,
+      "counts": {
+        "success": 1,
+        "business_conflict": 49,
+        "infrastructure_error": 0,
+        "other_failure": 0
+      },
+      "database": {
+        "productId": "6acb2dca3eae28c05c451468",
+        "sold": true,
+        "sale": {
+          "buyerId": "buyer",
+          "priceCents": 10000,
+          "confirmedAt": "2026-10-11T06:33:46.237Z"
+        },
+        "successfulTransactions": [
+          {
+            "id": "bc481985f02ae30a48bc92cfbf4f173c329c459cad2240e84f645cbd54227b83",
+            "buyerId": "buyer",
+            "priceCents": 10000,
+            "key": "race-88-26"
+          }
+        ],
+        "listings": 0,
+        "sellerSales": 89
+      },
+      "sellerBefore": 88,
+      "upstreams": [],
+      "passed": true,
+      "dispatchSpreadMs": 18.36567099962849
+    },
+    {
+      "group": 89,
+      "sameKey": false,
+      "counts": {
+        "success": 1,
+        "business_conflict": 49,
+        "infrastructure_error": 0,
+        "other_failure": 0
+      },
+      "database": {
+        "productId": "6acb2dca3eae28c05c451469",
+        "sold": true,
+        "sale": {
+          "buyerId": "buyer",
+          "priceCents": 10000,
+          "confirmedAt": "2026-10-11T06:33:46.847Z"
+        },
+        "successfulTransactions": [
+          {
+            "id": "12eaa7ab3150bf688d8fc8626a9f81b414c5647f4f00afdba8ae8b4dc57702de",
+            "buyerId": "buyer",
+            "priceCents": 10000,
+            "key": "race-89-24"
+          }
+        ],
+        "listings": 0,
+        "sellerSales": 90
+      },
+      "sellerBefore": 89,
+      "upstreams": [],
+      "passed": true,
+      "dispatchSpreadMs": 19.916010001907125
+    },
+    {
+      "group": 90,
+      "sameKey": false,
+      "counts": {
+        "success": 1,
+        "business_conflict": 49,
+        "infrastructure_error": 0,
+        "other_failure": 0
+      },
+      "database": {
+        "productId": "6acb2dcb3eae28c05c45146a",
+        "sold": true,
+        "sale": {
+          "buyerId": "buyer",
+          "priceCents": 10000,
+          "confirmedAt": "2026-10-11T06:33:47.468Z"
+        },
+        "successfulTransactions": [
+          {
+            "id": "0185e7467aea91e7a2baf90241fcb83eebe4475135baa814b30d4a714053a6c7",
+            "buyerId": "buyer",
+            "priceCents": 10000,
+            "key": "race-90-28"
+          }
+        ],
+        "listings": 0,
+        "sellerSales": 91
+      },
+      "sellerBefore": 90,
+      "upstreams": [],
+      "passed": true,
+      "dispatchSpreadMs": 13.824638997903094
+    },
+    {
+      "group": 91,
+      "sameKey": false,
+      "counts": {
+        "success": 1,
+        "business_conflict": 49,
+        "infrastructure_error": 0,
+        "other_failure": 0
+      },
+      "database": {
+        "productId": "6acb2dcc3eae28c05c45146b",
+        "sold": true,
+        "sale": {
+          "buyerId": "buyer",
+          "priceCents": 10000,
+          "confirmedAt": "2026-10-11T06:33:48.076Z"
+        },
+        "successfulTransactions": [
+          {
+            "id": "2b7f9a715a62139790565afd2bb1a5e8f66f611fdf5897f7eccf85333d44766e",
+            "buyerId": "buyer",
+            "priceCents": 10000,
+            "key": "race-91-14"
+          }
+        ],
+        "listings": 0,
+        "sellerSales": 92
+      },
+      "sellerBefore": 91,
+      "upstreams": [],
+      "passed": true,
+      "dispatchSpreadMs": 17.166336001537275
+    },
+    {
+      "group": 92,
+      "sameKey": false,
+      "counts": {
+        "success": 1,
+        "business_conflict": 49,
+        "infrastructure_error": 0,
+        "other_failure": 0
+      },
+      "database": {
+        "productId": "6acb2dcc3eae28c05c45146c",
+        "sold": true,
+        "sale": {
+          "buyerId": "buyer",
+          "priceCents": 10000,
+          "confirmedAt": "2026-10-11T06:33:48.702Z"
+        },
+        "successfulTransactions": [
+          {
+            "id": "16b002991f0ae85a5e8097a263d4fdbe6a38974ce4f5b8ef0bfe6b8051f74148",
+            "buyerId": "buyer",
+            "priceCents": 10000,
+            "key": "race-92-36"
+          }
+        ],
+        "listings": 0,
+        "sellerSales": 93
+      },
+      "sellerBefore": 92,
+      "upstreams": [],
+      "passed": true,
+      "dispatchSpreadMs": 22.43523300421657
+    },
+    {
+      "group": 93,
+      "sameKey": false,
+      "counts": {
+        "success": 1,
+        "business_conflict": 49,
+        "infrastructure_error": 0,
+        "other_failure": 0
+      },
+      "database": {
+        "productId": "6acb2dcd3eae28c05c45146d",
+        "sold": true,
+        "sale": {
+          "buyerId": "buyer",
+          "priceCents": 10000,
+          "confirmedAt": "2026-10-11T06:33:49.339Z"
+        },
+        "successfulTransactions": [
+          {
+            "id": "1b7ed45c31f9e73b303edd794e581a3f34075b63d580e42c687cc14f8a874dcd",
+            "buyerId": "buyer",
+            "priceCents": 10000,
+            "key": "race-93-0"
+          }
+        ],
+        "listings": 0,
+        "sellerSales": 94
+      },
+      "sellerBefore": 93,
+      "upstreams": [],
+      "passed": true,
+      "dispatchSpreadMs": 12.568234000355005
+    },
+    {
+      "group": 94,
+      "sameKey": false,
+      "counts": {
+        "success": 1,
+        "business_conflict": 49,
+        "infrastructure_error": 0,
+        "other_failure": 0
+      },
+      "database": {
+        "productId": "6acb2dcd3eae28c05c45146e",
+        "sold": true,
+        "sale": {
+          "buyerId": "buyer",
+          "priceCents": 10000,
+          "confirmedAt": "2026-10-11T06:33:49.994Z"
+        },
+        "successfulTransactions": [
+          {
+            "id": "7c8b0fb11bd03d6f84e96fa4cc67780f15a3d518f8252dd2c03fb9596abfee0c",
+            "buyerId": "buyer",
+            "priceCents": 10000,
+            "key": "race-94-49"
+          }
+        ],
+        "listings": 0,
+        "sellerSales": 95
+      },
+      "sellerBefore": 94,
+      "upstreams": [],
+      "passed": true,
+      "dispatchSpreadMs": 14.31624800170539
+    },
+    {
+      "group": 95,
+      "sameKey": false,
+      "counts": {
+        "success": 1,
+        "business_conflict": 49,
+        "infrastructure_error": 0,
+        "other_failure": 0
+      },
+      "database": {
+        "productId": "6acb2dce3eae28c05c45146f",
+        "sold": true,
+        "sale": {
+          "buyerId": "buyer",
+          "priceCents": 10000,
+          "confirmedAt": "2026-10-11T06:33:50.642Z"
+        },
+        "successfulTransactions": [
+          {
+            "id": "cd8be32f650dbf3f7f8abbb921c3a3e3255837ac5617a86bae3cd8e24e82cfe9",
+            "buyerId": "buyer",
+            "priceCents": 10000,
+            "key": "race-95-21"
+          }
+        ],
+        "listings": 0,
+        "sellerSales": 96
+      },
+      "sellerBefore": 95,
+      "upstreams": [],
+      "passed": true,
+      "dispatchSpreadMs": 15.882454994425643
+    },
+    {
+      "group": 96,
+      "sameKey": false,
+      "counts": {
+        "success": 1,
+        "business_conflict": 49,
+        "infrastructure_error": 0,
+        "other_failure": 0
+      },
+      "database": {
+        "productId": "6acb2dcf3eae28c05c451470",
+        "sold": true,
+        "sale": {
+          "buyerId": "buyer",
+          "priceCents": 10000,
+          "confirmedAt": "2026-10-11T06:33:51.259Z"
+        },
+        "successfulTransactions": [
+          {
+            "id": "17af0c293e0eb235a8e875df3583814ba3b2adc8b95245c15be7606fb8f4e5d0",
+            "buyerId": "buyer",
+            "priceCents": 10000,
+            "key": "race-96-7"
+          }
+        ],
+        "listings": 0,
+        "sellerSales": 97
+      },
+      "sellerBefore": 96,
+      "upstreams": [],
+      "passed": true,
+      "dispatchSpreadMs": 13.168777004466392
+    },
+    {
+      "group": 97,
+      "sameKey": false,
+      "counts": {
+        "success": 1,
+        "business_conflict": 49,
+        "infrastructure_error": 0,
+        "other_failure": 0
+      },
+      "database": {
+        "productId": "6acb2dcf3eae28c05c451471",
+        "sold": true,
+        "sale": {
+          "buyerId": "buyer",
+          "priceCents": 10000,
+          "confirmedAt": "2026-10-11T06:33:51.885Z"
+        },
+        "successfulTransactions": [
+          {
+            "id": "ed62fec6a91035c859458205eb46167e750c296a258be67b6f22501d4b6b927c",
+            "buyerId": "buyer",
+            "priceCents": 10000,
+            "key": "race-97-20"
+          }
+        ],
+        "listings": 0,
+        "sellerSales": 98
+      },
+      "sellerBefore": 97,
+      "upstreams": [],
+      "passed": true,
+      "dispatchSpreadMs": 15.755288004584145
+    },
+    {
+      "group": 98,
+      "sameKey": false,
+      "counts": {
+        "success": 1,
+        "business_conflict": 49,
+        "infrastructure_error": 0,
+        "other_failure": 0
+      },
+      "database": {
+        "productId": "6acb2dd03eae28c05c451472",
+        "sold": true,
+        "sale": {
+          "buyerId": "buyer",
+          "priceCents": 10000,
+          "confirmedAt": "2026-10-11T06:33:52.506Z"
+        },
+        "successfulTransactions": [
+          {
+            "id": "fb0a7fa271baee50135af24166f74520ca1181c2cb10169918efc892f10c6c21",
+            "buyerId": "buyer",
+            "priceCents": 10000,
+            "key": "race-98-23"
+          }
+        ],
+        "listings": 0,
+        "sellerSales": 99
+      },
+      "sellerBefore": 98,
+      "upstreams": [],
+      "passed": true,
+      "dispatchSpreadMs": 20.377583998197224
+    },
+    {
+      "group": 99,
+      "sameKey": false,
+      "counts": {
+        "success": 1,
+        "business_conflict": 49,
+        "infrastructure_error": 0,
+        "other_failure": 0
+      },
+      "database": {
+        "productId": "6acb2dd13eae28c05c451473",
+        "sold": true,
+        "sale": {
+          "buyerId": "buyer",
+          "priceCents": 10000,
+          "confirmedAt": "2026-10-11T06:33:53.139Z"
+        },
+        "successfulTransactions": [
+          {
+            "id": "3d479c1035c50cf5348ac9f25152eaeaaefed669fbec5fa1fc9f4b3a7f5e63f6",
+            "buyerId": "buyer",
+            "priceCents": 10000,
+            "key": "race-99-13"
+          }
+        ],
+        "listings": 0,
+        "sellerSales": 100
+      },
+      "sellerBefore": 99,
+      "upstreams": [],
+      "passed": true,
+      "dispatchSpreadMs": 17.259063002711628
+    }
+  ],
+  "sameKey": {
+    "group": "retry",
+    "sameKey": true,
+    "counts": {
+      "success": 54,
+      "business_conflict": 4,
+      "infrastructure_error": 0,
+      "other_failure": 0
+    },
+    "database": {
+      "productId": "6acb2dd13eae28c05c451474",
+      "sold": true,
+      "sale": {
+        "buyerId": "buyer",
+        "priceCents": 10000,
+        "confirmedAt": "2026-10-11T06:33:53.751Z"
+      },
+      "successfulTransactions": [
+        {
+          "id": "e95388535b68997c370f8a54dac373a32509f2297203f8a72da48471b6352ac6",
+          "buyerId": "buyer",
+          "priceCents": 10000,
+          "key": "race-retry-shared"
+        }
+      ],
+      "listings": 0,
+      "sellerSales": 101
+    },
+    "sellerBefore": 100,
+    "upstreams": [],
+    "passed": true,
+    "dispatchSpreadMs": 11.508989002322778
+  },
+  "passed": true,
+  "statistics": {
+    "success": {
+      "count": 154,
+      "medianMs": 26.39288550199126,
+      "p95Ms": 37.99154800071847,
+      "p99Ms": 42.23364700010279
+    },
+    "business_conflict": {
+      "count": 4904,
+      "medianMs": 35.69902849994833,
+      "p95Ms": 46.08432900568005,
+      "p99Ms": 52.99875099444762
+    },
+    "infrastructure_error": {
+      "count": 0,
+      "medianMs": null,
+      "p95Ms": null,
+      "p99Ms": null
+    },
+    "other_failure": {
+      "count": 0,
+      "medianMs": null,
+      "p95Ms": null,
+      "p99Ms": null
+    }
+  },
+  "statisticsByPhase": {
+    "different-keys": {
+      "success": {
+        "count": 100,
+        "medianMs": 25.04196199879516,
+        "p95Ms": 39.48834200127749,
+        "p99Ms": 42.23364700010279
+      },
+      "business_conflict": {
+        "count": 4900,
+        "medianMs": 35.72461449948605,
+        "p95Ms": 46.08432900568005,
+        "p99Ms": 52.99875099444762
+      },
+      "infrastructure_error": {
+        "count": 0,
+        "medianMs": null,
+        "p95Ms": null,
+        "p99Ms": null
+      },
+      "other_failure": {
+        "count": 0,
+        "medianMs": null,
+        "p95Ms": null,
+        "p99Ms": null
+      }
+    },
+    "same-key": {
+      "success": {
+        "count": 50,
+        "medianMs": 27.886459003639175,
+        "p95Ms": 36.40650500165066,
+        "p99Ms": 36.704710000776686
+      },
+      "business_conflict": {
+        "count": 0,
+        "medianMs": null,
+        "p95Ms": null,
+        "p99Ms": null
+      },
+      "infrastructure_error": {
+        "count": 0,
+        "medianMs": null,
+        "p95Ms": null,
+        "p99Ms": null
+      },
+      "other_failure": {
+        "count": 0,
+        "medianMs": null,
+        "p95Ms": null,
+        "p99Ms": null
+      }
+    },
+    "same-key-sequential": {
+      "success": {
+        "count": 4,
+        "medianMs": 4.153352503635688,
+        "p95Ms": 4.4405820008250885,
+        "p99Ms": 4.4405820008250885
+      },
+      "business_conflict": {
+        "count": 0,
+        "medianMs": null,
+        "p95Ms": null,
+        "p99Ms": null
+      },
+      "infrastructure_error": {
+        "count": 0,
+        "medianMs": null,
+        "p95Ms": null,
+        "p99Ms": null
+      },
+      "other_failure": {
+        "count": 0,
+        "medianMs": null,
+        "p95Ms": null,
+        "p99Ms": null
+      }
+    },
+    "changed-content": {
+      "success": {
+        "count": 0,
+        "medianMs": null,
+        "p95Ms": null,
+        "p99Ms": null
+      },
+      "business_conflict": {
+        "count": 4,
+        "medianMs": 3.865436501655495,
+        "p95Ms": 3.9633479973417707,
+        "p99Ms": 3.9633479973417707
+      },
+      "infrastructure_error": {
+        "count": 0,
+        "medianMs": null,
+        "p95Ms": null,
+        "p99Ms": null
+      },
+      "other_failure": {
+        "count": 0,
+        "medianMs": null,
+        "p95Ms": null,
+        "p99Ms": null
+      }
+    }
+  }
+}
