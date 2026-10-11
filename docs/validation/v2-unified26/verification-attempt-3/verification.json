@@ -1,0 +1,969 @@
+{
+  "passed": true,
+  "errors": [],
+  "experiments": [
+    {
+      "id": "A1",
+      "path": "docs/validation/v2/baseline/A-attempt-1/round-1",
+      "kind": "sale",
+      "result": {
+        "formalPassed": true,
+        "configuredCutoffSeconds": 600.0,
+        "measuredWindowSeconds": 44.28307389499969,
+        "barrierValidated": true,
+        "uniqueSales": 30000,
+        "metrics": {
+          "allLaunchedRequests": {
+            "requests": 30000,
+            "throughput": 677.4597461579448,
+            "p95Ms": 91.51675099565182,
+            "p99Ms": 102.90480100229615,
+            "errors": 0,
+            "errorRate": 0.0
+          },
+          "onTimeReceivedResponses": {
+            "requests": 30000,
+            "throughput": 677.4597461579448,
+            "p95Ms": 91.51675099565182,
+            "p99Ms": 102.90480100229615,
+            "errors": 0,
+            "errorRate": 0.0
+          },
+          "successfulResponses": {
+            "requests": 30000,
+            "throughput": 677.4597461579448,
+            "p95Ms": 91.51675099565182,
+            "p99Ms": 102.90480100229615,
+            "errors": 0,
+            "errorRate": 0.0
+          },
+          "businessConflicts": {
+            "requests": 0,
+            "throughput": 0.0,
+            "p95Ms": null,
+            "p99Ms": null,
+            "errors": 0,
+            "errorRate": 0
+          },
+          "otherFailures": {
+            "requests": 0,
+            "throughput": 0.0,
+            "p95Ms": null,
+            "p99Ms": null,
+            "errors": 0,
+            "errorRate": 0
+          }
+        },
+        "fingerprint": "8b08050cc049ae34e7f6144831ebbe8f81cace322659e445e138707eaa4088af",
+        "samples": 45
+      },
+      "passed": true
+    },
+    {
+      "id": "A2",
+      "path": "docs/validation/v2/baseline/A-attempt-1/round-2",
+      "kind": "sale",
+      "result": {
+        "formalPassed": true,
+        "configuredCutoffSeconds": 600.0,
+        "measuredWindowSeconds": 44.43703389499569,
+        "barrierValidated": true,
+        "uniqueSales": 30000,
+        "metrics": {
+          "allLaunchedRequests": {
+            "requests": 30000,
+            "throughput": 675.1125664887924,
+            "p95Ms": 91.38066499872366,
+            "p99Ms": 102.60299599758582,
+            "errors": 0,
+            "errorRate": 0.0
+          },
+          "onTimeReceivedResponses": {
+            "requests": 30000,
+            "throughput": 675.1125664887924,
+            "p95Ms": 91.38066499872366,
+            "p99Ms": 102.60299599758582,
+            "errors": 0,
+            "errorRate": 0.0
+          },
+          "successfulResponses": {
+            "requests": 30000,
+            "throughput": 675.1125664887924,
+            "p95Ms": 91.38066499872366,
+            "p99Ms": 102.60299599758582,
+            "errors": 0,
+            "errorRate": 0.0
+          },
+          "businessConflicts": {
+            "requests": 0,
+            "throughput": 0.0,
+            "p95Ms": null,
+            "p99Ms": null,
+            "errors": 0,
+            "errorRate": 0
+          },
+          "otherFailures": {
+            "requests": 0,
+            "throughput": 0.0,
+            "p95Ms": null,
+            "p99Ms": null,
+            "errors": 0,
+            "errorRate": 0
+          }
+        },
+        "fingerprint": "8b08050cc049ae34e7f6144831ebbe8f81cace322659e445e138707eaa4088af",
+        "samples": 45
+      },
+      "passed": true
+    },
+    {
+      "id": "A3",
+      "path": "docs/validation/v2/baseline/A-attempt-1/round-3",
+      "kind": "sale",
+      "result": {
+        "formalPassed": true,
+        "configuredCutoffSeconds": 600.0,
+        "measuredWindowSeconds": 44.4297171520011,
+        "barrierValidated": true,
+        "uniqueSales": 30000,
+        "metrics": {
+          "allLaunchedRequests": {
+            "requests": 30000,
+            "throughput": 675.2237448950045,
+            "p95Ms": 91.38270200492116,
+            "p99Ms": 101.14911900018342,
+            "errors": 0,
+            "errorRate": 0.0
+          },
+          "onTimeReceivedResponses": {
+            "requests": 30000,
+            "throughput": 675.2237448950045,
+            "p95Ms": 91.38270200492116,
+            "p99Ms": 101.14911900018342,
+            "errors": 0,
+            "errorRate": 0.0
+          },
+          "successfulResponses": {
+            "requests": 30000,
+            "throughput": 675.2237448950045,
+            "p95Ms": 91.38270200492116,
+            "p99Ms": 101.14911900018342,
+            "errors": 0,
+            "errorRate": 0.0
+          },
+          "businessConflicts": {
+            "requests": 0,
+            "throughput": 0.0,
+            "p95Ms": null,
+            "p99Ms": null,
+            "errors": 0,
+            "errorRate": 0
+          },
+          "otherFailures": {
+            "requests": 0,
+            "throughput": 0.0,
+            "p95Ms": null,
+            "p99Ms": null,
+            "errors": 0,
+            "errorRate": 0
+          }
+        },
+        "fingerprint": "8b08050cc049ae34e7f6144831ebbe8f81cace322659e445e138707eaa4088af",
+        "samples": 45
+      },
+      "passed": true
+    },
+    {
+      "id": "competition-A",
+      "path": "docs/validation/v2-race25/formal-A",
+      "kind": "competition",
+      "result": {
+        "groups": 100,
+        "requestsPerGroup": 50,
+        "passed": true,
+        "sameKey": {
+          "group": "retry",
+          "sameKey": true,
+          "counts": {
+            "success": 54,
+            "business_conflict": 4,
+            "infrastructure_error": 0,
+            "other_failure": 0
+          },
+          "database": {
+            "productId": "6acb2d544aea913d90c75563",
+            "sold": true,
+            "sale": {
+              "buyerId": "buyer",
+              "priceCents": 10000,
+              "confirmedAt": "2026-10-11T06:31:48.631Z"
+            },
+            "successfulTransactions": [
+              {
+                "id": "e95388535b68997c370f8a54dac373a32509f2297203f8a72da48471b6352ac6",
+                "buyerId": "buyer",
+                "priceCents": 10000,
+                "key": "race-retry-shared"
+              }
+            ],
+            "listings": 0,
+            "sellerSales": 101
+          },
+          "sellerBefore": 100,
+          "upstreams": [],
+          "passed": true,
+          "dispatchSpreadMs": 11.818929997389205
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": "B1",
+      "path": "docs/validation/v2-config24/formal-B/round-1",
+      "kind": "sale",
+      "result": {
+        "formalPassed": true,
+        "configuredCutoffSeconds": 600.0,
+        "measuredWindowSeconds": 27.02831741200498,
+        "barrierValidated": true,
+        "uniqueSales": 30000,
+        "metrics": {
+          "allLaunchedRequests": {
+            "requests": 30000,
+            "throughput": 1109.947006419094,
+            "p95Ms": 67.50142899545608,
+            "p99Ms": 76.7719580035191,
+            "errors": 0,
+            "errorRate": 0.0
+          },
+          "onTimeReceivedResponses": {
+            "requests": 30000,
+            "throughput": 1109.947006419094,
+            "p95Ms": 67.50142899545608,
+            "p99Ms": 76.7719580035191,
+            "errors": 0,
+            "errorRate": 0.0
+          },
+          "successfulResponses": {
+            "requests": 30000,
+            "throughput": 1109.947006419094,
+            "p95Ms": 67.50142899545608,
+            "p99Ms": 76.7719580035191,
+            "errors": 0,
+            "errorRate": 0.0
+          },
+          "businessConflicts": {
+            "requests": 0,
+            "throughput": 0.0,
+            "p95Ms": null,
+            "p99Ms": null,
+            "errors": 0,
+            "errorRate": 0
+          },
+          "otherFailures": {
+            "requests": 0,
+            "throughput": 0.0,
+            "p95Ms": null,
+            "p99Ms": null,
+            "errors": 0,
+            "errorRate": 0
+          }
+        },
+        "fingerprint": "8b08050cc049ae34e7f6144831ebbe8f81cace322659e445e138707eaa4088af",
+        "samples": 27
+      },
+      "passed": true
+    },
+    {
+      "id": "B2",
+      "path": "docs/validation/v2-config24/formal-B/round-2",
+      "kind": "sale",
+      "result": {
+        "formalPassed": true,
+        "configuredCutoffSeconds": 600.0,
+        "measuredWindowSeconds": 26.99823184699926,
+        "barrierValidated": true,
+        "uniqueSales": 30000,
+        "metrics": {
+          "allLaunchedRequests": {
+            "requests": 30000,
+            "throughput": 1111.18387937447,
+            "p95Ms": 67.38968599529471,
+            "p99Ms": 77.13790100387996,
+            "errors": 0,
+            "errorRate": 0.0
+          },
+          "onTimeReceivedResponses": {
+            "requests": 30000,
+            "throughput": 1111.18387937447,
+            "p95Ms": 67.38968599529471,
+            "p99Ms": 77.13790100387996,
+            "errors": 0,
+            "errorRate": 0.0
+          },
+          "successfulResponses": {
+            "requests": 30000,
+            "throughput": 1111.18387937447,
+            "p95Ms": 67.38968599529471,
+            "p99Ms": 77.13790100387996,
+            "errors": 0,
+            "errorRate": 0.0
+          },
+          "businessConflicts": {
+            "requests": 0,
+            "throughput": 0.0,
+            "p95Ms": null,
+            "p99Ms": null,
+            "errors": 0,
+            "errorRate": 0
+          },
+          "otherFailures": {
+            "requests": 0,
+            "throughput": 0.0,
+            "p95Ms": null,
+            "p99Ms": null,
+            "errors": 0,
+            "errorRate": 0
+          }
+        },
+        "fingerprint": "8b08050cc049ae34e7f6144831ebbe8f81cace322659e445e138707eaa4088af",
+        "samples": 27
+      },
+      "passed": true
+    },
+    {
+      "id": "B3",
+      "path": "docs/validation/v2-config24/formal-B/round-3",
+      "kind": "sale",
+      "result": {
+        "formalPassed": true,
+        "configuredCutoffSeconds": 600.0,
+        "measuredWindowSeconds": 26.984696448998875,
+        "barrierValidated": true,
+        "uniqueSales": 30000,
+        "metrics": {
+          "allLaunchedRequests": {
+            "requests": 30000,
+            "throughput": 1111.7412440306696,
+            "p95Ms": 67.37141199846519,
+            "p99Ms": 78.41976499912562,
+            "errors": 0,
+            "errorRate": 0.0
+          },
+          "onTimeReceivedResponses": {
+            "requests": 30000,
+            "throughput": 1111.7412440306696,
+            "p95Ms": 67.37141199846519,
+            "p99Ms": 78.41976499912562,
+            "errors": 0,
+            "errorRate": 0.0
+          },
+          "successfulResponses": {
+            "requests": 30000,
+            "throughput": 1111.7412440306696,
+            "p95Ms": 67.37141199846519,
+            "p99Ms": 78.41976499912562,
+            "errors": 0,
+            "errorRate": 0.0
+          },
+          "businessConflicts": {
+            "requests": 0,
+            "throughput": 0.0,
+            "p95Ms": null,
+            "p99Ms": null,
+            "errors": 0,
+            "errorRate": 0
+          },
+          "otherFailures": {
+            "requests": 0,
+            "throughput": 0.0,
+            "p95Ms": null,
+            "p99Ms": null,
+            "errors": 0,
+            "errorRate": 0
+          }
+        },
+        "fingerprint": "8b08050cc049ae34e7f6144831ebbe8f81cace322659e445e138707eaa4088af",
+        "samples": 27
+      },
+      "passed": true
+    },
+    {
+      "id": "competition-B",
+      "path": "docs/validation/v2-race25/formal-B",
+      "kind": "competition",
+      "result": {
+        "groups": 100,
+        "requestsPerGroup": 50,
+        "passed": true,
+        "sameKey": {
+          "group": "retry",
+          "sameKey": true,
+          "counts": {
+            "success": 54,
+            "business_conflict": 4,
+            "infrastructure_error": 0,
+            "other_failure": 0
+          },
+          "database": {
+            "productId": "6acb2dd13eae28c05c451474",
+            "sold": true,
+            "sale": {
+              "buyerId": "buyer",
+              "priceCents": 10000,
+              "confirmedAt": "2026-10-11T06:33:53.751Z"
+            },
+            "successfulTransactions": [
+              {
+                "id": "e95388535b68997c370f8a54dac373a32509f2297203f8a72da48471b6352ac6",
+                "buyerId": "buyer",
+                "priceCents": 10000,
+                "key": "race-retry-shared"
+              }
+            ],
+            "listings": 0,
+            "sellerSales": 101
+          },
+          "sellerBefore": 100,
+          "upstreams": [],
+          "passed": true,
+          "dispatchSpreadMs": 11.508989002322778
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": "C1",
+      "path": "docs/validation/v2-config24/formal-C/round-1",
+      "kind": "sale",
+      "result": {
+        "formalPassed": true,
+        "configuredCutoffSeconds": 600.0,
+        "measuredWindowSeconds": 23.702540704995045,
+        "barrierValidated": true,
+        "uniqueSales": 30000,
+        "metrics": {
+          "allLaunchedRequests": {
+            "requests": 30000,
+            "throughput": 1265.6870996820116,
+            "p95Ms": 47.81009300495498,
+            "p99Ms": 72.6171760034049,
+            "errors": 0,
+            "errorRate": 0.0
+          },
+          "onTimeReceivedResponses": {
+            "requests": 30000,
+            "throughput": 1265.6870996820116,
+            "p95Ms": 47.81009300495498,
+            "p99Ms": 72.6171760034049,
+            "errors": 0,
+            "errorRate": 0.0
+          },
+          "successfulResponses": {
+            "requests": 30000,
+            "throughput": 1265.6870996820116,
+            "p95Ms": 47.81009300495498,
+            "p99Ms": 72.6171760034049,
+            "errors": 0,
+            "errorRate": 0.0
+          },
+          "businessConflicts": {
+            "requests": 0,
+            "throughput": 0.0,
+            "p95Ms": null,
+            "p99Ms": null,
+            "errors": 0,
+            "errorRate": 0
+          },
+          "otherFailures": {
+            "requests": 0,
+            "throughput": 0.0,
+            "p95Ms": null,
+            "p99Ms": null,
+            "errors": 0,
+            "errorRate": 0
+          }
+        },
+        "fingerprint": "8b08050cc049ae34e7f6144831ebbe8f81cace322659e445e138707eaa4088af",
+        "samples": 24
+      },
+      "passed": true
+    },
+    {
+      "id": "C2",
+      "path": "docs/validation/v2-config24/formal-C/round-2",
+      "kind": "sale",
+      "result": {
+        "formalPassed": true,
+        "configuredCutoffSeconds": 600.0,
+        "measuredWindowSeconds": 23.66602062500897,
+        "barrierValidated": true,
+        "uniqueSales": 30000,
+        "metrics": {
+          "allLaunchedRequests": {
+            "requests": 30000,
+            "throughput": 1267.6402372563482,
+            "p95Ms": 49.081668999860995,
+            "p99Ms": 68.48327700572554,
+            "errors": 0,
+            "errorRate": 0.0
+          },
+          "onTimeReceivedResponses": {
+            "requests": 30000,
+            "throughput": 1267.6402372563482,
+            "p95Ms": 49.081668999860995,
+            "p99Ms": 68.48327700572554,
+            "errors": 0,
+            "errorRate": 0.0
+          },
+          "successfulResponses": {
+            "requests": 30000,
+            "throughput": 1267.6402372563482,
+            "p95Ms": 49.081668999860995,
+            "p99Ms": 68.48327700572554,
+            "errors": 0,
+            "errorRate": 0.0
+          },
+          "businessConflicts": {
+            "requests": 0,
+            "throughput": 0.0,
+            "p95Ms": null,
+            "p99Ms": null,
+            "errors": 0,
+            "errorRate": 0
+          },
+          "otherFailures": {
+            "requests": 0,
+            "throughput": 0.0,
+            "p95Ms": null,
+            "p99Ms": null,
+            "errors": 0,
+            "errorRate": 0
+          }
+        },
+        "fingerprint": "8b08050cc049ae34e7f6144831ebbe8f81cace322659e445e138707eaa4088af",
+        "samples": 24
+      },
+      "passed": true
+    },
+    {
+      "id": "C3",
+      "path": "docs/validation/v2-config24/formal-C/round-3",
+      "kind": "sale",
+      "result": {
+        "formalPassed": true,
+        "configuredCutoffSeconds": 600.0,
+        "measuredWindowSeconds": 23.704372099993634,
+        "barrierValidated": true,
+        "uniqueSales": 30000,
+        "metrics": {
+          "allLaunchedRequests": {
+            "requests": 30000,
+            "throughput": 1265.589312952443,
+            "p95Ms": 47.238202998414636,
+            "p99Ms": 67.79015201027505,
+            "errors": 0,
+            "errorRate": 0.0
+          },
+          "onTimeReceivedResponses": {
+            "requests": 30000,
+            "throughput": 1265.589312952443,
+            "p95Ms": 47.238202998414636,
+            "p99Ms": 67.79015201027505,
+            "errors": 0,
+            "errorRate": 0.0
+          },
+          "successfulResponses": {
+            "requests": 30000,
+            "throughput": 1265.589312952443,
+            "p95Ms": 47.238202998414636,
+            "p99Ms": 67.79015201027505,
+            "errors": 0,
+            "errorRate": 0.0
+          },
+          "businessConflicts": {
+            "requests": 0,
+            "throughput": 0.0,
+            "p95Ms": null,
+            "p99Ms": null,
+            "errors": 0,
+            "errorRate": 0
+          },
+          "otherFailures": {
+            "requests": 0,
+            "throughput": 0.0,
+            "p95Ms": null,
+            "p99Ms": null,
+            "errors": 0,
+            "errorRate": 0
+          }
+        },
+        "fingerprint": "8b08050cc049ae34e7f6144831ebbe8f81cace322659e445e138707eaa4088af",
+        "samples": 24
+      },
+      "passed": true
+    },
+    {
+      "id": "competition-C",
+      "path": "docs/validation/v2-race25/formal-C",
+      "kind": "competition",
+      "result": {
+        "groups": 100,
+        "requestsPerGroup": 50,
+        "passed": true,
+        "sameKey": {
+          "group": "retry",
+          "sameKey": true,
+          "counts": {
+            "success": 54,
+            "business_conflict": 4,
+            "infrastructure_error": 0,
+            "other_failure": 0
+          },
+          "database": {
+            "productId": "6acb2e4d0eb37d4f66aac1de",
+            "sold": true,
+            "sale": {
+              "buyerId": "buyer",
+              "priceCents": 10000,
+              "confirmedAt": "2026-10-11T06:35:57.394Z"
+            },
+            "successfulTransactions": [
+              {
+                "id": "e95388535b68997c370f8a54dac373a32509f2297203f8a72da48471b6352ac6",
+                "buyerId": "buyer",
+                "priceCents": 10000,
+                "key": "race-retry-shared"
+              }
+            ],
+            "listings": 0,
+            "sellerSales": 101
+          },
+          "sellerBefore": 100,
+          "upstreams": [
+            "172.21.0.4:8080",
+            "172.21.0.5:8080"
+          ],
+          "passed": true,
+          "dispatchSpreadMs": 18.49051099998178
+        }
+      },
+      "passed": true
+    },
+    {
+      "id": "detail-A-hotspot",
+      "path": "docs/validation/v2-details23/formal/A-hotspot",
+      "kind": "detail",
+      "result": {
+        "formalPassed": true,
+        "requests": 62383,
+        "throughputPerSecond": 1039.7166666666667,
+        "latencyMs": {
+          "median": 32.513981001102366,
+          "p95": 47.174456994980574,
+          "p99": 55.287463997956365
+        },
+        "telemetry": {
+          "disabled": 62383,
+          "missing": 0,
+          "mongoQueries": 249532,
+          "mongoBsonBytes": 93876206,
+          "cacheErrors": 0,
+          "hitRate": null
+        },
+        "cacheHealthy": true
+      },
+      "passed": true
+    },
+    {
+      "id": "detail-A-dispersed",
+      "path": "docs/validation/v2-details23/formal/A-dispersed",
+      "kind": "detail",
+      "result": {
+        "formalPassed": true,
+        "requests": 62784,
+        "throughputPerSecond": 1046.4,
+        "latencyMs": {
+          "median": 32.09993899872643,
+          "p95": 47.664259996963665,
+          "p99": 58.88769900047919
+        },
+        "telemetry": {
+          "disabled": 62784,
+          "missing": 0,
+          "mongoQueries": 251136,
+          "mongoBsonBytes": 94830013,
+          "cacheErrors": 0,
+          "hitRate": null
+        },
+        "cacheHealthy": true
+      },
+      "passed": true
+    },
+    {
+      "id": "detail-B-cold-hotspot",
+      "path": "docs/validation/v2-details23/formal/B-cold-hotspot",
+      "kind": "detail",
+      "result": {
+        "formalPassed": true,
+        "requests": 28517,
+        "throughputPerSecond": 475.28333333333336,
+        "latencyMs": {
+          "median": 53.351276998000685,
+          "p95": 199.9250189983286,
+          "p99": 227.11452999647008
+        },
+        "telemetry": {
+          "miss": 100,
+          "hit": 26930,
+          "fallback": 1487,
+          "missing": 0,
+          "mongoQueries": 115655,
+          "mongoBsonBytes": 28132337,
+          "cacheErrors": 1487,
+          "hitRate": 0.9443489848160747
+        },
+        "cacheHealthy": false
+      },
+      "passed": true
+    },
+    {
+      "id": "detail-B-hot-hotspot",
+      "path": "docs/validation/v2-details23/formal/B-hot-hotspot",
+      "kind": "detail",
+      "result": {
+        "formalPassed": true,
+        "requests": 28512,
+        "throughputPerSecond": 475.2,
+        "latencyMs": {
+          "median": 54.78253150067758,
+          "p95": 199.25420799700078,
+          "p99": 220.52715199970407
+        },
+        "telemetry": {
+          "hit": 26950,
+          "fallback": 1562,
+          "missing": 0,
+          "mongoQueries": 115610,
+          "mongoBsonBytes": 28113753,
+          "cacheErrors": 1562,
+          "hitRate": 0.9452160493827161
+        },
+        "cacheHealthy": false
+      },
+      "passed": true
+    },
+    {
+      "id": "detail-B-cold-dispersed",
+      "path": "docs/validation/v2-details23/formal/B-cold-dispersed",
+      "kind": "detail",
+      "result": {
+        "formalPassed": true,
+        "requests": 15781,
+        "throughputPerSecond": 263.01666666666665,
+        "latencyMs": {
+          "median": 190.18902799871285,
+          "p95": 400.4832799982978,
+          "p99": 696.7897329959669
+        },
+        "telemetry": {
+          "miss": 13851,
+          "fallback": 1930,
+          "missing": 0,
+          "mongoQueries": 78905,
+          "mongoBsonBytes": 28484291,
+          "cacheErrors": 3274,
+          "hitRate": 0.0
+        },
+        "cacheHealthy": false
+      },
+      "passed": true
+    },
+    {
+      "id": "detail-B-hot-dispersed",
+      "path": "docs/validation/v2-details23/formal/B-hot-dispersed",
+      "kind": "detail",
+      "result": {
+        "formalPassed": true,
+        "requests": 17329,
+        "throughputPerSecond": 288.81666666666666,
+        "latencyMs": {
+          "median": 179.2500080046011,
+          "p95": 497.76789599854965,
+          "p99": 611.9770929944934
+        },
+        "telemetry": {
+          "miss": 14050,
+          "fallback": 3279,
+          "missing": 0,
+          "mongoQueries": 86645,
+          "mongoBsonBytes": 31288948,
+          "cacheErrors": 3532,
+          "hitRate": 0.0
+        },
+        "cacheHealthy": false
+      },
+      "passed": true
+    },
+    {
+      "id": "detail-C-cold",
+      "path": "docs/validation/v2-config24/hotspot/C-cold",
+      "kind": "detail",
+      "result": {
+        "formalPassed": true,
+        "requests": 57640,
+        "throughputPerSecond": 960.6666666666666,
+        "latencyMs": {
+          "median": 22.742886503692716,
+          "p95": 112.96187700645532,
+          "p99": 298.6329220002517
+        },
+        "telemetry": {
+          "miss": 100,
+          "hit": 56243,
+          "fallback": 1297,
+          "missing": 0,
+          "mongoQueries": 231957,
+          "mongoBsonBytes": 55312999,
+          "cacheErrors": 1297,
+          "hitRate": 0.975763358778626
+        },
+        "cacheHealthy": false
+      },
+      "passed": true
+    },
+    {
+      "id": "detail-C-hot",
+      "path": "docs/validation/v2-config24/hotspot/C-hot",
+      "kind": "detail",
+      "result": {
+        "formalPassed": true,
+        "requests": 57721,
+        "throughputPerSecond": 962.0166666666667,
+        "latencyMs": {
+          "median": 24.061894000624306,
+          "p95": 91.60948899807408,
+          "p99": 292.68178799247835
+        },
+        "telemetry": {
+          "hit": 56455,
+          "fallback": 1266,
+          "missing": 0,
+          "mongoQueries": 232150,
+          "mongoBsonBytes": 55270139,
+          "cacheErrors": 1266,
+          "hitRate": 0.978066908057726
+        },
+        "cacheHealthy": false
+      },
+      "passed": true
+    },
+    {
+      "id": "functions",
+      "path": "docs/validation/v2-functions22/formal100",
+      "kind": "functions",
+      "result": {
+        "features": 8,
+        "samples": 800,
+        "ttlSamples": 10
+      },
+      "passed": true
+    },
+    {
+      "id": "deployed-regression",
+      "path": "docs/validation/v2-unified26/regression-attempt-1",
+      "kind": "regression",
+      "result": {
+        "deployedConfigurations": [
+          "A",
+          "B",
+          "C"
+        ],
+        "fixtureProducts": 200000
+      },
+      "passed": true
+    },
+    {
+      "id": "fault",
+      "path": "docs/validation/v2-fault20/run-20261011-06",
+      "kind": "fault",
+      "result": {
+        "passed": true
+      },
+      "passed": true
+    },
+    {
+      "id": "seed",
+      "path": ".",
+      "kind": "proof",
+      "result": {
+        "scope": "full seed counts/identical restoration/cache clearing/refusal",
+        "files": [
+          "docs/validation/v2/seeds.md"
+        ]
+      },
+      "passed": true
+    },
+    {
+      "id": "cache-edit",
+      "path": ".",
+      "kind": "proof",
+      "result": {
+        "scope": "versioned cache concurrent edit/current dynamic HTTP facts",
+        "files": [
+          "docs/validation/v2-cache19/http-cache.log"
+        ]
+      },
+      "passed": true
+    },
+    {
+      "id": "cross-instance",
+      "path": ".",
+      "kind": "proof",
+      "result": {
+        "scope": "token/idempotency/current-content sharing and upstream dispatch",
+        "files": [
+          "docs/validation/v2-lb21/cross-instance.jsonl"
+        ]
+      },
+      "passed": true
+    },
+    {
+      "id": "failed-details",
+      "path": ".",
+      "kind": "proof",
+      "result": {
+        "scope": "retained original overstrict rejection corrected without runtime change",
+        "files": [
+          "docs/validation/v2-details23/formal/B-cold-hotspot/summary-original-rejected.json"
+        ]
+      },
+      "passed": true
+    },
+    {
+      "id": "failed-preparation",
+      "path": ".",
+      "kind": "proof",
+      "result": {
+        "scope": "retained pre-window Search503",
+        "files": [
+          "docs/validation/v2-functions22/formal100-preparation-failed/http.jsonl"
+        ]
+      },
+      "passed": true
+    }
+  ],
+  "sourceReuse": {
+    "measuredA": "d7fe703",
+    "measuredBC": "1ed9b63 atop f17c1e8",
+    "policy": "Recorded invocation/source/image hashes remain authoritative. Later changes add auxiliary gzip service capture and reported resource budgets; no API, workload, cutoff, TTL, timeout, quota or routing changes. Documentation and offline summary correction do not require repeat load. Deployment regression uses current integration API.",
+    "unavailable": "Old A/B/C sales and C hotspot server stdout unavailable after owned cleanup; client, DB, resource/storage and HTTP telemetry retained. No invented capture."
+  },
+  "limitations": [
+    "Only one physical machine verified; cross-machine remains pending consideration.",
+    "C doubles total app quota and adds proxy; no equal-total-resource or Nginx-only causal claim.",
+    "Natural Redis timeouts/fallback are valid measured HTTP outcomes, cacheHealthy false is retained.",
+    "Hot dispersed prewarm900.503s exceeds TTL600s; whole-warm SET error exact total unavailable.",
+    "No P95/P99 pass threshold beyond spec. TTL interval is observation, not SLA."
+  ]
+}

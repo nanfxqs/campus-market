@@ -1,0 +1,20 @@
+users: 10000 (expected 10000)
+unsold: 20000 (expected 20000)
+sold: 180000 (expected 180000)
+listings: 20000 (expected 20000)
+transactions: 300000 (expected 300000)
+priceChanges: 500000 (expected 500000)
+successes: 180000 (expected 180000)
+image violations: 0 (expected 0)
+price chain violations: 0 (expected 0)
+sale record violations: 0 (expected 0)
+seller count violations: 0 (expected 0)
+[
+  {
+    _id: null,
+    min: 2,
+    max: 3,
+    mean: 2.5
+  }
+]
+Seed observations passed. Listing counts are wall-clock sensitive; see seed documentation.

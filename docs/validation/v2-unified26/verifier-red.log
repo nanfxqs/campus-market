@@ -1,0 +1,14 @@
+F
+======================================================================
+FAIL: test_measured_error_rejects_fabricated_pass_summary (experiments.test_unified_evidence.Evidence.test_measured_error_rejects_fabricated_pass_summary)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/campus-v2-unified/experiments/test_unified_evidence.py", line 9, in test_measured_error_rejects_fabricated_pass_summary
+    self.assertNotEqual(result.returncode,0);self.assertIn('raw',result.stdout+result.stderr)
+                                             ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'raw' not found in "python3: can't open file '/tmp/campus-v2-unified/scripts/validate-v2.py': [Errno 2] No such file or directory\n"
+
+----------------------------------------------------------------------
+Ran 1 test in 0.009s
+
+FAILED (failures=1)
