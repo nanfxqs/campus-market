@@ -1,0 +1,296 @@
+{
+  "os": {
+    "returncode": 0,
+    "stdout": "Linux thinkbook-omarchy 7.2.8-5-omarchy-bore #1 SMP PREEMPT_DYNAMIC Wed, 07 Oct 2026 02:17:41 +0000 x86_64 GNU/Linux\n",
+    "stderr": "",
+    "command": [
+      "uname",
+      "-a"
+    ],
+    "utc": "2026-10-11T06:07:57.524826+00:00",
+    "duration_seconds": 0.0019586079943110235
+  },
+  "cpu": {
+    "returncode": 0,
+    "stdout": "Architecture:                            x86_64\nCPU op-mode(s):                          32-bit, 64-bit\nAddress sizes:                           46 bits physical, 48 bits virtual\nByte Order:                              Little Endian\nCPU(s):                                  18\nOn-line CPU(s) list:                     0-17\nVendor ID:                               GenuineIntel\nModel name:                              Intel(R) Core(TM) Ultra 5 125H\nCPU family:                              6\nModel:                                   170\nThread(s) per core:                      2\nCore(s) per socket:                      14\nSocket(s):                               1\nStepping:                                4\nMicrocode version:                       0x2b\nCPU(s) scaling MHz:                      46%\nCPU max MHz:                             4500.0000\nCPU min MHz:                             400.0000\nBogoMIPS:                                5990.40\nFlags:                                   fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf tsc_known_freq pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb ssbd ibrs ibpb stibp ibrs_enhanced tpr_shadow flexpriority ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid rdseed adx smap clflushopt clwb intel_pt sha_ni xsaveopt xsavec xgetbv1 xsaves split_lock_detect user_shstk avx_vnni dtherm ida arat pln pts hwp hwp_notify hwp_act_window hwp_epp hwp_pkg_req hfi vnmi umip pku ospke waitpkg gfni vaes vpclmulqdq rdpid bus_lock_detect movdiri movdir64b fsrm md_clear serialize arch_lbr ibt flush_l1d arch_capabilities\nVirtualization:                          VT-x\nL1d cache:                               448 KiB (12 instances)\nL1i cache:                               768 KiB (12 instances)\nL2 cache:                                14 MiB (7 instances)\nL3 cache:                                18 MiB (1 instance)\nNUMA node(s):                            1\nNUMA node0 CPU(s):                       0-17\nVulnerability Gather data sampling:      Not affected\nVulnerability Ghostwrite:                Not affected\nVulnerability Indirect target selection: Not affected\nVulnerability Itlb multihit:             Not affected\nVulnerability L1tf:                      Not affected\nVulnerability Mds:                       Not affected\nVulnerability Meltdown:                  Not affected\nVulnerability Mmio stale data:           Not affected\nVulnerability Old microcode:             Not affected\nVulnerability Reg file data sampling:    Not affected\nVulnerability Retbleed:                  Not affected\nVulnerability Spec rstack overflow:      Not affected\nVulnerability Spec store bypass:         Mitigation; Speculative Store Bypass disabled via prctl\nVulnerability Spectre v1:                Mitigation; usercopy/swapgs barriers and __user pointer sanitization\nVulnerability Spectre v2:                Mitigation; Enhanced / Automatic IBRS; IBPB conditional; PBRSB-eIBRS Not affected; BHI BHI_DIS_S\nVulnerability Srbds:                     Not affected\nVulnerability Tsa:                       Not affected\nVulnerability Tsx async abort:           Not affected\nVulnerability Vmscape:                   Mitigation; IBPB before exit to userspace\n",
+    "stderr": "",
+    "command": [
+      "lscpu"
+    ],
+    "utc": "2026-10-11T06:07:57.526839+00:00",
+    "duration_seconds": 0.007390636004856788
+  },
+  "memory": {
+    "returncode": 0,
+    "stdout": "MemTotal:       32447220 kB\nMemFree:         6558648 kB\nMemAvailable:   15254436 kB\nBuffers:             400 kB\nCached:         11365024 kB\nSwapCached:            0 kB\nActive:         10897640 kB\nInactive:       12994420 kB\nActive(anon):    9503188 kB\nInactive(anon):  4471088 kB\nActive(file):    1394452 kB\nInactive(file):  8523332 kB\nUnevictable:      246828 kB\nMlocked:              88 kB\nSwapTotal:      64896572 kB\nSwapFree:       64821596 kB\nZswap:                 0 kB\nZswapped:              0 kB\nDirty:              7100 kB\nWriteback:             0 kB\nAnonPages:      12204276 kB\nMapped:          1858548 kB\nShmem:           1448000 kB\nKReclaimable:     530988 kB\nSlab:             865676 kB\nSReclaimable:     530988 kB\nSUnreclaim:       334688 kB\nKernelStack:       39024 kB\nPageTables:        87968 kB\nSecPageTables:      2332 kB\nNFS_Unstable:          0 kB\nBounce:                0 kB\nWritebackTmp:          0 kB\nCommitLimit:    81120180 kB\nCommitted_AS:   35202512 kB\nVmallocTotal:   34359738367 kB\nVmallocUsed:      218788 kB\nVmallocChunk:          0 kB\nPercpu:            24768 kB\nHardwareCorrupted:     0 kB\nAnonHugePages:   6483968 kB\nShmemHugePages:  1126400 kB\nShmemPmdMapped:        0 kB\nFileHugePages:         0 kB\nFilePmdMapped:         0 kB\nCmaTotal:              0 kB\nCmaFree:               0 kB\nUnaccepted:            0 kB\nBalloon:               0 kB\nGPUActive:             0 kB\nGPUReclaim:            0 kB\nHugePages_Total:       0\nHugePages_Free:        0\nHugePages_Rsvd:        0\nHugePages_Surp:        0\nHugepagesize:       2048 kB\nHugetlb:               0 kB\nDirectMap4k:      384768 kB\nDirectMap2M:    12843008 kB\nDirectMap1G:    20971520 kB\n",
+    "stderr": "",
+    "command": [
+      "cat",
+      "/proc/meminfo"
+    ],
+    "utc": "2026-10-11T06:07:57.534314+00:00",
+    "duration_seconds": 0.0028367359991534613
+  },
+  "disks": {
+    "returncode": 0,
+    "stdout": "{\n   \"blockdevices\": [\n      {\n         \"name\": \"zram0\",\n         \"maj:min\": \"252:0\",\n         \"rm\": false,\n         \"size\": 33225179136,\n         \"ro\": false,\n         \"type\": \"disk\",\n         \"mountpoints\": [\n             \"[SWAP]\"\n         ]\n      },{\n         \"name\": \"nvme0n1\",\n         \"maj:min\": \"259:0\",\n         \"rm\": false,\n         \"size\": 1024209543168,\n         \"ro\": false,\n         \"type\": \"disk\",\n         \"mountpoints\": [],\n         \"children\": [\n            {\n               \"name\": \"nvme0n1p1\",\n               \"maj:min\": \"259:1\",\n               \"rm\": false,\n               \"size\": 209715200,\n               \"ro\": false,\n               \"type\": \"part\",\n               \"mountpoints\": []\n            },{\n               \"name\": \"nvme0n1p2\",\n               \"maj:min\": \"259:2\",\n               \"rm\": false,\n               \"size\": 16777216,\n               \"ro\": false,\n               \"type\": \"part\",\n               \"mountpoints\": []\n            },{\n               \"name\": \"nvme0n1p3\",\n               \"maj:min\": \"259:3\",\n               \"rm\": false,\n               \"size\": 321127448576,\n               \"ro\": false,\n               \"type\": \"part\",\n               \"mountpoints\": []\n            },{\n               \"name\": \"nvme0n1p4\",\n               \"maj:min\": \"259:4\",\n               \"rm\": false,\n               \"size\": 322121498624,\n               \"ro\": false,\n               \"type\": \"part\",\n               \"mountpoints\": []\n            },{\n               \"name\": \"nvme0n1p5\",\n               \"maj:min\": \"259:5\",\n               \"rm\": false,\n               \"size\": 994050048,\n               \"ro\": false,\n               \"type\": \"part\",\n               \"mountpoints\": []\n            },{\n               \"name\": \"nvme0n1p6\",\n               \"maj:min\": \"259:6\",\n               \"rm\": false,\n               \"size\": 2147484160,\n               \"ro\": false,\n               \"type\": \"part\",\n               \"mountpoints\": [\n                   \"/boot\"\n               ]\n            },{\n               \"name\": \"nvme0n1p7\",\n               \"maj:min\": \"259:7\",\n               \"rm\": false,\n               \"size\": 377589072384,\n               \"ro\": false,\n               \"type\": \"part\",\n               \"mountpoints\": [],\n               \"children\": [\n                  {\n                     \"name\": \"omarchy_root\",\n                     \"maj:min\": \"253:0\",\n                     \"rm\": false,\n                     \"size\": 377572295168,\n                     \"ro\": false,\n                     \"type\": \"crypt\",\n                     \"mountpoints\": [\n                         \"/var/log\", \"/var/cache/pacman/pkg\", \"/home\", \"/\"\n                     ]\n                  }\n               ]\n            }\n         ]\n      }\n   ]\n}\n",
+    "stderr": "",
+    "command": [
+      "lsblk",
+      "-b",
+      "-J"
+    ],
+    "utc": "2026-10-11T06:07:57.537223+00:00",
+    "duration_seconds": 0.00455015499755973
+  },
+  "filesystem": {
+    "returncode": 0,
+    "stdout": "Filesystem                  1B-blocks         Used    Available Use% Mounted on\ndev                       16530063360            0  16530063360   0% /dev\nrun                       16612974592      3506176  16609468416   1% /run\nefivarfs                       274332       150107       119105  56% /sys/firmware/efi/efivars\n/dev/mapper/omarchy_root 377572294656 146457149440 230611828736  39% /\ntmpfs                     16612974592     48574464  16564400128   1% /dev/shm\nnone                          1048576            0      1048576   0% /run/credentials/systemd-journald.service\nnone                          1048576            0      1048576   0% /run/credentials/systemd-resolved.service\ntmpfs                     16612978688    134426624  16478552064   1% /tmp\n/dev/mapper/omarchy_root 377572294656 146457149440 230611828736  39% /home\n/dev/mapper/omarchy_root 377572294656 146457149440 230611828736  39% /var/cache/pacman/pkg\n/dev/mapper/omarchy_root 377572294656 146457149440 230611828736  39% /var/log\n/dev/nvme0n1p6             2143281152    344178688   1799102464  17% /boot\nnone                          1048576         4096      1044480   1% /run/credentials/libvirtd.service\ntmpfs                      3322593280     11575296   3311017984   1% /run/user/1000\nimmich-source:/          245107195904 109854605312 135252590592  45% /run/user/1000/immich-backup-source\n",
+    "stderr": "",
+    "command": [
+      "df",
+      "-B1"
+    ],
+    "utc": "2026-10-11T06:07:57.541830+00:00",
+    "duration_seconds": 0.014995415993325878
+  },
+  "docker": {
+    "returncode": 0,
+    "stdout": "Client:\n Version:           29.9.0\n API version:       1.56\n Go version:        go1.27.1-X:nodwarf5\n Git commit:        f415da838b\n Built:             Fri Oct  9 00:19:20 2026\n OS/Arch:           linux/amd64\n Context:           default\n\nServer:\n Engine:\n  Version:          29.9.0\n  API version:      1.56 (minimum version 1.40)\n  Go version:       go1.27.1-X:nodwarf5\n  Git commit:       a5b58c94d3\n  Built:            Fri Oct  9 00:19:20 2026\n  OS/Arch:          linux/amd64\n  Experimental:     false\n containerd:\n  Version:          v2.4.1\n  GitCommit:        f2551031d7276a770f65f98c9b52e57e7dad07e8.m\n runc:\n  Version:          1.5.2\n  GitCommit:        \n docker-init:\n  Version:          0.19.0\n  GitCommit:        de40ad0\n",
+    "stderr": "",
+    "command": [
+      "docker",
+      "version"
+    ],
+    "utc": "2026-10-11T06:07:57.556911+00:00",
+    "duration_seconds": 0.02857303600467276
+  },
+  "docker_budget": {
+    "returncode": 0,
+    "stdout": "{\"ID\":\"709cc7ac-806a-46a9-a180-db546c351fec\",\"Containers\":15,\"ContainersRunning\":12,\"ContainersPaused\":0,\"ContainersStopped\":3,\"Images\":46,\"Driver\":\"overlayfs\",\"DriverStatus\":[[\"driver-type\",\"io.containerd.snapshotter.v1\"]],\"Plugins\":{\"Volume\":[\"local\"],\"Network\":[\"bridge\",\"host\",\"ipvlan\",\"macvlan\",\"null\",\"overlay\"],\"Authorization\":null,\"Log\":[\"awslogs\",\"fluentd\",\"gcplogs\",\"gelf\",\"journald\",\"json-file\",\"local\",\"splunk\",\"syslog\"]},\"MemoryLimit\":true,\"SwapLimit\":true,\"CpuCfsPeriod\":true,\"CpuCfsQuota\":true,\"CPUShares\":true,\"CPUSet\":true,\"PidsLimit\":true,\"IPv4Forwarding\":true,\"Debug\":false,\"NFd\":114,\"OomKillDisable\":false,\"NGoroutines\":191,\"SystemTime\":\"2026-10-11T14:07:57.654935957+08:00\",\"LoggingDriver\":\"json-file\",\"CgroupDriver\":\"systemd\",\"CgroupVersion\":\"2\",\"NEventsListener\":0,\"KernelVersion\":\"7.2.8-5-omarchy-bore\",\"OperatingSystem\":\"Omarchy\",\"OSVersion\":\"4.0.0.r6815.g50d687a\",\"OSType\":\"linux\",\"Architecture\":\"x86_64\",\"IndexServerAddress\":\"https://index.docker.io/v1/\",\"RegistryConfig\":{\"InsecureRegistryCIDRs\":[\"127.0.0.0/8\",\"::1/128\"],\"IndexConfigs\":{\"docker.io\":{\"Name\":\"docker.io\",\"Mirrors\":[],\"Secure\":true,\"Official\":true}},\"Mirrors\":[]},\"NCPU\":18,\"MemTotal\":33225953280,\"GenericResources\":null,\"DockerRootDir\":\"/var/lib/docker\",\"HttpProxy\":\"\",\"HttpsProxy\":\"\",\"NoProxy\":\"\",\"Name\":\"thinkbook-omarchy\",\"Labels\":[],\"ExperimentalBuild\":false,\"ServerVersion\":\"29.9.0\",\"Runtimes\":{\"io.containerd.runc.v2\":{\"path\":\"runc\",\"status\":{\"org.opencontainers.runtime-spec.features\":\"{\\\"ociVersionMin\\\":\\\"1.0.0\\\",\\\"ociVersionMax\\\":\\\"1.3.0\\\",\\\"hooks\\\":[\\\"prestart\\\",\\\"createRuntime\\\",\\\"createContainer\\\",\\\"startContainer\\\",\\\"poststart\\\",\\\"poststop\\\"],\\\"mountOptions\\\":[\\\"async\\\",\\\"atime\\\",\\\"bind\\\",\\\"defaults\\\",\\\"dev\\\",\\\"diratime\\\",\\\"dirsync\\\",\\\"exec\\\",\\\"iversion\\\",\\\"lazytime\\\",\\\"loud\\\",\\\"mand\\\",\\\"noatime\\\",\\\"nodev\\\",\\\"nodiratime\\\",\\\"noexec\\\",\\\"noiversion\\\",\\\"nolazytime\\\",\\\"nomand\\\",\\\"norelatime\\\",\\\"nostrictatime\\\",\\\"nosuid\\\",\\\"nosymfollow\\\",\\\"private\\\",\\\"ratime\\\",\\\"rbind\\\",\\\"rdev\\\",\\\"rdiratime\\\",\\\"relatime\\\",\\\"remount\\\",\\\"rexec\\\",\\\"rnoatime\\\",\\\"rnodev\\\",\\\"rnodiratime\\\",\\\"rnoexec\\\",\\\"rnorelatime\\\",\\\"rnostrictatime\\\",\\\"rnosuid\\\",\\\"rnosymfollow\\\",\\\"ro\\\",\\\"rprivate\\\",\\\"rrelatime\\\",\\\"rro\\\",\\\"rrw\\\",\\\"rshared\\\",\\\"rslave\\\",\\\"rstrictatime\\\",\\\"rsuid\\\",\\\"rsymfollow\\\",\\\"runbindable\\\",\\\"rw\\\",\\\"shared\\\",\\\"silent\\\",\\\"slave\\\",\\\"strictatime\\\",\\\"suid\\\",\\\"symfollow\\\",\\\"sync\\\",\\\"tmpcopyup\\\",\\\"unbindable\\\"],\\\"linux\\\":{\\\"namespaces\\\":[\\\"cgroup\\\",\\\"ipc\\\",\\\"mount\\\",\\\"network\\\",\\\"pid\\\",\\\"time\\\",\\\"user\\\",\\\"uts\\\"],\\\"capabilities\\\":[\\\"CAP_CHOWN\\\",\\\"CAP_DAC_OVERRIDE\\\",\\\"CAP_DAC_READ_SEARCH\\\",\\\"CAP_FOWNER\\\",\\\"CAP_FSETID\\\",\\\"CAP_KILL\\\",\\\"CAP_SETGID\\\",\\\"CAP_SETUID\\\",\\\"CAP_SETPCAP\\\",\\\"CAP_LINUX_IMMUTABLE\\\",\\\"CAP_NET_BIND_SERVICE\\\",\\\"CAP_NET_BROADCAST\\\",\\\"CAP_NET_ADMIN\\\",\\\"CAP_NET_RAW\\\",\\\"CAP_IPC_LOCK\\\",\\\"CAP_IPC_OWNER\\\",\\\"CAP_SYS_MODULE\\\",\\\"CAP_SYS_RAWIO\\\",\\\"CAP_SYS_CHROOT\\\",\\\"CAP_SYS_PTRACE\\\",\\\"CAP_SYS_PACCT\\\",\\\"CAP_SYS_ADMIN\\\",\\\"CAP_SYS_BOOT\\\",\\\"CAP_SYS_NICE\\\",\\\"CAP_SYS_RESOURCE\\\",\\\"CAP_SYS_TIME\\\",\\\"CAP_SYS_TTY_CONFIG\\\",\\\"CAP_MKNOD\\\",\\\"CAP_LEASE\\\",\\\"CAP_AUDIT_WRITE\\\",\\\"CAP_AUDIT_CONTROL\\\",\\\"CAP_SETFCAP\\\",\\\"CAP_MAC_OVERRIDE\\\",\\\"CAP_MAC_ADMIN\\\",\\\"CAP_SYSLOG\\\",\\\"CAP_WAKE_ALARM\\\",\\\"CAP_BLOCK_SUSPEND\\\",\\\"CAP_AUDIT_READ\\\",\\\"CAP_PERFMON\\\",\\\"CAP_BPF\\\",\\\"CAP_CHECKPOINT_RESTORE\\\"],\\\"cgroup\\\":{\\\"v1\\\":true,\\\"v2\\\":true,\\\"systemd\\\":true,\\\"systemdUser\\\":true,\\\"rdma\\\":true},\\\"seccomp\\\":{\\\"enabled\\\":true,\\\"actions\\\":[\\\"SCMP_ACT_ALLOW\\\",\\\"SCMP_ACT_ERRNO\\\",\\\"SCMP_ACT_KILL\\\",\\\"SCMP_ACT_KILL_PROCESS\\\",\\\"SCMP_ACT_KILL_THREAD\\\",\\\"SCMP_ACT_LOG\\\",\\\"SCMP_ACT_NOTIFY\\\",\\\"SCMP_ACT_TRACE\\\",\\\"SCMP_ACT_TRAP\\\"],\\\"operators\\\":[\\\"SCMP_CMP_EQ\\\",\\\"SCMP_CMP_GE\\\",\\\"SCMP_CMP_GT\\\",\\\"SCMP_CMP_LE\\\",\\\"SCMP_CMP_LT\\\",\\\"SCMP_CMP_MASKED_EQ\\\",\\\"SCMP_CMP_NE\\\"],\\\"archs\\\":[\\\"SCMP_ARCH_AARCH64\\\",\\\"SCMP_ARCH_ARM\\\",\\\"SCMP_ARCH_LOONGARCH64\\\",\\\"SCMP_ARCH_MIPS\\\",\\\"SCMP_ARCH_MIPS64\\\",\\\"SCMP_ARCH_MIPS64N32\\\",\\\"SCMP_ARCH_MIPSEL\\\",\\\"SCMP_ARCH_MIPSEL64\\\",\\\"SCMP_ARCH_MIPSEL64N32\\\",\\\"SCMP_ARCH_PPC\\\",\\\"SCMP_ARCH_PPC64\\\",\\\"SCMP_ARCH_PPC64LE\\\",\\\"SCMP_ARCH_RISCV64\\\",\\\"SCMP_ARCH_S390\\\",\\\"SCMP_ARCH_S390X\\\",\\\"SCMP_ARCH_X32\\\",\\\"SCMP_ARCH_X86\\\",\\\"SCMP_ARCH_X86_64\\\"],\\\"knownFlags\\\":[\\\"SECCOMP_FILTER_FLAG_TSYNC\\\",\\\"SECCOMP_FILTER_FLAG_SPEC_ALLOW\\\",\\\"SECCOMP_FILTER_FLAG_LOG\\\",\\\"SECCOMP_FILTER_FLAG_WAIT_KILLABLE_RECV\\\"],\\\"supportedFlags\\\":[\\\"SECCOMP_FILTER_FLAG_TSYNC\\\",\\\"SECCOMP_FILTER_FLAG_SPEC_ALLOW\\\",\\\"SECCOMP_FILTER_FLAG_LOG\\\",\\\"SECCOMP_FILTER_FLAG_WAIT_KILLABLE_RECV\\\"]},\\\"apparmor\\\":{\\\"enabled\\\":true},\\\"selinux\\\":{\\\"enabled\\\":true},\\\"intelRdt\\\":{\\\"enabled\\\":true,\\\"schemata\\\":true,\\\"monitoring\\\":true},\\\"memoryPolicy\\\":{\\\"modes\\\":[\\\"MPOL_BIND\\\",\\\"MPOL_DEFAULT\\\",\\\"MPOL_INTERLEAVE\\\",\\\"MPOL_LOCAL\\\",\\\"MPOL_PREFERRED\\\",\\\"MPOL_PREFERRED_MANY\\\",\\\"MPOL_WEIGHTED_INTERLEAVE\\\"],\\\"flags\\\":[\\\"MPOL_F_NUMA_BALANCING\\\",\\\"MPOL_F_RELATIVE_NODES\\\",\\\"MPOL_F_STATIC_NODES\\\"]},\\\"mountExtensions\\\":{\\\"idmap\\\":{\\\"enabled\\\":true}},\\\"netDevices\\\":{\\\"enabled\\\":true}},\\\"annotations\\\":{\\\"com.cyphar.pathrs.libpathrs.version\\\":\\\"0.2.6\\\",\\\"io.github.seccomp.libseccomp.version\\\":\\\"2.6.0\\\",\\\"org.opencontainers.runc.checkpoint.enabled\\\":\\\"true\\\",\\\"org.opencontainers.runc.commit\\\":\\\"\\\",\\\"org.opencontainers.runc.version\\\":\\\"1.5.2\\\"},\\\"potentiallyUnsafeConfigAnnotations\\\":[\\\"bundle\\\",\\\"org.systemd.property.\\\",\\\"org.criu.config\\\"]}\"}},\"runc\":{\"path\":\"runc\",\"status\":{\"org.opencontainers.runtime-spec.features\":\"{\\\"ociVersionMin\\\":\\\"1.0.0\\\",\\\"ociVersionMax\\\":\\\"1.3.0\\\",\\\"hooks\\\":[\\\"prestart\\\",\\\"createRuntime\\\",\\\"createContainer\\\",\\\"startContainer\\\",\\\"poststart\\\",\\\"poststop\\\"],\\\"mountOptions\\\":[\\\"async\\\",\\\"atime\\\",\\\"bind\\\",\\\"defaults\\\",\\\"dev\\\",\\\"diratime\\\",\\\"dirsync\\\",\\\"exec\\\",\\\"iversion\\\",\\\"lazytime\\\",\\\"loud\\\",\\\"mand\\\",\\\"noatime\\\",\\\"nodev\\\",\\\"nodiratime\\\",\\\"noexec\\\",\\\"noiversion\\\",\\\"nolazytime\\\",\\\"nomand\\\",\\\"norelatime\\\",\\\"nostrictatime\\\",\\\"nosuid\\\",\\\"nosymfollow\\\",\\\"private\\\",\\\"ratime\\\",\\\"rbind\\\",\\\"rdev\\\",\\\"rdiratime\\\",\\\"relatime\\\",\\\"remount\\\",\\\"rexec\\\",\\\"rnoatime\\\",\\\"rnodev\\\",\\\"rnodiratime\\\",\\\"rnoexec\\\",\\\"rnorelatime\\\",\\\"rnostrictatime\\\",\\\"rnosuid\\\",\\\"rnosymfollow\\\",\\\"ro\\\",\\\"rprivate\\\",\\\"rrelatime\\\",\\\"rro\\\",\\\"rrw\\\",\\\"rshared\\\",\\\"rslave\\\",\\\"rstrictatime\\\",\\\"rsuid\\\",\\\"rsymfollow\\\",\\\"runbindable\\\",\\\"rw\\\",\\\"shared\\\",\\\"silent\\\",\\\"slave\\\",\\\"strictatime\\\",\\\"suid\\\",\\\"symfollow\\\",\\\"sync\\\",\\\"tmpcopyup\\\",\\\"unbindable\\\"],\\\"linux\\\":{\\\"namespaces\\\":[\\\"cgroup\\\",\\\"ipc\\\",\\\"mount\\\",\\\"network\\\",\\\"pid\\\",\\\"time\\\",\\\"user\\\",\\\"uts\\\"],\\\"capabilities\\\":[\\\"CAP_CHOWN\\\",\\\"CAP_DAC_OVERRIDE\\\",\\\"CAP_DAC_READ_SEARCH\\\",\\\"CAP_FOWNER\\\",\\\"CAP_FSETID\\\",\\\"CAP_KILL\\\",\\\"CAP_SETGID\\\",\\\"CAP_SETUID\\\",\\\"CAP_SETPCAP\\\",\\\"CAP_LINUX_IMMUTABLE\\\",\\\"CAP_NET_BIND_SERVICE\\\",\\\"CAP_NET_BROADCAST\\\",\\\"CAP_NET_ADMIN\\\",\\\"CAP_NET_RAW\\\",\\\"CAP_IPC_LOCK\\\",\\\"CAP_IPC_OWNER\\\",\\\"CAP_SYS_MODULE\\\",\\\"CAP_SYS_RAWIO\\\",\\\"CAP_SYS_CHROOT\\\",\\\"CAP_SYS_PTRACE\\\",\\\"CAP_SYS_PACCT\\\",\\\"CAP_SYS_ADMIN\\\",\\\"CAP_SYS_BOOT\\\",\\\"CAP_SYS_NICE\\\",\\\"CAP_SYS_RESOURCE\\\",\\\"CAP_SYS_TIME\\\",\\\"CAP_SYS_TTY_CONFIG\\\",\\\"CAP_MKNOD\\\",\\\"CAP_LEASE\\\",\\\"CAP_AUDIT_WRITE\\\",\\\"CAP_AUDIT_CONTROL\\\",\\\"CAP_SETFCAP\\\",\\\"CAP_MAC_OVERRIDE\\\",\\\"CAP_MAC_ADMIN\\\",\\\"CAP_SYSLOG\\\",\\\"CAP_WAKE_ALARM\\\",\\\"CAP_BLOCK_SUSPEND\\\",\\\"CAP_AUDIT_READ\\\",\\\"CAP_PERFMON\\\",\\\"CAP_BPF\\\",\\\"CAP_CHECKPOINT_RESTORE\\\"],\\\"cgroup\\\":{\\\"v1\\\":true,\\\"v2\\\":true,\\\"systemd\\\":true,\\\"systemdUser\\\":true,\\\"rdma\\\":true},\\\"seccomp\\\":{\\\"enabled\\\":true,\\\"actions\\\":[\\\"SCMP_ACT_ALLOW\\\",\\\"SCMP_ACT_ERRNO\\\",\\\"SCMP_ACT_KILL\\\",\\\"SCMP_ACT_KILL_PROCESS\\\",\\\"SCMP_ACT_KILL_THREAD\\\",\\\"SCMP_ACT_LOG\\\",\\\"SCMP_ACT_NOTIFY\\\",\\\"SCMP_ACT_TRACE\\\",\\\"SCMP_ACT_TRAP\\\"],\\\"operators\\\":[\\\"SCMP_CMP_EQ\\\",\\\"SCMP_CMP_GE\\\",\\\"SCMP_CMP_GT\\\",\\\"SCMP_CMP_LE\\\",\\\"SCMP_CMP_LT\\\",\\\"SCMP_CMP_MASKED_EQ\\\",\\\"SCMP_CMP_NE\\\"],\\\"archs\\\":[\\\"SCMP_ARCH_AARCH64\\\",\\\"SCMP_ARCH_ARM\\\",\\\"SCMP_ARCH_LOONGARCH64\\\",\\\"SCMP_ARCH_MIPS\\\",\\\"SCMP_ARCH_MIPS64\\\",\\\"SCMP_ARCH_MIPS64N32\\\",\\\"SCMP_ARCH_MIPSEL\\\",\\\"SCMP_ARCH_MIPSEL64\\\",\\\"SCMP_ARCH_MIPSEL64N32\\\",\\\"SCMP_ARCH_PPC\\\",\\\"SCMP_ARCH_PPC64\\\",\\\"SCMP_ARCH_PPC64LE\\\",\\\"SCMP_ARCH_RISCV64\\\",\\\"SCMP_ARCH_S390\\\",\\\"SCMP_ARCH_S390X\\\",\\\"SCMP_ARCH_X32\\\",\\\"SCMP_ARCH_X86\\\",\\\"SCMP_ARCH_X86_64\\\"],\\\"knownFlags\\\":[\\\"SECCOMP_FILTER_FLAG_TSYNC\\\",\\\"SECCOMP_FILTER_FLAG_SPEC_ALLOW\\\",\\\"SECCOMP_FILTER_FLAG_LOG\\\",\\\"SECCOMP_FILTER_FLAG_WAIT_KILLABLE_RECV\\\"],\\\"supportedFlags\\\":[\\\"SECCOMP_FILTER_FLAG_TSYNC\\\",\\\"SECCOMP_FILTER_FLAG_SPEC_ALLOW\\\",\\\"SECCOMP_FILTER_FLAG_LOG\\\",\\\"SECCOMP_FILTER_FLAG_WAIT_KILLABLE_RECV\\\"]},\\\"apparmor\\\":{\\\"enabled\\\":true},\\\"selinux\\\":{\\\"enabled\\\":true},\\\"intelRdt\\\":{\\\"enabled\\\":true,\\\"schemata\\\":true,\\\"monitoring\\\":true},\\\"memoryPolicy\\\":{\\\"modes\\\":[\\\"MPOL_BIND\\\",\\\"MPOL_DEFAULT\\\",\\\"MPOL_INTERLEAVE\\\",\\\"MPOL_LOCAL\\\",\\\"MPOL_PREFERRED\\\",\\\"MPOL_PREFERRED_MANY\\\",\\\"MPOL_WEIGHTED_INTERLEAVE\\\"],\\\"flags\\\":[\\\"MPOL_F_NUMA_BALANCING\\\",\\\"MPOL_F_RELATIVE_NODES\\\",\\\"MPOL_F_STATIC_NODES\\\"]},\\\"mountExtensions\\\":{\\\"idmap\\\":{\\\"enabled\\\":true}},\\\"netDevices\\\":{\\\"enabled\\\":true}},\\\"annotations\\\":{\\\"com.cyphar.pathrs.libpathrs.version\\\":\\\"0.2.6\\\",\\\"io.github.seccomp.libseccomp.version\\\":\\\"2.6.0\\\",\\\"org.opencontainers.runc.checkpoint.enabled\\\":\\\"true\\\",\\\"org.opencontainers.runc.commit\\\":\\\"\\\",\\\"org.opencontainers.runc.version\\\":\\\"1.5.2\\\"},\\\"potentiallyUnsafeConfigAnnotations\\\":[\\\"bundle\\\",\\\"org.systemd.property.\\\",\\\"org.criu.config\\\"]}\"}}},\"DefaultRuntime\":\"runc\",\"Swarm\":{\"NodeID\":\"\",\"NodeAddr\":\"\",\"LocalNodeState\":\"inactive\",\"ControlAvailable\":false,\"Error\":\"\",\"RemoteManagers\":null},\"LiveRestoreEnabled\":false,\"Isolation\":\"\",\"InitBinary\":\"docker-init\",\"ContainerdCommit\":{\"ID\":\"f2551031d7276a770f65f98c9b52e57e7dad07e8.m\"},\"RuncCommit\":{\"ID\":\"\"},\"InitCommit\":{\"ID\":\"de40ad0\"},\"SecurityOptions\":[\"name=seccomp,profile=builtin\",\"name=cgroupns\"],\"FirewallBackend\":{\"Driver\":\"iptables\",\"Info\":[[\"EnableUserlandProxy\",\"true\"],[\"UserlandProxyPath\",\"/usr/bin/docker-proxy\"]]},\"CDISpecDirs\":[\"/etc/cdi\",\"/var/run/cdi\"],\"Containerd\":{\"Address\":\"/run/containerd/containerd.sock\",\"Namespaces\":{\"Containers\":\"moby\",\"Plugins\":\"plugins.moby\"}},\"Warnings\":null,\"ClientInfo\":{\"Debug\":false,\"Version\":\"29.9.0\",\"DefaultAPIVersion\":\"1.56\",\"GitCommit\":\"f415da838b\",\"GoVersion\":\"go1.27.1-X:nodwarf5\",\"Os\":\"linux\",\"Arch\":\"amd64\",\"BuildTime\":\"Fri Oct  9 00:19:20 2026\",\"Context\":\"default\",\"Plugins\":[{\"SchemaVersion\":\"0.1.0\",\"Vendor\":\"Docker Inc.\",\"Version\":\"0.38.0\",\"ShortDescription\":\"Docker Buildx\",\"Name\":\"buildx\",\"Path\":\"/usr/lib/docker/cli-plugins/docker-buildx\"},{\"SchemaVersion\":\"0.1.0\",\"Vendor\":\"Docker Inc.\",\"Version\":\"5.6.0\",\"ShortDescription\":\"Docker Compose\",\"Name\":\"compose\",\"Path\":\"/usr/lib/docker/cli-plugins/docker-compose\"}],\"Warnings\":null}}\n",
+    "stderr": "",
+    "command": [
+      "docker",
+      "info",
+      "--format",
+      "{{json .}}"
+    ],
+    "utc": "2026-10-11T06:07:57.585567+00:00",
+    "duration_seconds": 0.07939646099839592
+  },
+  "compose": {
+    "returncode": 0,
+    "stdout": "Docker Compose version 5.6.0\n",
+    "stderr": "",
+    "command": [
+      "docker",
+      "compose",
+      "version"
+    ],
+    "utc": "2026-10-11T06:07:57.665139+00:00",
+    "duration_seconds": 0.0748429630039027
+  },
+  "git_head": {
+    "returncode": 0,
+    "stdout": "ac4a418c1e8c2f28e2d57d82fc5313326ce1cd99\n",
+    "stderr": "",
+    "command": [
+      "git",
+      "rev-parse",
+      "HEAD"
+    ],
+    "utc": "2026-10-11T06:07:57.740067+00:00",
+    "duration_seconds": 0.003088559999014251
+  },
+  "git_base": {
+    "returncode": 0,
+    "stdout": "ac4a418c1e8c2f28e2d57d82fc5313326ce1cd99\n",
+    "stderr": "",
+    "command": [
+      "git",
+      "rev-parse",
+      "integration/v2"
+    ],
+    "utc": "2026-10-11T06:07:57.743238+00:00",
+    "duration_seconds": 0.0025796689951675944
+  },
+  "git_status": {
+    "returncode": 0,
+    "stdout": "?? docs/validation/v2-measure17/\n?? scripts/__pycache__/\n?? scripts/measure-v2.py\n?? tools/\n",
+    "stderr": "",
+    "command": [
+      "git",
+      "status",
+      "--porcelain=v1"
+    ],
+    "utc": "2026-10-11T06:07:57.745863+00:00",
+    "duration_seconds": 0.004992692003725097
+  },
+  "git_diff": {
+    "returncode": 0,
+    "stdout": "",
+    "stderr": "",
+    "command": [
+      "git",
+      "diff",
+      "--stat"
+    ],
+    "utc": "2026-10-11T06:07:57.750896+00:00",
+    "duration_seconds": 0.0028703420030069537
+  },
+  "locust": {
+    "returncode": null,
+    "stdout": "",
+    "stderr": "[Errno 2] No such file or directory: 'locust'",
+    "command": [
+      "locust",
+      "--version"
+    ],
+    "utc": "2026-10-11T06:07:57.753788+00:00",
+    "duration_seconds": 0.0003298439987702295
+  },
+  "containers": [
+    {
+      "id": "03dd4f3480d75193c52145446734d9f3481a5966beaa3a3b4ab0e19787917744",
+      "service": "api-c2",
+      "name": "/campus-v2-lb21-api-c2-1",
+      "image_id": "sha256:1e04f2d7e5860329a9e804aa47000990caac53677f8adde294d808655a745cf5",
+      "image": "campus-v2-lb21-api-c2",
+      "limits": {
+        "NanoCpus": 2000000000,
+        "Memory": 536870912,
+        "MemorySwap": 1073741824,
+        "CpuQuota": 0,
+        "CpuPeriod": 0,
+        "CpusetCpus": ""
+      },
+      "pid": 602722
+    },
+    {
+      "id": "ca3486fdf341aa2b55985bf72484e1962bacd30c7d73cd8e6769e8d6adf40f05",
+      "service": "api-c1",
+      "name": "/campus-v2-lb21-api-c1-1",
+      "image_id": "sha256:5e7cabc0e11b4f8a7d0824f0d74eab1c33e7a100b4684e96ef0738c6a5dce6d4",
+      "image": "campus-v2-lb21-api-c1",
+      "limits": {
+        "NanoCpus": 2000000000,
+        "Memory": 536870912,
+        "MemorySwap": 1073741824,
+        "CpuQuota": 0,
+        "CpuPeriod": 0,
+        "CpusetCpus": ""
+      },
+      "pid": 599727
+    },
+    {
+      "id": "fb4af3a76519da0856f7b65dc5bcd330142368d82173b62510f14a9f9d5dfbae",
+      "service": "nginx",
+      "name": "/campus-v2-lb21-nginx-1",
+      "image_id": "sha256:30f1c0d78e0ad60901648be663a710bdadf19e4c10ac6782c235200619158284",
+      "image": "nginx:1.28.0-alpine@sha256:30f1c0d78e0ad60901648be663a710bdadf19e4c10ac6782c235200619158284",
+      "limits": {
+        "NanoCpus": 1000000000,
+        "Memory": 134217728,
+        "MemorySwap": 268435456,
+        "CpuQuota": 0,
+        "CpuPeriod": 0,
+        "CpusetCpus": ""
+      },
+      "pid": 528931
+    }
+  ],
+  "mounts": [
+    {
+      "container": "fb4af3a76519da0856f7b65dc5bcd330142368d82173b62510f14a9f9d5dfbae",
+      "service": "nginx",
+      "type": "bind",
+      "source": "/tmp/campus-v2-lb/deploy/nginx-v2.conf",
+      "destination": "/etc/nginx/nginx.conf",
+      "mode": "ro",
+      "rw": false,
+      "propagation": "rprivate"
+    }
+  ],
+  "component_versions": {
+    "api-c2": [
+      {
+        "returncode": 1,
+        "stdout": "",
+        "stderr": "2026/10/11 06:07:57 usage: market serve | seed [--mode full|small|stress|demo] [--random-seed 42] [--base-time RFC3339] [--reset]\n",
+        "command": [
+          "docker",
+          "exec",
+          "03dd4f3480d75193c52145446734d9f3481a5966beaa3a3b4ab0e19787917744",
+          "/market",
+          "--help"
+        ],
+        "utc": "2026-10-11T06:07:57.754145+00:00",
+        "duration_seconds": 0.09578928299742984
+      }
+    ],
+    "api-c1": [
+      {
+        "returncode": 1,
+        "stdout": "",
+        "stderr": "2026/10/11 06:07:57 usage: market serve | seed [--mode full|small|stress|demo] [--random-seed 42] [--base-time RFC3339] [--reset]\n",
+        "command": [
+          "docker",
+          "exec",
+          "ca3486fdf341aa2b55985bf72484e1962bacd30c7d73cd8e6769e8d6adf40f05",
+          "/market",
+          "--help"
+        ],
+        "utc": "2026-10-11T06:07:57.850046+00:00",
+        "duration_seconds": 0.09706908599764574
+      }
+    ],
+    "nginx": [
+      {
+        "returncode": 0,
+        "stdout": "",
+        "stderr": "nginx version: nginx/1.28.0\n",
+        "command": [
+          "docker",
+          "exec",
+          "fb4af3a76519da0856f7b65dc5bcd330142368d82173b62510f14a9f9d5dfbae",
+          "nginx",
+          "-v"
+        ],
+        "utc": "2026-10-11T06:07:57.947231+00:00",
+        "duration_seconds": 0.09375354800431523
+      }
+    ]
+  },
+  "application_version": "Git commit plus immutable image ID (application has no version flag)",
+  "client": {
+    "pids": [],
+    "affinity": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17
+    ],
+    "cgroup": "0::/user.slice/user-1000.slice/user@1000.service/app.slice/app-graphical.slice/kitty-6475-0.scope\n",
+    "limits": "Limit                     Soft Limit           Hard Limit           Units     \nMax cpu time              unlimited            unlimited            seconds   \nMax file size             unlimited            unlimited            bytes     \nMax data size             unlimited            unlimited            bytes     \nMax stack size            8388608              unlimited            bytes     \nMax core file size        unlimited            unlimited            bytes     \nMax resident set          unlimited            unlimited            bytes     \nMax processes             126572               126572               processes \nMax open files            65536                524288               files     \nMax locked memory         8388608              8388608              bytes     \nMax address space         unlimited            unlimited            bytes     \nMax file locks            unlimited            unlimited            locks     \nMax pending signals       126572               126572               signals   \nMax msgqueue size         819200               819200               bytes     \nMax nice priority         0                    0                    \nMax realtime priority     0                    0                    \nMax realtime timeout      unlimited            unlimited            us        \n",
+    "pid_context": {}
+  },
+  "collector": {
+    "pid": 653674,
+    "python": "3.14.7 (main, Aug 10 2026, 07:46:56) [GCC 16.1.1 20260728]",
+    "sampling_seconds": 1
+  }
+}
