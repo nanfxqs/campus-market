@@ -1,0 +1,10 @@
+# 2026-10-11 seed validation notes
+
+- Initial red: V1 CLI rejected `--manifest` (red-cli.txt).
+- First full V2 import passed all database counts, price chains, successful-record correspondence and seller counters. Initial manifest correspondence checker incorrectly compared BSON Long objects with JavaScript numbers; fixed via Number conversion. The initial PermissionError on root-created manifest was corrected by public synthetic-artifact mode0644.
+- A validation script composition error duplicated the docker compose prefix. The interrupted checker output remains attempt-2-shell-error.txt. Corrected stable script completed two full imports (green-cli.txt), side-database preservation and byte-identical canonical hashes for all eight persisted collections, plus identical manifests.
+- Isolated V1 seed reset/reproduction/stress regression passed (10.400s).
+- First Compose B restore succeeded in99s, sentinel Redis key cleared. A nonempty restore was rejected and the captured running service inventory contains no application services. A shell wrapper tried to assign zsh's readonly status variable after the expected rejection; that did not change the actual rejection or stop-state evidence. Explicit restart then sampled fresh login and HTTP detail matching the manifest.
+- An initial HTTP sample assertion named the availability field sellable; current public field is available. Corrected sample passed; no business code changed to fit the mistaken assertion.
+- Final joint restore follows merged real Redis implementation: cache-before-reset.json captures actual miss/hit, the subsequent full restore clears Redis and sessions, and cache-after-reset.json captures fresh miss, old token rejection and new login.
+- Large manifests are generated artifacts retained at /tmp/campus-v2-restore15-final/manifest.json; hashes and recipe are committed instead of duplicated 6.4MiB synthetic data. seed15 project MongoDB stopped after validation to remove competing Search indexing load; its volumes remain.

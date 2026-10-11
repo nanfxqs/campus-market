@@ -1,0 +1,69 @@
+ Image campus-v2-restore15-api-b Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 510B done
+#1 DONE 0.0s
+
+#2 [internal] load build definition from Dockerfile
+#2 transferring dockerfile: 491B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/golang:1.24.2-bookworm@sha256:79390b5e5af9ee6e7b1173ee3eac7fadf6751a545297672916b59bfa0ecf6f71
+#3 DONE 0.0s
+
+#4 [internal] load metadata for docker.io/library/debian:bookworm-slim@sha256:7c7b2c966bc9ee8cedfeef67e0e279108992c77681fa595db4a9d65c06ccc587
+#4 DONE 0.0s
+
+#5 [internal] load .dockerignore
+#5 transferring context: 192B done
+#5 DONE 0.0s
+
+#6 [tools 1/7] FROM docker.io/library/golang:1.24.2-bookworm@sha256:79390b5e5af9ee6e7b1173ee3eac7fadf6751a545297672916b59bfa0ecf6f71
+#6 resolve docker.io/library/golang:1.24.2-bookworm@sha256:79390b5e5af9ee6e7b1173ee3eac7fadf6751a545297672916b59bfa0ecf6f71 0.0s done
+#6 DONE 0.0s
+
+#7 [stage-1 1/3] FROM docker.io/library/debian:bookworm-slim@sha256:7c7b2c966bc9ee8cedfeef67e0e279108992c77681fa595db4a9d65c06ccc587
+#7 resolve docker.io/library/debian:bookworm-slim@sha256:7c7b2c966bc9ee8cedfeef67e0e279108992c77681fa595db4a9d65c06ccc587 0.0s done
+#7 DONE 0.0s
+
+#8 [internal] load build context
+#8 transferring context: 63.27kB done
+#8 DONE 0.0s
+
+#9 [tools 3/7] COPY go.mod go.sum ./
+#9 CACHED
+
+#10 [tools 2/7] WORKDIR /src
+#10 CACHED
+
+#11 [tools 4/7] RUN go mod download
+#11 CACHED
+
+#12 [tools 5/7] COPY . .
+#12 DONE 0.1s
+
+#13 [tools 6/7] RUN go build -o /validation ./validation
+#13 DONE 11.8s
+
+#14 [tools 7/7] RUN go build -o /market ./cmd/market
+#14 DONE 1.4s
+
+#15 [stage-1 2/3] COPY --from=tools /validation /validation
+#15 CACHED
+
+#16 [stage-1 3/3] COPY --from=tools /market /market
+#16 DONE 0.0s
+
+#17 exporting to image
+#17 exporting layers
+#17 exporting layers 0.5s done
+#17 exporting manifest sha256:7ae9b834d299f0cc313281ca3823f88390d2212854ec612c57c099fb89b50eb0 done
+#17 exporting config sha256:ebe646ee7f3356eb184d1c4835a79cfcd4fb1bd2433507c2d5210c94b0783ae3 done
+#17 exporting attestation manifest sha256:a8ef1a95107bb7a07ed3d9eefcad0f4294adfe73e5a2692ced466c61b6095682 done
+#17 exporting manifest list sha256:8aa8c7b6d943d6eaea797bc722bd7f0fac5410c19fa384523cf9c5075689af8a done
+#17 naming to docker.io/library/campus-v2-restore15-api-b:latest done
+#17 unpacking to docker.io/library/campus-v2-restore15-api-b:latest 0.1s done
+#17 DONE 0.7s
+
+#18 resolving provenance for metadata file
+#18 DONE 0.0s
+ Image campus-v2-restore15-api-b Built 

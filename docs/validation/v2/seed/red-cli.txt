@@ -1,0 +1,15 @@
+ Container campus-v2-seed15-market-run-c684f944e663 Creating 
+ Container campus-v2-seed15-market-run-c684f944e663 Created 
+flag provided but not defined: -manifest
+Usage of seed:
+  -base-time string
+    	fixed reference time (RFC3339); eligibility and TTL still use wall clock (default "2026-10-10T00:00:00Z")
+  -mode string
+    	dataset: full, small, stress (30000 sellable products), demo (accounts only) (default "full")
+  -random-seed int
+    	deterministic PRNG seed (default 42)
+  -reset
+    	DROP ONLY the database explicitly named by DB_NAME before importing
+  -timeout duration
+    	maximum import duration (default 15m0s)
+

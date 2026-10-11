@@ -1,0 +1,159 @@
+ Image campus-v2-seed15-market Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 508B done
+#1 DONE 0.0s
+
+#2 [internal] load build definition from Dockerfile
+#2 transferring dockerfile:
+#2 transferring dockerfile: 491B done
+#2 DONE 0.0s
+
+#3 [tools 1/7] FROM docker.io/library/golang:1.24.2-bookworm@sha256:79390b5e5af9ee6e7b1173ee3eac7fadf6751a545297672916b59bfa0ecf6f71
+#3 resolve docker.io/library/golang:1.24.2-bookworm@sha256:79390b5e5af9ee6e7b1173ee3eac7fadf6751a545297672916b59bfa0ecf6f71 0.0s done
+#3 DONE 0.0s
+
+#4 [internal] load metadata for docker.io/library/debian:bookworm-slim@sha256:7c7b2c966bc9ee8cedfeef67e0e279108992c77681fa595db4a9d65c06ccc587
+#4 DONE 0.1s
+
+#5 [internal] load metadata for docker.io/library/golang:1.24.2-bookworm@sha256:79390b5e5af9ee6e7b1173ee3eac7fadf6751a545297672916b59bfa0ecf6f71
+#5 DONE 0.1s
+
+#6 [internal] load .dockerignore
+#6 transferring context: 62B done
+#6 DONE 0.0s
+
+#7 [internal] load build context
+#7 transferring context: 6.76MB 0.1s done
+#7 DONE 0.1s
+
+#8 [tools 4/7] RUN go mod download
+#8 CACHED
+
+#9 [stage-1 1/3] FROM docker.io/library/debian:bookworm-slim@sha256:7c7b2c966bc9ee8cedfeef67e0e279108992c77681fa595db4a9d65c06ccc587
+#9 resolve docker.io/library/debian:bookworm-slim@sha256:7c7b2c966bc9ee8cedfeef67e0e279108992c77681fa595db4a9d65c06ccc587 0.0s done
+#9 DONE 0.0s
+
+#10 [tools 2/7] WORKDIR /src
+#10 CACHED
+
+#11 [tools 3/7] COPY go.mod go.sum ./
+#11 CACHED
+
+#12 [tools 4/7] RUN go mod download
+#12 CACHED
+
+#13 [tools 5/7] COPY . .
+#13 DONE 0.4s
+
+#14 [tools 6/7] RUN go build -o /validation ./validation
+#14 DONE 12.5s
+
+#15 [tools 7/7] RUN go build -o /market ./cmd/market
+#15 DONE 1.5s
+
+#16 [stage-1 2/3] COPY --from=tools /validation /validation
+#16 CACHED
+
+#17 [stage-1 3/3] COPY --from=tools /market /market
+#17 CACHED
+
+#18 exporting to image
+#18 exporting layers done
+#18 exporting manifest sha256:18ef413d3494dea32250326f8b131296afdd691aa02a48a52bd95fc0fbb138af done
+#18 exporting config sha256:28d26a7f3f1bed394b78ab43000a1bd1b8a4f3a824b21c1a576fd9180fb663db done
+#18 exporting attestation manifest sha256:9758c9a4bf957999dbdc1bf116ac928385b09a8795b436aa790fb91350d46031 0.0s done
+#18 exporting manifest list sha256:bb09f7191b9b35cabab3a4d12686ffa933f58ff06cdff233e6d12b90b31fc4d6 0.0s done
+#18 naming to docker.io/library/campus-v2-seed15-market:latest done
+#18 unpacking to docker.io/library/campus-v2-seed15-market:latest done
+#18 DONE 0.1s
+
+#19 resolving provenance for metadata file
+#19 DONE 0.0s
+ Image campus-v2-seed15-market Built 
+ Container campus-v2-seed15-mongo-1 Running 
+ Container campus-v2-seed15-mongo-1 Waiting 
+ Container campus-v2-seed15-mongo-1 Healthy 
+ Container campus-v2-seed15-market-run-a25462d07c30 Creating 
+ Container campus-v2-seed15-market-run-a25462d07c30 Created 
+{"baseTime":"2026-10-11T00:00:00Z","counts":{"users":10000,"active":50000,"sold":180000,"transactions":300000,"priceChanges":575000},"database":"campus_v2_seed15","mode":"v2","randomSeed":42}
+2026/10/11 05:52:40 demo accounts: seller, buyer; password: CampusDemo123!
+full V2 counts passed
+Manifest: 30000 unique dedicated products, 10000 registered accounts, legal sellers/buyers, valid prices/expiry, baseline sales 180000
+users: 10000 (expected 10000)
+unsold: 50000 (expected 50000)
+sold: 180000 (expected 180000)
+listings: 50000 (expected 50000)
+transactions: 300000 (expected 300000)
+priceChanges: 575000 (expected 575000)
+successes: 180000 (expected 180000)
+image violations: 0 (expected 0)
+price chain violations: 0 (expected 0)
+sale record violations: 0 (expected 0)
+seller count violations: 0 (expected 0)
+[
+  {
+    _id: null,
+    min: 2,
+    max: 3,
+    mean: 2.5
+  }
+]
+Seed observations passed. Listing counts are wall-clock sensitive; see seed documentation.
+background active: 20000 (expected 20000)
+background sold: 180000 (expected 180000)
+dedicated active: 30000 (expected 30000)
+dedicated eligible: 30000 (expected 30000)
+listing archive violations: 0 (expected 0)
+duplicate successful products: 0 (expected 0)
+all seller counts: 0 (expected 0)
+ campus-v2-seed15-mongo-1 Copying /tmp/campus-v2-seed/docs/validation/v2/seed/manifest.json to campus-v2-seed15-mongo-1:/tmp/v2-manifest.json
+ campus-v2-seed15-mongo-1 Copied /tmp/campus-v2-seed/docs/validation/v2/seed/manifest.json to campus-v2-seed15-mongo-1:/tmp/v2-manifest.json
+Manifest/database correspondence: 30000 designated products and 10000 accounts passed
+ Container campus-v2-seed15-market-run-cb4643b26997 Creating 
+ Container campus-v2-seed15-market-run-cb4643b26997 Created 
+2026/10/11 05:54:11 seed requires an empty database; use --reset to rebuild only the specified DB_NAME
+
+ Container campus-v2-seed15-market-run-96735a45c52a Creating 
+ Container campus-v2-seed15-market-run-96735a45c52a Created 
+2026/10/11 05:54:12 base time must be RFC3339 in years 1971..9998
+
+{
+  acknowledged: true,
+  insertedId: 'keep',
+  matchedCount: 0,
+  modifiedCount: 0,
+  upsertedCount: 1
+}
+ Container campus-v2-seed15-market-run-c6217fd62906 Creating 
+ Container campus-v2-seed15-market-run-c6217fd62906 Created 
+2026/10/11 05:54:46 demo accounts: seller, buyer; password: CampusDemo123!
+{"baseTime":"2026-10-11T00:00:00Z","counts":{"users":10000,"active":50000,"sold":180000,"transactions":300000,"priceChanges":575000},"database":"campus_v2_seed15","mode":"v2","randomSeed":42}
+users: 10000 (expected 10000)
+unsold: 50000 (expected 50000)
+sold: 180000 (expected 180000)
+listings: 50000 (expected 50000)
+transactions: 300000 (expected 300000)
+priceChanges: 575000 (expected 575000)
+successes: 180000 (expected 180000)
+image violations: 0 (expected 0)
+price chain violations: 0 (expected 0)
+sale record violations: 0 (expected 0)
+seller count violations: 0 (expected 0)
+[
+  {
+    _id: null,
+    min: 2,
+    max: 3,
+    mean: 2.5
+  }
+]
+Seed observations passed. Listing counts are wall-clock sensitive; see seed documentation.
+background active: 20000 (expected 20000)
+background sold: 180000 (expected 180000)
+dedicated active: 30000 (expected 30000)
+dedicated eligible: 30000 (expected 30000)
+listing archive violations: 0 (expected 0)
+duplicate successful products: 0 (expected 0)
+all seller counts: 0 (expected 0)
+other database retained
+Repeated restore manifest identical; import+verification preparation seconds: 110
