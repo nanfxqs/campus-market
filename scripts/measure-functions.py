@@ -65,7 +65,7 @@ def request(method, path, body=None, token=None, expected=200, phase='preparatio
             record['input'] = body
         raw.write(json.dumps(record, ensure_ascii=False)+'\n')
         raw.flush()
-        if response.status != expected:
+        if expected is not None and response.status != expected:
             raise AssertionError((method, path, response.status, data))
         return data, elapsed
 
@@ -79,8 +79,8 @@ def search_wait(query, expected):
     deadline = time.monotonic()+180
     last = None
     while time.monotonic()<deadline:
-        last = http('GET', '/search?q='+urllib.parse.quote(query))
-        if last['total']==expected:
+        last = http('GET', '/search?q='+urllib.parse.quote(query), expected=None)
+        if last.get('total')==expected:
             return last
         time.sleep(.5)
     raise AssertionError(('Search readiness timeout', query, expected, last))
