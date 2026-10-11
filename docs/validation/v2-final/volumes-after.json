@@ -1,0 +1,157 @@
+[
+  {
+    "CreatedAt": "2026-10-11T13:49:18+08:00",
+    "Driver": "local",
+    "Labels": {
+      "com.docker.volume.anonymous": ""
+    },
+    "Mountpoint": "/var/lib/docker/volumes/32cbbc8bf20cb28b7cfda88b778ff615079bf0d12266efaaa95f0e018be63ddc/_data",
+    "Name": "32cbbc8bf20cb28b7cfda88b778ff615079bf0d12266efaaa95f0e018be63ddc",
+    "Options": null,
+    "Scope": "local"
+  },
+  {
+    "CreatedAt": "2026-10-09T19:11:14+08:00",
+    "Driver": "local",
+    "Labels": {
+      "com.docker.compose.config-hash": "585a11e1dc4c69ce0ed4f960354b35bb03bf51eb27189c65d461055fe41662b3",
+      "com.docker.compose.project": "campus-issue10-check",
+      "com.docker.compose.version": "5.6.0",
+      "com.docker.compose.volume": "mongo-config"
+    },
+    "Mountpoint": "/var/lib/docker/volumes/campus-issue10-check_mongo-config/_data",
+    "Name": "campus-issue10-check_mongo-config",
+    "Options": null,
+    "Scope": "local"
+  },
+  {
+    "CreatedAt": "2026-10-09T19:11:14+08:00",
+    "Driver": "local",
+    "Labels": {
+      "com.docker.compose.config-hash": "4bd07f23474ec0070b074654dea3f161d239190dfb11da27b7dd939cad8dd55f",
+      "com.docker.compose.project": "campus-issue10-check",
+      "com.docker.compose.version": "5.6.0",
+      "com.docker.compose.volume": "mongo-data"
+    },
+    "Mountpoint": "/var/lib/docker/volumes/campus-issue10-check_mongo-data/_data",
+    "Name": "campus-issue10-check_mongo-data",
+    "Options": null,
+    "Scope": "local"
+  },
+  {
+    "CreatedAt": "2026-10-09T19:11:14+08:00",
+    "Driver": "local",
+    "Labels": {
+      "com.docker.compose.config-hash": "d29681fa3a829d7d80bef5f3b47d4c6105a0f7415d62453a50644226fe5a8bac",
+      "com.docker.compose.project": "campus-issue10-check",
+      "com.docker.compose.version": "5.6.0",
+      "com.docker.compose.volume": "search-data"
+    },
+    "Mountpoint": "/var/lib/docker/volumes/campus-issue10-check_search-data/_data",
+    "Name": "campus-issue10-check_search-data",
+    "Options": null,
+    "Scope": "local"
+  },
+  {
+    "CreatedAt": "2026-10-09T19:12:17+08:00",
+    "Driver": "local",
+    "Labels": {
+      "com.docker.compose.config-hash": "2e5c6bf099e751b0e4f79b474cc85386c83106c7bde0fcf573aad1a7fb026d59",
+      "com.docker.compose.project": "campus-market-issue7-check",
+      "com.docker.compose.version": "5.6.0",
+      "com.docker.compose.volume": "mongo-config"
+    },
+    "Mountpoint": "/var/lib/docker/volumes/campus-market-issue7-check_mongo-config/_data",
+    "Name": "campus-market-issue7-check_mongo-config",
+    "Options": null,
+    "Scope": "local"
+  },
+  {
+    "CreatedAt": "2026-10-09T19:12:17+08:00",
+    "Driver": "local",
+    "Labels": {
+      "com.docker.compose.config-hash": "51d9b56af31be9521a63604f8a410af075a439f8dd7053c88f5a8005a23d5574",
+      "com.docker.compose.project": "campus-market-issue7-check",
+      "com.docker.compose.version": "5.6.0",
+      "com.docker.compose.volume": "mongo-data"
+    },
+    "Mountpoint": "/var/lib/docker/volumes/campus-market-issue7-check_mongo-data/_data",
+    "Name": "campus-market-issue7-check_mongo-data",
+    "Options": null,
+    "Scope": "local"
+  },
+  {
+    "CreatedAt": "2026-10-09T19:12:17+08:00",
+    "Driver": "local",
+    "Labels": {
+      "com.docker.compose.config-hash": "f02ff09a281d74852c92c718dc954e282445e82cb60f8199574375220e2683f1",
+      "com.docker.compose.project": "campus-market-issue7-check",
+      "com.docker.compose.version": "5.6.0",
+      "com.docker.compose.volume": "search-data"
+    },
+    "Mountpoint": "/var/lib/docker/volumes/campus-market-issue7-check_search-data/_data",
+    "Name": "campus-market-issue7-check_search-data",
+    "Options": null,
+    "Scope": "local"
+  },
+  {
+    "CreatedAt": "2026-10-09T14:50:42+08:00",
+    "Driver": "local",
+    "Labels": {
+      "com.docker.compose.config-hash": "7463bcc4a156a50302285bf08b10191bf878920424ba8277120b00fcb2ba349e",
+      "com.docker.compose.project": "campus-market-validation",
+      "com.docker.compose.version": "5.6.0",
+      "com.docker.compose.volume": "mongo-config"
+    },
+    "Mountpoint": "/var/lib/docker/volumes/campus-market-validation_mongo-config/_data",
+    "Name": "campus-market-validation_mongo-config",
+    "Options": null,
+    "Scope": "local"
+  },
+  {
+    "CreatedAt": "2026-10-09T14:50:42+08:00",
+    "Driver": "local",
+    "Labels": {
+      "com.docker.compose.config-hash": "d9f29b7a42e9a815554249123a12ae0fdc8f10437fc00aec5ff53f368b12135c",
+      "com.docker.compose.project": "campus-market-validation",
+      "com.docker.compose.version": "5.6.0",
+      "com.docker.compose.volume": "mongo-data"
+    },
+    "Mountpoint": "/var/lib/docker/volumes/campus-market-validation_mongo-data/_data",
+    "Name": "campus-market-validation_mongo-data",
+    "Options": null,
+    "Scope": "local"
+  },
+  {
+    "CreatedAt": "2026-10-09T14:50:42+08:00",
+    "Driver": "local",
+    "Labels": {
+      "com.docker.compose.config-hash": "ff8b20ae88ac543606c4dbc7fcf43d2a01ead2aab0e92242e49bf84044d9fc00",
+      "com.docker.compose.project": "campus-market-validation",
+      "com.docker.compose.version": "5.6.0",
+      "com.docker.compose.volume": "search-data"
+    },
+    "Mountpoint": "/var/lib/docker/volumes/campus-market-validation_search-data/_data",
+    "Name": "campus-market-validation_search-data",
+    "Options": null,
+    "Scope": "local"
+  },
+  {
+    "CreatedAt": "2026-10-11T13:48:42+08:00",
+    "Driver": "local",
+    "Labels": null,
+    "Mountpoint": "/var/lib/docker/volumes/campus-v2-go-build/_data",
+    "Name": "campus-v2-go-build",
+    "Options": null,
+    "Scope": "local"
+  },
+  {
+    "CreatedAt": "2026-10-11T13:48:42+08:00",
+    "Driver": "local",
+    "Labels": null,
+    "Mountpoint": "/var/lib/docker/volumes/campus-v2-go-mod/_data",
+    "Name": "campus-v2-go-mod",
+    "Options": null,
+    "Scope": "local"
+  }
+]

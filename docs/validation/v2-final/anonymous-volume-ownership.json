@@ -1,0 +1,58 @@
+[
+  {
+    "source": "docs/validation/v2-measure17/idle/containers.json",
+    "container": "/campus-v2-restore15-redis-1",
+    "labels": {
+      "com.docker.compose.config-hash": "770fd284e7fe03ee735ebb9ab50cead4d075d5950e4fbdc45753c1f6f13dc598",
+      "com.docker.compose.container-number": "1",
+      "com.docker.compose.depends_on": "",
+      "com.docker.compose.image": "sha256:f452836040018082f5383b5969c66ed3009bfd38932ae188a28d206870ae277b",
+      "com.docker.compose.oneoff": "False",
+      "com.docker.compose.project": "campus-v2-restore15",
+      "com.docker.compose.project.config_files": "/tmp/campus-v2-seed/compose.v2.yaml",
+      "com.docker.compose.project.working_dir": "/tmp/campus-v2-seed",
+      "com.docker.compose.service": "redis",
+      "com.docker.compose.version": "5.6.0"
+    },
+    "mounts": [
+      {
+        "Type": "volume",
+        "Name": "339b7e5de6f45f0a78e75b6e00c6c7a37ab0289f03ac326617006783ac88a157",
+        "Source": "/var/lib/docker/volumes/339b7e5de6f45f0a78e75b6e00c6c7a37ab0289f03ac326617006783ac88a157/_data",
+        "Destination": "/data",
+        "Driver": "local",
+        "Mode": "",
+        "RW": true,
+        "Propagation": ""
+      }
+    ]
+  },
+  {
+    "source": "docs/validation/v2/baseline/A-attempt-1/round-1/idle/containers.json",
+    "container": "/campus-v2-baseline18-redis-1",
+    "labels": {
+      "com.docker.compose.config-hash": "770fd284e7fe03ee735ebb9ab50cead4d075d5950e4fbdc45753c1f6f13dc598",
+      "com.docker.compose.container-number": "1",
+      "com.docker.compose.depends_on": "",
+      "com.docker.compose.image": "sha256:f452836040018082f5383b5969c66ed3009bfd38932ae188a28d206870ae277b",
+      "com.docker.compose.oneoff": "False",
+      "com.docker.compose.project": "campus-v2-baseline18",
+      "com.docker.compose.project.config_files": "/tmp/campus-v2-baseline/compose.v2.yaml",
+      "com.docker.compose.project.working_dir": "/tmp/campus-v2-baseline",
+      "com.docker.compose.service": "redis",
+      "com.docker.compose.version": "5.6.0"
+    },
+    "mounts": [
+      {
+        "Type": "volume",
+        "Name": "8a28c39e4e0e95af96fcbd097d2d32a35fac5a35eb47c2812767e7d1ac1b4ed9",
+        "Source": "/var/lib/docker/volumes/8a28c39e4e0e95af96fcbd097d2d32a35fac5a35eb47c2812767e7d1ac1b4ed9/_data",
+        "Destination": "/data",
+        "Driver": "local",
+        "Mode": "",
+        "RW": true,
+        "Propagation": ""
+      }
+    ]
+  }
+]
