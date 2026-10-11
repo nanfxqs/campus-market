@@ -1,0 +1,24 @@
+api-b-1  | [GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+api-b-1  |  - using env:	export GIN_MODE=release
+api-b-1  |  - using code:	gin.SetMode(gin.ReleaseMode)
+api-b-1  | 
+api-b-1  | [GIN-debug] GET    /health                   --> github.com/nanfxqs/campus-market/internal/market.newAPIWithCache.func1 (3 handlers)
+api-b-1  | [GIN-debug] POST   /auth/login               --> github.com/nanfxqs/campus-market/internal/market.newAPIWithCache.func2 (3 handlers)
+api-b-1  | [GIN-debug] GET    /users/me                 --> github.com/nanfxqs/campus-market/internal/market.newAPIWithCache.func4 (4 handlers)
+api-b-1  | [GIN-debug] PATCH  /users/me                 --> github.com/nanfxqs/campus-market/internal/market.newAPIWithCache.func5 (4 handlers)
+api-b-1  | [GIN-debug] GET    /users/:id/home           --> github.com/nanfxqs/campus-market/internal/market.newAPIWithCache.func6 (3 handlers)
+api-b-1  | [GIN-debug] GET    /products                 --> github.com/nanfxqs/campus-market/internal/market.productRoutes.func1 (3 handlers)
+api-b-1  | [GIN-debug] GET    /categories               --> github.com/nanfxqs/campus-market/internal/market.productRoutes.func2 (3 handlers)
+api-b-1  | [GIN-debug] POST   /products                 --> github.com/nanfxqs/campus-market/internal/market.productRoutes.func3 (4 handlers)
+api-b-1  | [GIN-debug] PUT    /products/:id             --> github.com/nanfxqs/campus-market/internal/market.productRoutes.func4 (4 handlers)
+api-b-1  | [GIN-debug] GET    /products/:id             --> github.com/nanfxqs/campus-market/internal/market.productRoutes.func5 (3 handlers)
+api-b-1  | [GIN-debug] GET    /products/:id/price-history --> github.com/nanfxqs/campus-market/internal/market.productRoutes.func6 (3 handlers)
+api-b-1  | [GIN-debug] POST   /products/:id/sale        --> github.com/nanfxqs/campus-market/internal/market.saleRoutes.func1 (4 handlers)
+api-b-1  | [GIN-debug] GET    /search                   --> github.com/nanfxqs/campus-market/internal/market.newAPIWithCache.func7 (3 handlers)
+api-b-1  | [GIN-debug] PATCH  /products/:id/price       --> github.com/nanfxqs/campus-market/internal/market.priceRoutes.func1 (4 handlers)
+api-b-1  | [GIN-debug] GET    /categories/:id/condition-counts --> github.com/nanfxqs/campus-market/internal/market.statisticsRoutes.func1 (3 handlers)
+api-b-1  | [GIN-debug] GET    /openapi.json             --> github.com/nanfxqs/campus-market/internal/market.newAPIWithCache.func8 (3 handlers)
+api-b-1  | [GIN-debug] GET    /docs                     --> github.com/nanfxqs/campus-market/internal/market.newAPIWithCache.func9 (3 handlers)
+api-b-1  | 2026/10/11 05:54:12 detail_metrics scope=detail_returned_bson requests=1 hits=0 misses=1 errors=0 fallbacks=0 mongo_queries=5 mongo_bson_bytes=862
+api-b-1  | 2026/10/11 05:54:13 detail_metrics scope=detail_returned_bson requests=6 hits=1 misses=5 errors=3 fallbacks=0 mongo_queries=29 mongo_bson_bytes=4820
+api-b-1  | 2026/10/11 05:54:14 detail_metrics scope=detail_returned_bson requests=11 hits=1 misses=7 errors=6 fallbacks=3 mongo_queries=54 mongo_bson_bytes=9838

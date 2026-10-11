@@ -4,6 +4,7 @@ import (
 	"context"
 	"errors"
 	"net/http"
+	"strconv"
 	"time"
 
 	"github.com/gin-gonic/gin"
@@ -70,6 +71,7 @@ type ProductContent struct {
 	Attributes  map[string]any `bson:"attributes" json:"attributes"`
 }
 type Product struct {
+	ContentVersion    int64  `bson:"contentVersion" json:"-"`
 	Sale              *Sale  `bson:"sale,omitempty" json:"sale,omitempty"`
 	ID                string `bson:"_id" json:"id"`
 	ProductContent    `bson:",inline"`
@@ -88,7 +90,7 @@ type PriceChange struct {
 	ChangedAt     time.Time `bson:"changedAt" json:"changedAt"`
 }
 
-func productRoutes(router *gin.Engine, authorized *gin.RouterGroup, db *mongo.Database, clock func() time.Time) {
+func productRoutes(router *gin.Engine, authorized *gin.RouterGroup, db *mongo.Database, clock func() time.Time, cache *detailCache) {
 	router.GET("/products", func(c *gin.Context) { browsePage(c, db, clock) })
 	router.GET("/categories", func(c *gin.Context) {
 		cursor, err := db.Collection("categories").Find(c.Request.Context(), bson.M{}, options.Find().SetSort(bson.D{{Key: "_id", Value: 1}}))
@@ -119,7 +121,7 @@ func productRoutes(router *gin.Engine, authorized *gin.RouterGroup, db *mongo.Da
 			return
 		}
 		now := clock().UTC().Truncate(time.Millisecond)
-		p := Product{ID: primitive.NewObjectID().Hex(), ProductContent: input.ProductContent, SellerID: c.GetString("userID"), PriceCents: input.PriceCents, InitialPriceCents: input.PriceCents, PublishedAt: now, ExpiresAt: now.Add(1440 * time.Hour)}
+		p := Product{ContentVersion: 1, ID: primitive.NewObjectID().Hex(), ProductContent: input.ProductContent, SellerID: c.GetString("userID"), PriceCents: input.PriceCents, InitialPriceCents: input.PriceCents, PublishedAt: now, ExpiresAt: now.Add(1440 * time.Hour)}
 		session, err := db.Client().StartSession()
 		if err != nil {
 			fail(c, 503, "unavailable")
@@ -167,7 +169,7 @@ func productRoutes(router *gin.Engine, authorized *gin.RouterGroup, db *mongo.Da
 			if err := db.Collection("listings").FindOne(sc, bson.M{"_id": current.ID, "expiresAt": bson.M{"$gt": now}}).Err(); err != nil {
 				return nil, err
 			}
-			err := db.Collection("products").FindOneAndUpdate(sc, bson.M{"_id": current.ID, "sellerId": c.GetString("userID"), "sold": false, "expiresAt": bson.M{"$gt": now}}, bson.M{"$set": input}, options.FindOneAndUpdate().SetReturnDocument(options.After)).Decode(&edited)
+			err := db.Collection("products").FindOneAndUpdate(sc, bson.M{"_id": current.ID, "sellerId": c.GetString("userID"), "sold": false, "expiresAt": bson.M{"$gt": now}}, bson.M{"$set": input, "$inc": bson.M{"contentVersion": 1}}, options.FindOneAndUpdate().SetReturnDocument(options.After)).Decode(&edited)
 			return nil, err
 		})
 		if errors.Is(err, mongo.ErrNoDocuments) {
@@ -181,25 +183,54 @@ func productRoutes(router *gin.Engine, authorized *gin.RouterGroup, db *mongo.Da
 		c.JSON(200, edited)
 	})
 	router.GET("/products/:id", func(c *gin.Context) {
+		defer cache.begin(c)()
 		var p Product
-		if !loadProduct(c, db, &p) {
+		if !cache.load(c, db, &p) {
 			return
 		}
+		metrics := detailMetrics(c)
 		var seller Profile
-		if err := db.Collection("users").FindOne(c.Request.Context(), bson.M{"_id": p.SellerID}).Decode(&seller); err != nil {
+		metrics.queries++
+		raw, err := db.Collection("users").FindOne(c.Request.Context(), bson.M{"_id": p.SellerID}).Raw()
+		metrics.bytes += len(raw)
+		if err != nil || bson.Unmarshal(raw, &seller) != nil {
 			fail(c, 503, "unavailable")
 			return
 		}
-		count, err := db.Collection("listings").CountDocuments(c.Request.Context(), bson.M{"_id": p.ID, "expiresAt": bson.M{"$gt": clock()}})
+		metrics.queries++
+		listing, err := db.Collection("listings").FindOne(c.Request.Context(), bson.M{"_id": p.ID, "expiresAt": bson.M{"$gt": clock()}}).Raw()
+		metrics.bytes += len(listing)
+		if err != nil && !errors.Is(err, mongo.ErrNoDocuments) {
+			fail(c, 503, "unavailable")
+			return
+		}
+		count := 0
+		if err == nil {
+			count = 1
+		}
+		metrics.queries++
+		rows, err := db.Collection("priceChanges").Find(c.Request.Context(), bson.M{"productId": p.ID}, options.Find().SetSort(bson.D{{Key: "changedAt", Value: -1}, {Key: "_id", Value: -1}}).SetLimit(5))
 		if err != nil {
 			fail(c, 503, "unavailable")
 			return
 		}
-		history, err := priceHistory(c.Request.Context(), db, p.ID, 5, nil)
-		if err != nil {
+		defer rows.Close(c.Request.Context())
+		history := []PriceChange{}
+		for rows.Next(c.Request.Context()) {
+			metrics.bytes += len(rows.Current)
+			var item PriceChange
+			if rows.Decode(&item) != nil {
+				fail(c, 503, "unavailable")
+				return
+			}
+			history = append(history, item)
+		}
+		if rows.Err() != nil {
 			fail(c, 503, "unavailable")
 			return
 		}
+		c.Header("X-Mongo-Queries", strconv.Itoa(metrics.queries))
+		c.Header("X-Mongo-BSON-Bytes", strconv.Itoa(metrics.bytes))
 		c.JSON(200, gin.H{"product": p, "seller": seller, "available": count == 1 && !p.Sold && p.ExpiresAt.After(clock()), "priceHistory": history, "priceHistoryUrl": "/products/" + p.ID + "/price-history"})
 	})
 	router.GET("/products/:id/price-history", func(c *gin.Context) {
@@ -210,12 +241,14 @@ func productRoutes(router *gin.Engine, authorized *gin.RouterGroup, db *mongo.Da
 		historyPage(c, db, p.ID)
 	})
 }
-func loadProduct(c *gin.Context, db *mongo.Database, p *Product) bool {
+func validProductID(c *gin.Context) bool {
 	if _, err := primitive.ObjectIDFromHex(c.Param("id")); err != nil {
 		fail(c, 400, "invalid_input")
 		return false
 	}
-	err := db.Collection("products").FindOne(c.Request.Context(), bson.M{"_id": c.Param("id")}).Decode(p)
+	return true
+}
+func productLoadError(c *gin.Context, err error) bool {
 	if errors.Is(err, mongo.ErrNoDocuments) {
 		fail(c, 404, "product_not_found")
 		return false
@@ -225,4 +258,10 @@ func loadProduct(c *gin.Context, db *mongo.Database, p *Product) bool {
 		return false
 	}
 	return true
+}
+func loadProduct(c *gin.Context, db *mongo.Database, p *Product) bool {
+	if !validProductID(c) {
+		return false
+	}
+	return productLoadError(c, db.Collection("products").FindOne(c.Request.Context(), bson.M{"_id": c.Param("id")}).Decode(p))
 }
