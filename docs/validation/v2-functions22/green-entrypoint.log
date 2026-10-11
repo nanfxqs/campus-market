@@ -1,0 +1,12 @@
+usage: measure-functions.py [-h] --project PROJECT --database DATABASE
+                            --url URL --output OUTPUT [--samples SAMPLES]
+                            [--ttl-timeout TTL_TIMEOUT]
+
+options:
+  -h, --help            show this help message and exit
+  --project PROJECT
+  --database DATABASE
+  --url URL
+  --output OUTPUT
+  --samples SAMPLES
+  --ttl-timeout TTL_TIMEOUT
