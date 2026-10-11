@@ -41,6 +41,20 @@ random.Random(a.seed).shuffle(all_ids);pool_ids=all_ids[:100] if a.pattern=='hot
 if a.formal and a.pattern=='hotspot' and len(pool_ids)!=100:raise RuntimeError('formal hotspot needs100 distinct products')
 pool={'ids':pool_ids,'seed':a.seed,'pattern':a.pattern,'sha256':hashlib.sha256(json.dumps(pool_ids,separators=(',',':')).encode()).hexdigest(),'sequence':'VU index i reads pool[(i+50*sequenceIndex)%poolSize]; serial/no think time','completeArchivePool':len(all_ids)}
 with gzip.open(out/'pool.json.gz','wt',compresslevel=3) as f:json.dump(pool,f,separators=(',',':'))
+# Search ingestion is preparation; it does not warm product-detail cache.
+if a.formal:
+    deadline=time.monotonic()+180
+    with (out/'search-readiness.jsonl').open('w') as observations:
+        while True:
+            try:
+                with urllib.request.urlopen(a.api+'/search?q=%E5%8D%95%E8%BD%A6',timeout=15) as response: search=json.load(response)
+                ready=search.get('total')==16667
+                observations.write(json.dumps({'unixNs':time.time_ns(),'expected':16667,'actual':search.get('total'),'ready':ready})+'\n');observations.flush()
+                if ready:break
+            except Exception as error:
+                observations.write(json.dumps({'unixNs':time.time_ns(),'error':str(error)})+'\n');observations.flush()
+            if time.monotonic()>deadline:raise TimeoutError('full Search cohort not ready within180seconds')
+            time.sleep(1)
 # Explicit exclusive experiment cache, checked against exact project above.
 redis_cmd('FLUSHDB');save('cache-empty.json',{'dbsize':int(redis_cmd('DBSIZE')),'unixNs':time.time_ns()})
 if int(redis_cmd('DBSIZE'))!=0:raise RuntimeError('cache was not empty after explicit reset')
