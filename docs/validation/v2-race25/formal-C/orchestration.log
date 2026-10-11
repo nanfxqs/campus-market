@@ -1,0 +1,144 @@
+ Image campus-v2-race-20261011063416-872671-api-c1 Building 
+ Image campus-v2-race-20261011063416-872671-api-c2 Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 1.01kB done
+#1 DONE 0.0s
+
+#2 [api-c2 internal] load build definition from Dockerfile
+#2 transferring dockerfile: 491B done
+#2 DONE 0.0s
+
+#3 [api-c2 internal] load metadata for docker.io/library/debian:bookworm-slim@sha256:7c7b2c966bc9ee8cedfeef67e0e279108992c77681fa595db4a9d65c06ccc587
+#3 DONE 0.0s
+
+#4 [api-c1 internal] load metadata for docker.io/library/golang:1.24.2-bookworm@sha256:79390b5e5af9ee6e7b1173ee3eac7fadf6751a545297672916b59bfa0ecf6f71
+#4 DONE 0.0s
+
+#5 [api-c1 internal] load .dockerignore
+#5 transferring context: 294B done
+#5 DONE 0.0s
+
+#6 [api-c1 tools 1/7] FROM docker.io/library/golang:1.24.2-bookworm@sha256:79390b5e5af9ee6e7b1173ee3eac7fadf6751a545297672916b59bfa0ecf6f71
+#6 resolve docker.io/library/golang:1.24.2-bookworm@sha256:79390b5e5af9ee6e7b1173ee3eac7fadf6751a545297672916b59bfa0ecf6f71 0.0s done
+#6 DONE 0.0s
+
+#7 [api-c2 stage-1 1/3] FROM docker.io/library/debian:bookworm-slim@sha256:7c7b2c966bc9ee8cedfeef67e0e279108992c77681fa595db4a9d65c06ccc587
+#7 resolve docker.io/library/debian:bookworm-slim@sha256:7c7b2c966bc9ee8cedfeef67e0e279108992c77681fa595db4a9d65c06ccc587 0.0s done
+#7 DONE 0.0s
+
+#8 [api-c2 internal] load build context
+#8 transferring context: 4.32kB done
+#8 DONE 0.0s
+
+#9 [api-c1 tools 5/7] COPY . .
+#9 CACHED
+
+#10 [api-c1 tools 7/7] RUN go build -o /market ./cmd/market
+#10 CACHED
+
+#11 [api-c1 tools 6/7] RUN go build -o /validation ./validation
+#11 CACHED
+
+#12 [api-c1 stage-1 2/3] COPY --from=tools /validation /validation
+#12 CACHED
+
+#13 [api-c1 tools 2/7] WORKDIR /src
+#13 CACHED
+
+#14 [api-c1 tools 4/7] RUN go mod download
+#14 CACHED
+
+#15 [api-c1 tools 3/7] COPY go.mod go.sum ./
+#15 CACHED
+
+#16 [api-c2 stage-1 3/3] COPY --from=tools /market /market
+#16 CACHED
+
+#17 [api-c1] exporting to image
+#17 exporting layers
+#17 exporting layers done
+#17 exporting manifest sha256:fdcb9adca21206d8e8f09f9c29a4b1c9dfa214b2221c346292a7b9c1e0e4fa70 0.0s done
+#17 exporting config sha256:7413eccc3e95f0e3712e00414f0c80c149932668f8e5a2f38a5b0957a61639e0 0.0s done
+#17 exporting attestation manifest sha256:d72d486747a72fe49b972910b5df63f5c873e955876043652067ed24f2930f84 0.0s done
+#17 exporting manifest list sha256:36489820168d5df9594839f899b97a3a1dd3a90bcca5e0d610b46a148af285c3 0.0s done
+#17 naming to docker.io/library/campus-v2-race-20261011063416-872671-api-c1:latest done
+#17 unpacking to docker.io/library/campus-v2-race-20261011063416-872671-api-c1:latest done
+#17 DONE 0.1s
+
+#18 [api-c2] exporting to image
+#18 exporting layers done
+#18 exporting manifest sha256:786ff592e071cfe0867e0776807133a05c5fa47efffb42d73ab4cf10f62651a8 0.0s done
+#18 exporting config sha256:af8a6a70fc9d3226dd1aea7264b218e6d1ad732483768d405d06319e4d8abae6 0.0s done
+#18 exporting attestation manifest sha256:2337997c7e5636360caffbaee5db3ebd45b4e3d2067a4577102a00facba4db2b 0.0s done
+#18 exporting manifest list sha256:147d2cfca83c4278aac9e7da20be3e2f4d48ba5bff10c2e895afe18209f66183 0.0s done
+#18 naming to docker.io/library/campus-v2-race-20261011063416-872671-api-c2:latest done
+#18 unpacking to docker.io/library/campus-v2-race-20261011063416-872671-api-c2:latest done
+#18 DONE 0.1s
+
+#19 [api-c2] resolving provenance for metadata file
+#19 DONE 0.0s
+
+#20 [api-c1] resolving provenance for metadata file
+#20 DONE 0.0s
+ Image campus-v2-race-20261011063416-872671-api-c1 Built 
+ Image campus-v2-race-20261011063416-872671-api-c2 Built 
+ Volume campus-v2-race-20261011063416-872671_search-data Creating 
+ Volume campus-v2-race-20261011063416-872671_search-data Creating 
+ Volume campus-v2-race-20261011063416-872671_mongo-config Creating 
+ Volume campus-v2-race-20261011063416-872671_mongo-config Creating 
+ Volume campus-v2-race-20261011063416-872671_mongo-data Creating 
+ Volume campus-v2-race-20261011063416-872671_mongo-data Creating 
+ Network campus-v2-race-20261011063416-872671_default Creating 
+ Network campus-v2-race-20261011063416-872671_default Creating 
+ Volume campus-v2-race-20261011063416-872671_search-data Created 
+ Volume campus-v2-race-20261011063416-872671_search-data Created 
+ Volume campus-v2-race-20261011063416-872671_mongo-data Created 
+ Volume campus-v2-race-20261011063416-872671_mongo-data Created 
+ Volume campus-v2-race-20261011063416-872671_mongo-config Created 
+ Volume campus-v2-race-20261011063416-872671_mongo-config Created 
+ Network campus-v2-race-20261011063416-872671_default Created 
+ Network campus-v2-race-20261011063416-872671_default Created 
+ Container campus-v2-race-20261011063416-872671-redis-1 Creating 
+ Container campus-v2-race-20261011063416-872671-mongo-1 Creating 
+ Container campus-v2-race-20261011063416-872671-redis-1 Created 
+ Container campus-v2-race-20261011063416-872671-mongo-1 Created 
+ Container campus-v2-race-20261011063416-872671-mongo-1 Starting 
+ Container campus-v2-race-20261011063416-872671-redis-1 Starting 
+ Container campus-v2-race-20261011063416-872671-mongo-1 Started 
+ Container campus-v2-race-20261011063416-872671-redis-1 Started 
+ Container campus-v2-race-20261011063416-872671-redis-1 Waiting 
+ Container campus-v2-race-20261011063416-872671-mongo-1 Waiting 
+ Container campus-v2-race-20261011063416-872671-redis-1 Healthy 
+ Container campus-v2-race-20261011063416-872671-mongo-1 Healthy 
+ Container campus-v2-race-20261011063416-872671-mongo-1 Running 
+ Container campus-v2-race-20261011063416-872671-api-c1-1 Creating 
+ Container campus-v2-race-20261011063416-872671-api-c1-1 Created 
+ Container campus-v2-race-20261011063416-872671-api-c2-1 Creating 
+ Container campus-v2-race-20261011063416-872671-api-c2-1 Created 
+ Container campus-v2-race-20261011063416-872671-nginx-1 Creating 
+ Container campus-v2-race-20261011063416-872671-nginx-1 Created 
+ Container campus-v2-race-20261011063416-872671-mongo-1 Waiting 
+ Container campus-v2-race-20261011063416-872671-mongo-1 Healthy 
+ Container campus-v2-race-20261011063416-872671-api-c1-1 Starting 
+ Container campus-v2-race-20261011063416-872671-api-c1-1 Started 
+ Container campus-v2-race-20261011063416-872671-api-c1-1 Waiting 
+ Container campus-v2-race-20261011063416-872671-mongo-1 Waiting 
+ Container campus-v2-race-20261011063416-872671-mongo-1 Healthy 
+ Container campus-v2-race-20261011063416-872671-api-c1-1 Healthy 
+ Container campus-v2-race-20261011063416-872671-api-c2-1 Starting 
+ Container campus-v2-race-20261011063416-872671-api-c2-1 Started 
+ Container campus-v2-race-20261011063416-872671-api-c1-1 Waiting 
+ Container campus-v2-race-20261011063416-872671-api-c2-1 Waiting 
+ Container campus-v2-race-20261011063416-872671-api-c1-1 Healthy 
+ Container campus-v2-race-20261011063416-872671-api-c2-1 Healthy 
+ Container campus-v2-race-20261011063416-872671-nginx-1 Starting 
+ Container campus-v2-race-20261011063416-872671-nginx-1 Started 
+ Container campus-v2-race-20261011063416-872671-nginx-1 Waiting 
+ Container campus-v2-race-20261011063416-872671-mongo-1 Waiting 
+ Container campus-v2-race-20261011063416-872671-api-c1-1 Waiting 
+ Container campus-v2-race-20261011063416-872671-api-c2-1 Waiting 
+ Container campus-v2-race-20261011063416-872671-api-c1-1 Healthy 
+ Container campus-v2-race-20261011063416-872671-api-c2-1 Healthy 
+ Container campus-v2-race-20261011063416-872671-mongo-1 Healthy 
+ Container campus-v2-race-20261011063416-872671-nginx-1 Healthy 
+Race experiment passed; raw evidence: /tmp/campus-v2-race/docs/validation/v2-race25/formal-C
