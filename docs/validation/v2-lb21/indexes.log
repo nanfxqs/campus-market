@@ -1,0 +1,29 @@
+[
+  {
+    v: 2,
+    key: {
+      _id: 1
+    },
+    name: '_id_'
+  },
+  {
+    v: 2,
+    key: {
+      categoryId: 1,
+      sold: 1,
+      publishedAt: -1,
+      _id: -1
+    },
+    name: 'category_browse'
+  },
+  {
+    v: 2,
+    key: {
+      sellerId: 1,
+      sold: 1,
+      publishedAt: -1,
+      _id: -1
+    },
+    name: 'seller_browse'
+  }
+]

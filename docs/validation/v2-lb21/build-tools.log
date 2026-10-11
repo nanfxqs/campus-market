@@ -1,0 +1,121 @@
+ Image campus-v2-lb21-tools Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 521B done
+#1 DONE 0.0s
+
+#2 [internal] load build definition from Dockerfile
+#2 transferring dockerfile: 491B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/golang:1.24.2-bookworm@sha256:79390b5e5af9ee6e7b1173ee3eac7fadf6751a545297672916b59bfa0ecf6f71
+#3 DONE 0.0s
+
+#4 [tools 1/7] FROM docker.io/library/golang:1.24.2-bookworm@sha256:79390b5e5af9ee6e7b1173ee3eac7fadf6751a545297672916b59bfa0ecf6f71
+#4 resolve docker.io/library/golang:1.24.2-bookworm@sha256:79390b5e5af9ee6e7b1173ee3eac7fadf6751a545297672916b59bfa0ecf6f71 0.1s done
+#4 DONE 0.1s
+
+#5 [tools 4/7] RUN go mod download
+#5 CACHED
+
+#6 [internal] load .dockerignore
+#6 transferring context: 62B done
+#6 DONE 0.0s
+
+#7 [internal] load build context
+#7 transferring context: 37.46kB done
+#7 DONE 0.0s
+
+#8 [tools 2/7] WORKDIR /src
+#8 CACHED
+
+#9 [tools 3/7] COPY go.mod go.sum ./
+#9 CACHED
+
+#10 [tools 4/7] RUN go mod download
+#10 CACHED
+
+#11 [tools 5/7] COPY . .
+#11 DONE 0.2s
+
+#12 [tools 6/7] RUN go build -o /validation ./validation
+#12 DONE 13.1s
+
+#13 [tools 7/7] RUN go build -o /market ./cmd/market
+#13 DONE 1.5s
+
+#14 exporting to image
+#14 exporting layers
+#14 exporting layers 4.0s done
+#14 exporting manifest sha256:182fe58b58304d8886e6b7198f49a36940ec199efbad5a8f34573278ad85c652
+#14 exporting manifest sha256:182fe58b58304d8886e6b7198f49a36940ec199efbad5a8f34573278ad85c652 done
+#14 exporting config sha256:b6aa2c1be4dd43604c3c83bb969023ad79cd35e83cf9f9b02c491b0916d5d6dc 0.0s done
+#14 exporting attestation manifest sha256:44f48d6f68017ac91f491959671dfc362c9ad1700e99052aa9e21556a2b9e2f0 0.0s done
+#14 exporting manifest list sha256:ba209c614b97f0111826367705c9087a6c6bb1a38bb6c8c886d9a1df43234885 done
+#14 naming to docker.io/library/campus-v2-lb21-tools:latest done
+#14 unpacking to docker.io/library/campus-v2-lb21-tools:latest
+#14 unpacking to docker.io/library/campus-v2-lb21-tools:latest 1.6s done
+#14 DONE 5.7s
+
+#15 resolving provenance for metadata file
+#15 DONE 0.0s
+ Image campus-v2-lb21-tools Built 
+ Image campus-v2-lb21-tools Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 521B done
+#1 DONE 0.0s
+
+#2 [tools 1/7] FROM docker.io/library/golang:1.24.2-bookworm@sha256:79390b5e5af9ee6e7b1173ee3eac7fadf6751a545297672916b59bfa0ecf6f71
+#2 resolve docker.io/library/golang:1.24.2-bookworm@sha256:79390b5e5af9ee6e7b1173ee3eac7fadf6751a545297672916b59bfa0ecf6f71 0.0s done
+#2 DONE 0.0s
+
+#3 [internal] load build definition from Dockerfile
+#3 transferring dockerfile: 491B done
+#3 DONE 0.0s
+
+#4 [internal] load metadata for docker.io/library/golang:1.24.2-bookworm@sha256:79390b5e5af9ee6e7b1173ee3eac7fadf6751a545297672916b59bfa0ecf6f71
+#4 DONE 0.0s
+
+#5 [internal] load .dockerignore
+#5 transferring context: 62B done
+#5 DONE 0.0s
+
+#6 [internal] load build context
+#6 transferring context: 39.92kB done
+#6 DONE 0.0s
+
+#7 [tools 4/7] RUN go mod download
+#7 CACHED
+
+#8 [tools 2/7] WORKDIR /src
+#8 CACHED
+
+#9 [tools 3/7] COPY go.mod go.sum ./
+#9 CACHED
+
+#10 [tools 4/7] RUN go mod download
+#10 CACHED
+
+#11 [tools 5/7] COPY . .
+#11 DONE 0.1s
+
+#12 [tools 6/7] RUN go build -o /validation ./validation
+#12 DONE 14.9s
+
+#13 [tools 7/7] RUN go build -o /market ./cmd/market
+#13 DONE 1.5s
+
+#14 exporting to image
+#14 exporting layers
+#14 exporting layers 4.0s done
+#14 exporting manifest sha256:0486b1711410d17a5b5881db52eeb95b014d343fe51d7193195e0f2baca1822e 0.0s done
+#14 exporting config sha256:51f657e21ff2847769bce1a6d898ea4f1f304198d470b76c383524aa500e381d 0.0s done
+#14 exporting attestation manifest sha256:57938d12f0084f742bc6049c89a4d45ea182c0a24f2693990f5831bc33dac191 0.0s done
+#14 exporting manifest list sha256:dc0b6a1df5b4757803b82eaba7436104e2de5c68ef73fb2bcefd59dd593f93c4 0.0s done
+#14 naming to docker.io/library/campus-v2-lb21-tools:latest done
+#14 unpacking to docker.io/library/campus-v2-lb21-tools:latest
+#14 unpacking to docker.io/library/campus-v2-lb21-tools:latest 1.5s done
+#14 DONE 5.6s
+
+#15 resolving provenance for metadata file
+#15 DONE 0.0s
+ Image campus-v2-lb21-tools Built 

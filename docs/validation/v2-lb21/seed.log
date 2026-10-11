@@ -1,0 +1,8 @@
+ Container campus-v2-lb21-api-c1-run-1f80b45c2c45 Creating 
+ Container campus-v2-lb21-api-c1-run-1f80b45c2c45 Created 
+2026/10/11 05:57:34 seed requires an empty database; use --reset to rebuild only the specified DB_NAME
+
+ Container campus-v2-lb21-api-c1-run-d47a3a140726 Creating 
+ Container campus-v2-lb21-api-c1-run-d47a3a140726 Created 
+2026/10/11 05:58:10 demo accounts: seller, buyer; password: CampusDemo123!
+{"baseTime":"2026-10-11T00:00:00Z","counts":{"users":10000,"active":20000,"sold":180000,"transactions":300000,"priceChanges":500000},"database":"campus_v2_experiment","mode":"full","randomSeed":42}

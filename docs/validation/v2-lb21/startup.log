@@ -1,0 +1,207 @@
+ Image campus-v2-lb21-api-c2 Building 
+ Image campus-v2-lb21-api-c1 Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 913B done
+#1 DONE 0.0s
+
+#2 [api-c1 internal] load build definition from Dockerfile
+#2 transferring dockerfile:
+#2 transferring dockerfile: 491B done
+#2 DONE 0.0s
+
+#3 [api-c2 internal] load metadata for docker.io/library/golang:1.24.2-bookworm@sha256:79390b5e5af9ee6e7b1173ee3eac7fadf6751a545297672916b59bfa0ecf6f71
+#3 DONE 0.0s
+
+#4 [api-c2 internal] load metadata for docker.io/library/debian:bookworm-slim@sha256:7c7b2c966bc9ee8cedfeef67e0e279108992c77681fa595db4a9d65c06ccc587
+#4 DONE 0.0s
+
+#5 [api-c1 internal] load .dockerignore
+#5 transferring context: 62B done
+#5 DONE 0.0s
+
+#6 [api-c2 internal] load build context
+#6 DONE 0.0s
+
+#7 [api-c1 tools 1/7] FROM docker.io/library/golang:1.24.2-bookworm@sha256:79390b5e5af9ee6e7b1173ee3eac7fadf6751a545297672916b59bfa0ecf6f71
+#7 resolve docker.io/library/golang:1.24.2-bookworm@sha256:79390b5e5af9ee6e7b1173ee3eac7fadf6751a545297672916b59bfa0ecf6f71 0.0s done
+#7 resolve docker.io/library/golang:1.24.2-bookworm@sha256:79390b5e5af9ee6e7b1173ee3eac7fadf6751a545297672916b59bfa0ecf6f71 0.0s done
+#7 DONE 0.0s
+
+#8 [api-c2 stage-1 1/3] FROM docker.io/library/debian:bookworm-slim@sha256:7c7b2c966bc9ee8cedfeef67e0e279108992c77681fa595db4a9d65c06ccc587
+#8 resolve docker.io/library/debian:bookworm-slim@sha256:7c7b2c966bc9ee8cedfeef67e0e279108992c77681fa595db4a9d65c06ccc587 0.0s done
+#8 DONE 0.0s
+
+#6 [api-c1 internal] load build context
+#6 transferring context: 1.69MB 0.0s done
+#6 DONE 0.1s
+
+#9 [api-c2 tools 2/7] WORKDIR /src
+#9 CACHED
+
+#10 [api-c2 tools 3/7] COPY go.mod go.sum ./
+#10 CACHED
+
+#11 [api-c1 tools 4/7] RUN go mod download
+#11 CACHED
+
+#12 [api-c1 tools 5/7] COPY . .
+#12 DONE 0.2s
+
+#13 [api-c2 tools 6/7] RUN go build -o /validation ./validation
+#13 DONE 13.7s
+
+#14 [api-c2 tools 7/7] RUN go build -o /market ./cmd/market
+#14 DONE 1.9s
+
+#15 [api-c2 stage-1 2/3] COPY --from=tools /validation /validation
+#15 CACHED
+
+#16 [api-c2 stage-1 3/3] COPY --from=tools /market /market
+#16 CACHED
+
+#15 [api-c1 stage-1 2/3] COPY --from=tools /validation /validation
+#15 CACHED
+
+#17 [api-c1] exporting to image
+#17 exporting layers done
+#17 exporting manifest sha256:b44e5d13df5ec453260df880b96aa5dc1ff36d607dc3ea498b527228563d51d2 0.0s done
+#17 exporting config sha256:9c7f37789aa6028ce548f74ab6a769037c0964d465366c3c537eceb712fba8c4 0.0s done
+#17 exporting attestation manifest sha256:15a48cfcd85959b8ca133c22aa9e17234c4dc6e48b2d0444e148f01034a64711 0.0s done
+#17 exporting manifest list sha256:01217a8d08c91d5dfa8b3bda96d44cb240cfe621049ba0db45e7b52bcdf2e9a5 0.0s done
+#17 naming to docker.io/library/campus-v2-lb21-api-c1:latest done
+#17 unpacking to docker.io/library/campus-v2-lb21-api-c1:latest
+#17 unpacking to docker.io/library/campus-v2-lb21-api-c1:latest done
+#17 DONE 0.1s
+
+#18 [api-c2] exporting to image
+#18 exporting layers done
+#18 exporting manifest sha256:1edc0160541739c4f76dee1b09b1a5e4bcaf2be20f1bea495e90e9b60088db0a 0.0s done
+#18 exporting config sha256:fa66e1d7bc579f69a6169098cef9bbfd9843fe1998a52f16e556e9acf367e4c3 0.0s done
+#18 exporting attestation manifest sha256:f744a2c7bf8e11f9c734d9acd90d7ead1e3d57f6b45fd6648384a0a1fc83c427 0.0s done
+#18 exporting manifest list sha256:3cd11fc21b3f2c9ed30e6c930a30b1688d875cf57fcc532123351a92886ae09c 0.0s done
+#18 naming to docker.io/library/campus-v2-lb21-api-c2:latest done
+#18 unpacking to docker.io/library/campus-v2-lb21-api-c2:latest done
+#18 DONE 0.1s
+
+#19 [api-c1] resolving provenance for metadata file
+#19 DONE 0.0s
+
+#20 [api-c2] resolving provenance for metadata file
+#20 DONE 0.0s
+ Image campus-v2-lb21-api-c1 Built 
+ Image campus-v2-lb21-api-c2 Built 
+ Volume campus-v2-lb21_mongo-data Creating 
+ Volume campus-v2-lb21_mongo-data Creating 
+ Network campus-v2-lb21_default Creating 
+ Volume campus-v2-lb21_search-data Creating 
+ Volume campus-v2-lb21_search-data Creating 
+ Network campus-v2-lb21_default Creating 
+ Volume campus-v2-lb21_mongo-config Creating 
+ Volume campus-v2-lb21_mongo-config Creating 
+ Volume campus-v2-lb21_mongo-data Created 
+ Volume campus-v2-lb21_mongo-data Created 
+ Volume campus-v2-lb21_mongo-config Created 
+ Volume campus-v2-lb21_mongo-config Created 
+ Volume campus-v2-lb21_search-data Created 
+ Volume campus-v2-lb21_search-data Created 
+ Network campus-v2-lb21_default Created 
+ Network campus-v2-lb21_default Created 
+ Container campus-v2-lb21-redis-1 Creating 
+ Container campus-v2-lb21-mongo-1 Creating 
+ Container campus-v2-lb21-mongo-1 Created 
+ Container campus-v2-lb21-redis-1 Created 
+ Container campus-v2-lb21-api-c2-1 Creating 
+ Container campus-v2-lb21-api-c1-1 Creating 
+ Container campus-v2-lb21-api-c1-1 Created 
+ Container campus-v2-lb21-api-c2-1 Created 
+ Container campus-v2-lb21-nginx-1 Creating 
+ Container campus-v2-lb21-nginx-1 Created 
+ Container campus-v2-lb21-redis-1 Starting 
+ Container campus-v2-lb21-mongo-1 Starting 
+ Container campus-v2-lb21-redis-1 Started 
+ Container campus-v2-lb21-mongo-1 Started 
+ Container campus-v2-lb21-mongo-1 Waiting 
+ Container campus-v2-lb21-mongo-1 Waiting 
+ Container campus-v2-lb21-mongo-1 Healthy 
+ Container campus-v2-lb21-api-c2-1 Starting 
+ Container campus-v2-lb21-mongo-1 Healthy 
+ Container campus-v2-lb21-api-c1-1 Starting 
+ Container campus-v2-lb21-api-c2-1 Started 
+
+
+ Container campus-v2-lb21-api-c2-1 Running 
+ Container campus-v2-lb21-mongo-1 Running 
+ Container campus-v2-lb21-redis-1 Running 
+ Container campus-v2-lb21-api-c1-1 Running 
+ Container campus-v2-lb21-nginx-1 Recreate 
+ Container campus-v2-lb21-nginx-1 Recreated 
+ Container campus-v2-lb21-mongo-1 Waiting 
+ Container campus-v2-lb21-mongo-1 Waiting 
+ Container campus-v2-lb21-mongo-1 Healthy 
+ Container campus-v2-lb21-api-c2-1 Starting 
+ Container campus-v2-lb21-mongo-1 Healthy 
+ Container campus-v2-lb21-api-c1-1 Starting 
+ Container campus-v2-lb21-api-c2-1 Started 
+ Container campus-v2-lb21-api-c1-1 Started 
+ Container campus-v2-lb21-api-c2-1 Waiting 
+ Container campus-v2-lb21-api-c1-1 Waiting 
+ Container campus-v2-lb21-api-c1-1 Error dependency api-c1 failed to start
+dependency failed to start: container campus-v2-lb21-api-c1-1 exited (1)
+api-c1-1  | 2026/10/11 05:57:00 (CommandFailed) PlanExecutor error during aggregation :: caused by :: Error connecting to Search Index Management service.
+api-c1-1  | 2026/10/11 05:57:01 (BadValue) duplicate index names for the same collection: 6acb252dc07d0d846b3d2b01
+api-c2-1  | 2026/10/11 05:57:00 (CommandFailed) PlanExecutor error during aggregation :: caused by :: Error connecting to Search Index Management service.
+api-c2-1  | [GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+api-c2-1  |  - using env:	export GIN_MODE=release
+api-c2-1  |  - using code:	gin.SetMode(gin.ReleaseMode)
+api-c2-1  | 
+api-c2-1  | [GIN-debug] GET    /health                   --> github.com/nanfxqs/campus-market/internal/market.newAPIWithCache.func1 (3 handlers)
+api-c2-1  | [GIN-debug] POST   /auth/login               --> github.com/nanfxqs/campus-market/internal/market.newAPIWithCache.func2 (3 handlers)
+api-c2-1  | [GIN-debug] GET    /users/me                 --> github.com/nanfxqs/campus-market/internal/market.newAPIWithCache.func4 (4 handlers)
+api-c2-1  | [GIN-debug] PATCH  /users/me                 --> github.com/nanfxqs/campus-market/internal/market.newAPIWithCache.func5 (4 handlers)
+api-c2-1  | [GIN-debug] GET    /users/:id/home           --> github.com/nanfxqs/campus-market/internal/market.newAPIWithCache.func6 (3 handlers)
+api-c2-1  | [GIN-debug] GET    /products                 --> github.com/nanfxqs/campus-market/internal/market.productRoutes.func1 (3 handlers)
+api-c2-1  | [GIN-debug] GET    /categories               --> github.com/nanfxqs/campus-market/internal/market.productRoutes.func2 (3 handlers)
+api-c2-1  | [GIN-debug] POST   /products                 --> github.com/nanfxqs/campus-market/internal/market.productRoutes.func3 (4 handlers)
+api-c2-1  | [GIN-debug] PUT    /products/:id             --> github.com/nanfxqs/campus-market/internal/market.productRoutes.func4 (4 handlers)
+api-c2-1  | [GIN-debug] GET    /products/:id             --> github.com/nanfxqs/campus-market/internal/market.productRoutes.func5 (3 handlers)
+api-c2-1  | [GIN-debug] GET    /products/:id/price-history --> github.com/nanfxqs/campus-market/internal/market.productRoutes.func6 (3 handlers)
+api-c2-1  | [GIN-debug] POST   /products/:id/sale        --> github.com/nanfxqs/campus-market/internal/market.saleRoutes.func1 (4 handlers)
+api-c2-1  | [GIN-debug] GET    /search                   --> github.com/nanfxqs/campus-market/internal/market.newAPIWithCache.func7 (3 handlers)
+api-c2-1  | [GIN-debug] PATCH  /products/:id/price       --> github.com/nanfxqs/campus-market/internal/market.priceRoutes.func1 (4 handlers)
+api-c2-1  | [GIN-debug] GET    /categories/:id/condition-counts --> github.com/nanfxqs/campus-market/internal/market.statisticsRoutes.func1 (3 handlers)
+api-c2-1  | [GIN-debug] GET    /openapi.json             --> github.com/nanfxqs/campus-market/internal/market.newAPIWithCache.func8 (3 handlers)
+api-c2-1  | [GIN-debug] GET    /docs                     --> github.com/nanfxqs/campus-market/internal/market.newAPIWithCache.func9 (3 handlers)
+ Container campus-v2-lb21-nginx-1 Stopping 
+ Container campus-v2-lb21-nginx-1 Stopped 
+ Container campus-v2-lb21-api-c1-1 Stopping 
+ Container campus-v2-lb21-api-c2-1 Stopping 
+ Container campus-v2-lb21-api-c1-1 Stopped 
+ Container campus-v2-lb21-api-c2-1 Stopped 
+ Container campus-v2-lb21-mongo-1 Running 
+ Container campus-v2-lb21-redis-1 Running 
+ Container campus-v2-lb21-mongo-1 Waiting 
+ Container campus-v2-lb21-mongo-1 Healthy 
+ Container campus-v2-lb21-api-c1-1 Starting 
+ Container campus-v2-lb21-api-c1-1 Started 
+ Container campus-v2-lb21-api-c1-1 Waiting 
+ Container campus-v2-lb21-mongo-1 Waiting 
+ Container campus-v2-lb21-mongo-1 Healthy 
+ Container campus-v2-lb21-api-c1-1 Healthy 
+ Container campus-v2-lb21-api-c2-1 Starting 
+ Container campus-v2-lb21-api-c2-1 Started 
+ Container campus-v2-lb21-api-c2-1 Waiting 
+ Container campus-v2-lb21-api-c1-1 Waiting 
+ Container campus-v2-lb21-api-c1-1 Healthy 
+ Container campus-v2-lb21-api-c2-1 Healthy 
+ Container campus-v2-lb21-nginx-1 Starting 
+ Container campus-v2-lb21-nginx-1 Started 
+ Container campus-v2-lb21-api-c2-1 Waiting 
+ Container campus-v2-lb21-nginx-1 Waiting 
+ Container campus-v2-lb21-mongo-1 Waiting 
+ Container campus-v2-lb21-redis-1 Waiting 
+ Container campus-v2-lb21-api-c1-1 Waiting 
+ Container campus-v2-lb21-api-c1-1 Healthy 
+ Container campus-v2-lb21-api-c2-1 Healthy 
+ Container campus-v2-lb21-redis-1 Healthy 
+ Container campus-v2-lb21-mongo-1 Healthy 
+ Container campus-v2-lb21-nginx-1 Healthy 

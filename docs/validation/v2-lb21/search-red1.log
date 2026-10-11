@@ -1,0 +1,6 @@
+{"status": 503, "elapsed": 10.015469794998353, "total": null, "error": {"code": "unavailable"}}
+Traceback (most recent call last):
+  File "/tmp/campus-v2-search21/repro.py", line 5, in <module>
+    with r:result=json.load(r);print(json.dumps({'status':r.status,'elapsed':time.monotonic()-start,'total':result.get('total'),'error':result.get('error')}));assert r.status==200 and result['total']==6667
+                                                                                                                                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

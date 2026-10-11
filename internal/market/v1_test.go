@@ -6,6 +6,7 @@ import (
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 	"os"
+	"strings"
 	"testing"
 	"time"
 )
@@ -73,8 +74,9 @@ func TestV1FullSeedHTTP(t *testing.T) {
 	t.Log("full seed: publish, browse, detail/current profile, price history, seller home, sale/replay and ownership PASS")
 	t.Run("full-seed expiry", func(t *testing.T) {
 		// External fixture preparation at the agreed MongoDB boundary, never a public test API.
-		if os.Getenv("V1_DB_NAME") != "campus_v1" {
-			t.Fatal("V1_DB_NAME=campus_v1 required for disposable expiry fixture")
+		name := os.Getenv("V1_DB_NAME")
+		if name != "campus_v1" && !strings.HasPrefix(name, "campus_v2_") {
+			t.Fatal("V1_DB_NAME must name the disposable campus_v1 or campus_v2_* fixture")
 		}
 		ctx, cancel := context.WithTimeout(context.Background(), 20*time.Second)
 		defer cancel()
@@ -83,7 +85,7 @@ func TestV1FullSeedHTTP(t *testing.T) {
 			t.Fatal(err)
 		}
 		defer client.Disconnect(context.Background())
-		db := client.Database("campus_v1")
+		db := client.Database(name)
 		// Known full-seed bicycle belonging to seller; keep its original images and history.
 		id := "000000000000000000002711"
 		path := "/products/" + id

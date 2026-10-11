@@ -1,0 +1,119 @@
+ Image campus-v2-lb21-api-c1 Building 
+ Image campus-v2-lb21-api-c2 Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 913B done
+#1 DONE 0.0s
+
+#2 [api-c1 internal] load build definition from Dockerfile
+#2 transferring dockerfile: 491B done
+#2 DONE 0.0s
+
+#3 [api-c2 internal] load metadata for docker.io/library/debian:bookworm-slim@sha256:7c7b2c966bc9ee8cedfeef67e0e279108992c77681fa595db4a9d65c06ccc587
+#3 DONE 0.0s
+
+#4 [api-c2 internal] load metadata for docker.io/library/golang:1.24.2-bookworm@sha256:79390b5e5af9ee6e7b1173ee3eac7fadf6751a545297672916b59bfa0ecf6f71
+#4 DONE 0.0s
+
+#5 [api-c1 internal] load .dockerignore
+#5 transferring context: 62B done
+#5 DONE 0.0s
+
+#6 [api-c2 stage-1 1/3] FROM docker.io/library/debian:bookworm-slim@sha256:7c7b2c966bc9ee8cedfeef67e0e279108992c77681fa595db4a9d65c06ccc587
+#6 resolve docker.io/library/debian:bookworm-slim@sha256:7c7b2c966bc9ee8cedfeef67e0e279108992c77681fa595db4a9d65c06ccc587 0.0s done
+#6 DONE 0.0s
+
+#7 [api-c1 tools 1/7] FROM docker.io/library/golang:1.24.2-bookworm@sha256:79390b5e5af9ee6e7b1173ee3eac7fadf6751a545297672916b59bfa0ecf6f71
+#7 resolve docker.io/library/golang:1.24.2-bookworm@sha256:79390b5e5af9ee6e7b1173ee3eac7fadf6751a545297672916b59bfa0ecf6f71 0.0s done
+#7 DONE 0.0s
+
+#8 [api-c2 internal] load build context
+#8 transferring context: 41.86kB done
+#8 DONE 0.0s
+
+#9 [api-c1 tools 3/7] COPY go.mod go.sum ./
+#9 CACHED
+
+#10 [api-c1 tools 2/7] WORKDIR /src
+#10 CACHED
+
+#11 [api-c2 tools 4/7] RUN go mod download
+#11 CACHED
+
+#12 [api-c1 tools 5/7] COPY . .
+#12 DONE 0.1s
+
+#13 [api-c2 tools 6/7] RUN go build -o /validation ./validation
+#13 DONE 11.9s
+
+#14 [api-c2 tools 7/7] RUN go build -o /market ./cmd/market
+#14 DONE 1.4s
+
+#15 [api-c1 stage-1 2/3] COPY --from=tools /validation /validation
+#15 CACHED
+
+#15 [api-c2 stage-1 2/3] COPY --from=tools /validation /validation
+#15 CACHED
+
+#16 [api-c1 stage-1 3/3] COPY --from=tools /market /market
+#16 DONE 0.1s
+
+#17 [api-c2] exporting to image
+#17 exporting layers
+#17 exporting layers 0.4s done
+#17 exporting manifest sha256:cfe3aa66dcc4dcc9ab0d87cb7d3521c8e6dece9a3833827c9c5ac517e3e404bb 0.0s done
+#17 exporting config sha256:7afd0d783a8c798829d5c154bbfe41792257ae45a613891d030f69f8111f44f5 0.0s done
+#17 exporting attestation manifest sha256:081d0cd29e1e6e64a676fe37c9ffebdbdcc450eef73a841c74a1088e4809578e 0.0s done
+#17 exporting manifest list sha256:1e04f2d7e5860329a9e804aa47000990caac53677f8adde294d808655a745cf5 0.0s done
+#17 naming to docker.io/library/campus-v2-lb21-api-c2:latest done
+#17 unpacking to docker.io/library/campus-v2-lb21-api-c2:latest
+#17 unpacking to docker.io/library/campus-v2-lb21-api-c2:latest 0.1s done
+#17 DONE 0.7s
+
+#18 [api-c1] exporting to image
+#18 exporting layers 0.4s done
+#18 exporting manifest sha256:896eb6d90c9e56046a257e4c66f0601c001815d49435f16787de7ccf43366438 0.0s done
+#18 exporting config sha256:90ac4aef46243c9ce56d38885ee6c174c3243696c3553f5ecb85c684c38651ff 0.0s done
+#18 exporting attestation manifest sha256:b3820f8274146bf2b4a859ff6315fc664572f389b2a2c67a01171abceafd1bf6 0.0s done
+#18 exporting manifest list sha256:5e7cabc0e11b4f8a7d0824f0d74eab1c33e7a100b4684e96ef0738c6a5dce6d4 0.0s done
+#18 naming to docker.io/library/campus-v2-lb21-api-c1:latest done
+#18 unpacking to docker.io/library/campus-v2-lb21-api-c1:latest 0.1s done
+#18 DONE 0.7s
+
+#19 [api-c1] resolving provenance for metadata file
+#19 DONE 0.0s
+
+#20 [api-c2] resolving provenance for metadata file
+#20 DONE 0.0s
+ Image campus-v2-lb21-api-c1 Built 
+ Image campus-v2-lb21-api-c2 Built 
+ Container campus-v2-lb21-redis-1 Running 
+ Container campus-v2-lb21-nginx-1 Running 
+ Container campus-v2-lb21-mongo-1 Running 
+ Container campus-v2-lb21-api-c1-1 Recreate 
+ Container campus-v2-lb21-api-c1-1 Recreated 
+ Container campus-v2-lb21-api-c2-1 Recreate 
+ Container campus-v2-lb21-api-c2-1 Recreated 
+ Container campus-v2-lb21-mongo-1 Waiting 
+ Container campus-v2-lb21-mongo-1 Healthy 
+ Container campus-v2-lb21-api-c1-1 Starting 
+ Container campus-v2-lb21-api-c1-1 Started 
+ Container campus-v2-lb21-mongo-1 Waiting 
+ Container campus-v2-lb21-api-c1-1 Waiting 
+ Container campus-v2-lb21-mongo-1 Healthy 
+ Container campus-v2-lb21-api-c1-1 Healthy 
+ Container campus-v2-lb21-api-c2-1 Starting 
+ Container campus-v2-lb21-api-c2-1 Started 
+ Container campus-v2-lb21-api-c2-1 Waiting 
+ Container campus-v2-lb21-api-c1-1 Waiting 
+ Container campus-v2-lb21-api-c1-1 Healthy 
+ Container campus-v2-lb21-api-c2-1 Healthy 
+ Container campus-v2-lb21-mongo-1 Waiting 
+ Container campus-v2-lb21-redis-1 Waiting 
+ Container campus-v2-lb21-api-c1-1 Waiting 
+ Container campus-v2-lb21-api-c2-1 Waiting 
+ Container campus-v2-lb21-nginx-1 Waiting 
+ Container campus-v2-lb21-api-c1-1 Healthy 
+ Container campus-v2-lb21-nginx-1 Healthy 
+ Container campus-v2-lb21-mongo-1 Healthy 
+ Container campus-v2-lb21-api-c2-1 Healthy 
+ Container campus-v2-lb21-redis-1 Healthy 
