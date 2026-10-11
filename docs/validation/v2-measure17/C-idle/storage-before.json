@@ -1,0 +1,24 @@
+{
+  "utc": "2026-10-11T06:07:58.041589+00:00",
+  "mounts": [
+    {
+      "container": "fb4af3a76519da0856f7b65dc5bcd330142368d82173b62510f14a9f9d5dfbae",
+      "service": "nginx",
+      "type": "bind",
+      "source": "/tmp/campus-v2-lb/deploy/nginx-v2.conf",
+      "destination": "/etc/nginx/nginx.conf",
+      "mode": "ro",
+      "rw": false,
+      "propagation": "rprivate",
+      "allocated_bytes": null,
+      "apparent_bytes": 974,
+      "status": "unknown"
+    }
+  ],
+  "mongodb": null,
+  "redis": {},
+  "search": {
+    "logical_bytes": null,
+    "note": "Search index logical data size has no portable endpoint; allocated/apparent files measured below"
+  }
+}

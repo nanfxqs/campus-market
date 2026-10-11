@@ -1,0 +1,202 @@
+{
+  "utc": "2026-10-11T06:10:22.618757+00:00",
+  "mounts": [
+    {
+      "container": "293a06856d8600dcaf943609c7aae03a7977dc2ec828b544ad91019ea41b4d77",
+      "service": "nginx",
+      "type": "bind",
+      "source": "/tmp/campus-v2-measure/deploy/nginx-v2.conf",
+      "destination": "/etc/nginx/nginx.conf",
+      "mode": "ro",
+      "rw": false,
+      "propagation": "rprivate",
+      "allocated_bytes": null,
+      "apparent_bytes": 974,
+      "status": "unknown"
+    },
+    {
+      "container": "1cd405cbf547270db7d7bb948904bb1dad63049149524c27c9a33c55fdd78542",
+      "service": "redis",
+      "type": "volume",
+      "name": "b932e8fcebb32985b4813393f9bd017e8a209353f4659f9f147c31fc0c58f22f",
+      "source": "/var/lib/docker/volumes/b932e8fcebb32985b4813393f9bd017e8a209353f4659f9f147c31fc0c58f22f/_data",
+      "destination": "/data",
+      "driver": "local",
+      "mode": "",
+      "rw": true,
+      "propagation": "",
+      "allocated_bytes": 0,
+      "apparent_bytes": 0,
+      "status": "measured"
+    },
+    {
+      "container": "d58712227d602305af122eaaa885d961f60279851a8643210387e2a853f888bf",
+      "service": "mongo",
+      "type": "volume",
+      "name": "campus-v2-measure17_mongo-config",
+      "source": "/var/lib/docker/volumes/campus-v2-measure17_mongo-config/_data",
+      "destination": "/data/configdb",
+      "driver": "local",
+      "mode": "rw",
+      "rw": true,
+      "propagation": "",
+      "allocated_bytes": 4096,
+      "apparent_bytes": 430,
+      "status": "measured"
+    },
+    {
+      "container": "d58712227d602305af122eaaa885d961f60279851a8643210387e2a853f888bf",
+      "service": "mongo",
+      "type": "volume",
+      "name": "campus-v2-measure17_mongo-data",
+      "source": "/var/lib/docker/volumes/campus-v2-measure17_mongo-data/_data",
+      "destination": "/data/db",
+      "driver": "local",
+      "mode": "rw",
+      "rw": true,
+      "propagation": "",
+      "allocated_bytes": 211279872,
+      "apparent_bytes": 211260298,
+      "status": "measured"
+    },
+    {
+      "container": "d58712227d602305af122eaaa885d961f60279851a8643210387e2a853f888bf",
+      "service": "mongo",
+      "type": "volume",
+      "name": "campus-v2-measure17_search-data",
+      "source": "/var/lib/docker/volumes/campus-v2-measure17_search-data/_data",
+      "destination": "/data/mongot",
+      "driver": "local",
+      "mode": "rw",
+      "rw": true,
+      "propagation": "",
+      "allocated_bytes": 8192,
+      "apparent_bytes": 1535,
+      "status": "measured"
+    }
+  ],
+  "mongodb": {
+    "db": "campus_v2_measure17",
+    "collections": {
+      "high": 0,
+      "low": 7,
+      "unsigned": false
+    },
+    "views": {
+      "high": 0,
+      "low": 0,
+      "unsigned": false
+    },
+    "objects": {
+      "high": 0,
+      "low": 6,
+      "unsigned": false
+    },
+    "avgObjSize": 247.33333333333334,
+    "dataSize": 1484,
+    "storageSize": 77824,
+    "indexes": {
+      "high": 0,
+      "low": 13,
+      "unsigned": false
+    },
+    "indexSize": 118784,
+    "totalSize": 196608,
+    "scaleFactor": {
+      "high": 0,
+      "low": 1,
+      "unsigned": false
+    },
+    "fsUsedSize": 148517101568,
+    "fsTotalSize": 377572294656,
+    "ok": 1,
+    "$clusterTime": {
+      "clusterTime": {
+        "$timestamp": "7695288669405446145"
+      },
+      "signature": {
+        "hash": "AAAAAAAAAAAAAAAAAAAAAAAAAAA=",
+        "keyId": {
+          "high": 0,
+          "low": 0,
+          "unsigned": false
+        }
+      }
+    },
+    "operationTime": {
+      "$timestamp": "7695288669405446145"
+    }
+  },
+  "redis": {
+    "redis": {
+      "memory": {
+        "returncode": 0,
+        "stdout": "# Memory\nused_memory:1058856\nused_memory_human:1.01M\nused_memory_rss:16470016\nused_memory_rss_human:15.71M\nused_memory_peak:1058888\nused_memory_peak_human:1.01M\nused_memory_peak_perc:100.00%\nused_memory_overhead:946440\nused_memory_startup:946248\nused_memory_dataset:112416\nused_memory_dataset_perc:99.83%\nallocator_allocated:1893664\nallocator_active:2084864\nallocator_resident:7372800\nallocator_muzzy:0\ntotal_system_memory:33225953280\ntotal_system_memory_human:30.94G\nused_memory_lua:31744\nused_memory_vm_eval:31744\nused_memory_lua_human:31.00K\nused_memory_scripts_eval:0\nnumber_of_cached_scripts:0\nnumber_of_functions:0\nnumber_of_libraries:0\nused_memory_vm_functions:32768\nused_memory_vm_total:64512\nused_memory_vm_total_human:63.00K\nused_memory_functions:192\nused_memory_scripts:192\nused_memory_scripts_human:192B\nmaxmemory:134217728\nmaxmemory_human:128.00M\nmaxmemory_policy:allkeys-lru\nallocator_frag_ratio:1.08\nallocator_frag_bytes:115168\nallocator_rss_ratio:3.54\nallocator_rss_bytes:5287936\nrss_overhead_ratio:2.23\nrss_overhead_bytes:9097216\nmem_fragmentation_ratio:16.14\nmem_fragmentation_bytes:15449544\nmem_not_counted_for_evict:0\nmem_replication_backlog:0\nmem_total_replication_buffers:0\nmem_clients_slaves:0\nmem_clients_normal:0\nmem_cluster_links:0\nmem_aof_buffer:0\nmem_allocator:jemalloc-5.3.0\nmem_overhead_db_hashtable_rehashing:0\nactive_defrag_running:0\nlazyfree_pending_objects:0\nlazyfreed_objects:0\n",
+        "stderr": "",
+        "command": [
+          "docker",
+          "exec",
+          "1cd405cbf547270db7d7bb948904bb1dad63049149524c27c9a33c55fdd78542",
+          "redis-cli",
+          "INFO",
+          "memory"
+        ],
+        "utc": "2026-10-11T06:10:22.618775+00:00",
+        "duration_seconds": 0.08240352400025586
+      },
+      "persistence": {
+        "returncode": 0,
+        "stdout": "# Persistence\nloading:0\nasync_loading:0\ncurrent_cow_peak:0\ncurrent_cow_size:0\ncurrent_cow_size_age:0\ncurrent_fork_perc:0.00\ncurrent_save_keys_processed:0\ncurrent_save_keys_total:0\nrdb_changes_since_last_save:0\nrdb_bgsave_in_progress:0\nrdb_last_save_time:1791698917\nrdb_last_bgsave_status:ok\nrdb_last_bgsave_time_sec:-1\nrdb_current_bgsave_time_sec:-1\nrdb_saves:0\nrdb_last_cow_size:0\nrdb_last_load_keys_expired:0\nrdb_last_load_keys_loaded:0\naof_enabled:0\naof_rewrite_in_progress:0\naof_rewrite_scheduled:0\naof_last_rewrite_time_sec:-1\naof_current_rewrite_time_sec:-1\naof_last_bgrewrite_status:ok\naof_rewrites:0\naof_rewrites_consecutive_failures:0\naof_last_write_status:ok\naof_last_cow_size:0\nmodule_fork_in_progress:0\nmodule_fork_last_cow_size:0\n",
+        "stderr": "",
+        "command": [
+          "docker",
+          "exec",
+          "1cd405cbf547270db7d7bb948904bb1dad63049149524c27c9a33c55fdd78542",
+          "redis-cli",
+          "INFO",
+          "persistence"
+        ],
+        "utc": "2026-10-11T06:10:22.701253+00:00",
+        "duration_seconds": 0.07446118900406873
+      },
+      "configuration": {
+        "returncode": 0,
+        "stdout": "maxmemory-policy\nallkeys-lru\nsave\n\nmaxmemory\n134217728\nappendonly\nno\n",
+        "stderr": "",
+        "command": [
+          "docker",
+          "exec",
+          "1cd405cbf547270db7d7bb948904bb1dad63049149524c27c9a33c55fdd78542",
+          "redis-cli",
+          "CONFIG",
+          "GET",
+          "save",
+          "appendonly",
+          "maxmemory",
+          "maxmemory-policy"
+        ],
+        "utc": "2026-10-11T06:10:22.775794+00:00",
+        "duration_seconds": 0.0814517539984081
+      },
+      "persistent_mounts": [
+        {
+          "container": "1cd405cbf547270db7d7bb948904bb1dad63049149524c27c9a33c55fdd78542",
+          "service": "redis",
+          "type": "volume",
+          "name": "b932e8fcebb32985b4813393f9bd017e8a209353f4659f9f147c31fc0c58f22f",
+          "source": "/var/lib/docker/volumes/b932e8fcebb32985b4813393f9bd017e8a209353f4659f9f147c31fc0c58f22f/_data",
+          "destination": "/data",
+          "driver": "local",
+          "mode": "",
+          "rw": true,
+          "propagation": ""
+        }
+      ],
+      "note": "Persistence configuration recorded; mount alone does not imply writes"
+    }
+  },
+  "search": {
+    "logical_bytes": null,
+    "note": "Search index logical data size has no portable endpoint; allocated/apparent files measured below"
+  }
+}
