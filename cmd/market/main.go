@@ -16,13 +16,14 @@ import (
 
 func main() {
 	if len(os.Args) < 2 || (os.Args[1] != "serve" && os.Args[1] != "seed") {
-		log.Fatal("usage: market serve | seed [--mode full|small|stress|demo] [--random-seed 42] [--base-time RFC3339] [--reset]")
+		log.Fatal("usage: market serve | seed [--mode v2|full|small|stress|demo] [--random-seed 42] [--base-time RFC3339] [--reset]")
 	}
 	seed := market.SeedOptions{}
 	timeout := 30 * time.Second
 	if os.Args[1] == "seed" {
 		flags := flag.NewFlagSet("seed", flag.ExitOnError)
-		flags.StringVar(&seed.Mode, "mode", "full", "dataset: full, small, stress (30000 sellable products), demo (accounts only)")
+		flags.StringVar(&seed.Mode, "mode", "full", "dataset: v2 (full background + 30000 dedicated), full, small, stress (30000 sellable products), demo (accounts only)")
+		flags.StringVar(&seed.ManifestPath, "manifest", "", "write designated product and registered account JSON load manifest (v2 only)")
 		flags.Int64Var(&seed.RandomSeed, "random-seed", 42, "deterministic PRNG seed")
 		base := flags.String("base-time", "2026-10-10T00:00:00Z", "fixed reference time (RFC3339); eligibility and TTL still use wall clock")
 		flags.BoolVar(&seed.Reset, "reset", false, "DROP ONLY the database explicitly named by DB_NAME before importing")

@@ -1,0 +1,4 @@
+ Container campus-v2-restore15-api-a-run-5bec0ef79b20 Creating 
+ Container campus-v2-restore15-api-a-run-5bec0ef79b20 Created 
+{"baseTime":"2026-10-11T00:00:00Z","counts":{"users":10000,"active":50000,"sold":180000,"transactions":300000,"priceChanges":575000},"database":"campus_v2_restore15","mode":"v2","randomSeed":42}
+2026/10/11 05:53:14 demo accounts: seller, buyer; password: CampusDemo123!

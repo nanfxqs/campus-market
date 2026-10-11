@@ -1,3 +1,7 @@
 .git
 .agents
 .scratch
+# Raw experiment outputs are delivered separately; never compile them into apps.
+docs/validation/
+experiments/results/
+results/

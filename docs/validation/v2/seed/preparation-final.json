@@ -1,0 +1,8 @@
+{
+  "configuration": "B",
+  "database": "campus_v2_restore15",
+  "project": "campus-v2-restore15",
+  "baseTime": "2026-10-11T00:00:00Z",
+  "prepareSeconds": 71,
+  "requiresFreshLogin": true
+}

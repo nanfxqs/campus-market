@@ -1,0 +1,139 @@
+[
+  {
+    "status": 200,
+    "cache": "miss",
+    "body": {
+      "available": true,
+      "priceHistory": [
+        {
+          "id": "0000000000000000001b7742",
+          "productId": "000000000000000000030d41",
+          "oldPriceCents": 54205,
+          "newPriceCents": 53634,
+          "changedAt": "2026-09-30T02:00:00Z"
+        },
+        {
+          "id": "0000000000000000001b7741",
+          "productId": "000000000000000000030d41",
+          "oldPriceCents": 54449,
+          "newPriceCents": 54205,
+          "changedAt": "2026-09-30T01:00:00Z"
+        }
+      ],
+      "priceHistoryUrl": "/products/000000000000000000030d41/price-history",
+      "product": {
+        "id": "000000000000000000030d41",
+        "categoryId": "electronics",
+        "title": "数码平板电脑",
+        "description": "上课学习使用，附充电器",
+        "condition": "全新",
+        "images": [
+          "https://example.com/products/000000000000000000030d41/0.jpg",
+          "https://example.com/products/000000000000000000030d41/1.jpg",
+          "https://example.com/products/000000000000000000030d41/2.jpg"
+        ],
+        "attributes": {
+          "accessories": [
+            "充电器",
+            "保护套"
+          ],
+          "brand": "校园数码",
+          "model": "学习版",
+          "storageGB": 128
+        },
+        "sellerId": "seller",
+        "priceCents": 53634,
+        "initialPriceCents": 54449,
+        "publishedAt": "2026-09-30T00:00:00Z",
+        "expiresAt": "2026-11-29T00:00:00Z",
+        "sold": false
+      },
+      "seller": {
+        "id": "seller",
+        "username": "seller",
+        "nickname": "校园卖家0（已更新）",
+        "avatar": "https://example.com/avatars/current-0.png",
+        "creditScore": 97,
+        "completedSales": 18
+      }
+    }
+  },
+  {
+    "status": 200,
+    "cache": "hit",
+    "body": {
+      "available": true,
+      "priceHistory": [
+        {
+          "id": "0000000000000000001b7742",
+          "productId": "000000000000000000030d41",
+          "oldPriceCents": 54205,
+          "newPriceCents": 53634,
+          "changedAt": "2026-09-30T02:00:00Z"
+        },
+        {
+          "id": "0000000000000000001b7741",
+          "productId": "000000000000000000030d41",
+          "oldPriceCents": 54449,
+          "newPriceCents": 54205,
+          "changedAt": "2026-09-30T01:00:00Z"
+        }
+      ],
+      "priceHistoryUrl": "/products/000000000000000000030d41/price-history",
+      "product": {
+        "id": "000000000000000000030d41",
+        "categoryId": "electronics",
+        "title": "数码平板电脑",
+        "description": "上课学习使用，附充电器",
+        "condition": "全新",
+        "images": [
+          "https://example.com/products/000000000000000000030d41/0.jpg",
+          "https://example.com/products/000000000000000000030d41/1.jpg",
+          "https://example.com/products/000000000000000000030d41/2.jpg"
+        ],
+        "attributes": {
+          "accessories": [
+            "充电器",
+            "保护套"
+          ],
+          "brand": "校园数码",
+          "model": "学习版",
+          "storageGB": 128
+        },
+        "sellerId": "seller",
+        "priceCents": 53634,
+        "initialPriceCents": 54449,
+        "publishedAt": "2026-09-30T00:00:00Z",
+        "expiresAt": "2026-11-29T00:00:00Z",
+        "sold": false
+      },
+      "seller": {
+        "id": "seller",
+        "username": "seller",
+        "nickname": "校园卖家0（已更新）",
+        "avatar": "https://example.com/avatars/current-0.png",
+        "creditScore": 97,
+        "completedSales": 18
+      }
+    }
+  },
+  {
+    "oldTokenStatus": 401,
+    "body": {
+      "error": {
+        "code": "unauthorized"
+      }
+    }
+  },
+  {
+    "freshTokenStatus": 200,
+    "profile": {
+      "id": "seller",
+      "username": "seller",
+      "nickname": "校园卖家0（已更新）",
+      "avatar": "https://example.com/avatars/current-0.png",
+      "creditScore": 97,
+      "completedSales": 18
+    }
+  }
+]
