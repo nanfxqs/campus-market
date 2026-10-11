@@ -1,0 +1,3 @@
+5509f8a4e5f89464a3bd630a02da202c353a45118ebd29e5fdbe82186ce61b61  scripts/validate-cache-faults.py
+3248797b61f721b71f0ac0ced84ea027159f36fda72594c84fe9db0d62ef6e67  scripts/validate-cache-faults.sh
+828da5a6b9d39e38610665e9367b8a09db32dd605217e6f70aa6ba081941f9a7  scripts/wait-v2-mongo.py

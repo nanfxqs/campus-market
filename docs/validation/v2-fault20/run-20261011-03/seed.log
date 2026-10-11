@@ -1,0 +1,7 @@
+ Container campus-v2-fault-20261011055820-523677-mongo-1 Running 
+ Container campus-v2-fault-20261011055820-523677-mongo-1 Waiting 
+ Container campus-v2-fault-20261011055820-523677-mongo-1 Healthy 
+ Container campus-v2-fault-20261011055820-523677-api-b-run-064ce5d3c38f Creating 
+ Container campus-v2-fault-20261011055820-523677-api-b-run-064ce5d3c38f Created 
+2026/10/11 05:58:47 (CommandFailed) PlanExecutor error during aggregation :: caused by :: Error connecting to Search Index Management service.
+

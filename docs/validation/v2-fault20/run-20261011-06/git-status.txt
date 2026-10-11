@@ -1,0 +1,2 @@
+ M scripts/restore-v2.sh
+?? docs/validation/v2-fault20/run-20261011-06/

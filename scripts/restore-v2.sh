@@ -24,6 +24,7 @@ mapfile -t apps < <("${all[@]}" config --services | awk '/^(api-|nginx)/')
 ((${#apps[@]})) || { echo 'no configured application services' >&2; exit 2; }
 "${all[@]}" stop "${apps[@]}"
 "${dc[@]}" up -d mongo --wait
+python3 scripts/wait-v2-mongo.py --project "$COMPOSE_PROJECT_NAME" --timeout 120 > "$RESULT_DIR/search-management-ready.txt" 2>&1
 "${all[@]}" build "${apps[@]}"
 seed_args=(seed --mode v2 --random-seed "${RANDOM_SEED:-42}" --base-time "$BASE_TIME" --manifest /evidence/manifest.json)
 [[ $reset == --reset ]] && seed_args+=(--reset)

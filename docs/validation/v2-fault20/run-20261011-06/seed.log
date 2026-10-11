@@ -1,0 +1,7 @@
+ Container campus-v2-fault-20261011060333-598664-mongo-1 Running 
+ Container campus-v2-fault-20261011060333-598664-mongo-1 Waiting 
+ Container campus-v2-fault-20261011060333-598664-mongo-1 Healthy 
+ Container campus-v2-fault-20261011060333-598664-api-b-run-fa1c37961479 Creating 
+ Container campus-v2-fault-20261011060333-598664-api-b-run-fa1c37961479 Created 
+{"baseTime":"2026-10-10T00:00:00Z","counts":{"users":2,"active":0,"sold":0,"transactions":0,"priceChanges":0},"database":"campus_v2_fault","mode":"demo","randomSeed":42}
+2026/10/11 06:04:09 demo accounts: seller, buyer; password: CampusDemo123!

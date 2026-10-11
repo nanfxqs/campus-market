@@ -1,0 +1,2 @@
+5509f8a4e5f89464a3bd630a02da202c353a45118ebd29e5fdbe82186ce61b61  scripts/validate-cache-faults.py
+9dde2802460ec6a66ecd02be9dc1e769467f1493f23addfee2ca93a65f8b95a6  scripts/validate-cache-faults.sh
