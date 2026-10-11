@@ -1,0 +1,10 @@
+Integration branch validation after final #16 hardening was merged at 15eee002.
+Command: python3 experiments/test_sales_artifacts.py
+Observed output:
+......
+----------------------------------------------------------------------
+Ran 6 tests in 0.425s
+
+OK
+
+No Docker or HTTP load was run for this check. #22 exclusive measurement had completed and its services were stopped.
