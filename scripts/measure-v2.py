@@ -119,8 +119,8 @@ def summarize(out, window=None):
     samples=[json.loads(line) for line in (out/'samples.jsonl').read_text().splitlines()]
     coverage_window=None
     if window:
-        w=json.loads(pathlib.Path(window).read_text()); start=w['startUnixNs']; end=w['deadlineUnixNs']
-        coverage_window={'start_unix_ns':start,'end_unix_ns':end,'covered':bool(samples and samples[0]['unix_ns']<=start and samples[-1]['unix_ns']>=end)}
+        w=json.loads(pathlib.Path(window).read_text()); start=w['startUnixNs']; end=w.get('measurementEndedUnixNs',w['deadlineUnixNs'])
+        coverage_window={'start_unix_ns':start,'end_unix_ns':end,'configured_deadline_unix_ns':w['deadlineUnixNs'],'covered':bool(samples and samples[0]['unix_ns']<=start and samples[-1]['unix_ns']>=end)}
         samples=[s for s in samples if start<=s['unix_ns']<=end]
     result={'schema_version':1,'units':{'cpu_percent':'100% = one logical CPU core; delta user+system process time','rss_bytes':'resident pages; shared pages may overlap across processes','container_memory_bytes':'cgroup current includes file cache; not attributed to MongoDB or Search twice'},'sample_count':len(samples),'first_utc':samples[0]['utc'] if samples else None,'last_utc':samples[-1]['utc'] if samples else None,'components':{},'processes':{},'containers':{},'host':{},'coverage':{'window':coverage_window,'max_gap_seconds':max((b['monotonic']-a['monotonic'] for a,b in zip(samples,samples[1:])),default=None)},'collector':{}}
     def metric(values): return {'samples':len(values),'mean':statistics.mean(values) if values else None,'peak':max(values) if values else None}
