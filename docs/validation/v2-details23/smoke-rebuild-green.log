@@ -1,0 +1,80 @@
+ Image campus-v2-detail-smoke23-api-b Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 526B done
+#1 DONE 0.0s
+
+#2 [internal] load build definition from Dockerfile
+#2 transferring dockerfile: 491B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/debian:bookworm-slim@sha256:7c7b2c966bc9ee8cedfeef67e0e279108992c77681fa595db4a9d65c06ccc587
+#3 DONE 0.0s
+
+#4 [internal] load metadata for docker.io/library/golang:1.24.2-bookworm@sha256:79390b5e5af9ee6e7b1173ee3eac7fadf6751a545297672916b59bfa0ecf6f71
+#4 DONE 0.0s
+
+#5 [internal] load .dockerignore
+#5 transferring context: 294B done
+#5 DONE 0.0s
+
+#6 [tools 1/7] FROM docker.io/library/golang:1.24.2-bookworm@sha256:79390b5e5af9ee6e7b1173ee3eac7fadf6751a545297672916b59bfa0ecf6f71
+#6 resolve docker.io/library/golang:1.24.2-bookworm@sha256:79390b5e5af9ee6e7b1173ee3eac7fadf6751a545297672916b59bfa0ecf6f71 0.0s done
+#6 DONE 0.0s
+
+#7 [stage-1 1/3] FROM docker.io/library/debian:bookworm-slim@sha256:7c7b2c966bc9ee8cedfeef67e0e279108992c77681fa595db4a9d65c06ccc587
+#7 resolve docker.io/library/debian:bookworm-slim@sha256:7c7b2c966bc9ee8cedfeef67e0e279108992c77681fa595db4a9d65c06ccc587 0.0s done
+#7 DONE 0.0s
+
+#8 [internal] load build context
+#8 transferring context: 21.85kB done
+#8 DONE 0.0s
+
+#9 [tools 2/7] WORKDIR /src
+#9 CACHED
+
+#10 [tools 3/7] COPY go.mod go.sum ./
+#10 CACHED
+
+#11 [tools 4/7] RUN go mod download
+#11 CACHED
+
+#12 [tools 5/7] COPY . .
+#12 DONE 0.1s
+
+#13 [tools 6/7] RUN go build -o /validation ./validation
+#13 DONE 11.4s
+
+#14 [tools 7/7] RUN go build -o /market ./cmd/market
+#14 DONE 1.4s
+
+#15 [stage-1 2/3] COPY --from=tools /validation /validation
+#15 CACHED
+
+#16 [stage-1 3/3] COPY --from=tools /market /market
+#16 DONE 0.1s
+
+#17 exporting to image
+#17 exporting layers
+#17 exporting layers 0.5s done
+#17 exporting manifest sha256:09d40f85743ce598d6b9dca9f3298b1db96929706f7bd522e190efb3adc84e84 0.0s done
+#17 exporting config sha256:c8222a2aa0d2305e8487873ba929a0cb6b50752f171a521decd1aa53696b6478 done
+#17 exporting attestation manifest sha256:601ee043385e3a3dd904f3427146be78ee3fa706e567cf32ad4a05121a0a4333 done
+#17 exporting manifest list sha256:e753a6b31ff0f5aa6a0baea1df3073d1c9e052b6337e2615bf11528e91338e43 done
+#17 naming to docker.io/library/campus-v2-detail-smoke23-api-b:latest done
+#17 unpacking to docker.io/library/campus-v2-detail-smoke23-api-b:latest 0.1s done
+#17 DONE 0.7s
+
+#18 resolving provenance for metadata file
+#18 DONE 0.0s
+ Image campus-v2-detail-smoke23-api-b Built 
+ Container campus-v2-detail-smoke23-mongo-1 Running 
+ Container campus-v2-detail-smoke23-api-b-1 Recreate 
+ Container campus-v2-detail-smoke23-api-b-1 Recreated 
+ Container campus-v2-detail-smoke23-mongo-1 Waiting 
+ Container campus-v2-detail-smoke23-mongo-1 Healthy 
+ Container campus-v2-detail-smoke23-api-b-1 Starting 
+ Container campus-v2-detail-smoke23-api-b-1 Started 
+ Container campus-v2-detail-smoke23-mongo-1 Waiting 
+ Container campus-v2-detail-smoke23-api-b-1 Waiting 
+ Container campus-v2-detail-smoke23-mongo-1 Healthy 
+ Container campus-v2-detail-smoke23-api-b-1 Healthy 

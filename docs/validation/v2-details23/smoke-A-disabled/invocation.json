@@ -1,0 +1,24 @@
+{
+  "project": "campus-v2-detail-smoke23",
+  "database": "campus_v2_detail_smoke",
+  "api": "http://127.0.0.1:8087",
+  "configuration": "A",
+  "state": "disabled",
+  "pattern": "hotspot",
+  "output": "/tmp/campus-v2-details/docs/validation/v2-details23/smoke-A-disabled",
+  "duration": 3.0,
+  "idle_seconds": 3.0,
+  "seed": 42,
+  "formal": false,
+  "locust": null,
+  "confirm_isolated_cache": true,
+  "fullDataset": false,
+  "locustVersion": "locust 2.46.6 from /tmp/campus-v2-details/experiments/.venv/lib/python3.12/site-packages/locust (Python 3.12.14)\n",
+  "git": "5309f7a230fe0932cd77cc61c03763d79272d914",
+  "gitStatus": "?? docs/validation/v2-details23/smoke-A-disabled-run.log\n?? docs/validation/v2-details23/smoke-A-disabled/\n?? docs/validation/v2-details23/smoke-A-start.log\n?? docs/validation/v2-details23/smoke-B-cold-run.log\n?? docs/validation/v2-details23/smoke-B-cold/\n?? docs/validation/v2-details23/smoke-B-hot-run.log\n?? docs/validation/v2-details23/smoke-B-hot/\n?? docs/validation/v2-details23/smoke-B-stop.log\n?? docs/validation/v2-details23/smoke-rebuild-green.log\n?? docs/validation/v2-details23/smoke-runtime.log\n?? docs/validation/v2-details23/smoke-seed.log\n?? docs/validation/v2-details23/smoke-start-red.log\n",
+  "sourceHashes": {
+    "scripts/run-detail-load.py": "5f8a6a9f321bd45d41b4aa71c4b9d2105c149ba89589672ac502be5525fe1a47",
+    "experiments/detail_locust.py": "31244c07fb77bda7556e622d76f464339cbbb0103a75c9d8db26a32987c0e8bc",
+    "experiments/summarize_details.py": "882a8bc1bf6d6f23524b373a261aab420c8bbe3009420ec093cdecb4cbd0096b"
+  }
+}
