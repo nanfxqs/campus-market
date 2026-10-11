@@ -33,7 +33,7 @@ python3 scripts/validate-v2.py --mode verify --output /tmp/v2-verification-new
 python3 scripts/validate-v2.py --mode reproduce --output /tmp/v2-reproduction-new
 ```
 
-已有证据索引为 [v2-evidence.json](validation/v2-evidence.json)，最终 [核验矩阵](validation/v2-unified26/verification-delivery/verification.json)。离线核验在临时副本上重新运行成交、详情及资源汇总，不改写原始结果；800功能样本另从原始HTTP重算。缺阶段、未达标轮、未知原始材料均失败。复现依次执行独立 deployed A/B/C V1、九轮成交、八组详情、八功能/TTL、三配置竞争与Redis故障，保留每步日志并只清理自己创建的项目/卷。已有成果按 [源代码复用分类](validation/v2-unified26/source-reuse.json) 引用：正式测量后只新增服务日志gzip采集和预算报告，没有API、工作负载、截止、TTL、限额或路由改变；当前代码不被伪装为旧测量构建版本。
+已有证据索引为 [v2-evidence.json](validation/v2-evidence.json)，最终 [核验矩阵](validation/v2-review-fixes/verification-sequence-final/verification.json)。离线核验在临时副本上重新运行成交、详情及资源汇总，不改写原始结果；800功能样本另从原始HTTP重算。缺阶段、未达标轮、未知原始材料均失败。复现依次执行独立 deployed A/B/C V1、九轮成交、八组详情、八功能/TTL、三配置竞争与Redis故障，保留每步日志并只清理自己创建的项目/卷。已有成果按 [源代码复用分类](validation/v2-unified26/source-reuse.json) 引用：正式测量后只新增服务日志gzip采集和预算报告，没有API、工作负载、截止、TTL、限额或路由改变；当前代码不被伪装为旧测量构建版本。
 
 机器为 Intel Core Ultra 5 125H、18逻辑CPU，内存约30.94GiB，Linux x86_64 Omarchy；精确磁盘、内核、软件/image摘要、工作树、客户端和容器信息见每轮 environment.json。Go工具镜像1.24.2，Locust2.46.6，Python3.12.14，Redis7.4.2；MongoDB/Search固定本地Atlas镜像及实际版本输出见 [A环境](validation/v2/baseline/A-attempt-1/round-1/idle/environment.json)。每个Gin 2CPU/512MiB，共享MongoDB/Search 4CPU/8GiB，Redis1CPU/256MiB、maxmemory128MiB/allkeys-lru，缓存TTL600秒/网络界限100ms；C有两个相同Gin，加Nginx1CPU/128MiB。
 
@@ -93,3 +93,6 @@ C使用同机Nginx轮询双Gin、共享Mongo/Search/Redis，无会话粘滞；�
 当前部署A/B/C外部V1各自通过发布、浏览、搜索/高亮、统计、资料/历史、主页、所有权、成交/重放和到期档案保留，[本轮原始回归](validation/v2-unified26/regression-attempt-1/result.json) 与各配置http.log链接保留。统一离线入口核验所有阶段，代码测试验证原始测量失败不能被伪造成功摘要遮盖。初次核验的结构比较及Go子测试label误判保留在verification-attempt-1/2，修正只改变核验器，不改变测量事实；错误测试模块启动日志也保留。正式原始失败/调优与修正见各阶段README，不择优抹除。
 
 课程要求的NoSQL实验在这台机器交付；物理第二台机器未验证，最后评估为仍待考虑，不扩大为本轮必交。持久事务、精确有效Search总数、动态资格关联与资料版本缓存都具有可测成本；最直接结论是按业务不变量设计存储，并以真实正确性和原始数据判定优化效果。现在没有混合负载、跨机器、规划器逐查询分析或生产容量保证。
+
+
+统一入口在最终审查后进一步绑定 A/B/C 配置、三个实际轮次和不同测量身份；详情同时核验完整初始规模、固定种子商品池/序列、配对池hash、冷缓存为空、热预热逐ID完成且之后没有清空。竞争核验从原始HTTP和只读Mongo输出重新关联交易ID、买家/价格、listing缺失及卖家+1，并核对100组1成功/49正确product_sold冲突、同键54响应单事实、4次改内容拒绝和C两个上游；不会以摘要中的passed作为事实。审查发现的是核验入口漏洞，原测量均在更严格核验下再次通过，[修复验证](validation/v2-review-fixes/README.md) 保留红灯、反例及最终28项矩阵。两负载入口共用Search准备helper，仍在计时外以180秒有界等待完整收录；历史运行未改写，未来记录helperhash，不因仅准备/核验结构变化重复正式负载。

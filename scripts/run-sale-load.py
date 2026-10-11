@@ -11,7 +11,7 @@ from pathlib import Path
 import subprocess
 import sys
 import time
-import urllib.request
+from search_readiness import wait_for_full_cohort
 
 ROOT=Path(__file__).resolve().parents[1]
 
@@ -60,7 +60,7 @@ def main():
     environment={**os.environ,'COMPOSE_PROJECT_NAME':options.project,'DB_NAME':options.database}
     dc=['docker','compose','-f',str(ROOT/'compose.v2.yaml'),'--profile',options.configuration]
     prepare=time.monotonic()
-    (output/'invocation.json').write_text(json.dumps({'schemaVersion':1,**vars(options),'manifest':str(manifest_path),'output':str(output),'sourceHashes':{str(path.relative_to(ROOT)):hashlib.sha256(path.read_bytes()).hexdigest() for path in [ROOT/'scripts/run-sale-load.py',ROOT/'scripts/snapshot-sale-load.js',ROOT/'experiments/sale_locust.py',ROOT/'experiments/summarize_sales.py',ROOT/'experiments/uv.lock']},'locustVersion':subprocess.check_output(['uv','run','--frozen','--project',str(ROOT/'experiments'),'locust','--version'],cwd=ROOT,text=True).strip(),'startedUTC':datetime.now(timezone.utc).isoformat(),'git':subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),'worktree':subprocess.check_output(['git','status','--short'],cwd=ROOT,text=True)},default=str,indent=2)+'\n')
+    (output/'invocation.json').write_text(json.dumps({'schemaVersion':1,**vars(options),'manifest':str(manifest_path),'output':str(output),'sourceHashes':{str(path.relative_to(ROOT)):hashlib.sha256(path.read_bytes()).hexdigest() for path in [ROOT/'scripts/run-sale-load.py',ROOT/'scripts/search_readiness.py',ROOT/'scripts/snapshot-sale-load.js',ROOT/'experiments/sale_locust.py',ROOT/'experiments/summarize_sales.py',ROOT/'experiments/uv.lock']},'locustVersion':subprocess.check_output(['uv','run','--frozen','--project',str(ROOT/'experiments'),'locust','--version'],cwd=ROOT,text=True).strip(),'startedUTC':datetime.now(timezone.utc).isoformat(),'git':subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),'worktree':subprocess.check_output(['git','status','--short'],cwd=ROOT,text=True)},default=str,indent=2)+'\n')
     subprocess.run([*dc,'cp',str(manifest_path),'mongo:/tmp/v2-load-manifest.json'],cwd=ROOT,env=environment,check=True)
     script=(ROOT/'scripts/snapshot-sale-load.js').read_text()
     def snapshot(stage):
@@ -79,18 +79,7 @@ def main():
     if before['sellerCounts']!={account['id']:account['completedSales'] for account in manifest['accounts']}:
         raise RuntimeError('seller counters differ from restored manifest baseline')
     # Health and Search ingestion are preparation, never measured sale requests.
-    deadline=time.monotonic()+180
-    with open(output/'search-readiness.jsonl','w') as observations:
-        while True:
-            try:
-                with urllib.request.urlopen(options.api+'/search?q=%E5%8D%95%E8%BD%A6',timeout=15) as response: result=json.load(response)
-                ready=result.get('total')==16667
-                observations.write(json.dumps({'UTC':datetime.now(timezone.utc).isoformat(),'expectedTotal':16667,'actualTotal':result.get('total'),'ready':ready})+'\n');observations.flush()
-                if ready: break
-            except Exception as error:
-                observations.write(json.dumps({'UTC':datetime.now(timezone.utc).isoformat(),'error':str(error)})+'\n');observations.flush()
-            if time.monotonic()>=deadline: raise RuntimeError('Search full-cohort ingestion did not become ready within180s')
-            time.sleep(1)
+    wait_for_full_cohort(options.api,output/'search-readiness.jsonl','sale')
     environment.update({'SALE_RESULTS':str(output),'SALE_MANIFEST':str(manifest_path),'SALE_DURATION':str(options.duration),'SALE_PRODUCTS':str(options.products),'SALE_TIMEOUT':str(options.timeout),'SALE_RETRIES':str(options.retries),'SALE_FORMAL':'1' if options.formal else '0'})
     if options.start_gate: environment['SALE_MEASUREMENT_GATE']=str(options.start_gate.resolve())
     command=['uv','run','--frozen','--project',str(ROOT/'experiments'),'locust','-f',str(ROOT/'experiments/sale_locust.py'),'--headless','--users','50','--spawn-rate','50','--exit-code-on-error','0','--host',options.api,'--stop-timeout',str(math.ceil(options.timeout+10))+'s','--csv',str(output/'locust'),'--csv-full-history','--html',str(output/'locust.html')]

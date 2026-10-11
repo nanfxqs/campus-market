@@ -23,5 +23,8 @@
       "scripts/run-formal-sales.py"
     ],
     "interpretation": "No production API/cache/store/Compose/routing drift. Orchestrator changes add auxiliary capture/report budgets; detail summarizer correction accepts valid fallback while retaining cacheHealthy=false. Recomputed raw proofs do not claim current runner built old images."
+  },
+  {
+    "reviewFixes": "Stage binding/raw competition verification and shared preparation Search readiness helper only. Same API, configuration, budget, requests, workload scheduling and measured cutoff; historical source hashes unchanged. Future sale/detail invocations include helper hash. Offline evidence reverified under stricter checks."
   }
 ]

@@ -1,0 +1,15 @@
+F
+======================================================================
+FAIL: test_raw_seller_increment_cannot_be_hidden_by_summary (experiments.test_acceptance_binding.Competition.test_raw_seller_increment_cannot_be_hidden_by_summary)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/campus-v2-review-fixes/experiments/test_acceptance_binding.py", line 24, in test_raw_seller_increment_cannot_be_hidden_by_summary
+    self.assertNotEqual(r.returncode,0,r.stdout)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 0 == 0 : {"groups": 100, "requestsPerGroup": 50, "passed": true, "sameKey": {"group": "retry", "sameKey": true, "counts": {"success": 54, "business_conflict": 4, "infrastructure_error": 0, "other_failure": 0}, "database": {"productId": "6acb2d544aea913d90c75563", "sold": true, "sale": {"buyerId": "buyer", "priceCents": 10000, "confirmedAt": "2026-10-11T06:31:48.631Z"}, "successfulTransactions": [{"id": "e95388535b68997c370f8a54dac373a32509f2297203f8a72da48471b6352ac6", "buyerId": "buyer", "priceCents": 10000, "key": "race-retry-shared"}], "listings": 0, "sellerSales": 101}, "sellerBefore": 100, "upstreams": [], "passed": true, "dispatchSpreadMs": 11.818929997389205}}
+
+
+----------------------------------------------------------------------
+Ran 1 test in 0.131s
+
+FAILED (failures=1)

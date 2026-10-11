@@ -199,7 +199,8 @@
     "productionBaselines": [
       "d7fe703",
       "1ed9b63"
-    ]
+    ],
+    "reviewFixes": "Acceptance-only changes bind stage IDs/configurations/rounds and actual identities, full detail scale/pools/cold-hot preparation; competition is rederived from raw HTTP and authoritative Mongo stdout. Shared Search readiness helper is preparation-only with the same cohort, 180s bound and caller observation schemas. Future caller hashes include the helper. Historical measurements remain unmodified and do not claim the new helper ran then."
   },
   "limitations": [
     "Only one physical machine verified; cross-machine remains pending consideration.",
