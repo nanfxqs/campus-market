@@ -19,4 +19,20 @@ class FormalMatrix(unittest.TestCase):
             self.assertFalse(json.loads(process.stdout)['passed'])
             self.assertEqual(json.loads(process.stdout)['failedRounds'],[2])
 
+    def test_c_summary_records_per_instance_and_separate_proxy_budgets(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root=Path(temp)
+            (root/'configuration.json').write_text(json.dumps({'configuration':'C','rounds':3}))
+            (root/'budgets.json').write_text(json.dumps({'APP_CPUS':'2','APP_MEMORY':'512m','NGINX_CPUS':'1','NGINX_MEMORY':'128m'}))
+            for number in range(1,4):
+                directory=root/f'round-{number}';directory.mkdir()
+                (directory/'result.json').write_text(json.dumps({'round':number,'passed':True,'onTimeUniqueSales':30000,'consistent':True,'resourceCoverage':True}))
+            process=subprocess.run([sys.executable,str(Path(__file__).resolve().parents[1]/'scripts/run-formal-sales.py'),'--summarize','--output',str(root)],text=True,capture_output=True)
+            self.assertEqual(process.returncode,0,process.stderr)
+            resources=json.loads(process.stdout)['resourceBudgets']
+            self.assertEqual(resources['applicationInstances'],2)
+            self.assertEqual(resources['applicationTotalCPU'],4)
+            self.assertEqual(resources['applicationPerInstanceMemory'],'512m')
+            self.assertEqual(resources['proxy'],{'cpu':'1','memory':'128m'})
+
 if __name__=='__main__': unittest.main()

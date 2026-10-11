@@ -1,0 +1,4 @@
+ Container campus-v2-sale24-b-api-a-run-608beeae7e56 Creating 
+ Container campus-v2-sale24-b-api-a-run-608beeae7e56 Created 
+2026/10/11 07:36:26 demo accounts: seller, buyer; password: CampusDemo123!
+{"baseTime":"2026-10-11T00:00:00Z","counts":{"users":10000,"active":50000,"sold":180000,"transactions":300000,"priceChanges":575000},"database":"campus_v2_sale24_b","mode":"v2","randomSeed":42}

@@ -26,6 +26,10 @@ def summarize(output):
         rounds.append(read(path) if path.exists() else {'round':number,'passed':False,'reason':'missing result'})
     passed=all(row.get('passed') and row.get('onTimeUniqueSales',0)>=30000 and row.get('consistent') and row.get('resourceCoverage') for row in rounds)
     result={'configuration':configuration,'passed':bool(passed),'rounds':rounds,'failedRounds':[row['round'] for row in rounds if not row.get('passed')],'method':'Every round independently satisfies >=30000 on-time unique new sales, persistence consistency and resource coverage. No average or best-round substitution.'}
+    budgets=read(output/'budgets.json') if (output/'budgets.json').exists() else None
+    if budgets:
+        instances=2 if configuration['configuration']=='C' else 1
+        result['resourceBudgets']={'applicationInstances':instances,'applicationPerInstanceCPU':budgets['APP_CPUS'],'applicationPerInstanceMemory':budgets['APP_MEMORY'],'applicationTotalCPU':instances*float(budgets['APP_CPUS']),'proxy':{'cpu':budgets['NGINX_CPUS'],'memory':budgets['NGINX_MEMORY']} if instances==2 else None,'configured':budgets}
     write(output/'summary.json',result)
     return result
 
@@ -50,6 +54,7 @@ def main():
     parser.add_argument('--base-time')
     parser.add_argument('--random-seed',type=int,default=42)
     parser.add_argument('--output',type=Path,required=True)
+    parser.add_argument('--expected-fingerprint',help='SHA256 of the exact full persisted fingerprint output; checked before every measured round')
     parser.add_argument('--summarize',action='store_true')
     parser.add_argument('--idle-seconds',type=int,default=10)
     arguments=parser.parse_args()
@@ -65,8 +70,8 @@ def main():
     write(output/'configuration.json',config)
     environment={**os.environ,'COMPOSE_PROJECT_NAME':arguments.project,'DB_NAME':arguments.database,'API_PORT':str(arguments.port),'BASE_TIME':arguments.base_time,'RANDOM_SEED':str(arguments.random_seed)}
     # Capture budgets once and reuse them unmodified across all three rounds.
-    for name,default in {'APP_CPUS':'2','APP_MEMORY':'512m','MONGO_CPUS':'4','MONGO_MEMORY':'8g','REDIS_CPUS':'1','REDIS_MEMORY':'256m','REDIS_MAXMEMORY':'128mb','REDIS_POLICY':'allkeys-lru'}.items(): environment[name]=os.environ.get(name,default)
-    write(output/'budgets.json',{name:environment[name] for name in ['APP_CPUS','APP_MEMORY','MONGO_CPUS','MONGO_MEMORY','REDIS_CPUS','REDIS_MEMORY','REDIS_MAXMEMORY','REDIS_POLICY']})
+    for name,default in {'APP_CPUS':'2','APP_MEMORY':'512m','MONGO_CPUS':'4','MONGO_MEMORY':'8g','REDIS_CPUS':'1','REDIS_MEMORY':'256m','REDIS_MAXMEMORY':'128mb','REDIS_POLICY':'allkeys-lru','NGINX_CPUS':'1','NGINX_MEMORY':'128m'}.items(): environment[name]=os.environ.get(name,default)
+    write(output/'budgets.json',{name:environment[name] for name in ['APP_CPUS','APP_MEMORY','MONGO_CPUS','MONGO_MEMORY','REDIS_CPUS','REDIS_MEMORY','REDIS_MAXMEMORY','REDIS_POLICY','NGINX_CPUS','NGINX_MEMORY']})
     dc=['docker','compose','-f',str(ROOT/'compose.v2.yaml'),'--profile','A','--profile','B','--profile','C']
     with open(output/'dependencies.log','w') as log:
         subprocess.run(['uv','sync','--frozen','--project',str(ROOT/'experiments')],cwd=ROOT,stdout=log,stderr=subprocess.STDOUT,check=True)
@@ -83,6 +88,7 @@ def main():
             # Full logical persisted document hashes exclude only BSON field order.
             hashes=subprocess.check_output([*dc,'exec','-T','mongo','mongosh','--quiet',arguments.database,'--eval',(ROOT/'scripts/fingerprint-seed.js').read_text()],cwd=ROOT,env=environment,text=True)
             (round_dir/'initial-fingerprints.txt').write_text(hashes)
+            if arguments.expected_fingerprint and hashlib.sha256(hashes.encode()).hexdigest()!=arguments.expected_fingerprint: raise RuntimeError('initial persisted document fingerprint differs from reference configuration A')
             if initial_fingerprint is None: initial_fingerprint=hashes
             if hashes!=initial_fingerprint: raise RuntimeError('initial persisted document fingerprints differ between rounds')
             locust=str(ROOT/'experiments/.venv/bin/locust')
@@ -119,6 +125,9 @@ def main():
             if manifest.exists():
                 with manifest.open('rb') as source,gzip.open(str(manifest)+'.gz','wb',compresslevel=3) as destination: destination.write(source.read())
                 manifest.unlink()
+            # Auxiliary capture failure is recorded separately from the measured business result.
+            with open(round_dir/'server-log-capture.log','w') as log:
+                subprocess.run([sys.executable,str(ROOT/'scripts/capture-v2-logs.py'),'--project',arguments.project,'--output',str(round_dir/'server-logs')],cwd=ROOT,stdout=log,stderr=subprocess.STDOUT)
             with open(round_dir/'stop.log','w') as log: subprocess.run([*dc,'stop'],cwd=ROOT,env=environment,stdout=log,stderr=subprocess.STDOUT)
         print(json.dumps(result),flush=True)
     result=summarize(output)

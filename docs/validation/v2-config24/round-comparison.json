@@ -1,0 +1,506 @@
+[
+  {
+    "configuration": "B",
+    "round": 1,
+    "uniqueSales": 30000,
+    "windowSeconds": 27.02831741200498,
+    "metrics": {
+      "allLaunchedRequests": {
+        "requests": 30000,
+        "throughput": 1109.947006419094,
+        "p95Ms": 67.50142899545608,
+        "p99Ms": 76.7719580035191,
+        "errors": 0,
+        "errorRate": 0.0
+      },
+      "onTimeReceivedResponses": {
+        "requests": 30000,
+        "throughput": 1109.947006419094,
+        "p95Ms": 67.50142899545608,
+        "p99Ms": 76.7719580035191,
+        "errors": 0,
+        "errorRate": 0.0
+      },
+      "successfulResponses": {
+        "requests": 30000,
+        "throughput": 1109.947006419094,
+        "p95Ms": 67.50142899545608,
+        "p99Ms": 76.7719580035191,
+        "errors": 0,
+        "errorRate": 0.0
+      },
+      "businessConflicts": {
+        "requests": 0,
+        "throughput": 0.0,
+        "p95Ms": null,
+        "p99Ms": null,
+        "errors": 0,
+        "errorRate": 0
+      },
+      "otherFailures": {
+        "requests": 0,
+        "throughput": 0.0,
+        "p95Ms": null,
+        "p99Ms": null,
+        "errors": 0,
+        "errorRate": 0
+      }
+    },
+    "client": {
+      "onTimeUniqueSales": 30000,
+      "duplicateSuccessResponses": 0,
+      "historicalSuccessResponses": 0,
+      "newSaleThroughput": 1109.947006419094,
+      "lastOnTimeSuccessSeconds": 27.02819712099881,
+      "conflicts": 0,
+      "infrastructureErrors": 0,
+      "transportErrors": 0,
+      "invalidResponses": 0,
+      "otherErrors": 0,
+      "retries": 0
+    },
+    "database": {
+      "consistent": true,
+      "violations": 0,
+      "newSuccessfulProducts": 30000,
+      "newSuccessfulCount": 30000,
+      "committedWithoutOnTimeResponse": 0,
+      "timeoutCommittedProducts": 0,
+      "lateCommittedProducts": 0,
+      "committedWithoutAnyValidResponse": 0,
+      "unknownTransportProducts": 0,
+      "unresolvedProducts": 0,
+      "neverStartedProducts": 0,
+      "sellerDeltas": 50,
+      "globalDeltas": {
+        "successfulTransactions": 30000,
+        "sold": 30000,
+        "listings": -30000
+      },
+      "allTransactionDelta": 30000,
+      "nonSuccessTransactionDelta": 0,
+      "snapshotTime": "2026-10-11T07:35:42.236Z"
+    },
+    "fingerprint": "8b08050cc049ae34e7f6144831ebbe8f81cace322659e445e138707eaa4088af"
+  },
+  {
+    "configuration": "B",
+    "round": 2,
+    "uniqueSales": 30000,
+    "windowSeconds": 26.99823184699926,
+    "metrics": {
+      "allLaunchedRequests": {
+        "requests": 30000,
+        "throughput": 1111.18387937447,
+        "p95Ms": 67.38968599529471,
+        "p99Ms": 77.13790100387996,
+        "errors": 0,
+        "errorRate": 0.0
+      },
+      "onTimeReceivedResponses": {
+        "requests": 30000,
+        "throughput": 1111.18387937447,
+        "p95Ms": 67.38968599529471,
+        "p99Ms": 77.13790100387996,
+        "errors": 0,
+        "errorRate": 0.0
+      },
+      "successfulResponses": {
+        "requests": 30000,
+        "throughput": 1111.18387937447,
+        "p95Ms": 67.38968599529471,
+        "p99Ms": 77.13790100387996,
+        "errors": 0,
+        "errorRate": 0.0
+      },
+      "businessConflicts": {
+        "requests": 0,
+        "throughput": 0.0,
+        "p95Ms": null,
+        "p99Ms": null,
+        "errors": 0,
+        "errorRate": 0
+      },
+      "otherFailures": {
+        "requests": 0,
+        "throughput": 0.0,
+        "p95Ms": null,
+        "p99Ms": null,
+        "errors": 0,
+        "errorRate": 0
+      }
+    },
+    "client": {
+      "onTimeUniqueSales": 30000,
+      "duplicateSuccessResponses": 0,
+      "historicalSuccessResponses": 0,
+      "newSaleThroughput": 1111.18387937447,
+      "lastOnTimeSuccessSeconds": 26.99812054200447,
+      "conflicts": 0,
+      "infrastructureErrors": 0,
+      "transportErrors": 0,
+      "invalidResponses": 0,
+      "otherErrors": 0,
+      "retries": 0
+    },
+    "database": {
+      "consistent": true,
+      "violations": 0,
+      "newSuccessfulProducts": 30000,
+      "newSuccessfulCount": 30000,
+      "committedWithoutOnTimeResponse": 0,
+      "timeoutCommittedProducts": 0,
+      "lateCommittedProducts": 0,
+      "committedWithoutAnyValidResponse": 0,
+      "unknownTransportProducts": 0,
+      "unresolvedProducts": 0,
+      "neverStartedProducts": 0,
+      "sellerDeltas": 50,
+      "globalDeltas": {
+        "successfulTransactions": 30000,
+        "sold": 30000,
+        "listings": -30000
+      },
+      "allTransactionDelta": 30000,
+      "nonSuccessTransactionDelta": 0,
+      "snapshotTime": "2026-10-11T07:38:49.484Z"
+    },
+    "fingerprint": "8b08050cc049ae34e7f6144831ebbe8f81cace322659e445e138707eaa4088af"
+  },
+  {
+    "configuration": "B",
+    "round": 3,
+    "uniqueSales": 30000,
+    "windowSeconds": 26.984696448998875,
+    "metrics": {
+      "allLaunchedRequests": {
+        "requests": 30000,
+        "throughput": 1111.7412440306696,
+        "p95Ms": 67.37141199846519,
+        "p99Ms": 78.41976499912562,
+        "errors": 0,
+        "errorRate": 0.0
+      },
+      "onTimeReceivedResponses": {
+        "requests": 30000,
+        "throughput": 1111.7412440306696,
+        "p95Ms": 67.37141199846519,
+        "p99Ms": 78.41976499912562,
+        "errors": 0,
+        "errorRate": 0.0
+      },
+      "successfulResponses": {
+        "requests": 30000,
+        "throughput": 1111.7412440306696,
+        "p95Ms": 67.37141199846519,
+        "p99Ms": 78.41976499912562,
+        "errors": 0,
+        "errorRate": 0.0
+      },
+      "businessConflicts": {
+        "requests": 0,
+        "throughput": 0.0,
+        "p95Ms": null,
+        "p99Ms": null,
+        "errors": 0,
+        "errorRate": 0
+      },
+      "otherFailures": {
+        "requests": 0,
+        "throughput": 0.0,
+        "p95Ms": null,
+        "p99Ms": null,
+        "errors": 0,
+        "errorRate": 0
+      }
+    },
+    "client": {
+      "onTimeUniqueSales": 30000,
+      "duplicateSuccessResponses": 0,
+      "historicalSuccessResponses": 0,
+      "newSaleThroughput": 1111.7412440306696,
+      "lastOnTimeSuccessSeconds": 26.984562268000445,
+      "conflicts": 0,
+      "infrastructureErrors": 0,
+      "transportErrors": 0,
+      "invalidResponses": 0,
+      "otherErrors": 0,
+      "retries": 0
+    },
+    "database": {
+      "consistent": true,
+      "violations": 0,
+      "newSuccessfulProducts": 30000,
+      "newSuccessfulCount": 30000,
+      "committedWithoutOnTimeResponse": 0,
+      "timeoutCommittedProducts": 0,
+      "lateCommittedProducts": 0,
+      "committedWithoutAnyValidResponse": 0,
+      "unknownTransportProducts": 0,
+      "unresolvedProducts": 0,
+      "neverStartedProducts": 0,
+      "sellerDeltas": 50,
+      "globalDeltas": {
+        "successfulTransactions": 30000,
+        "sold": 30000,
+        "listings": -30000
+      },
+      "allTransactionDelta": 30000,
+      "nonSuccessTransactionDelta": 0,
+      "snapshotTime": "2026-10-11T07:41:57.732Z"
+    },
+    "fingerprint": "8b08050cc049ae34e7f6144831ebbe8f81cace322659e445e138707eaa4088af"
+  },
+  {
+    "configuration": "C",
+    "round": 1,
+    "uniqueSales": 30000,
+    "windowSeconds": 23.702540704995045,
+    "metrics": {
+      "allLaunchedRequests": {
+        "requests": 30000,
+        "throughput": 1265.6870996820116,
+        "p95Ms": 47.81009300495498,
+        "p99Ms": 72.6171760034049,
+        "errors": 0,
+        "errorRate": 0.0
+      },
+      "onTimeReceivedResponses": {
+        "requests": 30000,
+        "throughput": 1265.6870996820116,
+        "p95Ms": 47.81009300495498,
+        "p99Ms": 72.6171760034049,
+        "errors": 0,
+        "errorRate": 0.0
+      },
+      "successfulResponses": {
+        "requests": 30000,
+        "throughput": 1265.6870996820116,
+        "p95Ms": 47.81009300495498,
+        "p99Ms": 72.6171760034049,
+        "errors": 0,
+        "errorRate": 0.0
+      },
+      "businessConflicts": {
+        "requests": 0,
+        "throughput": 0.0,
+        "p95Ms": null,
+        "p99Ms": null,
+        "errors": 0,
+        "errorRate": 0
+      },
+      "otherFailures": {
+        "requests": 0,
+        "throughput": 0.0,
+        "p95Ms": null,
+        "p99Ms": null,
+        "errors": 0,
+        "errorRate": 0
+      }
+    },
+    "client": {
+      "onTimeUniqueSales": 30000,
+      "duplicateSuccessResponses": 0,
+      "historicalSuccessResponses": 0,
+      "newSaleThroughput": 1265.6870996820116,
+      "lastOnTimeSuccessSeconds": 23.702492796990555,
+      "conflicts": 0,
+      "infrastructureErrors": 0,
+      "transportErrors": 0,
+      "invalidResponses": 0,
+      "otherErrors": 0,
+      "retries": 0
+    },
+    "database": {
+      "consistent": true,
+      "violations": 0,
+      "newSuccessfulProducts": 30000,
+      "newSuccessfulCount": 30000,
+      "committedWithoutOnTimeResponse": 0,
+      "timeoutCommittedProducts": 0,
+      "lateCommittedProducts": 0,
+      "committedWithoutAnyValidResponse": 0,
+      "unknownTransportProducts": 0,
+      "unresolvedProducts": 0,
+      "neverStartedProducts": 0,
+      "sellerDeltas": 50,
+      "globalDeltas": {
+        "successfulTransactions": 30000,
+        "sold": 30000,
+        "listings": -30000
+      },
+      "allTransactionDelta": 30000,
+      "nonSuccessTransactionDelta": 0,
+      "snapshotTime": "2026-10-11T07:45:35.642Z"
+    },
+    "fingerprint": "8b08050cc049ae34e7f6144831ebbe8f81cace322659e445e138707eaa4088af"
+  },
+  {
+    "configuration": "C",
+    "round": 2,
+    "uniqueSales": 30000,
+    "windowSeconds": 23.66602062500897,
+    "metrics": {
+      "allLaunchedRequests": {
+        "requests": 30000,
+        "throughput": 1267.6402372563482,
+        "p95Ms": 49.081668999860995,
+        "p99Ms": 68.48327700572554,
+        "errors": 0,
+        "errorRate": 0.0
+      },
+      "onTimeReceivedResponses": {
+        "requests": 30000,
+        "throughput": 1267.6402372563482,
+        "p95Ms": 49.081668999860995,
+        "p99Ms": 68.48327700572554,
+        "errors": 0,
+        "errorRate": 0.0
+      },
+      "successfulResponses": {
+        "requests": 30000,
+        "throughput": 1267.6402372563482,
+        "p95Ms": 49.081668999860995,
+        "p99Ms": 68.48327700572554,
+        "errors": 0,
+        "errorRate": 0.0
+      },
+      "businessConflicts": {
+        "requests": 0,
+        "throughput": 0.0,
+        "p95Ms": null,
+        "p99Ms": null,
+        "errors": 0,
+        "errorRate": 0
+      },
+      "otherFailures": {
+        "requests": 0,
+        "throughput": 0.0,
+        "p95Ms": null,
+        "p99Ms": null,
+        "errors": 0,
+        "errorRate": 0
+      }
+    },
+    "client": {
+      "onTimeUniqueSales": 30000,
+      "duplicateSuccessResponses": 0,
+      "historicalSuccessResponses": 0,
+      "newSaleThroughput": 1267.6402372563482,
+      "lastOnTimeSuccessSeconds": 23.665972857008455,
+      "conflicts": 0,
+      "infrastructureErrors": 0,
+      "transportErrors": 0,
+      "invalidResponses": 0,
+      "otherErrors": 0,
+      "retries": 0
+    },
+    "database": {
+      "consistent": true,
+      "violations": 0,
+      "newSuccessfulProducts": 30000,
+      "newSuccessfulCount": 30000,
+      "committedWithoutOnTimeResponse": 0,
+      "timeoutCommittedProducts": 0,
+      "lateCommittedProducts": 0,
+      "committedWithoutAnyValidResponse": 0,
+      "unknownTransportProducts": 0,
+      "unresolvedProducts": 0,
+      "neverStartedProducts": 0,
+      "sellerDeltas": 50,
+      "globalDeltas": {
+        "successfulTransactions": 30000,
+        "sold": 30000,
+        "listings": -30000
+      },
+      "allTransactionDelta": 30000,
+      "nonSuccessTransactionDelta": 0,
+      "snapshotTime": "2026-10-11T07:48:46.762Z"
+    },
+    "fingerprint": "8b08050cc049ae34e7f6144831ebbe8f81cace322659e445e138707eaa4088af"
+  },
+  {
+    "configuration": "C",
+    "round": 3,
+    "uniqueSales": 30000,
+    "windowSeconds": 23.704372099993634,
+    "metrics": {
+      "allLaunchedRequests": {
+        "requests": 30000,
+        "throughput": 1265.589312952443,
+        "p95Ms": 47.238202998414636,
+        "p99Ms": 67.79015201027505,
+        "errors": 0,
+        "errorRate": 0.0
+      },
+      "onTimeReceivedResponses": {
+        "requests": 30000,
+        "throughput": 1265.589312952443,
+        "p95Ms": 47.238202998414636,
+        "p99Ms": 67.79015201027505,
+        "errors": 0,
+        "errorRate": 0.0
+      },
+      "successfulResponses": {
+        "requests": 30000,
+        "throughput": 1265.589312952443,
+        "p95Ms": 47.238202998414636,
+        "p99Ms": 67.79015201027505,
+        "errors": 0,
+        "errorRate": 0.0
+      },
+      "businessConflicts": {
+        "requests": 0,
+        "throughput": 0.0,
+        "p95Ms": null,
+        "p99Ms": null,
+        "errors": 0,
+        "errorRate": 0
+      },
+      "otherFailures": {
+        "requests": 0,
+        "throughput": 0.0,
+        "p95Ms": null,
+        "p99Ms": null,
+        "errors": 0,
+        "errorRate": 0
+      }
+    },
+    "client": {
+      "onTimeUniqueSales": 30000,
+      "duplicateSuccessResponses": 0,
+      "historicalSuccessResponses": 0,
+      "newSaleThroughput": 1265.589312952443,
+      "lastOnTimeSuccessSeconds": 23.704301912992378,
+      "conflicts": 0,
+      "infrastructureErrors": 0,
+      "transportErrors": 0,
+      "invalidResponses": 0,
+      "otherErrors": 0,
+      "retries": 0
+    },
+    "database": {
+      "consistent": true,
+      "violations": 0,
+      "newSuccessfulProducts": 30000,
+      "newSuccessfulCount": 30000,
+      "committedWithoutOnTimeResponse": 0,
+      "timeoutCommittedProducts": 0,
+      "lateCommittedProducts": 0,
+      "committedWithoutAnyValidResponse": 0,
+      "unknownTransportProducts": 0,
+      "unresolvedProducts": 0,
+      "neverStartedProducts": 0,
+      "sellerDeltas": 50,
+      "globalDeltas": {
+        "successfulTransactions": 30000,
+        "sold": 30000,
+        "listings": -30000
+      },
+      "allTransactionDelta": 30000,
+      "nonSuccessTransactionDelta": 0,
+      "snapshotTime": "2026-10-11T07:52:00.267Z"
+    },
+    "fingerprint": "8b08050cc049ae34e7f6144831ebbe8f81cace322659e445e138707eaa4088af"
+  }
+]

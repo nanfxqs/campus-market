@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "configuration": "C",
+  "project": "campus-v2-sale24-c",
+  "database": "campus_v2_sale24_c",
+  "api": "http://127.0.0.1:8090",
+  "manifest": "/tmp/campus-v2-config24/docs/validation/v2-config24/formal-C/round-1/restore/manifest.json",
+  "output": "/tmp/campus-v2-config24/docs/validation/v2-config24/formal-C/round-1/sale",
+  "start_gate": "/tmp/campus-v2-config24/docs/validation/v2-config24/formal-C/round-1/collector-ready",
+  "formal": true,
+  "duration": 600,
+  "products": 30000,
+  "timeout": 25,
+  "retries": 2,
+  "settle": 25,
+  "sourceHashes": {
+    "scripts/run-sale-load.py": "93136e7a4e7706c7474d6136dedb8c17243fc2021e86146c4297db6efbd654b0",
+    "scripts/snapshot-sale-load.js": "cc98cfb904867d3e6b91149541a78cd22382011a14161d5467867ccff5c908a1",
+    "experiments/sale_locust.py": "7515728d6ac719e9a6760d36043d54ae941ae4315005c547bae5f05dfa42ab64",
+    "experiments/summarize_sales.py": "e53e44689295cb4e1228bc4cd4fa7b0302a104ac0289d0d4ed3d152f991a4e11",
+    "experiments/uv.lock": "153494c2c43376000b5357e4ec1f76167803f8e047a7c97d8f75b2d52eb69aa7"
+  },
+  "locustVersion": "locust 2.46.6 from /tmp/campus-v2-config24/experiments/.venv/lib/python3.12/site-packages/locust (Python 3.12.14)",
+  "startedUTC": "2026-10-11T07:44:32.367055+00:00",
+  "git": "1ed9b63ed194e73d1d2a397cd633be37622f997a",
+  "worktree": "?? docs/validation/v2-config24/\n"
+}

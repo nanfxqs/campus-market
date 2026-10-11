@@ -1,0 +1,479 @@
+{
+  "os": {
+    "returncode": 0,
+    "stdout": "Linux thinkbook-omarchy 7.2.8-5-omarchy-bore #1 SMP PREEMPT_DYNAMIC Wed, 07 Oct 2026 02:17:41 +0000 x86_64 GNU/Linux\n",
+    "stderr": "",
+    "command": [
+      "uname",
+      "-a"
+    ],
+    "utc": "2026-10-11T07:56:16.003356+00:00",
+    "duration_seconds": 0.0012739469966618344
+  },
+  "distribution": {
+    "returncode": 0,
+    "stdout": "NAME=\"Omarchy\"\nPRETTY_NAME=\"Omarchy\"\nID=omarchy\nID_LIKE=arch\nBUILD_ID=\"4.0.0.r6815.g50d687a\"\nVERSION_ID=\"4.0.0.r6815.g50d687a\"\nANSI_COLOR=\"38;2;158;206;106\"\nHOME_URL=\"https://omarchy.org/\"\nDOCUMENTATION_URL=\"https://learn.omacom.io/2/the-omarchy-manual\"\nSUPPORT_URL=\"https://discord.gg/tXFUdasqhY\"\nBUG_REPORT_URL=\"https://github.com/basecamp/omarchy/issues\"\nLOGO=omarchy\n",
+    "stderr": "",
+    "command": [
+      "cat",
+      "/etc/os-release"
+    ],
+    "utc": "2026-10-11T07:56:16.004659+00:00",
+    "duration_seconds": 0.0009245249966625124
+  },
+  "cpu": {
+    "returncode": 0,
+    "stdout": "Architecture:                            x86_64\nCPU op-mode(s):                          32-bit, 64-bit\nAddress sizes:                           46 bits physical, 48 bits virtual\nByte Order:                              Little Endian\nCPU(s):                                  18\nOn-line CPU(s) list:                     0-17\nVendor ID:                               GenuineIntel\nModel name:                              Intel(R) Core(TM) Ultra 5 125H\nCPU family:                              6\nModel:                                   170\nThread(s) per core:                      2\nCore(s) per socket:                      14\nSocket(s):                               1\nStepping:                                4\nMicrocode version:                       0x2b\nCPU(s) scaling MHz:                      46%\nCPU max MHz:                             4500.0000\nCPU min MHz:                             400.0000\nBogoMIPS:                                5990.40\nFlags:                                   fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf tsc_known_freq pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb ssbd ibrs ibpb stibp ibrs_enhanced tpr_shadow flexpriority ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid rdseed adx smap clflushopt clwb intel_pt sha_ni xsaveopt xsavec xgetbv1 xsaves split_lock_detect user_shstk avx_vnni dtherm ida arat pln pts hwp hwp_notify hwp_act_window hwp_epp hwp_pkg_req hfi vnmi umip pku ospke waitpkg gfni vaes vpclmulqdq rdpid bus_lock_detect movdiri movdir64b fsrm md_clear serialize arch_lbr ibt flush_l1d arch_capabilities\nVirtualization:                          VT-x\nL1d cache:                               448 KiB (12 instances)\nL1i cache:                               768 KiB (12 instances)\nL2 cache:                                14 MiB (7 instances)\nL3 cache:                                18 MiB (1 instance)\nNUMA node(s):                            1\nNUMA node0 CPU(s):                       0-17\nVulnerability Gather data sampling:      Not affected\nVulnerability Ghostwrite:                Not affected\nVulnerability Indirect target selection: Not affected\nVulnerability Itlb multihit:             Not affected\nVulnerability L1tf:                      Not affected\nVulnerability Mds:                       Not affected\nVulnerability Meltdown:                  Not affected\nVulnerability Mmio stale data:           Not affected\nVulnerability Old microcode:             Not affected\nVulnerability Reg file data sampling:    Not affected\nVulnerability Retbleed:                  Not affected\nVulnerability Spec rstack overflow:      Not affected\nVulnerability Spec store bypass:         Mitigation; Speculative Store Bypass disabled via prctl\nVulnerability Spectre v1:                Mitigation; usercopy/swapgs barriers and __user pointer sanitization\nVulnerability Spectre v2:                Mitigation; Enhanced / Automatic IBRS; IBPB conditional; PBRSB-eIBRS Not affected; BHI BHI_DIS_S\nVulnerability Srbds:                     Not affected\nVulnerability Tsa:                       Not affected\nVulnerability Tsx async abort:           Not affected\nVulnerability Vmscape:                   Mitigation; IBPB before exit to userspace\n",
+    "stderr": "",
+    "command": [
+      "lscpu"
+    ],
+    "utc": "2026-10-11T07:56:16.005626+00:00",
+    "duration_seconds": 0.005844496001373045
+  },
+  "memory": {
+    "returncode": 0,
+    "stdout": "MemTotal:       32447220 kB\nMemFree:         2365828 kB\nMemAvailable:   16064980 kB\nBuffers:             208 kB\nCached:         17208704 kB\nSwapCached:            0 kB\nActive:         12934828 kB\nInactive:       14935620 kB\nActive(anon):   10945004 kB\nInactive(anon):  2037468 kB\nActive(file):    1989824 kB\nInactive(file): 12898152 kB\nUnevictable:      256016 kB\nMlocked:              84 kB\nSwapTotal:      64896572 kB\nSwapFree:       64700476 kB\nZswap:                 0 kB\nZswapped:              0 kB\nDirty:              2680 kB\nWriteback:             0 kB\nAnonPages:      10034472 kB\nMapped:          2116272 kB\nShmem:           2321276 kB\nKReclaimable:     597336 kB\nSlab:            1055112 kB\nSReclaimable:     597336 kB\nSUnreclaim:       457776 kB\nKernelStack:       39852 kB\nPageTables:        99708 kB\nSecPageTables:      2332 kB\nNFS_Unstable:          0 kB\nBounce:                0 kB\nWritebackTmp:          0 kB\nCommitLimit:    81120180 kB\nCommitted_AS:   39010680 kB\nVmallocTotal:   34359738367 kB\nVmallocUsed:      219536 kB\nVmallocChunk:          0 kB\nPercpu:            24768 kB\nHardwareCorrupted:     0 kB\nAnonHugePages:   4444160 kB\nShmemHugePages:  1208320 kB\nShmemPmdMapped:        0 kB\nFileHugePages:         0 kB\nFilePmdMapped:         0 kB\nCmaTotal:              0 kB\nCmaFree:               0 kB\nUnaccepted:            0 kB\nBalloon:               0 kB\nGPUActive:             0 kB\nGPUReclaim:            0 kB\nHugePages_Total:       0\nHugePages_Free:        0\nHugePages_Rsvd:        0\nHugePages_Surp:        0\nHugepagesize:       2048 kB\nHugetlb:               0 kB\nDirectMap4k:      388864 kB\nDirectMap2M:    12838912 kB\nDirectMap1G:    20971520 kB\n",
+    "stderr": "",
+    "command": [
+      "cat",
+      "/proc/meminfo"
+    ],
+    "utc": "2026-10-11T07:56:16.011512+00:00",
+    "duration_seconds": 0.0020574200025293976
+  },
+  "disks": {
+    "returncode": 0,
+    "stdout": "{\n   \"blockdevices\": [\n      {\n         \"name\": \"zram0\",\n         \"maj:min\": \"252:0\",\n         \"rm\": false,\n         \"size\": 33225179136,\n         \"ro\": false,\n         \"type\": \"disk\",\n         \"mountpoints\": [\n             \"[SWAP]\"\n         ]\n      },{\n         \"name\": \"nvme0n1\",\n         \"maj:min\": \"259:0\",\n         \"rm\": false,\n         \"size\": 1024209543168,\n         \"ro\": false,\n         \"type\": \"disk\",\n         \"mountpoints\": [],\n         \"children\": [\n            {\n               \"name\": \"nvme0n1p1\",\n               \"maj:min\": \"259:1\",\n               \"rm\": false,\n               \"size\": 209715200,\n               \"ro\": false,\n               \"type\": \"part\",\n               \"mountpoints\": []\n            },{\n               \"name\": \"nvme0n1p2\",\n               \"maj:min\": \"259:2\",\n               \"rm\": false,\n               \"size\": 16777216,\n               \"ro\": false,\n               \"type\": \"part\",\n               \"mountpoints\": []\n            },{\n               \"name\": \"nvme0n1p3\",\n               \"maj:min\": \"259:3\",\n               \"rm\": false,\n               \"size\": 321127448576,\n               \"ro\": false,\n               \"type\": \"part\",\n               \"mountpoints\": []\n            },{\n               \"name\": \"nvme0n1p4\",\n               \"maj:min\": \"259:4\",\n               \"rm\": false,\n               \"size\": 322121498624,\n               \"ro\": false,\n               \"type\": \"part\",\n               \"mountpoints\": []\n            },{\n               \"name\": \"nvme0n1p5\",\n               \"maj:min\": \"259:5\",\n               \"rm\": false,\n               \"size\": 994050048,\n               \"ro\": false,\n               \"type\": \"part\",\n               \"mountpoints\": []\n            },{\n               \"name\": \"nvme0n1p6\",\n               \"maj:min\": \"259:6\",\n               \"rm\": false,\n               \"size\": 2147484160,\n               \"ro\": false,\n               \"type\": \"part\",\n               \"mountpoints\": [\n                   \"/boot\"\n               ]\n            },{\n               \"name\": \"nvme0n1p7\",\n               \"maj:min\": \"259:7\",\n               \"rm\": false,\n               \"size\": 377589072384,\n               \"ro\": false,\n               \"type\": \"part\",\n               \"mountpoints\": [],\n               \"children\": [\n                  {\n                     \"name\": \"omarchy_root\",\n                     \"maj:min\": \"253:0\",\n                     \"rm\": false,\n                     \"size\": 377572295168,\n                     \"ro\": false,\n                     \"type\": \"crypt\",\n                     \"mountpoints\": [\n                         \"/var/log\", \"/var/cache/pacman/pkg\", \"/home\", \"/\"\n                     ]\n                  }\n               ]\n            }\n         ]\n      }\n   ]\n}\n",
+    "stderr": "",
+    "command": [
+      "lsblk",
+      "-b",
+      "-J"
+    ],
+    "utc": "2026-10-11T07:56:16.013607+00:00",
+    "duration_seconds": 0.003474633995210752
+  },
+  "filesystem": {
+    "returncode": 0,
+    "stdout": "Filesystem                  1B-blocks         Used    Available Use% Mounted on\ndev                       16530063360            0  16530063360   0% /dev\nrun                       16612974592      3006464  16609968128   1% /run\nefivarfs                       274332       150107       119105  56% /sys/firmware/efi/efivars\n/dev/mapper/omarchy_root 377572294656 151218176000 223813304320  41% /\ntmpfs                     16612974592     46596096  16566378496   1% /dev/shm\nnone                          1048576            0      1048576   0% /run/credentials/systemd-journald.service\nnone                          1048576            0      1048576   0% /run/credentials/systemd-resolved.service\ntmpfs                     16612978688    914763776  15698214912   6% /tmp\n/dev/mapper/omarchy_root 377572294656 151218176000 223813304320  41% /home\n/dev/mapper/omarchy_root 377572294656 151218176000 223813304320  41% /var/cache/pacman/pkg\n/dev/mapper/omarchy_root 377572294656 151218176000 223813304320  41% /var/log\n/dev/nvme0n1p6             2143281152    344178688   1799102464  17% /boot\nnone                          1048576         4096      1044480   1% /run/credentials/libvirtd.service\ntmpfs                      3322593280     14139392   3308453888   1% /run/user/1000\n",
+    "stderr": "",
+    "command": [
+      "df",
+      "-B1"
+    ],
+    "utc": "2026-10-11T07:56:16.017132+00:00",
+    "duration_seconds": 0.014045054005691782
+  },
+  "docker": {
+    "returncode": 0,
+    "stdout": "Client:\n Version:           29.9.0\n API version:       1.56\n Go version:        go1.27.1-X:nodwarf5\n Git commit:        f415da838b\n Built:             Fri Oct  9 00:19:20 2026\n OS/Arch:           linux/amd64\n Context:           default\n\nServer:\n Engine:\n  Version:          29.9.0\n  API version:      1.56 (minimum version 1.40)\n  Go version:       go1.27.1-X:nodwarf5\n  Git commit:       a5b58c94d3\n  Built:            Fri Oct  9 00:19:20 2026\n  OS/Arch:          linux/amd64\n  Experimental:     false\n containerd:\n  Version:          v2.4.1\n  GitCommit:        f2551031d7276a770f65f98c9b52e57e7dad07e8.m\n runc:\n  Version:          1.5.2\n  GitCommit:        \n docker-init:\n  Version:          0.19.0\n  GitCommit:        de40ad0\n",
+    "stderr": "",
+    "command": [
+      "docker",
+      "version"
+    ],
+    "utc": "2026-10-11T07:56:16.031214+00:00",
+    "duration_seconds": 0.016466430999571458
+  },
+  "docker_budget": {
+    "returncode": 0,
+    "stdout": "{\"ID\":\"709cc7ac-806a-46a9-a180-db546c351fec\",\"Containers\":18,\"ContainersRunning\":9,\"ContainersPaused\":0,\"ContainersStopped\":9,\"Images\":74,\"Driver\":\"overlayfs\",\"DriverStatus\":[[\"driver-type\",\"io.containerd.snapshotter.v1\"]],\"Plugins\":{\"Volume\":[\"local\"],\"Network\":[\"bridge\",\"host\",\"ipvlan\",\"macvlan\",\"null\",\"overlay\"],\"Authorization\":null,\"Log\":[\"awslogs\",\"fluentd\",\"gcplogs\",\"gelf\",\"journald\",\"json-file\",\"local\",\"splunk\",\"syslog\"]},\"MemoryLimit\":true,\"SwapLimit\":true,\"CpuCfsPeriod\":true,\"CpuCfsQuota\":true,\"CPUShares\":true,\"CPUSet\":true,\"PidsLimit\":true,\"IPv4Forwarding\":true,\"Debug\":false,\"NFd\":91,\"OomKillDisable\":false,\"NGoroutines\":140,\"SystemTime\":\"2026-10-11T15:56:16.078061291+08:00\",\"LoggingDriver\":\"json-file\",\"CgroupDriver\":\"systemd\",\"CgroupVersion\":\"2\",\"NEventsListener\":0,\"KernelVersion\":\"7.2.8-5-omarchy-bore\",\"OperatingSystem\":\"Omarchy\",\"OSVersion\":\"4.0.0.r6815.g50d687a\",\"OSType\":\"linux\",\"Architecture\":\"x86_64\",\"IndexServerAddress\":\"https://index.docker.io/v1/\",\"RegistryConfig\":{\"InsecureRegistryCIDRs\":[\"127.0.0.0/8\",\"::1/128\"],\"IndexConfigs\":{\"docker.io\":{\"Name\":\"docker.io\",\"Mirrors\":[],\"Secure\":true,\"Official\":true}},\"Mirrors\":[]},\"NCPU\":18,\"MemTotal\":33225953280,\"GenericResources\":null,\"DockerRootDir\":\"/var/lib/docker\",\"HttpProxy\":\"\",\"HttpsProxy\":\"\",\"NoProxy\":\"\",\"Name\":\"thinkbook-omarchy\",\"Labels\":[],\"ExperimentalBuild\":false,\"ServerVersion\":\"29.9.0\",\"Runtimes\":{\"io.containerd.runc.v2\":{\"path\":\"runc\",\"status\":{\"org.opencontainers.runtime-spec.features\":\"{\\\"ociVersionMin\\\":\\\"1.0.0\\\",\\\"ociVersionMax\\\":\\\"1.3.0\\\",\\\"hooks\\\":[\\\"prestart\\\",\\\"createRuntime\\\",\\\"createContainer\\\",\\\"startContainer\\\",\\\"poststart\\\",\\\"poststop\\\"],\\\"mountOptions\\\":[\\\"async\\\",\\\"atime\\\",\\\"bind\\\",\\\"defaults\\\",\\\"dev\\\",\\\"diratime\\\",\\\"dirsync\\\",\\\"exec\\\",\\\"iversion\\\",\\\"lazytime\\\",\\\"loud\\\",\\\"mand\\\",\\\"noatime\\\",\\\"nodev\\\",\\\"nodiratime\\\",\\\"noexec\\\",\\\"noiversion\\\",\\\"nolazytime\\\",\\\"nomand\\\",\\\"norelatime\\\",\\\"nostrictatime\\\",\\\"nosuid\\\",\\\"nosymfollow\\\",\\\"private\\\",\\\"ratime\\\",\\\"rbind\\\",\\\"rdev\\\",\\\"rdiratime\\\",\\\"relatime\\\",\\\"remount\\\",\\\"rexec\\\",\\\"rnoatime\\\",\\\"rnodev\\\",\\\"rnodiratime\\\",\\\"rnoexec\\\",\\\"rnorelatime\\\",\\\"rnostrictatime\\\",\\\"rnosuid\\\",\\\"rnosymfollow\\\",\\\"ro\\\",\\\"rprivate\\\",\\\"rrelatime\\\",\\\"rro\\\",\\\"rrw\\\",\\\"rshared\\\",\\\"rslave\\\",\\\"rstrictatime\\\",\\\"rsuid\\\",\\\"rsymfollow\\\",\\\"runbindable\\\",\\\"rw\\\",\\\"shared\\\",\\\"silent\\\",\\\"slave\\\",\\\"strictatime\\\",\\\"suid\\\",\\\"symfollow\\\",\\\"sync\\\",\\\"tmpcopyup\\\",\\\"unbindable\\\"],\\\"linux\\\":{\\\"namespaces\\\":[\\\"cgroup\\\",\\\"ipc\\\",\\\"mount\\\",\\\"network\\\",\\\"pid\\\",\\\"time\\\",\\\"user\\\",\\\"uts\\\"],\\\"capabilities\\\":[\\\"CAP_CHOWN\\\",\\\"CAP_DAC_OVERRIDE\\\",\\\"CAP_DAC_READ_SEARCH\\\",\\\"CAP_FOWNER\\\",\\\"CAP_FSETID\\\",\\\"CAP_KILL\\\",\\\"CAP_SETGID\\\",\\\"CAP_SETUID\\\",\\\"CAP_SETPCAP\\\",\\\"CAP_LINUX_IMMUTABLE\\\",\\\"CAP_NET_BIND_SERVICE\\\",\\\"CAP_NET_BROADCAST\\\",\\\"CAP_NET_ADMIN\\\",\\\"CAP_NET_RAW\\\",\\\"CAP_IPC_LOCK\\\",\\\"CAP_IPC_OWNER\\\",\\\"CAP_SYS_MODULE\\\",\\\"CAP_SYS_RAWIO\\\",\\\"CAP_SYS_CHROOT\\\",\\\"CAP_SYS_PTRACE\\\",\\\"CAP_SYS_PACCT\\\",\\\"CAP_SYS_ADMIN\\\",\\\"CAP_SYS_BOOT\\\",\\\"CAP_SYS_NICE\\\",\\\"CAP_SYS_RESOURCE\\\",\\\"CAP_SYS_TIME\\\",\\\"CAP_SYS_TTY_CONFIG\\\",\\\"CAP_MKNOD\\\",\\\"CAP_LEASE\\\",\\\"CAP_AUDIT_WRITE\\\",\\\"CAP_AUDIT_CONTROL\\\",\\\"CAP_SETFCAP\\\",\\\"CAP_MAC_OVERRIDE\\\",\\\"CAP_MAC_ADMIN\\\",\\\"CAP_SYSLOG\\\",\\\"CAP_WAKE_ALARM\\\",\\\"CAP_BLOCK_SUSPEND\\\",\\\"CAP_AUDIT_READ\\\",\\\"CAP_PERFMON\\\",\\\"CAP_BPF\\\",\\\"CAP_CHECKPOINT_RESTORE\\\"],\\\"cgroup\\\":{\\\"v1\\\":true,\\\"v2\\\":true,\\\"systemd\\\":true,\\\"systemdUser\\\":true,\\\"rdma\\\":true},\\\"seccomp\\\":{\\\"enabled\\\":true,\\\"actions\\\":[\\\"SCMP_ACT_ALLOW\\\",\\\"SCMP_ACT_ERRNO\\\",\\\"SCMP_ACT_KILL\\\",\\\"SCMP_ACT_KILL_PROCESS\\\",\\\"SCMP_ACT_KILL_THREAD\\\",\\\"SCMP_ACT_LOG\\\",\\\"SCMP_ACT_NOTIFY\\\",\\\"SCMP_ACT_TRACE\\\",\\\"SCMP_ACT_TRAP\\\"],\\\"operators\\\":[\\\"SCMP_CMP_EQ\\\",\\\"SCMP_CMP_GE\\\",\\\"SCMP_CMP_GT\\\",\\\"SCMP_CMP_LE\\\",\\\"SCMP_CMP_LT\\\",\\\"SCMP_CMP_MASKED_EQ\\\",\\\"SCMP_CMP_NE\\\"],\\\"archs\\\":[\\\"SCMP_ARCH_AARCH64\\\",\\\"SCMP_ARCH_ARM\\\",\\\"SCMP_ARCH_LOONGARCH64\\\",\\\"SCMP_ARCH_MIPS\\\",\\\"SCMP_ARCH_MIPS64\\\",\\\"SCMP_ARCH_MIPS64N32\\\",\\\"SCMP_ARCH_MIPSEL\\\",\\\"SCMP_ARCH_MIPSEL64\\\",\\\"SCMP_ARCH_MIPSEL64N32\\\",\\\"SCMP_ARCH_PPC\\\",\\\"SCMP_ARCH_PPC64\\\",\\\"SCMP_ARCH_PPC64LE\\\",\\\"SCMP_ARCH_RISCV64\\\",\\\"SCMP_ARCH_S390\\\",\\\"SCMP_ARCH_S390X\\\",\\\"SCMP_ARCH_X32\\\",\\\"SCMP_ARCH_X86\\\",\\\"SCMP_ARCH_X86_64\\\"],\\\"knownFlags\\\":[\\\"SECCOMP_FILTER_FLAG_TSYNC\\\",\\\"SECCOMP_FILTER_FLAG_SPEC_ALLOW\\\",\\\"SECCOMP_FILTER_FLAG_LOG\\\",\\\"SECCOMP_FILTER_FLAG_WAIT_KILLABLE_RECV\\\"],\\\"supportedFlags\\\":[\\\"SECCOMP_FILTER_FLAG_TSYNC\\\",\\\"SECCOMP_FILTER_FLAG_SPEC_ALLOW\\\",\\\"SECCOMP_FILTER_FLAG_LOG\\\",\\\"SECCOMP_FILTER_FLAG_WAIT_KILLABLE_RECV\\\"]},\\\"apparmor\\\":{\\\"enabled\\\":true},\\\"selinux\\\":{\\\"enabled\\\":true},\\\"intelRdt\\\":{\\\"enabled\\\":true,\\\"schemata\\\":true,\\\"monitoring\\\":true},\\\"memoryPolicy\\\":{\\\"modes\\\":[\\\"MPOL_BIND\\\",\\\"MPOL_DEFAULT\\\",\\\"MPOL_INTERLEAVE\\\",\\\"MPOL_LOCAL\\\",\\\"MPOL_PREFERRED\\\",\\\"MPOL_PREFERRED_MANY\\\",\\\"MPOL_WEIGHTED_INTERLEAVE\\\"],\\\"flags\\\":[\\\"MPOL_F_NUMA_BALANCING\\\",\\\"MPOL_F_RELATIVE_NODES\\\",\\\"MPOL_F_STATIC_NODES\\\"]},\\\"mountExtensions\\\":{\\\"idmap\\\":{\\\"enabled\\\":true}},\\\"netDevices\\\":{\\\"enabled\\\":true}},\\\"annotations\\\":{\\\"com.cyphar.pathrs.libpathrs.version\\\":\\\"0.2.6\\\",\\\"io.github.seccomp.libseccomp.version\\\":\\\"2.6.0\\\",\\\"org.opencontainers.runc.checkpoint.enabled\\\":\\\"true\\\",\\\"org.opencontainers.runc.commit\\\":\\\"\\\",\\\"org.opencontainers.runc.version\\\":\\\"1.5.2\\\"},\\\"potentiallyUnsafeConfigAnnotations\\\":[\\\"bundle\\\",\\\"org.systemd.property.\\\",\\\"org.criu.config\\\"]}\"}},\"runc\":{\"path\":\"runc\",\"status\":{\"org.opencontainers.runtime-spec.features\":\"{\\\"ociVersionMin\\\":\\\"1.0.0\\\",\\\"ociVersionMax\\\":\\\"1.3.0\\\",\\\"hooks\\\":[\\\"prestart\\\",\\\"createRuntime\\\",\\\"createContainer\\\",\\\"startContainer\\\",\\\"poststart\\\",\\\"poststop\\\"],\\\"mountOptions\\\":[\\\"async\\\",\\\"atime\\\",\\\"bind\\\",\\\"defaults\\\",\\\"dev\\\",\\\"diratime\\\",\\\"dirsync\\\",\\\"exec\\\",\\\"iversion\\\",\\\"lazytime\\\",\\\"loud\\\",\\\"mand\\\",\\\"noatime\\\",\\\"nodev\\\",\\\"nodiratime\\\",\\\"noexec\\\",\\\"noiversion\\\",\\\"nolazytime\\\",\\\"nomand\\\",\\\"norelatime\\\",\\\"nostrictatime\\\",\\\"nosuid\\\",\\\"nosymfollow\\\",\\\"private\\\",\\\"ratime\\\",\\\"rbind\\\",\\\"rdev\\\",\\\"rdiratime\\\",\\\"relatime\\\",\\\"remount\\\",\\\"rexec\\\",\\\"rnoatime\\\",\\\"rnodev\\\",\\\"rnodiratime\\\",\\\"rnoexec\\\",\\\"rnorelatime\\\",\\\"rnostrictatime\\\",\\\"rnosuid\\\",\\\"rnosymfollow\\\",\\\"ro\\\",\\\"rprivate\\\",\\\"rrelatime\\\",\\\"rro\\\",\\\"rrw\\\",\\\"rshared\\\",\\\"rslave\\\",\\\"rstrictatime\\\",\\\"rsuid\\\",\\\"rsymfollow\\\",\\\"runbindable\\\",\\\"rw\\\",\\\"shared\\\",\\\"silent\\\",\\\"slave\\\",\\\"strictatime\\\",\\\"suid\\\",\\\"symfollow\\\",\\\"sync\\\",\\\"tmpcopyup\\\",\\\"unbindable\\\"],\\\"linux\\\":{\\\"namespaces\\\":[\\\"cgroup\\\",\\\"ipc\\\",\\\"mount\\\",\\\"network\\\",\\\"pid\\\",\\\"time\\\",\\\"user\\\",\\\"uts\\\"],\\\"capabilities\\\":[\\\"CAP_CHOWN\\\",\\\"CAP_DAC_OVERRIDE\\\",\\\"CAP_DAC_READ_SEARCH\\\",\\\"CAP_FOWNER\\\",\\\"CAP_FSETID\\\",\\\"CAP_KILL\\\",\\\"CAP_SETGID\\\",\\\"CAP_SETUID\\\",\\\"CAP_SETPCAP\\\",\\\"CAP_LINUX_IMMUTABLE\\\",\\\"CAP_NET_BIND_SERVICE\\\",\\\"CAP_NET_BROADCAST\\\",\\\"CAP_NET_ADMIN\\\",\\\"CAP_NET_RAW\\\",\\\"CAP_IPC_LOCK\\\",\\\"CAP_IPC_OWNER\\\",\\\"CAP_SYS_MODULE\\\",\\\"CAP_SYS_RAWIO\\\",\\\"CAP_SYS_CHROOT\\\",\\\"CAP_SYS_PTRACE\\\",\\\"CAP_SYS_PACCT\\\",\\\"CAP_SYS_ADMIN\\\",\\\"CAP_SYS_BOOT\\\",\\\"CAP_SYS_NICE\\\",\\\"CAP_SYS_RESOURCE\\\",\\\"CAP_SYS_TIME\\\",\\\"CAP_SYS_TTY_CONFIG\\\",\\\"CAP_MKNOD\\\",\\\"CAP_LEASE\\\",\\\"CAP_AUDIT_WRITE\\\",\\\"CAP_AUDIT_CONTROL\\\",\\\"CAP_SETFCAP\\\",\\\"CAP_MAC_OVERRIDE\\\",\\\"CAP_MAC_ADMIN\\\",\\\"CAP_SYSLOG\\\",\\\"CAP_WAKE_ALARM\\\",\\\"CAP_BLOCK_SUSPEND\\\",\\\"CAP_AUDIT_READ\\\",\\\"CAP_PERFMON\\\",\\\"CAP_BPF\\\",\\\"CAP_CHECKPOINT_RESTORE\\\"],\\\"cgroup\\\":{\\\"v1\\\":true,\\\"v2\\\":true,\\\"systemd\\\":true,\\\"systemdUser\\\":true,\\\"rdma\\\":true},\\\"seccomp\\\":{\\\"enabled\\\":true,\\\"actions\\\":[\\\"SCMP_ACT_ALLOW\\\",\\\"SCMP_ACT_ERRNO\\\",\\\"SCMP_ACT_KILL\\\",\\\"SCMP_ACT_KILL_PROCESS\\\",\\\"SCMP_ACT_KILL_THREAD\\\",\\\"SCMP_ACT_LOG\\\",\\\"SCMP_ACT_NOTIFY\\\",\\\"SCMP_ACT_TRACE\\\",\\\"SCMP_ACT_TRAP\\\"],\\\"operators\\\":[\\\"SCMP_CMP_EQ\\\",\\\"SCMP_CMP_GE\\\",\\\"SCMP_CMP_GT\\\",\\\"SCMP_CMP_LE\\\",\\\"SCMP_CMP_LT\\\",\\\"SCMP_CMP_MASKED_EQ\\\",\\\"SCMP_CMP_NE\\\"],\\\"archs\\\":[\\\"SCMP_ARCH_AARCH64\\\",\\\"SCMP_ARCH_ARM\\\",\\\"SCMP_ARCH_LOONGARCH64\\\",\\\"SCMP_ARCH_MIPS\\\",\\\"SCMP_ARCH_MIPS64\\\",\\\"SCMP_ARCH_MIPS64N32\\\",\\\"SCMP_ARCH_MIPSEL\\\",\\\"SCMP_ARCH_MIPSEL64\\\",\\\"SCMP_ARCH_MIPSEL64N32\\\",\\\"SCMP_ARCH_PPC\\\",\\\"SCMP_ARCH_PPC64\\\",\\\"SCMP_ARCH_PPC64LE\\\",\\\"SCMP_ARCH_RISCV64\\\",\\\"SCMP_ARCH_S390\\\",\\\"SCMP_ARCH_S390X\\\",\\\"SCMP_ARCH_X32\\\",\\\"SCMP_ARCH_X86\\\",\\\"SCMP_ARCH_X86_64\\\"],\\\"knownFlags\\\":[\\\"SECCOMP_FILTER_FLAG_TSYNC\\\",\\\"SECCOMP_FILTER_FLAG_SPEC_ALLOW\\\",\\\"SECCOMP_FILTER_FLAG_LOG\\\",\\\"SECCOMP_FILTER_FLAG_WAIT_KILLABLE_RECV\\\"],\\\"supportedFlags\\\":[\\\"SECCOMP_FILTER_FLAG_TSYNC\\\",\\\"SECCOMP_FILTER_FLAG_SPEC_ALLOW\\\",\\\"SECCOMP_FILTER_FLAG_LOG\\\",\\\"SECCOMP_FILTER_FLAG_WAIT_KILLABLE_RECV\\\"]},\\\"apparmor\\\":{\\\"enabled\\\":true},\\\"selinux\\\":{\\\"enabled\\\":true},\\\"intelRdt\\\":{\\\"enabled\\\":true,\\\"schemata\\\":true,\\\"monitoring\\\":true},\\\"memoryPolicy\\\":{\\\"modes\\\":[\\\"MPOL_BIND\\\",\\\"MPOL_DEFAULT\\\",\\\"MPOL_INTERLEAVE\\\",\\\"MPOL_LOCAL\\\",\\\"MPOL_PREFERRED\\\",\\\"MPOL_PREFERRED_MANY\\\",\\\"MPOL_WEIGHTED_INTERLEAVE\\\"],\\\"flags\\\":[\\\"MPOL_F_NUMA_BALANCING\\\",\\\"MPOL_F_RELATIVE_NODES\\\",\\\"MPOL_F_STATIC_NODES\\\"]},\\\"mountExtensions\\\":{\\\"idmap\\\":{\\\"enabled\\\":true}},\\\"netDevices\\\":{\\\"enabled\\\":true}},\\\"annotations\\\":{\\\"com.cyphar.pathrs.libpathrs.version\\\":\\\"0.2.6\\\",\\\"io.github.seccomp.libseccomp.version\\\":\\\"2.6.0\\\",\\\"org.opencontainers.runc.checkpoint.enabled\\\":\\\"true\\\",\\\"org.opencontainers.runc.commit\\\":\\\"\\\",\\\"org.opencontainers.runc.version\\\":\\\"1.5.2\\\"},\\\"potentiallyUnsafeConfigAnnotations\\\":[\\\"bundle\\\",\\\"org.systemd.property.\\\",\\\"org.criu.config\\\"]}\"}}},\"DefaultRuntime\":\"runc\",\"Swarm\":{\"NodeID\":\"\",\"NodeAddr\":\"\",\"LocalNodeState\":\"inactive\",\"ControlAvailable\":false,\"Error\":\"\",\"RemoteManagers\":null},\"LiveRestoreEnabled\":false,\"Isolation\":\"\",\"InitBinary\":\"docker-init\",\"ContainerdCommit\":{\"ID\":\"f2551031d7276a770f65f98c9b52e57e7dad07e8.m\"},\"RuncCommit\":{\"ID\":\"\"},\"InitCommit\":{\"ID\":\"de40ad0\"},\"SecurityOptions\":[\"name=seccomp,profile=builtin\",\"name=cgroupns\"],\"FirewallBackend\":{\"Driver\":\"iptables\",\"Info\":[[\"EnableUserlandProxy\",\"true\"],[\"UserlandProxyPath\",\"/usr/bin/docker-proxy\"]]},\"CDISpecDirs\":[\"/etc/cdi\",\"/var/run/cdi\"],\"Containerd\":{\"Address\":\"/run/containerd/containerd.sock\",\"Namespaces\":{\"Containers\":\"moby\",\"Plugins\":\"plugins.moby\"}},\"Warnings\":null,\"ClientInfo\":{\"Debug\":false,\"Version\":\"29.9.0\",\"DefaultAPIVersion\":\"1.56\",\"GitCommit\":\"f415da838b\",\"GoVersion\":\"go1.27.1-X:nodwarf5\",\"Os\":\"linux\",\"Arch\":\"amd64\",\"BuildTime\":\"Fri Oct  9 00:19:20 2026\",\"Context\":\"default\",\"Plugins\":[{\"SchemaVersion\":\"0.1.0\",\"Vendor\":\"Docker Inc.\",\"Version\":\"0.38.0\",\"ShortDescription\":\"Docker Buildx\",\"Name\":\"buildx\",\"Path\":\"/usr/lib/docker/cli-plugins/docker-buildx\"},{\"SchemaVersion\":\"0.1.0\",\"Vendor\":\"Docker Inc.\",\"Version\":\"5.6.0\",\"ShortDescription\":\"Docker Compose\",\"Name\":\"compose\",\"Path\":\"/usr/lib/docker/cli-plugins/docker-compose\"}],\"Warnings\":null}}\n",
+    "stderr": "",
+    "command": [
+      "docker",
+      "info",
+      "--format",
+      "{{json .}}"
+    ],
+    "utc": "2026-10-11T07:56:16.047749+00:00",
+    "duration_seconds": 0.037196018995018676
+  },
+  "compose": {
+    "returncode": 0,
+    "stdout": "Docker Compose version 5.6.0\n",
+    "stderr": "",
+    "command": [
+      "docker",
+      "compose",
+      "version"
+    ],
+    "utc": "2026-10-11T07:56:16.085121+00:00",
+    "duration_seconds": 0.038866272996529005
+  },
+  "git_head": {
+    "returncode": 0,
+    "stdout": "1ed9b63ed194e73d1d2a397cd633be37622f997a\n",
+    "stderr": "",
+    "command": [
+      "git",
+      "rev-parse",
+      "HEAD"
+    ],
+    "utc": "2026-10-11T07:56:16.124050+00:00",
+    "duration_seconds": 0.001819838013034314
+  },
+  "git_base": {
+    "returncode": 0,
+    "stdout": "f17c1e833c13e4b60a0a37e7fff6fa2e491d0686\n",
+    "stderr": "",
+    "command": [
+      "git",
+      "rev-parse",
+      "integration/v2"
+    ],
+    "utc": "2026-10-11T07:56:16.125904+00:00",
+    "duration_seconds": 0.0011516029917402193
+  },
+  "git_status": {
+    "returncode": 0,
+    "stdout": "?? docs/validation/v2-config24/\n",
+    "stderr": "",
+    "command": [
+      "git",
+      "status",
+      "--porcelain=v1"
+    ],
+    "utc": "2026-10-11T07:56:16.127075+00:00",
+    "duration_seconds": 0.004810185011592694
+  },
+  "git_diff": {
+    "returncode": 0,
+    "stdout": "",
+    "stderr": "",
+    "command": [
+      "git",
+      "diff",
+      "--stat"
+    ],
+    "utc": "2026-10-11T07:56:16.131928+00:00",
+    "duration_seconds": 0.00242203900415916
+  },
+  "locust": {
+    "returncode": 0,
+    "stdout": "locust 2.46.6 from /tmp/campus-v2-config24/experiments/.venv/lib/python3.12/site-packages/locust (Python 3.12.14)\n",
+    "stderr": "",
+    "command": [
+      "/tmp/campus-v2-config24/experiments/.venv/bin/locust",
+      "--version"
+    ],
+    "utc": "2026-10-11T07:56:16.134397+00:00",
+    "duration_seconds": 0.2177636150008766
+  },
+  "containers": [
+    {
+      "id": "0b88fdd5e8eea0d7a6c61c63dd7a8c134f397b4b70eb0e3da8c042fafb71f89e",
+      "service": "nginx",
+      "name": "/campus-v2-sale24-c-nginx-1",
+      "image_id": "sha256:30f1c0d78e0ad60901648be663a710bdadf19e4c10ac6782c235200619158284",
+      "image": "nginx:1.28.0-alpine@sha256:30f1c0d78e0ad60901648be663a710bdadf19e4c10ac6782c235200619158284",
+      "limits": {
+        "NanoCpus": 1000000000,
+        "Memory": 134217728,
+        "MemorySwap": 268435456,
+        "CpuQuota": 0,
+        "CpuPeriod": 0,
+        "CpusetCpus": ""
+      },
+      "pid": 1254833
+    },
+    {
+      "id": "42d2c0435d27075710fc78cb2c7fa635cf43c13977e29ad21e2febb2642efdda",
+      "service": "api-c2",
+      "name": "/campus-v2-sale24-c-api-c2-1",
+      "image_id": "sha256:2c6895a3d3e604bcd2112f53da05f6dd268d58d5bd82ebfc2f15fe598a25146c",
+      "image": "campus-v2-sale24-c-api-c2",
+      "limits": {
+        "NanoCpus": 2000000000,
+        "Memory": 536870912,
+        "MemorySwap": 1073741824,
+        "CpuQuota": 0,
+        "CpuPeriod": 0,
+        "CpusetCpus": ""
+      },
+      "pid": 1254461
+    },
+    {
+      "id": "02bde8b1ef5bb688f1ead854932cc91ddde8dfcd2389c1e4e49635d592aa496a",
+      "service": "api-c1",
+      "name": "/campus-v2-sale24-c-api-c1-1",
+      "image_id": "sha256:7b71fa053301be97ddf4039957e95e60aa19d429e89f82cd38b3ef2dcb885246",
+      "image": "campus-v2-sale24-c-api-c1",
+      "limits": {
+        "NanoCpus": 2000000000,
+        "Memory": 536870912,
+        "MemorySwap": 1073741824,
+        "CpuQuota": 0,
+        "CpuPeriod": 0,
+        "CpusetCpus": ""
+      },
+      "pid": 1254076
+    },
+    {
+      "id": "bc9f0db9b35185e2b09e2f34972cbeea6294990ccd1dd80926828c393cf319f4",
+      "service": "redis",
+      "name": "/campus-v2-sale24-c-redis-1",
+      "image_id": "sha256:fbdbaea47b9ae4ecc2082ecdb4e1cea81e32176ffb1dcf643d422ad07427e5d9",
+      "image": "redis:7.4.2-bookworm@sha256:fbdbaea47b9ae4ecc2082ecdb4e1cea81e32176ffb1dcf643d422ad07427e5d9",
+      "limits": {
+        "NanoCpus": 1000000000,
+        "Memory": 268435456,
+        "MemorySwap": 536870912,
+        "CpuQuota": 0,
+        "CpuPeriod": 0,
+        "CpusetCpus": ""
+      },
+      "pid": 1252922
+    },
+    {
+      "id": "c5682a536788f3e9c5fee30eaa7f0ee1e71c171c8ca7c7c9af8137555fb51881",
+      "service": "mongo",
+      "name": "/campus-v2-sale24-c-mongo-1",
+      "image_id": "sha256:1ce32a37610486d753a81cc7ca9c719964679e37eb0aa8b4b521578b883d0147",
+      "image": "mongodb/mongodb-atlas-local:8.0.4@sha256:1ce32a37610486d753a81cc7ca9c719964679e37eb0aa8b4b521578b883d0147",
+      "limits": {
+        "NanoCpus": 4000000000,
+        "Memory": 8589934592,
+        "MemorySwap": 17179869184,
+        "CpuQuota": 0,
+        "CpuPeriod": 0,
+        "CpusetCpus": ""
+      },
+      "pid": 1250609
+    }
+  ],
+  "mounts": [
+    {
+      "container": "0b88fdd5e8eea0d7a6c61c63dd7a8c134f397b4b70eb0e3da8c042fafb71f89e",
+      "service": "nginx",
+      "type": "bind",
+      "source": "/tmp/campus-v2-config24/deploy/nginx-v2.conf",
+      "destination": "/etc/nginx/nginx.conf",
+      "mode": "ro",
+      "rw": false,
+      "propagation": "rprivate"
+    },
+    {
+      "container": "bc9f0db9b35185e2b09e2f34972cbeea6294990ccd1dd80926828c393cf319f4",
+      "service": "redis",
+      "type": "volume",
+      "name": "1ce1b4b345e6750daf8c83a48fc9d3a9bc8a2966c369b7738a71f942ac40eeb8",
+      "source": "/var/lib/docker/volumes/1ce1b4b345e6750daf8c83a48fc9d3a9bc8a2966c369b7738a71f942ac40eeb8/_data",
+      "destination": "/data",
+      "driver": "local",
+      "mode": "",
+      "rw": true,
+      "propagation": ""
+    },
+    {
+      "container": "c5682a536788f3e9c5fee30eaa7f0ee1e71c171c8ca7c7c9af8137555fb51881",
+      "service": "mongo",
+      "type": "volume",
+      "name": "campus-v2-sale24-c_mongo-config",
+      "source": "/var/lib/docker/volumes/campus-v2-sale24-c_mongo-config/_data",
+      "destination": "/data/configdb",
+      "driver": "local",
+      "mode": "rw",
+      "rw": true,
+      "propagation": ""
+    },
+    {
+      "container": "c5682a536788f3e9c5fee30eaa7f0ee1e71c171c8ca7c7c9af8137555fb51881",
+      "service": "mongo",
+      "type": "volume",
+      "name": "campus-v2-sale24-c_mongo-data",
+      "source": "/var/lib/docker/volumes/campus-v2-sale24-c_mongo-data/_data",
+      "destination": "/data/db",
+      "driver": "local",
+      "mode": "rw",
+      "rw": true,
+      "propagation": ""
+    },
+    {
+      "container": "c5682a536788f3e9c5fee30eaa7f0ee1e71c171c8ca7c7c9af8137555fb51881",
+      "service": "mongo",
+      "type": "volume",
+      "name": "campus-v2-sale24-c_search-data",
+      "source": "/var/lib/docker/volumes/campus-v2-sale24-c_search-data/_data",
+      "destination": "/data/mongot",
+      "driver": "local",
+      "mode": "rw",
+      "rw": true,
+      "propagation": ""
+    }
+  ],
+  "component_versions": {
+    "nginx": [
+      {
+        "returncode": 0,
+        "stdout": "",
+        "stderr": "nginx version: nginx/1.28.0\n",
+        "command": [
+          "docker",
+          "exec",
+          "0b88fdd5e8eea0d7a6c61c63dd7a8c134f397b4b70eb0e3da8c042fafb71f89e",
+          "nginx",
+          "-v"
+        ],
+        "utc": "2026-10-11T07:56:16.352215+00:00",
+        "duration_seconds": 0.04723445100535173
+      }
+    ],
+    "api-c2": [
+      {
+        "returncode": 1,
+        "stdout": "",
+        "stderr": "2026/10/11 07:56:16 usage: market serve | seed [--mode v2|full|small|stress|demo] [--random-seed 42] [--base-time RFC3339] [--reset]\n",
+        "command": [
+          "docker",
+          "exec",
+          "42d2c0435d27075710fc78cb2c7fa635cf43c13977e29ad21e2febb2642efdda",
+          "/market",
+          "--help"
+        ],
+        "utc": "2026-10-11T07:56:16.399498+00:00",
+        "duration_seconds": 0.04544991000148002
+      }
+    ],
+    "api-c1": [
+      {
+        "returncode": 1,
+        "stdout": "",
+        "stderr": "2026/10/11 07:56:16 usage: market serve | seed [--mode v2|full|small|stress|demo] [--random-seed 42] [--base-time RFC3339] [--reset]\n",
+        "command": [
+          "docker",
+          "exec",
+          "02bde8b1ef5bb688f1ead854932cc91ddde8dfcd2389c1e4e49635d592aa496a",
+          "/market",
+          "--help"
+        ],
+        "utc": "2026-10-11T07:56:16.445018+00:00",
+        "duration_seconds": 0.050703479995718226
+      }
+    ],
+    "redis": [
+      {
+        "returncode": 0,
+        "stdout": "Redis server v=7.4.2 sha=00000000:0 malloc=jemalloc-5.3.0 bits=64 build=9bc0dc34e778d2e\n",
+        "stderr": "",
+        "command": [
+          "docker",
+          "exec",
+          "bc9f0db9b35185e2b09e2f34972cbeea6294990ccd1dd80926828c393cf319f4",
+          "redis-server",
+          "--version"
+        ],
+        "utc": "2026-10-11T07:56:16.495771+00:00",
+        "duration_seconds": 0.046670331998029724
+      }
+    ],
+    "mongo": [
+      {
+        "returncode": 0,
+        "stdout": "db version v8.0.4\nBuild Info: {\n    \"version\": \"8.0.4\",\n    \"gitVersion\": \"bc35ab4305d9920d9d0491c1c9ef9b72383d31f9\",\n    \"openSSLVersion\": \"OpenSSL 3.5.8 25 Aug 2026\",\n    \"modules\": [],\n    \"allocator\": \"tcmalloc-google\",\n    \"environment\": {\n        \"distmod\": \"rhel93\",\n        \"distarch\": \"x86_64\",\n        \"target_arch\": \"x86_64\"\n    }\n}\n",
+        "stderr": "",
+        "command": [
+          "docker",
+          "exec",
+          "c5682a536788f3e9c5fee30eaa7f0ee1e71c171c8ca7c7c9af8137555fb51881",
+          "mongod",
+          "--version"
+        ],
+        "utc": "2026-10-11T07:56:16.542487+00:00",
+        "duration_seconds": 0.06653635900875088
+      },
+      {
+        "returncode": 0,
+        "stdout": "1.76.0\n",
+        "stderr": "WARNING: Using incubator modules: jdk.incubator.vector\n",
+        "command": [
+          "docker",
+          "exec",
+          "c5682a536788f3e9c5fee30eaa7f0ee1e71c171c8ca7c7c9af8137555fb51881",
+          "/opt/mongot/mongot",
+          "--version"
+        ],
+        "utc": "2026-10-11T07:56:16.609072+00:00",
+        "duration_seconds": 0.43144413198751863
+      }
+    ]
+  },
+  "application_version": "Git commit plus immutable image ID (application has no version flag)",
+  "client": {
+    "pids": [],
+    "affinity": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17
+    ],
+    "cgroup": "0::/user.slice/user-1000.slice/user@1000.service/app.slice/app-graphical.slice/kitty-6475-0.scope\n",
+    "limits": "Limit                     Soft Limit           Hard Limit           Units     \nMax cpu time              unlimited            unlimited            seconds   \nMax file size             unlimited            unlimited            bytes     \nMax data size             unlimited            unlimited            bytes     \nMax stack size            8388608              unlimited            bytes     \nMax core file size        unlimited            unlimited            bytes     \nMax resident set          unlimited            unlimited            bytes     \nMax processes             126572               126572               processes \nMax open files            65536                524288               files     \nMax locked memory         8388608              8388608              bytes     \nMax address space         unlimited            unlimited            bytes     \nMax file locks            unlimited            unlimited            locks     \nMax pending signals       126572               126572               signals   \nMax msgqueue size         819200               819200               bytes     \nMax nice priority         0                    0                    \nMax realtime priority     0                    0                    \nMax realtime timeout      unlimited            unlimited            us        \n",
+    "cgroup_budget": {
+      "cpu.max": {
+        "returncode": 1,
+        "stdout": "",
+        "stderr": "cat: /sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/app.slice/app-graphical.slice/kitty-6475-0.scope/cpu.max: No such file or directory\n",
+        "command": [
+          "cat",
+          "/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/app.slice/app-graphical.slice/kitty-6475-0.scope/cpu.max"
+        ],
+        "utc": "2026-10-11T07:56:17.040721+00:00",
+        "duration_seconds": 0.002269813005113974
+      },
+      "memory.max": {
+        "returncode": 0,
+        "stdout": "max\n",
+        "stderr": "",
+        "command": [
+          "cat",
+          "/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/app.slice/app-graphical.slice/kitty-6475-0.scope/memory.max"
+        ],
+        "utc": "2026-10-11T07:56:17.043123+00:00",
+        "duration_seconds": 0.0022165129921631888
+      },
+      "memory.swap.max": {
+        "returncode": 0,
+        "stdout": "max\n",
+        "stderr": "",
+        "command": [
+          "cat",
+          "/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/app.slice/app-graphical.slice/kitty-6475-0.scope/memory.swap.max"
+        ],
+        "utc": "2026-10-11T07:56:17.045451+00:00",
+        "duration_seconds": 0.002028121001785621
+      },
+      "cpuset.cpus.effective": {
+        "returncode": 1,
+        "stdout": "",
+        "stderr": "cat: /sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/app.slice/app-graphical.slice/kitty-6475-0.scope/cpuset.cpus.effective: No such file or directory\n",
+        "command": [
+          "cat",
+          "/sys/fs/cgroup/user.slice/user-1000.slice/user@1000.service/app.slice/app-graphical.slice/kitty-6475-0.scope/cpuset.cpus.effective"
+        ],
+        "utc": "2026-10-11T07:56:17.047556+00:00",
+        "duration_seconds": 0.001943515002494678
+      }
+    },
+    "pid_context": {}
+  },
+  "collector": {
+    "pid": 1276664,
+    "python": "3.14.7 (main, Aug 10 2026, 07:46:56) [GCC 16.1.1 20260728]",
+    "sampling_seconds": 1
+  }
+}

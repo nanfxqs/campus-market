@@ -1,0 +1,10 @@
+{
+  "counts": {
+    "users": 10000,
+    "products": 230000,
+    "listings": 50000,
+    "transactions": 300000,
+    "priceChanges": 575000
+  },
+  "sold": 180000
+}

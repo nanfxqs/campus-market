@@ -1,0 +1,8 @@
+{
+  "configuration": "B",
+  "database": "campus_v2_sale24_b",
+  "project": "campus-v2-sale24-b",
+  "baseTime": "2026-10-11T00:00:00Z",
+  "prepareSeconds": 56,
+  "requiresFreshLogin": true
+}

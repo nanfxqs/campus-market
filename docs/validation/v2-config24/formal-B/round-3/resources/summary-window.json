@@ -1,0 +1,335 @@
+{
+  "schema_version": 1,
+  "units": {
+    "cpu_percent": "100% = one logical CPU core; delta user+system process time",
+    "rss_bytes": "resident pages; shared pages may overlap across processes",
+    "container_memory_bytes": "cgroup current includes file cache; not attributed to MongoDB or Search twice"
+  },
+  "sample_count": 27,
+  "first_utc": "2026-10-11T07:41:01.950108+00:00",
+  "last_utc": "2026-10-11T07:41:27.950129+00:00",
+  "components": {
+    "application": {
+      "status": "measured",
+      "rss_bytes": {
+        "samples": 27,
+        "mean": 34192801.18518519,
+        "peak": 51691520
+      },
+      "cpu_percent": {
+        "samples": 26,
+        "mean": 197.09866961976704,
+        "peak": 202.2263983172734
+      },
+      "unavailable_samples": 0
+    },
+    "mongodb": {
+      "status": "measured",
+      "rss_bytes": {
+        "samples": 27,
+        "mean": 1770897408,
+        "peak": 1770995712
+      },
+      "cpu_percent": {
+        "samples": 27,
+        "mean": 259.65900148111433,
+        "peak": 286.9797978707087
+      },
+      "unavailable_samples": 0
+    },
+    "search": {
+      "status": "measured",
+      "rss_bytes": {
+        "samples": 27,
+        "mean": 1858286781.6296296,
+        "peak": 1899417600
+      },
+      "cpu_percent": {
+        "samples": 27,
+        "mean": 33.26010715455394,
+        "peak": 86.78994396455857
+      },
+      "unavailable_samples": 0
+    },
+    "redis": {
+      "status": "measured",
+      "rss_bytes": {
+        "samples": 27,
+        "mean": 16490496,
+        "peak": 16490496
+      },
+      "cpu_percent": {
+        "samples": 27,
+        "mean": 0.2595365106899481,
+        "peak": 1.0264848224849725
+      },
+      "unavailable_samples": 0
+    },
+    "nginx": {
+      "status": "absent",
+      "rss_bytes": {
+        "samples": 0,
+        "mean": null,
+        "peak": null
+      },
+      "cpu_percent": {
+        "samples": 0,
+        "mean": null,
+        "peak": null
+      },
+      "unavailable_samples": 0
+    },
+    "client": {
+      "status": "measured",
+      "rss_bytes": {
+        "samples": 27,
+        "mean": 85540864,
+        "peak": 85540864
+      },
+      "cpu_percent": {
+        "samples": 27,
+        "mean": 71.25734111225519,
+        "peak": 82.84606393480878
+      },
+      "unavailable_samples": 0
+    },
+    "collector": {
+      "status": "measured",
+      "rss_bytes": {
+        "samples": 27,
+        "mean": 19423232,
+        "peak": 19554304
+      },
+      "cpu_percent": {
+        "samples": 27,
+        "mean": 0.3684887765172372,
+        "peak": 1.996567999438394
+      },
+      "unavailable_samples": 0
+    },
+    "other": {
+      "status": "measured",
+      "rss_bytes": {
+        "samples": 27,
+        "mean": 38684141.03703704,
+        "peak": 295686144
+      },
+      "cpu_percent": {
+        "samples": 25,
+        "mean": 0.08036500241978607,
+        "peak": 1.0103060910091066
+      },
+      "unavailable_samples": 0
+    }
+  },
+  "processes": {
+    "api-b:1170126": {
+      "component": "application",
+      "rss_bytes": {
+        "samples": 27,
+        "mean": 33436861.62962963,
+        "peak": 34668544
+      },
+      "cpu_percent": {
+        "samples": 27,
+        "mean": 197.21875060497194,
+        "peak": 202.2263983172734
+      }
+    },
+    "api-b:1177654": {
+      "component": "application",
+      "rss_bytes": {
+        "samples": 1,
+        "mean": 20410368,
+        "peak": 20410368
+      },
+      "cpu_percent": {
+        "samples": 0,
+        "mean": null,
+        "peak": null
+      }
+    },
+    "mongo:1166663": {
+      "component": "other",
+      "rss_bytes": {
+        "samples": 27,
+        "mean": 22790144,
+        "peak": 22790144
+      },
+      "cpu_percent": {
+        "samples": 27,
+        "mean": 0.0744120392775797,
+        "peak": 1.0103060910091066
+      }
+    },
+    "mongo:1166730": {
+      "component": "mongodb",
+      "rss_bytes": {
+        "samples": 27,
+        "mean": 1770897408,
+        "peak": 1770995712
+      },
+      "cpu_percent": {
+        "samples": 27,
+        "mean": 259.65900148111433,
+        "peak": 286.9797978707087
+      }
+    },
+    "mongo:1166843": {
+      "component": "search",
+      "rss_bytes": {
+        "samples": 27,
+        "mean": 1858286781.6296296,
+        "peak": 1899417600
+      },
+      "cpu_percent": {
+        "samples": 27,
+        "mean": 33.26010715455394,
+        "peak": 86.78994396455857
+      }
+    },
+    "mongo:1176305": {
+      "component": "other",
+      "rss_bytes": {
+        "samples": 1,
+        "mean": 156241920,
+        "peak": 156241920
+      },
+      "cpu_percent": {
+        "samples": 0,
+        "mean": null,
+        "peak": null
+      }
+    },
+    "mongo:1177420": {
+      "component": "other",
+      "rss_bytes": {
+        "samples": 1,
+        "mean": 272896000,
+        "peak": 272896000
+      },
+      "cpu_percent": {
+        "samples": 0,
+        "mean": null,
+        "peak": null
+      }
+    },
+    "redis:1168962": {
+      "component": "redis",
+      "rss_bytes": {
+        "samples": 27,
+        "mean": 16490496,
+        "peak": 16490496
+      },
+      "cpu_percent": {
+        "samples": 27,
+        "mean": 0.2595365106899481,
+        "peak": 1.0264848224849725
+      }
+    },
+    "None:1175041": {
+      "component": "client",
+      "rss_bytes": {
+        "samples": 27,
+        "mean": 85540864,
+        "peak": 85540864
+      },
+      "cpu_percent": {
+        "samples": 27,
+        "mean": 71.25734111225519,
+        "peak": 82.84606393480878
+      }
+    },
+    "None:1175080": {
+      "component": "collector",
+      "rss_bytes": {
+        "samples": 27,
+        "mean": 19423232,
+        "peak": 19554304
+      },
+      "cpu_percent": {
+        "samples": 27,
+        "mean": 0.3684887765172372,
+        "peak": 1.996567999438394
+      }
+    }
+  },
+  "containers": {
+    "redis": {
+      "id": "4e461818aa3d738c2da0ca06ebb66329f092afd8719610072925ce1d557a133b",
+      "memory_bytes": {
+        "samples": 27,
+        "mean": 9125736.296296297,
+        "peak": 9543680
+      },
+      "cpu_percent": {
+        "samples": 26,
+        "mean": 0.8010503793917684,
+        "peak": 4.502789807730098
+      }
+    },
+    "mongo": {
+      "id": "b86d3ce858cd8617fb8b2f689ce2575d55cb29d72f05cfe28f06c3a9ef3a0e97",
+      "memory_bytes": {
+        "samples": 27,
+        "mean": 3999211216.5925927,
+        "peak": 4202754048
+      },
+      "cpu_percent": {
+        "samples": 26,
+        "mean": 303.5694151941035,
+        "peak": 388.4690631820763
+      }
+    },
+    "api-b": {
+      "id": "cf7e68f134bde91f245f2f94cfe46b75ab67aec24cd2d8302936e878c7a613a8",
+      "memory_bytes": {
+        "samples": 27,
+        "mean": 42691090.96296296,
+        "peak": 51679232
+      },
+      "cpu_percent": {
+        "samples": 26,
+        "mean": 199.02740140798082,
+        "peak": 202.52855147305877
+      }
+    }
+  },
+  "host": {
+    "cpu_percent_of_all_cores": {
+      "samples": 26,
+      "mean": 37.607984486929425,
+      "peak": 43.33513221802483
+    },
+    "memory_used_bytes": {
+      "samples": 27,
+      "mean": 16771431537.777779,
+      "peak": 16983826432
+    }
+  },
+  "coverage": {
+    "window": {
+      "start_unix_ns": 1791704461481070775,
+      "end_unix_ns": 1791704488465767998,
+      "configured_deadline_unix_ns": 1791705061481070775,
+      "covered": true
+    },
+    "max_gap_seconds": 1.0000244719994953
+  },
+  "collector": {
+    "collection_seconds": {
+      "samples": 27,
+      "mean": 0.08883694222216339,
+      "peak": 0.10065576800116105
+    },
+    "cpu_seconds": 0.15,
+    "accounting": {
+      "self_cpu_seconds": 0.28149799999999997,
+      "children_cpu_seconds": 4.917379,
+      "self_peak_rss_bytes": 43122688,
+      "children_peak_rss_bytes": 57729024,
+      "note": "Linux ru_maxrss in KiB; children CPU includes Docker CLI, not daemon/exec-process CPU. Their cost remains in host/container observations."
+    },
+    "note": "Collector process CPU includes initial environment/storage. docker exec child costs also appear in sampled host/container totals; no background daemon overhead subtraction."
+  }
+}

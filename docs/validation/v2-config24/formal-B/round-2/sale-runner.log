@@ -1,0 +1,10 @@
+ campus-v2-sale24-b-mongo-1 Copying /tmp/campus-v2-config24/docs/validation/v2-config24/formal-B/round-2/restore/manifest.json to campus-v2-sale24-b-mongo-1:/tmp/v2-load-manifest.json
+ campus-v2-sale24-b-mongo-1 Copied /tmp/campus-v2-config24/docs/validation/v2-config24/formal-B/round-2/restore/manifest.json to campus-v2-sale24-b-mongo-1:/tmp/v2-load-manifest.json
+{
+  "output": "/tmp/campus-v2-config24/docs/validation/v2-config24/formal-B/round-2/sale",
+  "onTimeUniqueSales": 30000,
+  "consistent": true,
+  "passed": true,
+  "formalPassed": true,
+  "locustExit": 0
+}

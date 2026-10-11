@@ -1,0 +1,24 @@
+{
+  "project": "campus-v2-sale24-c",
+  "database": "campus_v2_sale24_c",
+  "api": "http://127.0.0.1:8090",
+  "configuration": "C",
+  "state": "cold",
+  "pattern": "hotspot",
+  "output": "/tmp/campus-v2-config24/docs/validation/v2-config24/hotspot/C-cold",
+  "duration": 60.0,
+  "idle_seconds": 30.0,
+  "seed": 42,
+  "formal": true,
+  "locust": null,
+  "confirm_isolated_cache": true,
+  "fullDataset": true,
+  "locustVersion": "locust 2.46.6 from /tmp/campus-v2-config24/experiments/.venv/lib/python3.12/site-packages/locust (Python 3.12.14)\n",
+  "git": "1ed9b63ed194e73d1d2a397cd633be37622f997a",
+  "gitStatus": "?? docs/validation/v2-config24/\n",
+  "sourceHashes": {
+    "scripts/run-detail-load.py": "e5f1876a1067d21fbf4eb660c0c4796c1347bb8198f2cfee82c92bff30abc054",
+    "experiments/detail_locust.py": "31244c07fb77bda7556e622d76f464339cbbb0103a75c9d8db26a32987c0e8bc",
+    "experiments/summarize_details.py": "bba2ad688a6b4ebac5c934e53528f2cc0b5c23e18eddf7602754884e448746d5"
+  }
+}

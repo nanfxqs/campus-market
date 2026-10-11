@@ -1,0 +1,246 @@
+{
+  "schemaVersion": 1,
+  "formal": true,
+  "requests": 57721,
+  "lateReceipts": 48,
+  "errors": 0,
+  "errorRate": 0.0,
+  "throughputPerSecond": 962.0166666666667,
+  "latencyMs": {
+    "median": 24.061894000624306,
+    "p95": 91.60948899807408,
+    "p99": 292.68178799247835
+  },
+  "telemetry": {
+    "hit": 56455,
+    "fallback": 1266,
+    "missing": 0,
+    "mongoQueries": 232150,
+    "mongoBsonBytes": 55270139,
+    "cacheErrors": 1266,
+    "hitRate": 0.978066908057726
+  },
+  "pool": {
+    "count": 100,
+    "sha256": "4180065e92b77e9da98e8f88e287f6927a2b754943676b234bcc31967932f384",
+    "seed": 42,
+    "pattern": "hotspot"
+  },
+  "consumedPrefixes": {
+    "0": {
+      "requests": 1147,
+      "lastSequenceIndex": 1146
+    },
+    "1": {
+      "requests": 1154,
+      "lastSequenceIndex": 1153
+    },
+    "2": {
+      "requests": 1159,
+      "lastSequenceIndex": 1158
+    },
+    "3": {
+      "requests": 1152,
+      "lastSequenceIndex": 1151
+    },
+    "4": {
+      "requests": 1160,
+      "lastSequenceIndex": 1159
+    },
+    "5": {
+      "requests": 1165,
+      "lastSequenceIndex": 1164
+    },
+    "6": {
+      "requests": 1159,
+      "lastSequenceIndex": 1158
+    },
+    "7": {
+      "requests": 1155,
+      "lastSequenceIndex": 1154
+    },
+    "8": {
+      "requests": 1162,
+      "lastSequenceIndex": 1161
+    },
+    "9": {
+      "requests": 1172,
+      "lastSequenceIndex": 1171
+    },
+    "10": {
+      "requests": 1156,
+      "lastSequenceIndex": 1155
+    },
+    "11": {
+      "requests": 1146,
+      "lastSequenceIndex": 1145
+    },
+    "12": {
+      "requests": 1156,
+      "lastSequenceIndex": 1155
+    },
+    "13": {
+      "requests": 1128,
+      "lastSequenceIndex": 1127
+    },
+    "14": {
+      "requests": 1154,
+      "lastSequenceIndex": 1153
+    },
+    "15": {
+      "requests": 1147,
+      "lastSequenceIndex": 1146
+    },
+    "16": {
+      "requests": 1141,
+      "lastSequenceIndex": 1140
+    },
+    "17": {
+      "requests": 1150,
+      "lastSequenceIndex": 1149
+    },
+    "18": {
+      "requests": 1147,
+      "lastSequenceIndex": 1146
+    },
+    "19": {
+      "requests": 1163,
+      "lastSequenceIndex": 1162
+    },
+    "20": {
+      "requests": 1144,
+      "lastSequenceIndex": 1143
+    },
+    "21": {
+      "requests": 1160,
+      "lastSequenceIndex": 1159
+    },
+    "22": {
+      "requests": 1156,
+      "lastSequenceIndex": 1155
+    },
+    "23": {
+      "requests": 1152,
+      "lastSequenceIndex": 1151
+    },
+    "24": {
+      "requests": 1164,
+      "lastSequenceIndex": 1163
+    },
+    "25": {
+      "requests": 1158,
+      "lastSequenceIndex": 1157
+    },
+    "26": {
+      "requests": 1156,
+      "lastSequenceIndex": 1155
+    },
+    "27": {
+      "requests": 1152,
+      "lastSequenceIndex": 1151
+    },
+    "28": {
+      "requests": 1153,
+      "lastSequenceIndex": 1152
+    },
+    "29": {
+      "requests": 1147,
+      "lastSequenceIndex": 1146
+    },
+    "30": {
+      "requests": 1149,
+      "lastSequenceIndex": 1148
+    },
+    "31": {
+      "requests": 1154,
+      "lastSequenceIndex": 1153
+    },
+    "32": {
+      "requests": 1164,
+      "lastSequenceIndex": 1163
+    },
+    "33": {
+      "requests": 1153,
+      "lastSequenceIndex": 1152
+    },
+    "34": {
+      "requests": 1146,
+      "lastSequenceIndex": 1145
+    },
+    "35": {
+      "requests": 1158,
+      "lastSequenceIndex": 1157
+    },
+    "36": {
+      "requests": 1145,
+      "lastSequenceIndex": 1144
+    },
+    "37": {
+      "requests": 1157,
+      "lastSequenceIndex": 1156
+    },
+    "38": {
+      "requests": 1152,
+      "lastSequenceIndex": 1151
+    },
+    "39": {
+      "requests": 1175,
+      "lastSequenceIndex": 1174
+    },
+    "40": {
+      "requests": 1156,
+      "lastSequenceIndex": 1155
+    },
+    "41": {
+      "requests": 1157,
+      "lastSequenceIndex": 1156
+    },
+    "42": {
+      "requests": 1159,
+      "lastSequenceIndex": 1158
+    },
+    "43": {
+      "requests": 1158,
+      "lastSequenceIndex": 1157
+    },
+    "44": {
+      "requests": 1154,
+      "lastSequenceIndex": 1153
+    },
+    "45": {
+      "requests": 1157,
+      "lastSequenceIndex": 1156
+    },
+    "46": {
+      "requests": 1157,
+      "lastSequenceIndex": 1156
+    },
+    "47": {
+      "requests": 1123,
+      "lastSequenceIndex": 1122
+    },
+    "48": {
+      "requests": 1157,
+      "lastSequenceIndex": 1156
+    },
+    "49": {
+      "requests": 1175,
+      "lastSequenceIndex": 1174
+    }
+  },
+  "sequenceValid": true,
+  "resourceCoverage": {
+    "window": {
+      "start_unix_ns": 1791705410836199023,
+      "end_unix_ns": 1791705470836199023,
+      "configured_deadline_unix_ns": 1791705470836199023,
+      "covered": true
+    },
+    "max_gap_seconds": 1.0004556240019156
+  },
+  "passed": true,
+  "cacheFallbacks": 1266,
+  "cacheHealthy": false,
+  "normalPassed": true,
+  "formalPassed": true
+}

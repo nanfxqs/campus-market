@@ -1,0 +1,5 @@
+{"at": "2026-10-11T07:52:39Z", "database": "campus_v2_readiness_13dcd64277692d539688165ee2349f3b", "returnCode": 0, "stdout": "[]\n", "stderr": ""}
+{"at": "2026-10-11T07:52:41Z", "database": "campus_v2_readiness_13dcd64277692d539688165ee2349f3b", "returnCode": 0, "stdout": "[]\n", "stderr": ""}
+{"at": "2026-10-11T07:52:43Z", "database": "campus_v2_readiness_13dcd64277692d539688165ee2349f3b", "returnCode": 0, "stdout": "[]\n", "stderr": ""}
+{"at": "2026-10-11T07:52:44Z", "database": "campus_v2_readiness_13dcd64277692d539688165ee2349f3b", "returnCode": 0, "stdout": "{\"ok\":1,\"dropped\":\"campus_v2_readiness_13dcd64277692d539688165ee2349f3b\"}\n", "stderr": ""}
+{"result": "ready", "project": "campus-v2-sale24-c", "probeDatabaseDropped": "campus_v2_readiness_13dcd64277692d539688165ee2349f3b"}
