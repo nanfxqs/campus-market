@@ -1,0 +1,10 @@
+{
+  "counts": {
+    "users": 2,
+    "products": 2,
+    "listings": 2,
+    "transactions": 0,
+    "priceChanges": 0
+  },
+  "sold": 0
+}

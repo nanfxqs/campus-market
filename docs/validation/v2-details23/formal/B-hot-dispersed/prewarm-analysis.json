@@ -1,0 +1,45 @@
+{
+  "visits": 230000,
+  "httpErrors": 0,
+  "cacheModes": {
+    "miss": 197549,
+    "fallback": 32451
+  },
+  "recordedCacheErrorHeaders": "not recorded in original warm receipts; unavailable per request",
+  "remainingKeys": 129839,
+  "expiredKeysAtEnd": 44485,
+  "evictedKeysAtEnd": 0,
+  "notRetainedAfterRemovingRecordedExpiries": 55676,
+  "observedProcessInterval": {
+    "first": {
+      "utc": "2026-10-11T07:04:42.642146276Z",
+      "requests": 73061,
+      "hits": 53927,
+      "misses": 14057,
+      "errors": 6426,
+      "fallbacks": 5082,
+      "mongo_queries": 311378,
+      "mongo_bson_bytes": 85144766
+    },
+    "last": {
+      "utc": "2026-10-11T07:19:43.012913150Z",
+      "requests": 302997,
+      "hits": 53927,
+      "misses": 211569,
+      "errors": 64443,
+      "fallbacks": 37533,
+      "mongo_queries": 1461058,
+      "mongo_bson_bytes": 500247009
+    },
+    "deltas": {
+      "requests": 229936,
+      "hits": 0,
+      "misses": 197512,
+      "errors": 58017,
+      "fallbacks": 32451,
+      "mongo_queries": 1149680,
+      "mongo_bson_bytes": 415102243
+    },
+    "note": "Actual cumulative counter interval within warming; omits first/last partial seconds, not exact whole-phase SET failures"
+  }
+}

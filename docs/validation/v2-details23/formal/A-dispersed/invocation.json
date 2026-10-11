@@ -1,0 +1,24 @@
+{
+  "project": "campus-v2-detail-formal23",
+  "database": "campus_v2_detail_formal23",
+  "api": "http://127.0.0.1:8087",
+  "configuration": "A",
+  "state": "disabled",
+  "pattern": "dispersed",
+  "output": "/tmp/campus-v2-details/docs/validation/v2-details23/formal/A-dispersed",
+  "duration": 60,
+  "idle_seconds": 30,
+  "seed": 42,
+  "formal": true,
+  "locust": null,
+  "confirm_isolated_cache": true,
+  "fullDataset": true,
+  "locustVersion": "locust 2.46.6 from /tmp/campus-v2-details/experiments/.venv/lib/python3.12/site-packages/locust (Python 3.12.14)\n",
+  "git": "b195858e241dcaae27a66d6b0b2e030cb3748213",
+  "gitStatus": "?? docs/validation/v2-details23/formal/\n",
+  "sourceHashes": {
+    "scripts/run-detail-load.py": "e5f1876a1067d21fbf4eb660c0c4796c1347bb8198f2cfee82c92bff30abc054",
+    "experiments/detail_locust.py": "31244c07fb77bda7556e622d76f464339cbbb0103a75c9d8db26a32987c0e8bc",
+    "experiments/summarize_details.py": "882a8bc1bf6d6f23524b373a261aab420c8bbe3009420ec093cdecb4cbd0096b"
+  }
+}
