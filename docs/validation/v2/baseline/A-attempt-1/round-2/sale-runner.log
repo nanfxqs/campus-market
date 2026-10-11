@@ -1,0 +1,10 @@
+ campus-v2-baseline18-mongo-1 Copying /tmp/campus-v2-baseline/docs/validation/v2/baseline/A-attempt-1/round-2/restore/manifest.json to campus-v2-baseline18-mongo-1:/tmp/v2-load-manifest.json
+ campus-v2-baseline18-mongo-1 Copied /tmp/campus-v2-baseline/docs/validation/v2/baseline/A-attempt-1/round-2/restore/manifest.json to campus-v2-baseline18-mongo-1:/tmp/v2-load-manifest.json
+{
+  "output": "/tmp/campus-v2-baseline/docs/validation/v2/baseline/A-attempt-1/round-2/sale",
+  "onTimeUniqueSales": 30000,
+  "consistent": true,
+  "passed": true,
+  "formalPassed": true,
+  "locustExit": 0
+}
