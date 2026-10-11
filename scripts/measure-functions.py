@@ -3,6 +3,7 @@
 import argparse
 import datetime
 import json
+import hashlib
 import math
 import pathlib
 import re
@@ -95,7 +96,7 @@ configuration = subprocess.check_output(compose+['config'], text=True)
 for label, command in [('machine',['uname','-a']),('cpu',['lscpu']),('memory',['free','-b']),('disk',['df','-B1','.']),('docker',['docker','version']),('compose-version',['docker','compose','version']),('images',compose+['images']),('git',['git','rev-parse','HEAD']),('git-status',['git','status','--short'])]:
     result=subprocess.run(command,text=True,capture_output=True)
     (out/(label+'.txt')).write_text(result.stdout+result.stderr)
-parameters = {'run_id':run_id,'started_at':datetime.datetime.now(datetime.timezone.utc).isoformat(),'project':args.project,'database':args.database,'url':args.url,'samples_per_feature':args.samples,'formal':args.samples==100,'single_client':True,'warmups_per_feature':1,'percentile_method':'nearest rank ceil(p*n), milliseconds','initial_scale':initial,'read_cases':{'category':'bicycles','search_query':'单车','detail_product':'000000000000000000000001','seller':'buyer'},'write_price_cents':12345,'sale_price_cents':10001,'expiry_samples':10,'ttl_poll_seconds':2,'ttl_timeout_seconds':args.ttl_timeout}
+parameters = {'source_sha256':hashlib.sha256(pathlib.Path(__file__).read_bytes()).hexdigest(),'run_id':run_id,'started_at':datetime.datetime.now(datetime.timezone.utc).isoformat(),'project':args.project,'database':args.database,'url':args.url,'samples_per_feature':args.samples,'formal':args.samples==100,'single_client':True,'warmups_per_feature':1,'percentile_method':'nearest rank ceil(p*n), milliseconds','initial_scale':initial,'read_cases':{'category':'bicycles','search_query':'单车','detail_product':'000000000000000000000001','seller':'buyer'},'write_price_cents':12345,'sale_price_cents':10001,'expiry_samples':10,'ttl_poll_seconds':2,'ttl_timeout_seconds':args.ttl_timeout}
 (out/'parameters.json').write_text(json.dumps(parameters,ensure_ascii=False,indent=2))
 token = http('POST','/auth/login',{'username':'seller','password':'CampusDemo123!'})['accessToken']
 ready = search_wait('单车',initial['bicycles'])
