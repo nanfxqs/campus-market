@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "configuration": "B",
+  "project": "campus-v2-restore15",
+  "database": "campus_v2_restore15",
+  "api": "http://127.0.0.1:8082",
+  "manifest": "/tmp/campus-v2-context/v2-seed-manifest.json",
+  "output": "/tmp/campus-v2-load-short1",
+  "formal": false,
+  "duration": 10.0,
+  "products": 200,
+  "timeout": 25.0,
+  "retries": 2,
+  "settle": 2.0,
+  "startedUTC": "2026-10-11T06:06:40.178279+00:00",
+  "git": "fa29f77ca675136c6c3d024adb1cfe6839fe5b4d",
+  "worktree": " M .dockerignore\n?? .gitignore\n?? docs/validation/v2/load/\n?? experiments/\n?? scripts/run-sale-load.py\n?? scripts/snapshot-sale-load.js\n"
+}
