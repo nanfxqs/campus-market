@@ -1,0 +1,2 @@
+7ca86666bdb7444d0006424bc93dd0b64b16352e1bfc7ef3f75f457fa233ef52  docs/validation/v2/seed/manifest.json
+fc9448c525dc3ca807c22613acb62b7a29ac7b9ad29f1bb026fcc2d37214fa61  /tmp/campus-v2-restore15-final/manifest.json

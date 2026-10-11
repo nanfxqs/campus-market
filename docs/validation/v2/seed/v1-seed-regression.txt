@@ -1,0 +1,27 @@
+ Container campus-v2-seed15-verify-run-8f891e28d6a8 Creating 
+ Container campus-v2-seed15-verify-run-8f891e28d6a8 Created 
+=== RUN   TestSeedCLIResetAndReproduction
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /health                   --> github.com/nanfxqs/campus-market/internal/market.newAPI.func1 (3 handlers)
+[GIN-debug] POST   /auth/login               --> github.com/nanfxqs/campus-market/internal/market.newAPI.func2 (3 handlers)
+[GIN-debug] GET    /users/me                 --> github.com/nanfxqs/campus-market/internal/market.newAPI.func4 (4 handlers)
+[GIN-debug] PATCH  /users/me                 --> github.com/nanfxqs/campus-market/internal/market.newAPI.func5 (4 handlers)
+[GIN-debug] GET    /users/:id/home           --> github.com/nanfxqs/campus-market/internal/market.newAPI.func6 (3 handlers)
+[GIN-debug] GET    /products                 --> github.com/nanfxqs/campus-market/internal/market.productRoutes.func1 (3 handlers)
+[GIN-debug] GET    /categories               --> github.com/nanfxqs/campus-market/internal/market.productRoutes.func2 (3 handlers)
+[GIN-debug] POST   /products                 --> github.com/nanfxqs/campus-market/internal/market.productRoutes.func3 (4 handlers)
+[GIN-debug] PUT    /products/:id             --> github.com/nanfxqs/campus-market/internal/market.productRoutes.func4 (4 handlers)
+[GIN-debug] GET    /products/:id             --> github.com/nanfxqs/campus-market/internal/market.productRoutes.func5 (3 handlers)
+[GIN-debug] GET    /products/:id/price-history --> github.com/nanfxqs/campus-market/internal/market.productRoutes.func6 (3 handlers)
+[GIN-debug] POST   /products/:id/sale        --> github.com/nanfxqs/campus-market/internal/market.saleRoutes.func1 (4 handlers)
+[GIN-debug] GET    /search                   --> github.com/nanfxqs/campus-market/internal/market.newAPI.func7 (3 handlers)
+[GIN-debug] PATCH  /products/:id/price       --> github.com/nanfxqs/campus-market/internal/market.priceRoutes.func1 (4 handlers)
+[GIN-debug] GET    /categories/:id/condition-counts --> github.com/nanfxqs/campus-market/internal/market.statisticsRoutes.func1 (3 handlers)
+[GIN-debug] GET    /openapi.json             --> github.com/nanfxqs/campus-market/internal/market.newAPI.func8 (3 handlers)
+[GIN-debug] GET    /docs                     --> github.com/nanfxqs/campus-market/internal/market.newAPI.func9 (3 handlers)
+--- PASS: TestSeedCLIResetAndReproduction (10.39s)
+PASS
+ok  	github.com/nanfxqs/campus-market/internal/market	10.400s
