@@ -96,6 +96,9 @@ try:
 finally:
     for process in (client,collector):
         if process and process.poll() is None:process.terminate();process.wait(timeout=120)
+# Capture owned service logs after timing; capture status remains explicit and auxiliary.
+with (out/'server-log-capture.log').open('w') as log:
+    subprocess.run([sys.executable,str(ROOT/'scripts/capture-v2-logs.py'),'--project',a.project,'--output',str(out/'server-logs')],cwd=ROOT,stdout=log,stderr=subprocess.STDOUT)
 save('cache-after.json',{'dbsize':int(redis_cmd('DBSIZE')),'memory':redis_cmd('INFO','memory'),'statistics':redis_cmd('INFO','stats')})
 after=json.loads(command(['docker','exec',mongo,'mongosh','--quiet',a.database,'--eval','print(JSON.stringify({products:db.products.countDocuments({}),sold:db.products.countDocuments({sold:true}),transactions:db.transactions.countDocuments({})}))']))
 save('dataset-after.json',after)

@@ -1,0 +1,145 @@
+ Network campus-v2-sale24-c_default Creating 
+ Network campus-v2-sale24-c_default Creating 
+ Volume campus-v2-sale24-c_mongo-data Creating 
+ Volume campus-v2-sale24-c_mongo-data Creating 
+ Volume campus-v2-sale24-c_mongo-config Creating 
+ Volume campus-v2-sale24-c_mongo-config Creating 
+ Volume campus-v2-sale24-c_search-data Creating 
+ Volume campus-v2-sale24-c_search-data Creating 
+ Volume campus-v2-sale24-c_mongo-config Created 
+ Volume campus-v2-sale24-c_mongo-config Created 
+ Volume campus-v2-sale24-c_mongo-data Created 
+ Volume campus-v2-sale24-c_mongo-data Created 
+ Volume campus-v2-sale24-c_search-data Created 
+ Volume campus-v2-sale24-c_search-data Created 
+ Network campus-v2-sale24-c_default Created 
+ Network campus-v2-sale24-c_default Created 
+ Container campus-v2-sale24-c-mongo-1 Creating 
+ Container campus-v2-sale24-c-mongo-1 Created 
+ Container campus-v2-sale24-c-mongo-1 Starting 
+ Container campus-v2-sale24-c-mongo-1 Started 
+ Container campus-v2-sale24-c-mongo-1 Waiting 
+ Container campus-v2-sale24-c-mongo-1 Healthy 
+ Image campus-v2-sale24-c-api-a Building 
+ Image campus-v2-sale24-c-api-b Building 
+ Image campus-v2-sale24-c-api-c1 Building 
+ Image campus-v2-sale24-c-api-c2 Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 1.81kB done
+#1 DONE 0.0s
+
+#2 [api-c1 internal] load build definition from Dockerfile
+#2 transferring dockerfile: 491B done
+#2 DONE 0.0s
+
+#3 [api-c1 internal] load metadata for docker.io/library/debian:bookworm-slim@sha256:7c7b2c966bc9ee8cedfeef67e0e279108992c77681fa595db4a9d65c06ccc587
+#3 DONE 0.0s
+
+#4 [api-b internal] load metadata for docker.io/library/golang:1.24.2-bookworm@sha256:79390b5e5af9ee6e7b1173ee3eac7fadf6751a545297672916b59bfa0ecf6f71
+#4 DONE 0.0s
+
+#5 [api-b internal] load .dockerignore
+#5 transferring context: 294B done
+#5 DONE 0.0s
+
+#6 [api-b tools 1/7] FROM docker.io/library/golang:1.24.2-bookworm@sha256:79390b5e5af9ee6e7b1173ee3eac7fadf6751a545297672916b59bfa0ecf6f71
+#6 resolve docker.io/library/golang:1.24.2-bookworm@sha256:79390b5e5af9ee6e7b1173ee3eac7fadf6751a545297672916b59bfa0ecf6f71 0.0s done
+#6 DONE 0.0s
+
+#7 [api-c2 stage-1 1/3] FROM docker.io/library/debian:bookworm-slim@sha256:7c7b2c966bc9ee8cedfeef67e0e279108992c77681fa595db4a9d65c06ccc587
+#7 resolve docker.io/library/debian:bookworm-slim@sha256:7c7b2c966bc9ee8cedfeef67e0e279108992c77681fa595db4a9d65c06ccc587 0.0s done
+#7 DONE 0.0s
+
+#8 [api-c2 internal] load build context
+#8 transferring context: 4.79kB done
+#8 DONE 0.0s
+
+#9 [api-b tools 5/7] COPY . .
+#9 CACHED
+
+#10 [api-b tools 6/7] RUN go build -o /validation ./validation
+#10 CACHED
+
+#11 [api-b stage-1 2/3] COPY --from=tools /validation /validation
+#11 CACHED
+
+#12 [api-b tools 7/7] RUN go build -o /market ./cmd/market
+#12 CACHED
+
+#13 [api-b tools 3/7] COPY go.mod go.sum ./
+#13 CACHED
+
+#14 [api-b tools 2/7] WORKDIR /src
+#14 CACHED
+
+#15 [api-b tools 4/7] RUN go mod download
+#15 CACHED
+
+#16 [api-c2 stage-1 3/3] COPY --from=tools /market /market
+#16 CACHED
+
+#17 [api-a] exporting to image
+#17 exporting layers done
+#17 exporting manifest sha256:e8780db735bbd82dec38596d234e1ce844b5ade1c1123ddfe2bc5f69858d7243 0.0s done
+#17 exporting config sha256:165dcfedd4ed454c756d0b8e6d0bca6726907cb43f176c041ee29b0e9555c1c7 0.0s done
+#17 exporting attestation manifest sha256:8451c0b4432c95f2848166b0282baa3ce8c9fa18fb91b73d7259ad8b7f0eaf7d
+#17 exporting attestation manifest sha256:8451c0b4432c95f2848166b0282baa3ce8c9fa18fb91b73d7259ad8b7f0eaf7d 0.0s done
+#17 exporting manifest list sha256:f11742cc28746096c2601c7961d2332ea6a529e408a2a72629e3a1d73509db75 0.0s done
+#17 naming to docker.io/library/campus-v2-sale24-c-api-a:latest done
+#17 unpacking to docker.io/library/campus-v2-sale24-c-api-a:latest 0.0s done
+#17 DONE 0.1s
+
+#18 [api-c1] exporting to image
+#18 exporting layers done
+#18 exporting manifest sha256:fc81e016413df363e0c9e556ef5738676dd0511fbcac4f04c4e917da993170a8 0.0s done
+#18 exporting config sha256:09ee82c230f9d9607d53b7a4ecac6d3dd45428e43c22209dc62da4d34b9570e8 0.0s done
+#18 exporting attestation manifest sha256:1406ae97f749acfc239f70f43945041742edc337f134037a515df7b970ad9e85 0.0s done
+#18 exporting manifest list sha256:7b71fa053301be97ddf4039957e95e60aa19d429e89f82cd38b3ef2dcb885246 0.0s done
+#18 naming to docker.io/library/campus-v2-sale24-c-api-c1:latest done
+#18 unpacking to docker.io/library/campus-v2-sale24-c-api-c1:latest 0.0s done
+#18 DONE 0.1s
+
+#19 [api-c2] exporting to image
+#19 exporting layers done
+#19 exporting manifest sha256:06883341f9018b3b58150103fb3d67b719245cd73f0a66bbe0af82a4eecfe1cf 0.0s done
+#19 exporting config sha256:68ab3634cfca5f6bee9397b83a65c2e2bbb45133ed2be4b71e5f2866716a4bd4 0.0s done
+#19 exporting attestation manifest sha256:c0ab4f6aaaf9eb434f4d56d63457909188b37dce2dcb0518089d2d1aeea358c1 0.0s done
+#19 exporting manifest list sha256:2c6895a3d3e604bcd2112f53da05f6dd268d58d5bd82ebfc2f15fe598a25146c 0.0s done
+#19 naming to docker.io/library/campus-v2-sale24-c-api-c2:latest done
+#19 unpacking to docker.io/library/campus-v2-sale24-c-api-c2:latest 0.0s done
+#19 DONE 0.1s
+
+#20 [api-b] exporting to image
+#20 exporting layers done
+#20 exporting manifest sha256:7cf27c1867cfc4d7df59cac2cc7d757594a860a496716bc1651c04373982130f 0.0s done
+#20 exporting config sha256:fed871cc50c0b2246c71038e9b00743228ca97d3b3f0211930176e762d1b1f65 0.0s done
+#20 exporting attestation manifest sha256:49df8d1b35eadfcf166180b2adaf1883999ee0da2b532d984515aacb6ecb0575 0.0s done
+#20 exporting manifest list sha256:f5e12666ccd2ef6cb47a531ebe54ab8a74db0a8f22f49eef67218d5319e6fa6c 0.0s done
+#20 naming to docker.io/library/campus-v2-sale24-c-api-b:latest done
+#20 unpacking to docker.io/library/campus-v2-sale24-c-api-b:latest 0.0s done
+#20 DONE 0.1s
+
+#21 [api-c1] resolving provenance for metadata file
+#21 DONE 0.1s
+
+#22 [api-b] resolving provenance for metadata file
+#22 DONE 0.0s
+
+#23 [api-c2] resolving provenance for metadata file
+#23 DONE 0.1s
+
+#24 [api-a] resolving provenance for metadata file
+#24 DONE 0.0s
+ Image campus-v2-sale24-c-api-a Built 
+ Image campus-v2-sale24-c-api-b Built 
+ Image campus-v2-sale24-c-api-c1 Built 
+ Image campus-v2-sale24-c-api-c2 Built 
+ Container campus-v2-sale24-c-redis-1 Creating 
+ Container campus-v2-sale24-c-redis-1 Created 
+ Container campus-v2-sale24-c-redis-1 Starting 
+ Container campus-v2-sale24-c-redis-1 Started 
+ Container campus-v2-sale24-c-redis-1 Waiting 
+ Container campus-v2-sale24-c-redis-1 Healthy 
+ campus-v2-sale24-c-mongo-1 Copying /tmp/campus-v2-config24/docs/validation/v2-config24/formal-C/round-1/restore/manifest.json to campus-v2-sale24-c-mongo-1:/tmp/v2-manifest.json
+ campus-v2-sale24-c-mongo-1 Copied /tmp/campus-v2-config24/docs/validation/v2-config24/formal-C/round-1/restore/manifest.json to campus-v2-sale24-c-mongo-1:/tmp/v2-manifest.json
+Restored C; preparation=76s. Load must log in again and wait for Search readiness before timing.

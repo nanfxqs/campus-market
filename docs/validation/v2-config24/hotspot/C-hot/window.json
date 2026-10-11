@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "readyUsers": 50,
+  "expectedUsers": 50,
+  "durationSeconds": 60.0,
+  "formal": true,
+  "preparationStartedUnixNs": 1791705408983746582,
+  "finalized": true,
+  "startUnixNs": 1791705410836199023,
+  "startMonotonic": 66361.330772173,
+  "deadlineUnixNs": 1791705470836199023,
+  "preparationSeconds": 1.852452441,
+  "deadlineReachedUnixNs": 1791705470836581979,
+  "finishedUnixNs": 1791705471170195505
+}

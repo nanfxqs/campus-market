@@ -1,0 +1,7 @@
+{
+  "self_cpu_seconds": 0.28607099999999996,
+  "children_cpu_seconds": 4.851015,
+  "self_peak_rss_bytes": 20844544,
+  "children_peak_rss_bytes": 56467456,
+  "note": "Linux ru_maxrss in KiB; children CPU includes Docker CLI, not daemon/exec-process CPU. Their cost remains in host/container observations."
+}

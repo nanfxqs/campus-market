@@ -125,6 +125,9 @@ def main():
             if manifest.exists():
                 with manifest.open('rb') as source,gzip.open(str(manifest)+'.gz','wb',compresslevel=3) as destination: destination.write(source.read())
                 manifest.unlink()
+            # Auxiliary capture failure is recorded separately from the measured business result.
+            with open(round_dir/'server-log-capture.log','w') as log:
+                subprocess.run([sys.executable,str(ROOT/'scripts/capture-v2-logs.py'),'--project',arguments.project,'--output',str(round_dir/'server-logs')],cwd=ROOT,stdout=log,stderr=subprocess.STDOUT)
             with open(round_dir/'stop.log','w') as log: subprocess.run([*dc,'stop'],cwd=ROOT,env=environment,stdout=log,stderr=subprocess.STDOUT)
         print(json.dumps(result),flush=True)
     result=summarize(output)

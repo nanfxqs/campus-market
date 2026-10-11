@@ -1,0 +1,92 @@
+[
+  {
+    "run": "A-hotspot",
+    "source": "docs/validation/v2-details23/formal/A-hotspot",
+    "requests": 62383,
+    "rps": 1039.7166666666667,
+    "latencyMs": {
+      "median": 32.513981001102366,
+      "p95": 47.174456994980574,
+      "p99": 55.287463997956365
+    },
+    "errors": 0,
+    "cacheErrors": 0,
+    "hitRate": null,
+    "queriesPerRead": 4.0,
+    "bsonBytesPerRead": 1504.8363496465383,
+    "lateReceipts": 20,
+    "poolSHA256": "4180065e92b77e9da98e8f88e287f6927a2b754943676b234bcc31967932f384"
+  },
+  {
+    "run": "B-cold-hotspot",
+    "source": "docs/validation/v2-details23/formal/B-cold-hotspot",
+    "requests": 28517,
+    "rps": 475.28333333333336,
+    "latencyMs": {
+      "median": 53.351276998000685,
+      "p95": 199.9250189983286,
+      "p99": 227.11452999647008
+    },
+    "errors": 0,
+    "cacheErrors": 1487,
+    "hitRate": 0.9443489848160747,
+    "queriesPerRead": 4.055651015183925,
+    "bsonBytesPerRead": 986.5110986429147,
+    "lateReceipts": 50,
+    "poolSHA256": "4180065e92b77e9da98e8f88e287f6927a2b754943676b234bcc31967932f384"
+  },
+  {
+    "run": "B-hot-hotspot",
+    "source": "docs/validation/v2-details23/formal/B-hot-hotspot",
+    "requests": 28512,
+    "rps": 475.2,
+    "latencyMs": {
+      "median": 54.78253150067758,
+      "p95": 199.25420799700078,
+      "p99": 220.52715199970407
+    },
+    "errors": 0,
+    "cacheErrors": 1562,
+    "hitRate": 0.9452160493827161,
+    "queriesPerRead": 4.054783950617284,
+    "bsonBytesPerRead": 986.0323021885522,
+    "lateReceipts": 50,
+    "poolSHA256": "4180065e92b77e9da98e8f88e287f6927a2b754943676b234bcc31967932f384"
+  },
+  {
+    "run": "C-cold",
+    "source": "docs/validation/v2-config24/hotspot/C-cold",
+    "requests": 57640,
+    "rps": 960.6666666666666,
+    "latencyMs": {
+      "median": 22.742886503692716,
+      "p95": 112.96187700645532,
+      "p99": 298.6329220002517
+    },
+    "errors": 0,
+    "cacheErrors": 1297,
+    "hitRate": 0.975763358778626,
+    "queriesPerRead": 4.024236641221374,
+    "bsonBytesPerRead": 959.6287126995143,
+    "lateReceipts": 48,
+    "poolSHA256": "4180065e92b77e9da98e8f88e287f6927a2b754943676b234bcc31967932f384"
+  },
+  {
+    "run": "C-hot",
+    "source": "docs/validation/v2-config24/hotspot/C-hot",
+    "requests": 57721,
+    "rps": 962.0166666666667,
+    "latencyMs": {
+      "median": 24.061894000624306,
+      "p95": 91.60948899807408,
+      "p99": 292.68178799247835
+    },
+    "errors": 0,
+    "cacheErrors": 1266,
+    "hitRate": 0.978066908057726,
+    "queriesPerRead": 4.021933091942274,
+    "bsonBytesPerRead": 957.5395263422324,
+    "lateReceipts": 48,
+    "poolSHA256": "4180065e92b77e9da98e8f88e287f6927a2b754943676b234bcc31967932f384"
+  }
+]

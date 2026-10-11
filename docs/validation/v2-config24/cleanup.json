@@ -1,0 +1,15 @@
+{
+  "releasedUTC": "2026-10-11T07:58:29.327221+00:00",
+  "ownedResources": {
+    "campus-v2-sale24-b": {
+      "containers": [],
+      "volumes": [],
+      "networks": []
+    },
+    "campus-v2-sale24-c": {
+      "containers": [],
+      "volumes": [],
+      "networks": []
+    }
+  }
+}

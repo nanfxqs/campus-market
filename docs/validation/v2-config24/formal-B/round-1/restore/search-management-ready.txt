@@ -1,0 +1,6 @@
+{"at": "2026-10-11T07:32:41Z", "database": "campus_v2_readiness_33ca8b1753ea1781626278d71be76916", "returnCode": 1, "stdout": "", "stderr": "MongoServerError: PlanExecutor error during aggregation :: caused by :: Error connecting to Search Index Management service.\n"}
+{"at": "2026-10-11T07:32:43Z", "database": "campus_v2_readiness_33ca8b1753ea1781626278d71be76916", "returnCode": 0, "stdout": "[]\n", "stderr": ""}
+{"at": "2026-10-11T07:32:45Z", "database": "campus_v2_readiness_33ca8b1753ea1781626278d71be76916", "returnCode": 0, "stdout": "[]\n", "stderr": ""}
+{"at": "2026-10-11T07:32:48Z", "database": "campus_v2_readiness_33ca8b1753ea1781626278d71be76916", "returnCode": 0, "stdout": "[]\n", "stderr": ""}
+{"at": "2026-10-11T07:32:48Z", "database": "campus_v2_readiness_33ca8b1753ea1781626278d71be76916", "returnCode": 0, "stdout": "{\"ok\":1,\"dropped\":\"campus_v2_readiness_33ca8b1753ea1781626278d71be76916\"}\n", "stderr": ""}
+{"result": "ready", "project": "campus-v2-sale24-b", "probeDatabaseDropped": "campus_v2_readiness_33ca8b1753ea1781626278d71be76916"}

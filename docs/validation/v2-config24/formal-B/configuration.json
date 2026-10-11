@@ -1,0 +1,15 @@
+{
+  "configuration": "B",
+  "rounds": 3,
+  "project": "campus-v2-sale24-b",
+  "database": "campus_v2_sale24_b",
+  "port": 8090,
+  "baseTime": "2026-10-11T00:00:00Z",
+  "randomSeed": 42,
+  "cutoffSeconds": 600,
+  "users": 50,
+  "targetProducts": 30000,
+  "idleSeconds": 10,
+  "git": "1ed9b63ed194e73d1d2a397cd633be37622f997a",
+  "worktree": ""
+}
