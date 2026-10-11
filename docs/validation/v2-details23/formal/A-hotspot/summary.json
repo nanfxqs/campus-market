@@ -1,0 +1,244 @@
+{
+  "schemaVersion": 1,
+  "formal": true,
+  "requests": 62383,
+  "lateReceipts": 20,
+  "errors": 0,
+  "errorRate": 0.0,
+  "throughputPerSecond": 1039.7166666666667,
+  "latencyMs": {
+    "median": 32.513981001102366,
+    "p95": 47.174456994980574,
+    "p99": 55.287463997956365
+  },
+  "telemetry": {
+    "disabled": 62383,
+    "missing": 0,
+    "mongoQueries": 249532,
+    "mongoBsonBytes": 93876206,
+    "cacheErrors": 0,
+    "hitRate": null
+  },
+  "pool": {
+    "count": 100,
+    "sha256": "4180065e92b77e9da98e8f88e287f6927a2b754943676b234bcc31967932f384",
+    "seed": 42,
+    "pattern": "hotspot"
+  },
+  "consumedPrefixes": {
+    "0": {
+      "requests": 1248,
+      "lastSequenceIndex": 1247
+    },
+    "1": {
+      "requests": 1248,
+      "lastSequenceIndex": 1247
+    },
+    "2": {
+      "requests": 1248,
+      "lastSequenceIndex": 1247
+    },
+    "3": {
+      "requests": 1248,
+      "lastSequenceIndex": 1247
+    },
+    "4": {
+      "requests": 1248,
+      "lastSequenceIndex": 1247
+    },
+    "5": {
+      "requests": 1247,
+      "lastSequenceIndex": 1246
+    },
+    "6": {
+      "requests": 1248,
+      "lastSequenceIndex": 1247
+    },
+    "7": {
+      "requests": 1248,
+      "lastSequenceIndex": 1247
+    },
+    "8": {
+      "requests": 1247,
+      "lastSequenceIndex": 1246
+    },
+    "9": {
+      "requests": 1248,
+      "lastSequenceIndex": 1247
+    },
+    "10": {
+      "requests": 1248,
+      "lastSequenceIndex": 1247
+    },
+    "11": {
+      "requests": 1248,
+      "lastSequenceIndex": 1247
+    },
+    "12": {
+      "requests": 1248,
+      "lastSequenceIndex": 1247
+    },
+    "13": {
+      "requests": 1248,
+      "lastSequenceIndex": 1247
+    },
+    "14": {
+      "requests": 1248,
+      "lastSequenceIndex": 1247
+    },
+    "15": {
+      "requests": 1248,
+      "lastSequenceIndex": 1247
+    },
+    "16": {
+      "requests": 1248,
+      "lastSequenceIndex": 1247
+    },
+    "17": {
+      "requests": 1248,
+      "lastSequenceIndex": 1247
+    },
+    "18": {
+      "requests": 1248,
+      "lastSequenceIndex": 1247
+    },
+    "19": {
+      "requests": 1248,
+      "lastSequenceIndex": 1247
+    },
+    "20": {
+      "requests": 1248,
+      "lastSequenceIndex": 1247
+    },
+    "21": {
+      "requests": 1248,
+      "lastSequenceIndex": 1247
+    },
+    "22": {
+      "requests": 1248,
+      "lastSequenceIndex": 1247
+    },
+    "23": {
+      "requests": 1248,
+      "lastSequenceIndex": 1247
+    },
+    "24": {
+      "requests": 1248,
+      "lastSequenceIndex": 1247
+    },
+    "25": {
+      "requests": 1248,
+      "lastSequenceIndex": 1247
+    },
+    "26": {
+      "requests": 1248,
+      "lastSequenceIndex": 1247
+    },
+    "27": {
+      "requests": 1247,
+      "lastSequenceIndex": 1246
+    },
+    "28": {
+      "requests": 1248,
+      "lastSequenceIndex": 1247
+    },
+    "29": {
+      "requests": 1248,
+      "lastSequenceIndex": 1247
+    },
+    "30": {
+      "requests": 1248,
+      "lastSequenceIndex": 1247
+    },
+    "31": {
+      "requests": 1247,
+      "lastSequenceIndex": 1246
+    },
+    "32": {
+      "requests": 1248,
+      "lastSequenceIndex": 1247
+    },
+    "33": {
+      "requests": 1248,
+      "lastSequenceIndex": 1247
+    },
+    "34": {
+      "requests": 1248,
+      "lastSequenceIndex": 1247
+    },
+    "35": {
+      "requests": 1248,
+      "lastSequenceIndex": 1247
+    },
+    "36": {
+      "requests": 1247,
+      "lastSequenceIndex": 1246
+    },
+    "37": {
+      "requests": 1247,
+      "lastSequenceIndex": 1246
+    },
+    "38": {
+      "requests": 1247,
+      "lastSequenceIndex": 1246
+    },
+    "39": {
+      "requests": 1247,
+      "lastSequenceIndex": 1246
+    },
+    "40": {
+      "requests": 1247,
+      "lastSequenceIndex": 1246
+    },
+    "41": {
+      "requests": 1247,
+      "lastSequenceIndex": 1246
+    },
+    "42": {
+      "requests": 1247,
+      "lastSequenceIndex": 1246
+    },
+    "43": {
+      "requests": 1247,
+      "lastSequenceIndex": 1246
+    },
+    "44": {
+      "requests": 1247,
+      "lastSequenceIndex": 1246
+    },
+    "45": {
+      "requests": 1247,
+      "lastSequenceIndex": 1246
+    },
+    "46": {
+      "requests": 1247,
+      "lastSequenceIndex": 1246
+    },
+    "47": {
+      "requests": 1247,
+      "lastSequenceIndex": 1246
+    },
+    "48": {
+      "requests": 1247,
+      "lastSequenceIndex": 1246
+    },
+    "49": {
+      "requests": 1248,
+      "lastSequenceIndex": 1247
+    }
+  },
+  "sequenceValid": true,
+  "resourceCoverage": {
+    "window": {
+      "start_unix_ns": 1791701624571946740,
+      "end_unix_ns": 1791701684571946740,
+      "configured_deadline_unix_ns": 1791701684571946740,
+      "covered": true
+    },
+    "max_gap_seconds": 1.0001666769967414
+  },
+  "passed": true,
+  "cacheFallbacks": 0,
+  "normalPassed": true,
+  "formalPassed": true
+}

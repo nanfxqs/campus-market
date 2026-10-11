@@ -1,0 +1,4 @@
+ Container campus-v2-detail-formal23-api-a-run-b1edacd5e800 Creating 
+ Container campus-v2-detail-formal23-api-a-run-b1edacd5e800 Created 
+2026/10/11 06:52:21 demo accounts: seller, buyer; password: CampusDemo123!
+{"baseTime":"2026-10-11T00:00:00Z","counts":{"users":10000,"active":50000,"sold":180000,"transactions":300000,"priceChanges":575000},"database":"campus_v2_detail_formal23","mode":"v2","randomSeed":42}
