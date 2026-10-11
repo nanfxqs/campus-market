@@ -1,0 +1,6 @@
+ Container campus-v2-restore15-api-b-1 Stopping 
+ Container campus-v2-restore15-redis-1 Stopping 
+ Container campus-v2-restore15-api-b-1 Stopped 
+ Container campus-v2-restore15-mongo-1 Stopping 
+ Container campus-v2-restore15-redis-1 Stopped 
+ Container campus-v2-restore15-mongo-1 Stopped 

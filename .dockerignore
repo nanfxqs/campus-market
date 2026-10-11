@@ -5,3 +5,6 @@
 docs/validation/
 experiments/results/
 results/
+# Locust tooling is installed by uv on the host, not copied into Go images.
+**/.venv/
+**/__pycache__/
