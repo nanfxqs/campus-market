@@ -177,6 +177,7 @@ func (cache *detailCache) load(c *gin.Context, db *mongo.Database, p *Product) b
 		}
 		if err != nil {
 			cache.errors.Add(1)
+			metrics.cacheErrors++
 			break
 		}
 		cache.misses.Add(1)
@@ -201,6 +202,7 @@ func (cache *detailCache) load(c *gin.Context, db *mongo.Database, p *Product) b
 		}
 		if _, err := cache.config.command(c.Request.Context(), "SET", key, string(encoded), "PX", strconv.FormatInt(max(1, ttl.Milliseconds()), 10)); err != nil {
 			cache.errors.Add(1)
+			metrics.cacheErrors++
 		}
 		return true
 	}
@@ -209,7 +211,7 @@ func (cache *detailCache) load(c *gin.Context, db *mongo.Database, p *Product) b
 	return productLoadError(c, read(bson.M{"_id": c.Param("id")}, nil, p))
 }
 
-type detailReadMetrics struct{ queries, bytes int }
+type detailReadMetrics struct{ queries, bytes, cacheErrors int }
 
 func detailMetrics(c *gin.Context) *detailReadMetrics {
 	value, _ := c.Get("detailReadMetrics")
