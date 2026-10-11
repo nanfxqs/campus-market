@@ -1,0 +1,126 @@
+ Container campus-v2-baseline18-api-a-1 Stopping 
+ Container campus-v2-baseline18-api-a-1 Stopped 
+ Container campus-v2-baseline18-mongo-1 Starting 
+ Container campus-v2-baseline18-mongo-1 Started 
+ Container campus-v2-baseline18-mongo-1 Waiting 
+ Container campus-v2-baseline18-mongo-1 Healthy 
+ Image campus-v2-baseline18-api-c2 Building 
+ Image campus-v2-baseline18-api-a Building 
+ Image campus-v2-baseline18-api-b Building 
+ Image campus-v2-baseline18-api-c1 Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 1.83kB done
+#1 DONE 0.0s
+
+#2 [api-c2 internal] load build definition from Dockerfile
+#2 transferring dockerfile: 491B done
+#2 DONE 0.0s
+
+#3 [api-a internal] load metadata for docker.io/library/debian:bookworm-slim@sha256:7c7b2c966bc9ee8cedfeef67e0e279108992c77681fa595db4a9d65c06ccc587
+#3 DONE 0.0s
+
+#4 [api-c1 internal] load metadata for docker.io/library/golang:1.24.2-bookworm@sha256:79390b5e5af9ee6e7b1173ee3eac7fadf6751a545297672916b59bfa0ecf6f71
+#4 DONE 0.0s
+
+#5 [api-c2 internal] load .dockerignore
+#5 transferring context: 294B done
+#5 DONE 0.0s
+
+#6 [api-a tools 1/7] FROM docker.io/library/golang:1.24.2-bookworm@sha256:79390b5e5af9ee6e7b1173ee3eac7fadf6751a545297672916b59bfa0ecf6f71
+#6 resolve docker.io/library/golang:1.24.2-bookworm@sha256:79390b5e5af9ee6e7b1173ee3eac7fadf6751a545297672916b59bfa0ecf6f71 0.0s done
+#6 DONE 0.0s
+
+#7 [api-c2 stage-1 1/3] FROM docker.io/library/debian:bookworm-slim@sha256:7c7b2c966bc9ee8cedfeef67e0e279108992c77681fa595db4a9d65c06ccc587
+#7 resolve docker.io/library/debian:bookworm-slim@sha256:7c7b2c966bc9ee8cedfeef67e0e279108992c77681fa595db4a9d65c06ccc587 0.0s done
+#7 DONE 0.0s
+
+#8 [api-c2 internal] load build context
+#8 transferring context: 4.33kB done
+#8 DONE 0.0s
+
+#9 [api-c1 tools 6/7] RUN go build -o /validation ./validation
+#9 CACHED
+
+#10 [api-c1 tools 3/7] COPY go.mod go.sum ./
+#10 CACHED
+
+#11 [api-c1 tools 5/7] COPY . .
+#11 CACHED
+
+#12 [api-c1 tools 2/7] WORKDIR /src
+#12 CACHED
+
+#13 [api-c1 tools 7/7] RUN go build -o /market ./cmd/market
+#13 CACHED
+
+#14 [api-c1 stage-1 2/3] COPY --from=tools /validation /validation
+#14 CACHED
+
+#15 [api-c1 tools 4/7] RUN go mod download
+#15 CACHED
+
+#16 [api-b stage-1 3/3] COPY --from=tools /market /market
+#16 CACHED
+
+#17 [api-b] exporting to image
+#17 exporting layers done
+#17 exporting manifest sha256:e44f241bedc8bbecf851ff37005398edf39ddab724df337730c6f5738a39374e done
+#17 exporting config sha256:5b1358b79e517fb81ca02ae56c4f973f9f2b761e9b7a036b6d0f4bf7acb710af done
+#17 exporting attestation manifest sha256:cac3c99e7173fcb5810fed95a3daae077f4a8ebb2fd99fd5ed142d8f771d7364 0.0s done
+#17 exporting manifest list sha256:15194fcb6d15c7e14141bc2bc398ce52acf5b4ccd5da5b226892c4496806bb58 0.0s done
+#17 naming to docker.io/library/campus-v2-baseline18-api-b:latest done
+#17 unpacking to docker.io/library/campus-v2-baseline18-api-b:latest 0.0s done
+#17 DONE 0.1s
+
+#18 [api-a] exporting to image
+#18 exporting layers done
+#18 exporting manifest sha256:dac72e299341efa05802d0ba04a9279094cd6ef2a03841c60688b658dedf4e43 done
+#18 exporting config sha256:18bf92f78ed14b7c5a57fcbb7dc798f12b3c3a124f7fd3014d1e26deca7532f6 done
+#18 exporting attestation manifest sha256:b8e533a842920c149bb6e454a5527433337c5e3ad0968ee63d3633a4cba90ddf 0.0s done
+#18 exporting manifest list sha256:d633b8b726ebc7af7012b41d2ba5cbc0db1f3a6b3f2d4cefbb40936df5129e97 0.0s done
+#18 naming to docker.io/library/campus-v2-baseline18-api-a:latest done
+#18 unpacking to docker.io/library/campus-v2-baseline18-api-a:latest 0.0s done
+#18 DONE 0.1s
+
+#19 [api-c1] exporting to image
+#19 exporting layers done
+#19 exporting manifest sha256:cf8f017cec02e4a24497051aa30690e28162eb82ec2a92645e260e95871c6e12 done
+#19 exporting config sha256:f4f37af1166fd7e0996ac3327ba36eba83e84070db63c3c14d459dbfc57396ca done
+#19 exporting attestation manifest sha256:1c36b45fc14ac2280de6a93d11d1cef8b99d276bdfcfe7974f4ae3630739c862 0.0s done
+#19 exporting manifest list sha256:8194eb279d7703212a5aa308ac7deb98f55370f474787a3841574ef69490993d 0.0s done
+#19 naming to docker.io/library/campus-v2-baseline18-api-c1:latest done
+#19 unpacking to docker.io/library/campus-v2-baseline18-api-c1:latest 0.0s done
+#19 DONE 0.1s
+
+#20 [api-c2] exporting to image
+#20 exporting layers done
+#20 exporting manifest sha256:b683f4cdfd05ee9c130d65a3c372eba0fda9d16915bf9e392edbdfceeab7556c done
+#20 exporting config sha256:d6d64720b3dddca666aff41e33214aefd72f8fe85a2613337c4a009468fbd154 done
+#20 exporting attestation manifest sha256:09a9e7b6af1c1c7ede0305e024a352802b5a6930b2e63969e90a3b44f8228780 0.0s done
+#20 exporting manifest list sha256:261f7f0bd2e849130ff6aa403872f1761feddebe20e8cd04954f39374f93d271 0.0s done
+#20 naming to docker.io/library/campus-v2-baseline18-api-c2:latest done
+#20 unpacking to docker.io/library/campus-v2-baseline18-api-c2:latest 0.0s done
+#20 DONE 0.1s
+
+#21 [api-b] resolving provenance for metadata file
+#21 DONE 0.1s
+
+#22 [api-a] resolving provenance for metadata file
+#22 DONE 0.1s
+
+#23 [api-c2] resolving provenance for metadata file
+#23 DONE 0.0s
+
+#24 [api-c1] resolving provenance for metadata file
+#24 DONE 0.0s
+ Image campus-v2-baseline18-api-a Built 
+ Image campus-v2-baseline18-api-b Built 
+ Image campus-v2-baseline18-api-c1 Built 
+ Image campus-v2-baseline18-api-c2 Built 
+ Container campus-v2-baseline18-redis-1 Starting 
+ Container campus-v2-baseline18-redis-1 Started 
+ Container campus-v2-baseline18-redis-1 Waiting 
+ Container campus-v2-baseline18-redis-1 Healthy 
+ campus-v2-baseline18-mongo-1 Copying /tmp/campus-v2-baseline/docs/validation/v2/baseline/A-attempt-1/round-2/restore/manifest.json to campus-v2-baseline18-mongo-1:/tmp/v2-manifest.json
+ campus-v2-baseline18-mongo-1 Copied /tmp/campus-v2-baseline/docs/validation/v2/baseline/A-attempt-1/round-2/restore/manifest.json to campus-v2-baseline18-mongo-1:/tmp/v2-manifest.json
+Restored A; preparation=78s. Load must log in again and wait for Search readiness before timing.

@@ -1,0 +1,15 @@
+{
+  "configuration": "A",
+  "rounds": 3,
+  "project": "campus-v2-baseline18",
+  "database": "campus_v2_baseline18",
+  "port": 8088,
+  "baseTime": "2026-10-11T00:00:00Z",
+  "randomSeed": 42,
+  "cutoffSeconds": 600,
+  "users": 50,
+  "targetProducts": 30000,
+  "idleSeconds": 10,
+  "git": "d7fe703d8afde977550acf3e0e5a6833204e23cb",
+  "worktree": ""
+}

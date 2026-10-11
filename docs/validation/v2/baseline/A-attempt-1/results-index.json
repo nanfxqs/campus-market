@@ -1,0 +1,203 @@
+{
+  "passed": true,
+  "rounds": [
+    {
+      "round": 1,
+      "passed": true,
+      "onTimeUniqueSales": 30000,
+      "consistent": true,
+      "formalPassed": true,
+      "resourceCoverage": true,
+      "measuredWindowSeconds": 44.28307389499969,
+      "initialFingerprintSHA256": "8b08050cc049ae34e7f6144831ebbe8f81cace322659e445e138707eaa4088af",
+      "metrics": {
+        "allLaunchedRequests": {
+          "requests": 30000,
+          "throughput": 677.4597461579448,
+          "p95Ms": 91.51675099565182,
+          "p99Ms": 102.90480100229615,
+          "errors": 0,
+          "errorRate": 0.0
+        },
+        "onTimeReceivedResponses": {
+          "requests": 30000,
+          "throughput": 677.4597461579448,
+          "p95Ms": 91.51675099565182,
+          "p99Ms": 102.90480100229615,
+          "errors": 0,
+          "errorRate": 0.0
+        },
+        "successfulResponses": {
+          "requests": 30000,
+          "throughput": 677.4597461579448,
+          "p95Ms": 91.51675099565182,
+          "p99Ms": 102.90480100229615,
+          "errors": 0,
+          "errorRate": 0.0
+        },
+        "businessConflicts": {
+          "requests": 0,
+          "throughput": 0.0,
+          "p95Ms": null,
+          "p99Ms": null,
+          "errors": 0,
+          "errorRate": 0
+        },
+        "otherFailures": {
+          "requests": 0,
+          "throughput": 0.0,
+          "p95Ms": null,
+          "p99Ms": null,
+          "errors": 0,
+          "errorRate": 0
+        }
+      },
+      "resourceSampleCount": 45,
+      "database": {
+        "consistent": true,
+        "newSuccessfulCount": 30000,
+        "globalDeltas": {
+          "successfulTransactions": 30000,
+          "sold": 30000,
+          "listings": -30000
+        },
+        "allTransactionDelta": 30000,
+        "nonSuccessTransactionDelta": 0,
+        "snapshotTime": "2026-10-11T06:41:26.858Z"
+      },
+      "barrierValidated": true
+    },
+    {
+      "round": 2,
+      "passed": true,
+      "onTimeUniqueSales": 30000,
+      "consistent": true,
+      "formalPassed": true,
+      "resourceCoverage": true,
+      "measuredWindowSeconds": 44.43703389499569,
+      "initialFingerprintSHA256": "8b08050cc049ae34e7f6144831ebbe8f81cace322659e445e138707eaa4088af",
+      "metrics": {
+        "allLaunchedRequests": {
+          "requests": 30000,
+          "throughput": 675.1125664887924,
+          "p95Ms": 91.38066499872366,
+          "p99Ms": 102.60299599758582,
+          "errors": 0,
+          "errorRate": 0.0
+        },
+        "onTimeReceivedResponses": {
+          "requests": 30000,
+          "throughput": 675.1125664887924,
+          "p95Ms": 91.38066499872366,
+          "p99Ms": 102.60299599758582,
+          "errors": 0,
+          "errorRate": 0.0
+        },
+        "successfulResponses": {
+          "requests": 30000,
+          "throughput": 675.1125664887924,
+          "p95Ms": 91.38066499872366,
+          "p99Ms": 102.60299599758582,
+          "errors": 0,
+          "errorRate": 0.0
+        },
+        "businessConflicts": {
+          "requests": 0,
+          "throughput": 0.0,
+          "p95Ms": null,
+          "p99Ms": null,
+          "errors": 0,
+          "errorRate": 0
+        },
+        "otherFailures": {
+          "requests": 0,
+          "throughput": 0.0,
+          "p95Ms": null,
+          "p99Ms": null,
+          "errors": 0,
+          "errorRate": 0
+        }
+      },
+      "resourceSampleCount": 45,
+      "database": {
+        "consistent": true,
+        "newSuccessfulCount": 30000,
+        "globalDeltas": {
+          "successfulTransactions": 30000,
+          "sold": 30000,
+          "listings": -30000
+        },
+        "allTransactionDelta": 30000,
+        "nonSuccessTransactionDelta": 0,
+        "snapshotTime": "2026-10-11T06:45:51.177Z"
+      },
+      "barrierValidated": true
+    },
+    {
+      "round": 3,
+      "passed": true,
+      "onTimeUniqueSales": 30000,
+      "consistent": true,
+      "formalPassed": true,
+      "resourceCoverage": true,
+      "measuredWindowSeconds": 44.4297171520011,
+      "initialFingerprintSHA256": "8b08050cc049ae34e7f6144831ebbe8f81cace322659e445e138707eaa4088af",
+      "metrics": {
+        "allLaunchedRequests": {
+          "requests": 30000,
+          "throughput": 675.2237448950045,
+          "p95Ms": 91.38270200492116,
+          "p99Ms": 101.14911900018342,
+          "errors": 0,
+          "errorRate": 0.0
+        },
+        "onTimeReceivedResponses": {
+          "requests": 30000,
+          "throughput": 675.2237448950045,
+          "p95Ms": 91.38270200492116,
+          "p99Ms": 101.14911900018342,
+          "errors": 0,
+          "errorRate": 0.0
+        },
+        "successfulResponses": {
+          "requests": 30000,
+          "throughput": 675.2237448950045,
+          "p95Ms": 91.38270200492116,
+          "p99Ms": 101.14911900018342,
+          "errors": 0,
+          "errorRate": 0.0
+        },
+        "businessConflicts": {
+          "requests": 0,
+          "throughput": 0.0,
+          "p95Ms": null,
+          "p99Ms": null,
+          "errors": 0,
+          "errorRate": 0
+        },
+        "otherFailures": {
+          "requests": 0,
+          "throughput": 0.0,
+          "p95Ms": null,
+          "p99Ms": null,
+          "errors": 0,
+          "errorRate": 0
+        }
+      },
+      "resourceSampleCount": 45,
+      "database": {
+        "consistent": true,
+        "newSuccessfulCount": 30000,
+        "globalDeltas": {
+          "successfulTransactions": 30000,
+          "sold": 30000,
+          "listings": -30000
+        },
+        "allTransactionDelta": 30000,
+        "nonSuccessTransactionDelta": 0,
+        "snapshotTime": "2026-10-11T06:50:15.271Z"
+      },
+      "barrierValidated": true
+    }
+  ]
+}
