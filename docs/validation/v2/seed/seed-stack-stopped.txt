@@ -1,0 +1,2 @@
+ Container campus-v2-seed15-mongo-1 Stopping 
+ Container campus-v2-seed15-mongo-1 Stopped 

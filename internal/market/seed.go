@@ -132,7 +132,9 @@ func SeedDataset(ctx context.Context, db *mongo.Database, o SeedOptions) (SeedCo
 		seller := i % counts.Users
 		sold := i >= backgroundActive && i < backgroundActive+counts.Sold
 		dedicated := o.Mode == "v2" && i >= backgroundActive+counts.Sold
- if dedicated { seller = i % 50 }
+		if dedicated {
+			seller = i % 50
+		}
 		published := o.BaseTime.Add(-time.Duration(1+rng.Intn(25)) * 24 * time.Hour)
 		if sold {
 			published = o.BaseTime.Add(-time.Duration(40+rng.Intn(15)) * 24 * time.Hour)
