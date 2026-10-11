@@ -1,0 +1,15 @@
+F
+======================================================================
+FAIL: test_one_failed_round_fails_the_configuration (test_formal_matrix.FormalMatrix.test_one_failed_round_fails_the_configuration)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/campus-v2-baseline/experiments/test_formal_matrix.py", line 18, in test_one_failed_round_fails_the_configuration
+    self.assertEqual(process.returncode,1,process.stderr)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 2 != 1 : /usr/bin/python3: can't open file '/tmp/campus-v2-baseline/scripts/run-formal-sales.py': [Errno 2] No such file or directory
+
+
+----------------------------------------------------------------------
+Ran 1 test in 0.017s
+
+FAILED (failures=1)

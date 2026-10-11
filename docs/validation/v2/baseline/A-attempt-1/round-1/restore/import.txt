@@ -1,0 +1,4 @@
+ Container campus-v2-baseline18-api-a-run-249528ce9f3d Creating 
+ Container campus-v2-baseline18-api-a-run-249528ce9f3d Created 
+{"baseTime":"2026-10-11T00:00:00Z","counts":{"users":10000,"active":50000,"sold":180000,"transactions":300000,"priceChanges":575000},"database":"campus_v2_baseline18","mode":"v2","randomSeed":42}
+2026/10/11 06:38:11 demo accounts: seller, buyer; password: CampusDemo123!

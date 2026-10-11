@@ -1,0 +1,10 @@
+{
+  "APP_CPUS": "2",
+  "APP_MEMORY": "512m",
+  "MONGO_CPUS": "4",
+  "MONGO_MEMORY": "8g",
+  "REDIS_CPUS": "1",
+  "REDIS_MEMORY": "256m",
+  "REDIS_MAXMEMORY": "128mb",
+  "REDIS_POLICY": "allkeys-lru"
+}

@@ -1,0 +1,8 @@
+{
+  "configuration": "A",
+  "database": "campus_v2_baseline18",
+  "project": "campus-v2-baseline18",
+  "baseTime": "2026-10-11T00:00:00Z",
+  "prepareSeconds": 78,
+  "requiresFreshLogin": true
+}
