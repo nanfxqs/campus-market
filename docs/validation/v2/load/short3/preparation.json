@@ -1,0 +1,29 @@
+{
+  "snapshotAndSearchSeconds": 10.008748059000936,
+  "command": [
+    "uv",
+    "run",
+    "--frozen",
+    "--project",
+    "/tmp/campus-v2-load/experiments",
+    "locust",
+    "-f",
+    "/tmp/campus-v2-load/experiments/sale_locust.py",
+    "--headless",
+    "--users",
+    "50",
+    "--spawn-rate",
+    "50",
+    "--exit-code-on-error",
+    "0",
+    "--host",
+    "http://127.0.0.1:8082",
+    "--stop-timeout",
+    "30s",
+    "--csv",
+    "/tmp/campus-v2-load-short3/locust",
+    "--csv-full-history",
+    "--html",
+    "/tmp/campus-v2-load-short3/locust.html"
+  ]
+}
