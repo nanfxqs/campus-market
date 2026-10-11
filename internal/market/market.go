@@ -108,6 +108,10 @@ func New(db *mongo.Database, ttl time.Duration) http.Handler {
 }
 
 func newAPI(db *mongo.Database, ttl time.Duration, clock func() time.Time) http.Handler {
+	return newAPIWithCache(db, ttl, clock, &detailCache{})
+}
+
+func newAPIWithCache(db *mongo.Database, ttl time.Duration, clock func() time.Time, cache *detailCache) http.Handler {
 	if ttl <= 0 {
 		panic("access token lifetime must be positive")
 	}
@@ -244,7 +248,7 @@ func newAPI(db *mongo.Database, ttl time.Duration, clock func() time.Time) http.
 		c.JSON(200, user)
 	})
 	router.GET("/users/:id/home", func(c *gin.Context) { sellerHome(c, db, clock) })
-	productRoutes(router, authorized, db, clock)
+	productRoutes(router, authorized, db, clock, cache)
 	saleRoutes(authorized, db, clock)
 	router.GET("/search", func(c *gin.Context) { searchPage(c, db, clock) })
 	priceRoutes(authorized, db, clock)

@@ -68,6 +68,27 @@ func main() {
 	if err := market.Initialize(ctx, db); err != nil {
 		log.Fatal(err)
 	}
-	server := http.Server{Addr: ":8080", Handler: market.New(db, time.Hour), ReadHeaderTimeout: 5 * time.Second, ReadTimeout: 10 * time.Second, WriteTimeout: 15 * time.Second, IdleTimeout: 60 * time.Second}
+	cache := market.RedisConfig{}
+	if os.Getenv("CACHE_ENABLED") == "true" {
+		cache.Address = os.Getenv("REDIS_ADDR")
+		if cache.Address == "" {
+			log.Fatal("REDIS_ADDR required when CACHE_ENABLED=true")
+		}
+		cache.TTL = durationEnv("CACHE_TTL", 10*time.Minute)
+		cache.Timeout = durationEnv("CACHE_TIMEOUT", 100*time.Millisecond)
+	}
+	server := http.Server{Addr: ":8080", Handler: market.NewWithCache(db, time.Hour, cache), ReadHeaderTimeout: 5 * time.Second, ReadTimeout: 10 * time.Second, WriteTimeout: 15 * time.Second, IdleTimeout: 60 * time.Second}
 	log.Fatal(server.ListenAndServe())
+}
+
+func durationEnv(name string, fallback time.Duration) time.Duration {
+	value := os.Getenv(name)
+	if value == "" {
+		return fallback
+	}
+	d, err := time.ParseDuration(value)
+	if err != nil || d <= 0 {
+		log.Fatalf("%s must be a positive duration", name)
+	}
+	return d
 }

@@ -1,0 +1,346 @@
+ Container campus-v2-cache19-tools-run-2c64b1112bb6 Creating 
+ Container campus-v2-cache19-tools-run-2c64b1112bb6 Created 
+=== RUN   TestExpiryLifecycleHTTP
+=== RUN   TestExpiryLifecycleHTTP/-1ms
+2026/10/11 05:53:18 detail_metrics scope=detail_returned_bson requests=1 hits=0 misses=0 errors=0 fallbacks=0 mongo_queries=4 mongo_bson_bytes=803
+    expiry_test.go:142: all entry points expiry=2026-10-11T05:54:17.448Z now=2026-10-11T05:54:17.447Z eligible=1
+=== RUN   TestExpiryLifecycleHTTP/0s
+2026/10/11 05:53:18 sale request rejected status=409 seller="seller" product="6acb244d19aef01a05f3c384"
+    expiry_test.go:142: all entry points expiry=2026-10-11T05:54:17.448Z now=2026-10-11T05:54:17.448Z eligible=0
+=== RUN   TestExpiryLifecycleHTTP/1ms
+2026/10/11 05:53:18 sale request rejected status=409 seller="seller" product="6acb244d19aef01a05f3c384"
+    expiry_test.go:142: all entry points expiry=2026-10-11T05:54:17.448Z now=2026-10-11T05:54:17.449Z eligible=0
+--- PASS: TestExpiryLifecycleHTTP (1.90s)
+    --- PASS: TestExpiryLifecycleHTTP/-1ms (0.03s)
+    --- PASS: TestExpiryLifecycleHTTP/0s (0.04s)
+    --- PASS: TestExpiryLifecycleHTTP/1ms (0.03s)
+=== RUN   TestExpiryTTLRetainsHistoryHTTP
+2026/10/11 05:53:19 detail_metrics scope=detail_returned_bson requests=1 hits=0 misses=0 errors=0 fallbacks=0 mongo_queries=4 mongo_bson_bytes=803
+2026/10/11 05:53:21 sale request rejected status=409 seller="seller" product="6acb244f19aef01a05f3c38b"
+2026/10/11 05:53:27 detail_metrics scope=detail_returned_bson requests=2 hits=0 misses=0 errors=0 fallbacks=0 mongo_queries=8 mongo_bson_bytes=1548
+2026/10/11 05:53:27 sale request rejected status=409 seller="seller" product="6acb244f19aef01a05f3c38b"
+    expiry_test.go:201: TTL database evidence db=campus_expiry_6acb244f19aef01a05f3c38a listing=6acb244f19aef01a05f3c38b count=0 expiresAt=2026-10-11T05:53:21.509Z observed=2026-10-11T05:53:27.075934532Z cleanup_delay=5.56693506s; archive, images, price history readable; sale and price changes rejected
+--- PASS: TestExpiryTTLRetainsHistoryHTTP (8.11s)
+=== RUN   TestSaleExactExpirationHTTP
+=== RUN   TestSaleExactExpirationHTTP/-1ms
+    sales_expiry_test.go:71: expiry=2026-10-11T05:53:27.521Z confirmation=2026-10-11T05:53:27.52Z code=sold
+=== RUN   TestSaleExactExpirationHTTP/0s
+2026/10/11 05:53:27 sale request rejected status=409 seller="seller" product="6acb245719aef01a05f3c38f"
+    sales_expiry_test.go:71: expiry=2026-10-11T05:53:27.521Z confirmation=2026-10-11T05:53:27.521Z code=product_expired
+=== RUN   TestSaleExactExpirationHTTP/1ms
+2026/10/11 05:53:27 sale request rejected status=409 seller="seller" product="6acb245719aef01a05f3c390"
+    sales_expiry_test.go:71: expiry=2026-10-11T05:53:27.521Z confirmation=2026-10-11T05:53:27.522Z code=product_expired
+--- PASS: TestSaleExactExpirationHTTP (0.77s)
+    --- PASS: TestSaleExactExpirationHTTP/-1ms (0.12s)
+    --- PASS: TestSaleExactExpirationHTTP/0s (0.10s)
+    --- PASS: TestSaleExactExpirationHTTP/1ms (0.10s)
+=== RUN   TestSaleTransactionRetryAcrossExpirationHTTP
+2026/10/11 05:53:28 sale request rejected status=409 seller="seller" product="6acb245819aef01a05f3c392"
+2026/10/11 05:53:28 sale request rejected status=409 seller="seller" product="6acb245819aef01a05f3c392"
+    sales_expiry_test.go:161: concurrent write forced transaction retry at expiry: no sale, eligibility retained, one replayable failure, no successful record or counter increment
+--- PASS: TestSaleTransactionRetryAcrossExpirationHTTP (0.56s)
+=== RUN   TestBrowseFiltersUnavailableAndOtherCategories
+--- PASS: TestBrowseFiltersUnavailableAndOtherCategories (1.12s)
+=== RUN   TestBrowseStablePaginationAndLimits
+--- PASS: TestBrowseStablePaginationAndLimits (0.57s)
+=== RUN   TestBrowseSwaggerContract
+--- PASS: TestBrowseSwaggerContract (0.53s)
+=== RUN   TestCachedDetailKeepsCurrentContentAndDynamicFields
+2026/10/11 05:53:31 detail_metrics scope=detail_returned_bson requests=1 hits=0 misses=1 errors=0 fallbacks=0 mongo_queries=5 mongo_bson_bytes=860
+--- PASS: TestCachedDetailKeepsCurrentContentAndDynamicFields (0.65s)
+=== RUN   TestCacheConcurrentEditsExpiryResetAndUnavailableRedis
+2026/10/11 05:53:31 detail_metrics scope=detail_returned_bson requests=1 hits=0 misses=1 errors=0 fallbacks=0 mongo_queries=5 mongo_bson_bytes=860
+2026/10/11 05:53:32 detail_metrics scope=detail_returned_bson requests=129 hits=101 misses=32 errors=0 fallbacks=0 mongo_queries=548 mongo_bson_bytes=74817
+2026/10/11 05:53:32 detail_metrics scope=detail_returned_bson requests=1 hits=0 misses=0 errors=1 fallbacks=1 mongo_queries=5 mongo_bson_bytes=807
+    cache_test.go:110: 8 readers x 20 reads overlap 10 committed HTTP edits; new reads, TTL, FLUSHDB rebuild, expiry fixture and unreachable Redis passed
+--- PASS: TestCacheConcurrentEditsExpiryResetAndUnavailableRedis (0.94s)
+=== RUN   TestDetailMetricsObserveColdAndWarmReads
+2026/10/11 05:53:32 detail_metrics scope=detail_returned_bson requests=1 hits=0 misses=1 errors=0 fallbacks=0 mongo_queries=5 mongo_bson_bytes=860
+    cache_test.go:132: state=miss queries=5 returned_bson_bytes=860
+    cache_test.go:132: state=hit queries=4 returned_bson_bytes=486
+--- PASS: TestDetailMetricsObserveColdAndWarmReads (0.66s)
+=== RUN   TestSeedLogin
+--- PASS: TestSeedLogin (0.81s)
+=== RUN   TestOwnProfileAndIdentityProtection
+--- PASS: TestOwnProfileAndIdentityProtection (0.76s)
+=== RUN   TestExpiredAccessToken
+--- PASS: TestExpiredAccessToken (0.76s)
+=== RUN   TestOpenAPIAndSwagger
+--- PASS: TestOpenAPIAndSwagger (0.55s)
+=== RUN   TestSeedCLIRefusesNonemptyDatabaseAndHashesCredentials
+    http_test.go:168: seed output: {"baseTime":"2026-10-10T00:00:00Z","counts":{"users":2,"active":0,"sold":0,"transactions":0,"priceChanges":0},"database":"campus_seed_test_6acb245f19aef01a05f3c3ac","mode":"demo","randomSeed":42}
+        2026/10/11 05:53:36 demo accounts: seller, buyer; password: CampusDemo123!
+    http_test.go:168: seed output: 2026/10/11 05:53:36 seed requires an empty database; use --reset to rebuild only the specified DB_NAME
+        exit status 1
+    http_test.go:168: seed output: 2026/10/11 05:53:36 MONGO_URI and a non-system DB_NAME are required
+        exit status 1
+--- PASS: TestSeedCLIRefusesNonemptyDatabaseAndHashesCredentials (0.94s)
+=== RUN   TestSellerChangesPriceWithoutExtendingEligibility
+2026/10/11 05:53:37 detail_metrics scope=detail_returned_bson requests=1 hits=0 misses=1 errors=0 fallbacks=0 mongo_queries=5 mongo_bson_bytes=1004
+--- PASS: TestSellerChangesPriceWithoutExtendingEligibility (0.76s)
+=== RUN   TestPriceHistoryThroughChangesAndUnavailableArchives
+2026/10/11 05:53:38 detail_metrics scope=detail_returned_bson requests=1 hits=0 misses=1 errors=0 fallbacks=0 mongo_queries=5 mongo_bson_bytes=1580
+=== RUN   TestPriceHistoryThroughChangesAndUnavailableArchives/expired
+=== RUN   TestPriceHistoryThroughChangesAndUnavailableArchives/delisted
+=== RUN   TestPriceHistoryThroughChangesAndUnavailableArchives/sold
+--- PASS: TestPriceHistoryThroughChangesAndUnavailableArchives (0.78s)
+    --- PASS: TestPriceHistoryThroughChangesAndUnavailableArchives/expired (0.02s)
+    --- PASS: TestPriceHistoryThroughChangesAndUnavailableArchives/delisted (0.02s)
+    --- PASS: TestPriceHistoryThroughChangesAndUnavailableArchives/sold (0.02s)
+=== RUN   TestPriceHistoryFailureRollsBackCurrentPrice
+2026/10/11 05:53:38 detail_metrics scope=detail_returned_bson requests=1 hits=0 misses=1 errors=0 fallbacks=0 mongo_queries=5 mongo_bson_bytes=860
+--- PASS: TestPriceHistoryFailureRollsBackCurrentPrice (0.66s)
+=== RUN   TestPriceSwaggerContract
+--- PASS: TestPriceSwaggerContract (0.54s)
+=== RUN   TestPublishHeterogeneousProductsAndReadCurrentSeller
+=== RUN   TestPublishHeterogeneousProductsAndReadCurrentSeller/textbooks
+2026/10/11 05:53:40 detail_metrics scope=detail_returned_bson requests=1 hits=0 misses=1 errors=0 fallbacks=0 mongo_queries=5 mongo_bson_bytes=953
+=== RUN   TestPublishHeterogeneousProductsAndReadCurrentSeller/bicycles
+=== RUN   TestPublishHeterogeneousProductsAndReadCurrentSeller/electronics
+--- PASS: TestPublishHeterogeneousProductsAndReadCurrentSeller (0.72s)
+    --- PASS: TestPublishHeterogeneousProductsAndReadCurrentSeller/textbooks (0.02s)
+    --- PASS: TestPublishHeterogeneousProductsAndReadCurrentSeller/bicycles (0.01s)
+    --- PASS: TestPublishHeterogeneousProductsAndReadCurrentSeller/electronics (0.01s)
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/unknown_category
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/required_author
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/author_type
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/number_type
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/boolean_type
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/array_type
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/nested_object
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/nested_array
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/null_scalar
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/null_array_element
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/null_attributes
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/too_many_extras
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/long_attribute_key
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/unsafe_key
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/long_attribute_string
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/long_array
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/long_string_in_array
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/zero_images
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/null_images
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/ten_images
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/file_URL
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/FTP_URL
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/relative_URL
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/missing_hostname
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/URL_credentials
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/long_URL
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/unknown_condition
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/missing_condition
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/empty_title
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/long_title
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/long_description
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/zero_price
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/negative_price
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/fractional_cents
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/price_limit
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/forged_seller
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/client_expiry
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/reserved_priceCents
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/reserved_images
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/reserved_condition
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/reserved_title
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/reserved_description
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/reserved_categoryId
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/reserved_sellerId
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/reserved_id
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/reserved_initialPriceCents
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/reserved_publishedAt
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/reserved_expiresAt
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/reserved_sold
+=== RUN   TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/reserved_priceHistory
+2026/10/11 05:53:40 detail_metrics scope=detail_returned_bson requests=1 hits=0 misses=1 errors=0 fallbacks=0 mongo_queries=5 mongo_bson_bytes=14663
+--- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries (0.73s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/unknown_category (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/required_author (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/author_type (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/number_type (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/boolean_type (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/array_type (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/nested_object (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/nested_array (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/null_scalar (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/null_array_element (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/null_attributes (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/too_many_extras (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/long_attribute_key (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/unsafe_key (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/long_attribute_string (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/long_array (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/long_string_in_array (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/zero_images (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/null_images (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/ten_images (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/file_URL (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/FTP_URL (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/relative_URL (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/missing_hostname (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/URL_credentials (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/long_URL (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/unknown_condition (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/missing_condition (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/empty_title (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/long_title (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/long_description (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/zero_price (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/negative_price (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/fractional_cents (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/price_limit (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/forged_seller (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/client_expiry (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/reserved_priceCents (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/reserved_images (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/reserved_condition (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/reserved_title (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/reserved_description (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/reserved_categoryId (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/reserved_sellerId (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/reserved_id (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/reserved_initialPriceCents (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/reserved_publishedAt (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/reserved_expiresAt (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/reserved_sold (0.00s)
+    --- PASS: TestPublishingValidatesCurrentCategoryRulesAndInputBoundaries/reserved_priceHistory (0.00s)
+=== RUN   TestRuleChangesPreserveReadsAndControlNewWritesAndOwnEdits
+2026/10/11 05:53:41 detail_metrics scope=detail_returned_bson requests=1 hits=0 misses=1 errors=0 fallbacks=0 mongo_queries=5 mongo_bson_bytes=868
+--- PASS: TestRuleChangesPreserveReadsAndControlNewWritesAndOwnEdits (0.78s)
+=== RUN   TestUnavailableProductsRemainReadableButCannotBeEdited
+=== RUN   TestUnavailableProductsRemainReadableButCannotBeEdited/expired
+2026/10/11 05:53:42 detail_metrics scope=detail_returned_bson requests=1 hits=0 misses=1 errors=0 fallbacks=0 mongo_queries=5 mongo_bson_bytes=860
+=== RUN   TestUnavailableProductsRemainReadableButCannotBeEdited/delisted
+=== RUN   TestUnavailableProductsRemainReadableButCannotBeEdited/sold
+--- PASS: TestUnavailableProductsRemainReadableButCannotBeEdited (0.70s)
+    --- PASS: TestUnavailableProductsRemainReadableButCannotBeEdited/expired (0.02s)
+    --- PASS: TestUnavailableProductsRemainReadableButCannotBeEdited/delisted (0.01s)
+    --- PASS: TestUnavailableProductsRemainReadableButCannotBeEdited/sold (0.01s)
+=== RUN   TestPublishingRollsBackArchiveWhenEligibilityCannotBeCreated
+2026/10/11 05:53:43 detail_metrics scope=detail_returned_bson requests=1 hits=0 misses=1 errors=0 fallbacks=0 mongo_queries=5 mongo_bson_bytes=860
+--- PASS: TestPublishingRollsBackArchiveWhenEligibilityCannotBeCreated (0.67s)
+=== RUN   TestDetailShowsRecentPriceChangesAndLinksToCompleteHistory
+2026/10/11 05:53:43 detail_metrics scope=detail_returned_bson requests=1 hits=0 misses=1 errors=0 fallbacks=0 mongo_queries=5 mongo_bson_bytes=1532
+--- PASS: TestDetailShowsRecentPriceChangesAndLinksToCompleteHistory (0.64s)
+=== RUN   TestProductSwaggerContract
+--- PASS: TestProductSwaggerContract (0.50s)
+=== RUN   TestExpandedCategoryLimitsAndHistoricalReadsMatchContract
+2026/10/11 05:53:44 detail_metrics scope=detail_returned_bson requests=1 hits=0 misses=1 errors=0 fallbacks=0 mongo_queries=5 mongo_bson_bytes=2222
+--- PASS: TestExpandedCategoryLimitsAndHistoricalReadsMatchContract (0.66s)
+=== RUN   TestSaleConfirmationAndReplay
+2026/10/11 05:53:45 detail_metrics scope=detail_returned_bson requests=1 hits=0 misses=1 errors=0 fallbacks=0 mongo_queries=5 mongo_bson_bytes=944
+2026/10/11 05:53:45 sale request rejected status=409 seller="seller" product="6acb246919aef01a05f3c3e9"
+--- PASS: TestSaleConfirmationAndReplay (0.71s)
+=== RUN   TestSaleInvalidAttemptsAreNotRecorded
+2026/10/11 05:53:46 sale request rejected status=401 seller="" product="6acb246a19aef01a05f3c3ec"
+2026/10/11 05:53:46 sale request rejected status=403 seller="buyer" product="6acb246a19aef01a05f3c3ec"
+2026/10/11 05:53:46 sale request rejected status=400 seller="seller" product="6acb246a19aef01a05f3c3ec"
+2026/10/11 05:53:46 sale request rejected status=400 seller="seller" product="6acb246a19aef01a05f3c3ec"
+2026/10/11 05:53:46 sale request rejected status=400 seller="seller" product="6acb246a19aef01a05f3c3ec"
+2026/10/11 05:53:46 sale request rejected status=400 seller="seller" product="6acb246a19aef01a05f3c3ec"
+2026/10/11 05:53:46 sale request rejected status=400 seller="seller" product="6acb246a19aef01a05f3c3ec"
+2026/10/11 05:53:46 sale request rejected status=400 seller="seller" product="6acb246a19aef01a05f3c3ec"
+2026/10/11 05:53:46 sale request rejected status=400 seller="seller" product="6acb246a19aef01a05f3c3ec"
+2026/10/11 05:53:46 sale request rejected status=400 seller="seller" product="6acb246a19aef01a05f3c3ec"
+2026/10/11 05:53:46 sale request rejected status=400 seller="seller" product="6acb246a19aef01a05f3c3ec"
+2026/10/11 05:53:46 sale request rejected status=400 seller="seller" product="6acb246a19aef01a05f3c3ec"
+2026/10/11 05:53:46 detail_metrics scope=detail_returned_bson requests=1 hits=0 misses=1 errors=0 fallbacks=0 mongo_queries=5 mongo_bson_bytes=860
+--- PASS: TestSaleInvalidAttemptsAreNotRecorded (0.76s)
+=== RUN   TestSaleConcurrentExactlyOnce
+=== RUN   TestSaleConcurrentExactlyOnce/sameKey=false
+2026/10/11 05:53:46 sale request rejected status=409 seller="seller" product="6acb246a19aef01a05f3c3ef"
+2026/10/11 05:53:46 sale request rejected status=409 seller="seller" product="6acb246a19aef01a05f3c3ef"
+2026/10/11 05:53:46 sale request rejected status=409 seller="seller" product="6acb246a19aef01a05f3c3ef"
+2026/10/11 05:53:46 sale request rejected status=409 seller="seller" product="6acb246a19aef01a05f3c3ef"
+2026/10/11 05:53:46 sale request rejected status=409 seller="seller" product="6acb246a19aef01a05f3c3ef"
+2026/10/11 05:53:46 sale request rejected status=409 seller="seller" product="6acb246a19aef01a05f3c3ef"
+2026/10/11 05:53:46 sale request rejected status=409 seller="seller" product="6acb246a19aef01a05f3c3ef"
+2026/10/11 05:53:46 sale request rejected status=409 seller="seller" product="6acb246a19aef01a05f3c3ef"
+2026/10/11 05:53:46 sale request rejected status=409 seller="seller" product="6acb246a19aef01a05f3c3ef"
+2026/10/11 05:53:47 sale request rejected status=409 seller="seller" product="6acb246a19aef01a05f3c3ef"
+2026/10/11 05:53:47 sale request rejected status=409 seller="seller" product="6acb246a19aef01a05f3c3ef"
+2026/10/11 05:53:47 sale request rejected status=409 seller="seller" product="6acb246a19aef01a05f3c3ef"
+2026/10/11 05:53:47 sale request rejected status=409 seller="seller" product="6acb246a19aef01a05f3c3ef"
+2026/10/11 05:53:47 sale request rejected status=409 seller="seller" product="6acb246a19aef01a05f3c3ef"
+2026/10/11 05:53:47 sale request rejected status=409 seller="seller" product="6acb246a19aef01a05f3c3ef"
+2026/10/11 05:53:47 sale request rejected status=409 seller="seller" product="6acb246a19aef01a05f3c3ef"
+2026/10/11 05:53:47 sale request rejected status=409 seller="seller" product="6acb246a19aef01a05f3c3ef"
+2026/10/11 05:53:47 sale request rejected status=409 seller="seller" product="6acb246a19aef01a05f3c3ef"
+2026/10/11 05:53:47 sale request rejected status=409 seller="seller" product="6acb246a19aef01a05f3c3ef"
+2026/10/11 05:53:47 sale request rejected status=409 seller="seller" product="6acb246a19aef01a05f3c3ef"
+2026/10/11 05:53:47 sale request rejected status=409 seller="seller" product="6acb246a19aef01a05f3c3ef"
+2026/10/11 05:53:47 sale request rejected status=409 seller="seller" product="6acb246a19aef01a05f3c3ef"
+2026/10/11 05:53:47 sale request rejected status=409 seller="seller" product="6acb246a19aef01a05f3c3ef"
+2026/10/11 05:53:47 detail_metrics scope=detail_returned_bson requests=1 hits=0 misses=1 errors=0 fallbacks=0 mongo_queries=5 mongo_bson_bytes=944
+2026/10/11 05:53:47 sale request rejected status=409 seller="seller" product="6acb246a19aef01a05f3c3ef"
+2026/10/11 05:53:47 sale request rejected status=409 seller="seller" product="6acb246a19aef01a05f3c3ef"
+=== RUN   TestSaleConcurrentExactlyOnce/sameKey=true
+2026/10/11 05:53:47 detail_metrics scope=detail_returned_bson requests=1 hits=0 misses=1 errors=0 fallbacks=0 mongo_queries=5 mongo_bson_bytes=944
+2026/10/11 05:53:47 sale request rejected status=409 seller="seller" product="6acb246b19aef01a05f3c3f2"
+2026/10/11 05:53:47 sale request rejected status=409 seller="seller" product="6acb246b19aef01a05f3c3f2"
+--- PASS: TestSaleConcurrentExactlyOnce (1.45s)
+    --- PASS: TestSaleConcurrentExactlyOnce/sameKey=false (0.73s)
+    --- PASS: TestSaleConcurrentExactlyOnce/sameKey=true (0.73s)
+=== RUN   TestSaleSellerKeyScopeAndProductConflict
+2026/10/11 05:53:48 sale request rejected status=409 seller="seller" product="6acb246c19aef01a05f3c3f6"
+2026/10/11 05:53:48 detail_metrics scope=detail_returned_bson requests=1 hits=0 misses=1 errors=0 fallbacks=0 mongo_queries=5 mongo_bson_bytes=860
+--- PASS: TestSaleSellerKeyScopeAndProductConflict (0.78s)
+=== RUN   TestSaleUnavailableRecordsAndTTLDelay
+=== RUN   TestSaleUnavailableRecordsAndTTLDelay/before
+=== RUN   TestSaleUnavailableRecordsAndTTLDelay/at
+2026/10/11 05:53:49 sale request rejected status=409 seller="seller" product="6acb246d19aef01a05f3c3fb"
+2026/10/11 05:53:49 sale request rejected status=409 seller="seller" product="6acb246d19aef01a05f3c3fb"
+=== RUN   TestSaleUnavailableRecordsAndTTLDelay/after
+2026/10/11 05:53:49 sale request rejected status=409 seller="seller" product="6acb246d19aef01a05f3c3fc"
+2026/10/11 05:53:49 sale request rejected status=409 seller="seller" product="6acb246d19aef01a05f3c3fc"
+=== RUN   TestSaleUnavailableRecordsAndTTLDelay/listing_expired
+2026/10/11 05:53:49 sale request rejected status=409 seller="seller" product="6acb246d19aef01a05f3c3fd"
+2026/10/11 05:53:49 sale request rejected status=409 seller="seller" product="6acb246d19aef01a05f3c3fd"
+=== RUN   TestSaleUnavailableRecordsAndTTLDelay/delisted
+2026/10/11 05:53:49 sale request rejected status=409 seller="seller" product="6acb246d19aef01a05f3c3fe"
+2026/10/11 05:53:49 sale request rejected status=409 seller="seller" product="6acb246d19aef01a05f3c3fe"
+--- PASS: TestSaleUnavailableRecordsAndTTLDelay (0.78s)
+    --- PASS: TestSaleUnavailableRecordsAndTTLDelay/before (0.04s)
+    --- PASS: TestSaleUnavailableRecordsAndTTLDelay/at (0.02s)
+    --- PASS: TestSaleUnavailableRecordsAndTTLDelay/after (0.02s)
+    --- PASS: TestSaleUnavailableRecordsAndTTLDelay/listing_expired (0.02s)
+    --- PASS: TestSaleUnavailableRecordsAndTTLDelay/delisted (0.02s)
+=== RUN   TestSaleRollbackOnPersistenceFailure
+2026/10/11 05:53:49 sale transaction failed product="6acb246d19aef01a05f3c401": write exception: write errors: [Document failed validation: {"failingDocumentId": "db3360f0f64abfb24e7450c04054fc4fc0f1bd2c5d4b53a2c7070bd7cff2056b","details": {"operatorName": "$eq","specifiedAs": {"success": false},"reason": "comparison failed","consideredValue": true}}]
+2026/10/11 05:53:49 sale request rejected status=503 seller="seller" product="6acb246d19aef01a05f3c401"
+2026/10/11 05:53:49 detail_metrics scope=detail_returned_bson requests=1 hits=0 misses=1 errors=0 fallbacks=0 mongo_queries=5 mongo_bson_bytes=860
+    sales_test.go:248: persisted rollback evidence: archive unsold, sale absent, eligibility retained, transactions=0, completedSales=0
+--- PASS: TestSaleRollbackOnPersistenceFailure (0.67s)
+=== RUN   TestSaleOpenAPIContract
+--- PASS: TestSaleOpenAPIContract (0.52s)
+=== RUN   TestSaleConcurrentKeyConflictRollsBackOtherProduct
+2026/10/11 05:53:51 sale request rejected status=409 seller="seller" product="6acb246f19aef01a05f3c406"
+2026/10/11 05:53:51 detail_metrics scope=detail_returned_bson requests=1 hits=0 misses=1 errors=0 fallbacks=0 mongo_queries=5 mongo_bson_bytes=860
+--- PASS: TestSaleConcurrentKeyConflictRollsBackOtherProduct (0.70s)
+=== RUN   TestSearchChineseSynonymsAndExplanations
+--- PASS: TestSearchChineseSynonymsAndExplanations (1.65s)
+=== RUN   TestSearchRefillsAfterCurrentEligibilityFiltering
+    search_test.go:141: 70 indexed candidates; 45 currently invalid; search response elapsed=42.490756ms
+--- PASS: TestSearchRefillsAfterCurrentEligibilityFiltering (2.02s)
+=== RUN   TestSearchSwaggerContract
+--- PASS: TestSearchSwaggerContract (0.51s)
+=== RUN   TestSeedCLIResetAndReproduction
+2026/10/11 05:53:59 detail_metrics scope=detail_returned_bson requests=1 hits=0 misses=0 errors=0 fallbacks=0 mongo_queries=4 mongo_bson_bytes=1123
+--- PASS: TestSeedCLIResetAndReproduction (8.26s)
+=== RUN   TestSellerHomeCurrentProfileAndIsolation
+--- PASS: TestSellerHomeCurrentProfileAndIsolation (0.78s)
+=== RUN   TestSellerHomePaginationAndInvalidInput
+--- PASS: TestSellerHomePaginationAndInvalidInput (0.92s)
+=== RUN   TestSellerHomeExcludesUnavailableBeforeTTLCleanup
+--- PASS: TestSellerHomeExcludesUnavailableBeforeTTLCleanup (0.81s)
+=== RUN   TestSellerHomeOpenAPI
+--- PASS: TestSellerHomeOpenAPI (0.51s)
+=== RUN   TestConditionCounts
+--- PASS: TestConditionCounts (0.66s)
+=== RUN   TestConditionCountsOpenAPI
+--- PASS: TestConditionCountsOpenAPI (0.56s)
+=== RUN   TestV1FullSeedHTTP
+    v1_test.go:17: run scripts/validate-v1.sh for full-seed deployment acceptance
+--- SKIP: TestV1FullSeedHTTP (0.00s)
+PASS
+ok  	github.com/nanfxqs/campus-market/internal/market	50.851s

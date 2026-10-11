@@ -1,0 +1,18 @@
+ Container campus-v2-cache19-tools-run-ae5b4a4a5f26 Creating 
+ Container campus-v2-cache19-tools-run-ae5b4a4a5f26 Created 
+=== RUN   TestCachedDetailKeepsCurrentContentAndDynamicFields
+2026/10/11 05:52:24 detail_metrics scope=detail_returned_bson requests=1 hits=0 misses=1 errors=0 fallbacks=0 mongo_queries=5 mongo_bson_bytes=860
+--- PASS: TestCachedDetailKeepsCurrentContentAndDynamicFields (1.41s)
+=== RUN   TestCacheConcurrentEditsExpiryResetAndUnavailableRedis
+2026/10/11 05:52:24 detail_metrics scope=detail_returned_bson requests=1 hits=0 misses=1 errors=0 fallbacks=0 mongo_queries=5 mongo_bson_bytes=860
+2026/10/11 05:52:25 detail_metrics scope=detail_returned_bson requests=172 hits=124 misses=48 errors=0 fallbacks=0 mongo_queries=736 mongo_bson_bytes=101779
+2026/10/11 05:52:25 detail_metrics scope=detail_returned_bson requests=1 hits=0 misses=0 errors=1 fallbacks=1 mongo_queries=5 mongo_bson_bytes=807
+    cache_test.go:110: 8 readers x 20 reads overlap 10 committed HTTP edits; new reads, TTL, FLUSHDB rebuild, expiry fixture and unreachable Redis passed
+--- PASS: TestCacheConcurrentEditsExpiryResetAndUnavailableRedis (0.98s)
+=== RUN   TestDetailMetricsObserveColdAndWarmReads
+2026/10/11 05:52:25 detail_metrics scope=detail_returned_bson requests=1 hits=0 misses=1 errors=0 fallbacks=0 mongo_queries=5 mongo_bson_bytes=860
+    cache_test.go:132: state=miss queries=5 returned_bson_bytes=860
+    cache_test.go:132: state=hit queries=4 returned_bson_bytes=486
+--- PASS: TestDetailMetricsObserveColdAndWarmReads (0.65s)
+PASS
+ok  	github.com/nanfxqs/campus-market/internal/market	3.053s
