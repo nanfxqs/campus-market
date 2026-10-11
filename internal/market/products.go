@@ -231,6 +231,9 @@ func productRoutes(router *gin.Engine, authorized *gin.RouterGroup, db *mongo.Da
 		}
 		c.Header("X-Mongo-Queries", strconv.Itoa(metrics.queries))
 		c.Header("X-Mongo-BSON-Bytes", strconv.Itoa(metrics.bytes))
+		if cache.config.Address != "" {
+			c.Header("X-Detail-Cache-Errors", strconv.Itoa(metrics.cacheErrors))
+		}
 		c.JSON(200, gin.H{"product": p, "seller": seller, "available": count == 1 && !p.Sold && p.ExpiresAt.After(clock()), "priceHistory": history, "priceHistoryUrl": "/products/" + p.ID + "/price-history"})
 	})
 	router.GET("/products/:id/price-history", func(c *gin.Context) {

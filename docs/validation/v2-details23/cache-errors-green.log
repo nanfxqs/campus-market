@@ -1,0 +1,16 @@
+{"method": "POST", "path": "/auth/login", "status": 200, "cache": null, "cacheErrors": null}
+{"method": "POST", "path": "/products", "status": 201, "cache": null, "cacheErrors": null}
+{"command": ["docker", "exec", "4793afccb766", "redis-cli", "CONFIG", "GET", "maxmemory"], "exit": 0, "stdout": "maxmemory\n134217728\n", "stderr": ""}
+{"command": ["docker", "exec", "4793afccb766", "redis-cli", "CONFIG", "GET", "maxmemory-policy"], "exit": 0, "stdout": "maxmemory-policy\nallkeys-lru\n", "stderr": ""}
+{"command": ["docker", "exec", "4793afccb766", "redis-cli", "FLUSHDB"], "exit": 0, "stdout": "OK\n", "stderr": ""}
+{"command": ["docker", "exec", "4793afccb766", "redis-cli", "CONFIG", "SET", "maxmemory-policy", "noeviction"], "exit": 0, "stdout": "OK\n", "stderr": ""}
+{"command": ["docker", "exec", "4793afccb766", "redis-cli", "CONFIG", "SET", "maxmemory", "1"], "exit": 0, "stdout": "OK\n", "stderr": ""}
+{"method": "GET", "path": "/products/6acb2c485a779d8f46c260f9", "status": 200, "cache": "miss", "cacheErrors": "1"}
+{"command": ["docker", "exec", "4793afccb766", "redis-cli", "CONFIG", "SET", "maxmemory", "134217728"], "exit": 0, "stdout": "OK\n", "stderr": ""}
+{"command": ["docker", "exec", "4793afccb766", "redis-cli", "CONFIG", "SET", "maxmemory-policy", "allkeys-lru"], "exit": 0, "stdout": "OK\n", "stderr": ""}
+{"command": ["docker", "stop", "4793afccb766"], "exit": 0, "stdout": "4793afccb766\n", "stderr": ""}
+{"method": "GET", "path": "/products/6acb2c485a779d8f46c260f9", "status": 200, "cache": "fallback", "cacheErrors": "1"}
+{"command": ["docker", "start", "4793afccb766"], "exit": 0, "stdout": "4793afccb766\n", "stderr": ""}
+{"command": ["docker", "exec", "4793afccb766", "redis-cli", "PING"], "exit": 0, "stdout": "PONG\n", "stderr": ""}
+{"method": "GET", "path": "/products/6acb2c485a779d8f46c260f9", "status": 200, "cache": "miss", "cacheErrors": "0"}
+{"result": "PASS", "cases": ["HTTP200+SET OOM count1", "HTTP200+unreachable GET fallback count1", "recovered current detail count0"]}
