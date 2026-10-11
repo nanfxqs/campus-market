@@ -1,0 +1,7 @@
+ Container campus-v2-fault-20261011055642-500192-mongo-1 Running 
+ Container campus-v2-fault-20261011055642-500192-mongo-1 Waiting 
+ Container campus-v2-fault-20261011055642-500192-mongo-1 Healthy 
+ Container campus-v2-fault-20261011055642-500192-api-b-run-1bedf34d8f44 Creating 
+ Container campus-v2-fault-20261011055642-500192-api-b-run-1bedf34d8f44 Created 
+2026/10/11 05:57:09 server selection error: server selection timeout, current topology: { Type: Single, Servers: [{ Addr: mongo:27017, Type: Unknown, Last error: dial tcp 172.23.0.2:27017: connect: connection refused }, ] }
+

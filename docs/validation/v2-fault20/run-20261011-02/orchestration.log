@@ -1,0 +1,96 @@
+ Image campus-v2-fault-20261011055730-514576-api-b Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 548B done
+#1 DONE 0.0s
+
+#2 [internal] load build definition from Dockerfile
+#2 transferring dockerfile: 491B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/debian:bookworm-slim@sha256:7c7b2c966bc9ee8cedfeef67e0e279108992c77681fa595db4a9d65c06ccc587
+#3 DONE 0.0s
+
+#4 [internal] load metadata for docker.io/library/golang:1.24.2-bookworm@sha256:79390b5e5af9ee6e7b1173ee3eac7fadf6751a545297672916b59bfa0ecf6f71
+#4 DONE 0.0s
+
+#5 [internal] load .dockerignore
+#5 transferring context: 62B done
+#5 DONE 0.0s
+
+#6 [tools 1/7] FROM docker.io/library/golang:1.24.2-bookworm@sha256:79390b5e5af9ee6e7b1173ee3eac7fadf6751a545297672916b59bfa0ecf6f71
+#6 resolve docker.io/library/golang:1.24.2-bookworm@sha256:79390b5e5af9ee6e7b1173ee3eac7fadf6751a545297672916b59bfa0ecf6f71 0.0s done
+#6 DONE 0.0s
+
+#7 [stage-1 1/3] FROM docker.io/library/debian:bookworm-slim@sha256:7c7b2c966bc9ee8cedfeef67e0e279108992c77681fa595db4a9d65c06ccc587
+#7 resolve docker.io/library/debian:bookworm-slim@sha256:7c7b2c966bc9ee8cedfeef67e0e279108992c77681fa595db4a9d65c06ccc587 0.0s done
+#7 DONE 0.0s
+
+#8 [internal] load build context
+#8 transferring context: 311.06kB 0.0s done
+#8 DONE 0.0s
+
+#9 [tools 2/7] WORKDIR /src
+#9 CACHED
+
+#10 [tools 3/7] COPY go.mod go.sum ./
+#10 CACHED
+
+#11 [tools 4/7] RUN go mod download
+#11 CACHED
+
+#12 [tools 5/7] COPY . .
+#12 DONE 0.1s
+
+#13 [tools 6/7] RUN go build -o /validation ./validation
+#13 DONE 11.5s
+
+#14 [tools 7/7] RUN go build -o /market ./cmd/market
+#14 DONE 1.4s
+
+#15 [stage-1 2/3] COPY --from=tools /validation /validation
+#15 CACHED
+
+#16 [stage-1 3/3] COPY --from=tools /market /market
+#16 CACHED
+
+#17 exporting to image
+#17 exporting layers done
+#17 exporting manifest sha256:58bda57d4f09e498690a5e8f83ab47f75e0381b00d5b72004c0feb0123833b82 done
+#17 exporting config sha256:e615506ebf547205b9a0e67ee55f796f528957ded413f3a1b4f7f0e8dfd169c2 done
+#17 exporting attestation manifest sha256:c3f0cb4d8f7a4cc37da8faa913375a2414a5340189816d77a1d69b1bf12c059b done
+#17 exporting manifest list sha256:acb3a5ddc3435fdf556f92f1624cdb527f0dbcba8af6060722e4a7e925d1c333 done
+#17 naming to docker.io/library/campus-v2-fault-20261011055730-514576-api-b:latest done
+#17 unpacking to docker.io/library/campus-v2-fault-20261011055730-514576-api-b:latest done
+#17 DONE 0.1s
+
+#18 resolving provenance for metadata file
+#18 DONE 0.0s
+ Image campus-v2-fault-20261011055730-514576-api-b Built 
+ Volume campus-v2-fault-20261011055730-514576_mongo-data Creating 
+ Volume campus-v2-fault-20261011055730-514576_mongo-config Creating 
+ Volume campus-v2-fault-20261011055730-514576_mongo-data Creating 
+ Volume campus-v2-fault-20261011055730-514576_mongo-config Creating 
+ Volume campus-v2-fault-20261011055730-514576_search-data Creating 
+ Volume campus-v2-fault-20261011055730-514576_search-data Creating 
+ Network campus-v2-fault-20261011055730-514576_default Creating 
+ Network campus-v2-fault-20261011055730-514576_default Creating 
+ Volume campus-v2-fault-20261011055730-514576_mongo-data Created 
+ Volume campus-v2-fault-20261011055730-514576_mongo-data Created 
+ Volume campus-v2-fault-20261011055730-514576_mongo-config Created 
+ Volume campus-v2-fault-20261011055730-514576_mongo-config Created 
+ Volume campus-v2-fault-20261011055730-514576_search-data Created 
+ Volume campus-v2-fault-20261011055730-514576_search-data Created 
+ Network campus-v2-fault-20261011055730-514576_default Created 
+ Network campus-v2-fault-20261011055730-514576_default Created 
+ Container campus-v2-fault-20261011055730-514576-redis-1 Creating 
+ Container campus-v2-fault-20261011055730-514576-mongo-1 Creating 
+ Container campus-v2-fault-20261011055730-514576-redis-1 Created 
+ Container campus-v2-fault-20261011055730-514576-mongo-1 Created 
+ Container campus-v2-fault-20261011055730-514576-redis-1 Starting 
+ Container campus-v2-fault-20261011055730-514576-mongo-1 Starting 
+ Container campus-v2-fault-20261011055730-514576-redis-1 Started 
+ Container campus-v2-fault-20261011055730-514576-mongo-1 Started 
+ Container campus-v2-fault-20261011055730-514576-redis-1 Waiting 
+ Container campus-v2-fault-20261011055730-514576-mongo-1 Waiting 
+ Container campus-v2-fault-20261011055730-514576-redis-1 Healthy 
+ Container campus-v2-fault-20261011055730-514576-mongo-1 Healthy 

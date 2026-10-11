@@ -1,0 +1,7 @@
+services:
+  api-b:
+    environment:
+      MONGO_URI: mongodb://mongo:27017/?directConnection=true&serverSelectionTimeoutMS=1000&connectTimeoutMS=1000
+      DB_NAME: campus_v2_fault
+      CACHE_TIMEOUT: 100ms
+      GIN_MODE: release

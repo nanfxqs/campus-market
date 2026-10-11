@@ -1,0 +1,979 @@
+[
+    {
+        "Id": "a4b2a2d66fe85ecdcc4ae65e5a4a5aa9a963c6d2f131056a4e2063ba36760877",
+        "Created": "2026-10-11T06:01:55.861285125Z",
+        "Path": "/market",
+        "Args": [
+            "serve"
+        ],
+        "State": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 582022,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2026-10-11T06:01:56.444990748Z",
+            "FinishedAt": "0001-01-01T00:00:00Z",
+            "Health": {
+                "Status": "healthy",
+                "FailingStreak": 0,
+                "Log": [
+                    {
+                        "Start": "2026-10-11T14:02:06.690698184+08:00",
+                        "End": "2026-10-11T14:02:06.7499672+08:00",
+                        "ExitCode": 0,
+                        "Output": ""
+                    },
+                    {
+                        "Start": "2026-10-11T14:02:11.751311631+08:00",
+                        "End": "2026-10-11T14:02:11.818928547+08:00",
+                        "ExitCode": 0,
+                        "Output": ""
+                    },
+                    {
+                        "Start": "2026-10-11T14:02:16.820416052+08:00",
+                        "End": "2026-10-11T14:02:16.884748992+08:00",
+                        "ExitCode": 0,
+                        "Output": ""
+                    },
+                    {
+                        "Start": "2026-10-11T14:02:21.885766265+08:00",
+                        "End": "2026-10-11T14:02:22.621508018+08:00",
+                        "ExitCode": 0,
+                        "Output": ""
+                    },
+                    {
+                        "Start": "2026-10-11T14:02:27.622420857+08:00",
+                        "End": "2026-10-11T14:02:27.686655139+08:00",
+                        "ExitCode": 0,
+                        "Output": ""
+                    }
+                ]
+            }
+        },
+        "Image": "sha256:4c420062eadf4ccea6d9e7b098de431fa77bfbdc2f35965fc52fccf05cc71a78",
+        "ResolvConfPath": "/var/lib/docker/containers/a4b2a2d66fe85ecdcc4ae65e5a4a5aa9a963c6d2f131056a4e2063ba36760877/resolv.conf",
+        "HostnamePath": "/var/lib/docker/containers/a4b2a2d66fe85ecdcc4ae65e5a4a5aa9a963c6d2f131056a4e2063ba36760877/hostname",
+        "HostsPath": "/var/lib/docker/containers/a4b2a2d66fe85ecdcc4ae65e5a4a5aa9a963c6d2f131056a4e2063ba36760877/hosts",
+        "LogPath": "/var/lib/docker/containers/a4b2a2d66fe85ecdcc4ae65e5a4a5aa9a963c6d2f131056a4e2063ba36760877/a4b2a2d66fe85ecdcc4ae65e5a4a5aa9a963c6d2f131056a4e2063ba36760877-json.log",
+        "Name": "/campus-v2-fault-20261011060118-571004-api-b-1",
+        "RestartCount": 0,
+        "Driver": "overlayfs",
+        "Platform": "linux",
+        "MountLabel": "",
+        "ProcessLabel": "",
+        "AppArmorProfile": "",
+        "ExecIDs": null,
+        "HostConfig": {
+            "Binds": null,
+            "ContainerIDFile": "",
+            "LogConfig": {
+                "Type": "json-file",
+                "Config": {
+                    "max-file": "5",
+                    "max-size": "10m"
+                }
+            },
+            "NetworkMode": "campus-v2-fault-20261011060118-571004_default",
+            "PortBindings": {
+                "8080/tcp": [
+                    {
+                        "HostIp": "127.0.0.1",
+                        "HostPort": "8094"
+                    }
+                ]
+            },
+            "RestartPolicy": {
+                "Name": "no",
+                "MaximumRetryCount": 0
+            },
+            "AutoRemove": false,
+            "VolumeDriver": "",
+            "VolumesFrom": null,
+            "ConsoleSize": [
+                0,
+                0
+            ],
+            "CapAdd": null,
+            "CapDrop": null,
+            "CgroupnsMode": "private",
+            "Dns": null,
+            "DnsOptions": null,
+            "DnsSearch": null,
+            "ExtraHosts": [],
+            "GroupAdd": null,
+            "IpcMode": "private",
+            "Cgroup": "",
+            "Links": null,
+            "OomScoreAdj": 0,
+            "PidMode": "",
+            "Privileged": false,
+            "PublishAllPorts": false,
+            "ReadonlyRootfs": false,
+            "SecurityOpt": null,
+            "UTSMode": "",
+            "UsernsMode": "",
+            "ShmSize": 67108864,
+            "Runtime": "runc",
+            "Isolation": "",
+            "CpuShares": 0,
+            "Memory": 536870912,
+            "NanoCpus": 2000000000,
+            "CgroupParent": "",
+            "BlkioWeight": 0,
+            "BlkioWeightDevice": null,
+            "BlkioDeviceReadBps": null,
+            "BlkioDeviceWriteBps": null,
+            "BlkioDeviceReadIOps": null,
+            "BlkioDeviceWriteIOps": null,
+            "CpuPeriod": 0,
+            "CpuQuota": 0,
+            "CpuRealtimePeriod": 0,
+            "CpuRealtimeRuntime": 0,
+            "CpusetCpus": "",
+            "CpusetMems": "",
+            "Devices": null,
+            "DeviceCgroupRules": null,
+            "DeviceRequests": null,
+            "MemoryReservation": 0,
+            "MemorySwap": 1073741824,
+            "MemorySwappiness": null,
+            "OomKillDisable": null,
+            "PidsLimit": null,
+            "Ulimits": null,
+            "CpuCount": 0,
+            "CpuPercent": 0,
+            "IOMaximumIOps": 0,
+            "IOMaximumBandwidth": 0,
+            "MaskedPaths": [
+                "/proc/acpi",
+                "/proc/asound",
+                "/proc/interrupts",
+                "/proc/kcore",
+                "/proc/keys",
+                "/proc/latency_stats",
+                "/proc/sched_debug",
+                "/proc/scsi",
+                "/proc/timer_list",
+                "/proc/timer_stats",
+                "/sys/devices/virtual/powercap",
+                "/sys/firmware",
+                "/sys/devices/system/cpu/cpu0/thermal_throttle",
+                "/sys/devices/system/cpu/cpu1/thermal_throttle",
+                "/sys/devices/system/cpu/cpu2/thermal_throttle",
+                "/sys/devices/system/cpu/cpu3/thermal_throttle",
+                "/sys/devices/system/cpu/cpu4/thermal_throttle",
+                "/sys/devices/system/cpu/cpu5/thermal_throttle",
+                "/sys/devices/system/cpu/cpu6/thermal_throttle",
+                "/sys/devices/system/cpu/cpu7/thermal_throttle",
+                "/sys/devices/system/cpu/cpu8/thermal_throttle",
+                "/sys/devices/system/cpu/cpu9/thermal_throttle",
+                "/sys/devices/system/cpu/cpu10/thermal_throttle",
+                "/sys/devices/system/cpu/cpu11/thermal_throttle",
+                "/sys/devices/system/cpu/cpu12/thermal_throttle",
+                "/sys/devices/system/cpu/cpu13/thermal_throttle",
+                "/sys/devices/system/cpu/cpu14/thermal_throttle",
+                "/sys/devices/system/cpu/cpu15/thermal_throttle",
+                "/sys/devices/system/cpu/cpu16/thermal_throttle",
+                "/sys/devices/system/cpu/cpu17/thermal_throttle"
+            ],
+            "ReadonlyPaths": [
+                "/proc/bus",
+                "/proc/fs",
+                "/proc/irq",
+                "/proc/sys",
+                "/proc/sysrq-trigger"
+            ]
+        },
+        "Storage": {
+            "RootFS": {
+                "Snapshot": {
+                    "Name": "overlayfs"
+                }
+            }
+        },
+        "Mounts": [],
+        "Config": {
+            "Hostname": "a4b2a2d66fe8",
+            "Domainname": "",
+            "User": "",
+            "AttachStdin": false,
+            "AttachStdout": true,
+            "AttachStderr": true,
+            "ExposedPorts": {
+                "8080/tcp": {}
+            },
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "MONGO_URI=mongodb://mongo:27017/?directConnection=true&serverSelectionTimeoutMS=1000&connectTimeoutMS=1000",
+                "REDIS_ADDR=redis:6379",
+                "GIN_MODE=release",
+                "CACHE_ENABLED=true",
+                "CACHE_TIMEOUT=100ms",
+                "CACHE_TTL=10m",
+                "DB_NAME=campus_v2_fault",
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+            ],
+            "Cmd": [
+                "serve"
+            ],
+            "Healthcheck": {
+                "Test": [
+                    "CMD",
+                    "/validation",
+                    "health"
+                ],
+                "Interval": 5000000000,
+                "Timeout": 5000000000,
+                "Retries": 60
+            },
+            "Image": "campus-v2-fault-20261011060118-571004-api-b",
+            "Volumes": null,
+            "WorkingDir": "",
+            "Entrypoint": [
+                "/market"
+            ],
+            "Labels": {
+                "com.docker.compose.config-hash": "396fd4aa8d36c16c3c28c1e852e1231be76f242301ae37ccdea108b6dc7536b1",
+                "com.docker.compose.container-number": "1",
+                "com.docker.compose.depends_on": "mongo:service_healthy:false",
+                "com.docker.compose.image": "sha256:ee76caad63cf35f278663b90c64d9d1101391c580ef5ed7f408043bd1c1b3e23",
+                "com.docker.compose.oneoff": "False",
+                "com.docker.compose.project": "campus-v2-fault-20261011060118-571004",
+                "com.docker.compose.project.config_files": "/tmp/campus-v2-fault/compose.v2.yaml,/tmp/campus-v2-fault/docs/validation/v2-fault20/run-20261011-05/override.yaml",
+                "com.docker.compose.project.working_dir": "/tmp/campus-v2-fault",
+                "com.docker.compose.service": "api-b",
+                "com.docker.compose.version": "5.6.0"
+            }
+        },
+        "NetworkSettings": {
+            "SandboxID": "c88788216e766d31676712d743872460ead8881091f139f567f04d8f1588986d",
+            "SandboxKey": "/var/run/docker/netns/c88788216e76",
+            "Ports": {
+                "8080/tcp": [
+                    {
+                        "HostIp": "127.0.0.1",
+                        "HostPort": "8094"
+                    }
+                ]
+            },
+            "Networks": {
+                "campus-v2-fault-20261011060118-571004_default": {
+                    "IPAMConfig": null,
+                    "Links": null,
+                    "Aliases": [
+                        "campus-v2-fault-20261011060118-571004-api-b-1",
+                        "api-b"
+                    ],
+                    "DriverOpts": null,
+                    "GwPriority": 0,
+                    "NetworkID": "c6cac202fe2b6320f8507ba5b413b9c82b9d46a8a8f5c00ebddd4eefe3db77c0",
+                    "EndpointID": "1bb168642b1bfcf1526cfa097f33d68e5945fb7bbbebc9e31abf62b45283f337",
+                    "Gateway": "172.23.0.1",
+                    "IPAddress": "172.23.0.4",
+                    "MacAddress": "a2:3a:22:d6:55:98",
+                    "IPPrefixLen": 16,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "DNSNames": [
+                        "campus-v2-fault-20261011060118-571004-api-b-1",
+                        "api-b",
+                        "a4b2a2d66fe8"
+                    ]
+                }
+            }
+        },
+        "ImageManifestDescriptor": {
+            "mediaType": "application/vnd.oci.image.manifest.v1+json",
+            "digest": "sha256:ee76caad63cf35f278663b90c64d9d1101391c580ef5ed7f408043bd1c1b3e23",
+            "size": 866,
+            "platform": {
+                "architecture": "amd64",
+                "os": "linux"
+            }
+        }
+    },
+    {
+        "Id": "03b0d46fe94136187ec6b88a1bbdcc885790408ea54379518ed168100a13d6e1",
+        "Created": "2026-10-11T06:01:34.762174773Z",
+        "Path": "/usr/local/bin/runner",
+        "Args": [
+            "server"
+        ],
+        "State": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 585634,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2026-10-11T06:02:21.512906512Z",
+            "FinishedAt": "2026-10-11T06:02:18.172684842Z",
+            "Health": {
+                "Status": "healthy",
+                "FailingStreak": 0,
+                "Log": [
+                    {
+                        "Start": "2026-10-11T14:01:57.060923034+08:00",
+                        "End": "2026-10-11T14:01:57.466358016+08:00",
+                        "ExitCode": 0,
+                        "Output": ""
+                    },
+                    {
+                        "Start": "2026-10-11T14:02:02.467313309+08:00",
+                        "End": "2026-10-11T14:02:02.965385796+08:00",
+                        "ExitCode": 0,
+                        "Output": ""
+                    },
+                    {
+                        "Start": "2026-10-11T14:02:07.966301366+08:00",
+                        "End": "2026-10-11T14:02:08.336256823+08:00",
+                        "ExitCode": 0,
+                        "Output": ""
+                    },
+                    {
+                        "Start": "2026-10-11T14:02:13.337254229+08:00",
+                        "End": "2026-10-11T14:02:13.867687401+08:00",
+                        "ExitCode": 0,
+                        "Output": ""
+                    },
+                    {
+                        "Start": "2026-10-11T14:02:26.659367173+08:00",
+                        "End": "2026-10-11T14:02:27.9788011+08:00",
+                        "ExitCode": 0,
+                        "Output": ""
+                    }
+                ]
+            }
+        },
+        "Image": "sha256:1ce32a37610486d753a81cc7ca9c719964679e37eb0aa8b4b521578b883d0147",
+        "ResolvConfPath": "/var/lib/docker/containers/03b0d46fe94136187ec6b88a1bbdcc885790408ea54379518ed168100a13d6e1/resolv.conf",
+        "HostnamePath": "/var/lib/docker/containers/03b0d46fe94136187ec6b88a1bbdcc885790408ea54379518ed168100a13d6e1/hostname",
+        "HostsPath": "/var/lib/docker/containers/03b0d46fe94136187ec6b88a1bbdcc885790408ea54379518ed168100a13d6e1/hosts",
+        "LogPath": "/var/lib/docker/containers/03b0d46fe94136187ec6b88a1bbdcc885790408ea54379518ed168100a13d6e1/03b0d46fe94136187ec6b88a1bbdcc885790408ea54379518ed168100a13d6e1-json.log",
+        "Name": "/campus-v2-fault-20261011060118-571004-mongo-1",
+        "RestartCount": 0,
+        "Driver": "overlayfs",
+        "Platform": "linux",
+        "MountLabel": "",
+        "ProcessLabel": "",
+        "AppArmorProfile": "",
+        "ExecIDs": null,
+        "HostConfig": {
+            "Binds": [
+                "campus-v2-fault-20261011060118-571004_mongo-data:/data/db:rw",
+                "campus-v2-fault-20261011060118-571004_mongo-config:/data/configdb:rw",
+                "campus-v2-fault-20261011060118-571004_search-data:/data/mongot:rw"
+            ],
+            "ContainerIDFile": "",
+            "LogConfig": {
+                "Type": "json-file",
+                "Config": {
+                    "max-file": "5",
+                    "max-size": "10m"
+                }
+            },
+            "NetworkMode": "campus-v2-fault-20261011060118-571004_default",
+            "PortBindings": {},
+            "RestartPolicy": {
+                "Name": "no",
+                "MaximumRetryCount": 0
+            },
+            "AutoRemove": false,
+            "VolumeDriver": "",
+            "VolumesFrom": null,
+            "ConsoleSize": [
+                0,
+                0
+            ],
+            "CapAdd": null,
+            "CapDrop": null,
+            "CgroupnsMode": "private",
+            "Dns": null,
+            "DnsOptions": null,
+            "DnsSearch": null,
+            "ExtraHosts": [],
+            "GroupAdd": null,
+            "IpcMode": "private",
+            "Cgroup": "",
+            "Links": null,
+            "OomScoreAdj": 0,
+            "PidMode": "",
+            "Privileged": false,
+            "PublishAllPorts": false,
+            "ReadonlyRootfs": false,
+            "SecurityOpt": null,
+            "UTSMode": "",
+            "UsernsMode": "",
+            "ShmSize": 67108864,
+            "Runtime": "runc",
+            "Isolation": "",
+            "CpuShares": 0,
+            "Memory": 8589934592,
+            "NanoCpus": 4000000000,
+            "CgroupParent": "",
+            "BlkioWeight": 0,
+            "BlkioWeightDevice": null,
+            "BlkioDeviceReadBps": null,
+            "BlkioDeviceWriteBps": null,
+            "BlkioDeviceReadIOps": null,
+            "BlkioDeviceWriteIOps": null,
+            "CpuPeriod": 0,
+            "CpuQuota": 0,
+            "CpuRealtimePeriod": 0,
+            "CpuRealtimeRuntime": 0,
+            "CpusetCpus": "",
+            "CpusetMems": "",
+            "Devices": null,
+            "DeviceCgroupRules": null,
+            "DeviceRequests": null,
+            "MemoryReservation": 0,
+            "MemorySwap": 17179869184,
+            "MemorySwappiness": null,
+            "OomKillDisable": null,
+            "PidsLimit": null,
+            "Ulimits": null,
+            "CpuCount": 0,
+            "CpuPercent": 0,
+            "IOMaximumIOps": 0,
+            "IOMaximumBandwidth": 0,
+            "MaskedPaths": [
+                "/proc/acpi",
+                "/proc/asound",
+                "/proc/interrupts",
+                "/proc/kcore",
+                "/proc/keys",
+                "/proc/latency_stats",
+                "/proc/sched_debug",
+                "/proc/scsi",
+                "/proc/timer_list",
+                "/proc/timer_stats",
+                "/sys/devices/virtual/powercap",
+                "/sys/firmware",
+                "/sys/devices/system/cpu/cpu0/thermal_throttle",
+                "/sys/devices/system/cpu/cpu1/thermal_throttle",
+                "/sys/devices/system/cpu/cpu2/thermal_throttle",
+                "/sys/devices/system/cpu/cpu3/thermal_throttle",
+                "/sys/devices/system/cpu/cpu4/thermal_throttle",
+                "/sys/devices/system/cpu/cpu5/thermal_throttle",
+                "/sys/devices/system/cpu/cpu6/thermal_throttle",
+                "/sys/devices/system/cpu/cpu7/thermal_throttle",
+                "/sys/devices/system/cpu/cpu8/thermal_throttle",
+                "/sys/devices/system/cpu/cpu9/thermal_throttle",
+                "/sys/devices/system/cpu/cpu10/thermal_throttle",
+                "/sys/devices/system/cpu/cpu11/thermal_throttle",
+                "/sys/devices/system/cpu/cpu12/thermal_throttle",
+                "/sys/devices/system/cpu/cpu13/thermal_throttle",
+                "/sys/devices/system/cpu/cpu14/thermal_throttle",
+                "/sys/devices/system/cpu/cpu15/thermal_throttle",
+                "/sys/devices/system/cpu/cpu16/thermal_throttle",
+                "/sys/devices/system/cpu/cpu17/thermal_throttle"
+            ],
+            "ReadonlyPaths": [
+                "/proc/bus",
+                "/proc/fs",
+                "/proc/irq",
+                "/proc/sys",
+                "/proc/sysrq-trigger"
+            ]
+        },
+        "Storage": {
+            "RootFS": {
+                "Snapshot": {
+                    "Name": "overlayfs"
+                }
+            }
+        },
+        "Mounts": [
+            {
+                "Type": "volume",
+                "Name": "campus-v2-fault-20261011060118-571004_mongo-config",
+                "Source": "/var/lib/docker/volumes/campus-v2-fault-20261011060118-571004_mongo-config/_data",
+                "Destination": "/data/configdb",
+                "Driver": "local",
+                "Mode": "rw",
+                "RW": true,
+                "Propagation": ""
+            },
+            {
+                "Type": "volume",
+                "Name": "campus-v2-fault-20261011060118-571004_mongo-data",
+                "Source": "/var/lib/docker/volumes/campus-v2-fault-20261011060118-571004_mongo-data/_data",
+                "Destination": "/data/db",
+                "Driver": "local",
+                "Mode": "rw",
+                "RW": true,
+                "Propagation": ""
+            },
+            {
+                "Type": "volume",
+                "Name": "campus-v2-fault-20261011060118-571004_search-data",
+                "Source": "/var/lib/docker/volumes/campus-v2-fault-20261011060118-571004_search-data/_data",
+                "Destination": "/data/mongot",
+                "Driver": "local",
+                "Mode": "rw",
+                "RW": true,
+                "Propagation": ""
+            }
+        ],
+        "Config": {
+            "Hostname": "mongo",
+            "Domainname": "",
+            "User": "mongod",
+            "AttachStdin": false,
+            "AttachStdout": true,
+            "AttachStderr": true,
+            "ExposedPorts": {
+                "27017/tcp": {}
+            },
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/mongot",
+                "container=oci",
+                "TOOL=CONTAINER"
+            ],
+            "Cmd": [
+                "/usr/local/bin/runner",
+                "server"
+            ],
+            "Healthcheck": {
+                "Test": [
+                    "CMD",
+                    "mongosh",
+                    "--quiet",
+                    "--eval",
+                    "quit(db.adminCommand({ping:1}).ok ? 0 : 1)"
+                ],
+                "Interval": 5000000000,
+                "Timeout": 5000000000,
+                "StartPeriod": 60000000000,
+                "Retries": 60
+            },
+            "Image": "mongodb/mongodb-atlas-local:8.0.4@sha256:1ce32a37610486d753a81cc7ca9c719964679e37eb0aa8b4b521578b883d0147",
+            "Volumes": {
+                "/data/configdb": {},
+                "/data/db": {}
+            },
+            "WorkingDir": "/",
+            "Entrypoint": null,
+            "Labels": {
+                "architecture": "x86_64",
+                "build-date": "2026-09-28T00:37:55Z",
+                "com.docker.compose.config-hash": "b6125e6749e9a5b7056fbc2675fce7664c5b1c6fc898224119aa1e63bf009163",
+                "com.docker.compose.container-number": "1",
+                "com.docker.compose.depends_on": "",
+                "com.docker.compose.image": "sha256:04406123e30dfa18e47e30432b1472d9082ad54d8089bb55f0e79f57bba5bd7f",
+                "com.docker.compose.oneoff": "False",
+                "com.docker.compose.project": "campus-v2-fault-20261011060118-571004",
+                "com.docker.compose.project.config_files": "/tmp/campus-v2-fault/compose.v2.yaml,/tmp/campus-v2-fault/docs/validation/v2-fault20/run-20261011-05/override.yaml",
+                "com.docker.compose.project.working_dir": "/tmp/campus-v2-fault",
+                "com.docker.compose.service": "mongo",
+                "com.docker.compose.version": "5.6.0",
+                "com.redhat.component": "ubi9-minimal-container",
+                "com.redhat.license_terms": "https://www.redhat.com/en/about/red-hat-end-user-license-agreements#UBI",
+                "cpe": "cpe:/a:redhat:enterprise_linux:9::appstream",
+                "description": "Container configured with a single node replicaset instance of MongoDB and Atlas Search",
+                "distribution-scope": "public",
+                "io.buildah.version": "1.44.0",
+                "io.k8s.description": "The Universal Base Image Minimal is a stripped down image that uses microdnf as a package manager. This base image is freely redistributable, but Red Hat only supports Red Hat technologies through subscriptions for Red Hat products. This image is maintained by Red Hat and updated regularly.",
+                "io.k8s.display-name": "Red Hat Universal Base Image 9 Minimal",
+                "io.openshift.expose-services": "",
+                "io.openshift.tags": "minimal rhel9",
+                "maintainer": "support@mongodb.com",
+                "mongodb-atlas-local": "container",
+                "mongodb-type": "community",
+                "mongot-edition": "localDev",
+                "mongot-version": "1.76.0",
+                "name": "MongoDB Atlas Local",
+                "org.opencontainers.image.created": "2026-09-28T00:37:55Z",
+                "org.opencontainers.image.revision": "5fed6512327cf4e03d25e424d9f6d5eed9016958",
+                "release": "1790555810",
+                "summary": "MongoDB Atlas Local Container",
+                "url": "https://catalog.redhat.com/en/search?searchType=containers",
+                "vcs-ref": "5fed6512327cf4e03d25e424d9f6d5eed9016958",
+                "vcs-type": "git",
+                "vendor": "MongoDB",
+                "version": "8.0.4"
+            }
+        },
+        "NetworkSettings": {
+            "SandboxID": "2089760ccc960272c231fd720cbc21902c2e1417cd3b3e38edde3d13eef8fa56",
+            "SandboxKey": "/var/run/docker/netns/2089760ccc96",
+            "Ports": {
+                "27017/tcp": null
+            },
+            "Networks": {
+                "campus-v2-fault-20261011060118-571004_default": {
+                    "IPAMConfig": null,
+                    "Links": null,
+                    "Aliases": [
+                        "campus-v2-fault-20261011060118-571004-mongo-1",
+                        "mongo"
+                    ],
+                    "DriverOpts": null,
+                    "GwPriority": 0,
+                    "NetworkID": "c6cac202fe2b6320f8507ba5b413b9c82b9d46a8a8f5c00ebddd4eefe3db77c0",
+                    "EndpointID": "d3002f249070ac4de233122e741dbd4eb7b2d1b94475590a7646ac92fe825890",
+                    "Gateway": "172.23.0.1",
+                    "IPAddress": "172.23.0.2",
+                    "MacAddress": "46:cf:f0:b6:b6:a4",
+                    "IPPrefixLen": 16,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "DNSNames": [
+                        "campus-v2-fault-20261011060118-571004-mongo-1",
+                        "mongo",
+                        "03b0d46fe941"
+                    ]
+                }
+            }
+        },
+        "ImageManifestDescriptor": {
+            "mediaType": "application/vnd.oci.image.manifest.v1+json",
+            "digest": "sha256:04406123e30dfa18e47e30432b1472d9082ad54d8089bb55f0e79f57bba5bd7f",
+            "size": 2006,
+            "platform": {
+                "architecture": "amd64",
+                "os": "linux"
+            }
+        }
+    },
+    {
+        "Id": "abfee6fd74f2b67d968369627fd277413f0be1b5edf0ae429cf2343d3ff8ab22",
+        "Created": "2026-10-11T06:01:34.765864304Z",
+        "Path": "docker-entrypoint.sh",
+        "Args": [
+            "redis-server",
+            "--maxmemory",
+            "128mb",
+            "--maxmemory-policy",
+            "allkeys-lru",
+            "--save",
+            "",
+            "--appendonly",
+            "no"
+        ],
+        "State": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 584046,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2026-10-11T06:02:07.171155289Z",
+            "FinishedAt": "2026-10-11T06:02:06.552680618Z",
+            "Health": {
+                "Status": "healthy",
+                "FailingStreak": 0,
+                "Log": [
+                    {
+                        "Start": "2026-10-11T14:02:05.496753608+08:00",
+                        "End": "2026-10-11T14:02:05.552899107+08:00",
+                        "ExitCode": 0,
+                        "Output": "PONG\n"
+                    },
+                    {
+                        "Start": "2026-10-11T14:02:12.298626082+08:00",
+                        "End": "2026-10-11T14:02:12.353855813+08:00",
+                        "ExitCode": 0,
+                        "Output": "PONG\n"
+                    },
+                    {
+                        "Start": "2026-10-11T14:02:17.355343954+08:00",
+                        "End": "2026-10-11T14:02:17.410091221+08:00",
+                        "ExitCode": 0,
+                        "Output": "PONG\n"
+                    },
+                    {
+                        "Start": "2026-10-11T14:02:22.411032924+08:00",
+                        "End": "2026-10-11T14:02:22.47139728+08:00",
+                        "ExitCode": 0,
+                        "Output": "PONG\n"
+                    },
+                    {
+                        "Start": "2026-10-11T14:02:27.472810227+08:00",
+                        "End": "2026-10-11T14:02:27.538939511+08:00",
+                        "ExitCode": 0,
+                        "Output": "PONG\n"
+                    }
+                ]
+            }
+        },
+        "Image": "sha256:fbdbaea47b9ae4ecc2082ecdb4e1cea81e32176ffb1dcf643d422ad07427e5d9",
+        "ResolvConfPath": "/var/lib/docker/containers/abfee6fd74f2b67d968369627fd277413f0be1b5edf0ae429cf2343d3ff8ab22/resolv.conf",
+        "HostnamePath": "/var/lib/docker/containers/abfee6fd74f2b67d968369627fd277413f0be1b5edf0ae429cf2343d3ff8ab22/hostname",
+        "HostsPath": "/var/lib/docker/containers/abfee6fd74f2b67d968369627fd277413f0be1b5edf0ae429cf2343d3ff8ab22/hosts",
+        "LogPath": "/var/lib/docker/containers/abfee6fd74f2b67d968369627fd277413f0be1b5edf0ae429cf2343d3ff8ab22/abfee6fd74f2b67d968369627fd277413f0be1b5edf0ae429cf2343d3ff8ab22-json.log",
+        "Name": "/campus-v2-fault-20261011060118-571004-redis-1",
+        "RestartCount": 0,
+        "Driver": "overlayfs",
+        "Platform": "linux",
+        "MountLabel": "",
+        "ProcessLabel": "",
+        "AppArmorProfile": "",
+        "ExecIDs": null,
+        "HostConfig": {
+            "Binds": null,
+            "ContainerIDFile": "",
+            "LogConfig": {
+                "Type": "json-file",
+                "Config": {
+                    "max-file": "5",
+                    "max-size": "10m"
+                }
+            },
+            "NetworkMode": "campus-v2-fault-20261011060118-571004_default",
+            "PortBindings": {},
+            "RestartPolicy": {
+                "Name": "no",
+                "MaximumRetryCount": 0
+            },
+            "AutoRemove": false,
+            "VolumeDriver": "",
+            "VolumesFrom": null,
+            "ConsoleSize": [
+                0,
+                0
+            ],
+            "CapAdd": null,
+            "CapDrop": null,
+            "CgroupnsMode": "private",
+            "Dns": null,
+            "DnsOptions": null,
+            "DnsSearch": null,
+            "ExtraHosts": [],
+            "GroupAdd": null,
+            "IpcMode": "private",
+            "Cgroup": "",
+            "Links": null,
+            "OomScoreAdj": 0,
+            "PidMode": "",
+            "Privileged": false,
+            "PublishAllPorts": false,
+            "ReadonlyRootfs": false,
+            "SecurityOpt": null,
+            "UTSMode": "",
+            "UsernsMode": "",
+            "ShmSize": 67108864,
+            "Runtime": "runc",
+            "Isolation": "",
+            "CpuShares": 0,
+            "Memory": 268435456,
+            "NanoCpus": 1000000000,
+            "CgroupParent": "",
+            "BlkioWeight": 0,
+            "BlkioWeightDevice": null,
+            "BlkioDeviceReadBps": null,
+            "BlkioDeviceWriteBps": null,
+            "BlkioDeviceReadIOps": null,
+            "BlkioDeviceWriteIOps": null,
+            "CpuPeriod": 0,
+            "CpuQuota": 0,
+            "CpuRealtimePeriod": 0,
+            "CpuRealtimeRuntime": 0,
+            "CpusetCpus": "",
+            "CpusetMems": "",
+            "Devices": null,
+            "DeviceCgroupRules": null,
+            "DeviceRequests": null,
+            "MemoryReservation": 0,
+            "MemorySwap": 536870912,
+            "MemorySwappiness": null,
+            "OomKillDisable": null,
+            "PidsLimit": null,
+            "Ulimits": null,
+            "CpuCount": 0,
+            "CpuPercent": 0,
+            "IOMaximumIOps": 0,
+            "IOMaximumBandwidth": 0,
+            "MaskedPaths": [
+                "/proc/acpi",
+                "/proc/asound",
+                "/proc/interrupts",
+                "/proc/kcore",
+                "/proc/keys",
+                "/proc/latency_stats",
+                "/proc/sched_debug",
+                "/proc/scsi",
+                "/proc/timer_list",
+                "/proc/timer_stats",
+                "/sys/devices/virtual/powercap",
+                "/sys/firmware",
+                "/sys/devices/system/cpu/cpu0/thermal_throttle",
+                "/sys/devices/system/cpu/cpu1/thermal_throttle",
+                "/sys/devices/system/cpu/cpu2/thermal_throttle",
+                "/sys/devices/system/cpu/cpu3/thermal_throttle",
+                "/sys/devices/system/cpu/cpu4/thermal_throttle",
+                "/sys/devices/system/cpu/cpu5/thermal_throttle",
+                "/sys/devices/system/cpu/cpu6/thermal_throttle",
+                "/sys/devices/system/cpu/cpu7/thermal_throttle",
+                "/sys/devices/system/cpu/cpu8/thermal_throttle",
+                "/sys/devices/system/cpu/cpu9/thermal_throttle",
+                "/sys/devices/system/cpu/cpu10/thermal_throttle",
+                "/sys/devices/system/cpu/cpu11/thermal_throttle",
+                "/sys/devices/system/cpu/cpu12/thermal_throttle",
+                "/sys/devices/system/cpu/cpu13/thermal_throttle",
+                "/sys/devices/system/cpu/cpu14/thermal_throttle",
+                "/sys/devices/system/cpu/cpu15/thermal_throttle",
+                "/sys/devices/system/cpu/cpu16/thermal_throttle",
+                "/sys/devices/system/cpu/cpu17/thermal_throttle"
+            ],
+            "ReadonlyPaths": [
+                "/proc/bus",
+                "/proc/fs",
+                "/proc/irq",
+                "/proc/sys",
+                "/proc/sysrq-trigger"
+            ]
+        },
+        "Storage": {
+            "RootFS": {
+                "Snapshot": {
+                    "Name": "overlayfs"
+                }
+            }
+        },
+        "Mounts": [
+            {
+                "Type": "volume",
+                "Name": "3d2b87a04c52e04549743dfe429db2b6085da323234cb9b8e2e0eba2d4224521",
+                "Source": "/var/lib/docker/volumes/3d2b87a04c52e04549743dfe429db2b6085da323234cb9b8e2e0eba2d4224521/_data",
+                "Destination": "/data",
+                "Driver": "local",
+                "Mode": "",
+                "RW": true,
+                "Propagation": ""
+            }
+        ],
+        "Config": {
+            "Hostname": "abfee6fd74f2",
+            "Domainname": "",
+            "User": "",
+            "AttachStdin": false,
+            "AttachStdout": true,
+            "AttachStderr": true,
+            "ExposedPorts": {
+                "6379/tcp": {}
+            },
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                "GOSU_VERSION=1.17",
+                "REDIS_VERSION=7.4.2",
+                "REDIS_DOWNLOAD_URL=http://download.redis.io/releases/redis-7.4.2.tar.gz",
+                "REDIS_DOWNLOAD_SHA=4ddebbf09061cbb589011786febdb34f29767dd7f89dbe712d2b68e808af6a1f"
+            ],
+            "Cmd": [
+                "redis-server",
+                "--maxmemory",
+                "128mb",
+                "--maxmemory-policy",
+                "allkeys-lru",
+                "--save",
+                "",
+                "--appendonly",
+                "no"
+            ],
+            "Healthcheck": {
+                "Test": [
+                    "CMD",
+                    "redis-cli",
+                    "ping"
+                ],
+                "Interval": 5000000000,
+                "Timeout": 2000000000,
+                "Retries": 20
+            },
+            "Image": "redis:7.4.2-bookworm@sha256:fbdbaea47b9ae4ecc2082ecdb4e1cea81e32176ffb1dcf643d422ad07427e5d9",
+            "Volumes": {
+                "/data": {}
+            },
+            "WorkingDir": "/data",
+            "Entrypoint": [
+                "docker-entrypoint.sh"
+            ],
+            "Labels": {
+                "com.docker.compose.config-hash": "770fd284e7fe03ee735ebb9ab50cead4d075d5950e4fbdc45753c1f6f13dc598",
+                "com.docker.compose.container-number": "1",
+                "com.docker.compose.depends_on": "",
+                "com.docker.compose.image": "sha256:f452836040018082f5383b5969c66ed3009bfd38932ae188a28d206870ae277b",
+                "com.docker.compose.oneoff": "False",
+                "com.docker.compose.project": "campus-v2-fault-20261011060118-571004",
+                "com.docker.compose.project.config_files": "/tmp/campus-v2-fault/compose.v2.yaml,/tmp/campus-v2-fault/docs/validation/v2-fault20/run-20261011-05/override.yaml",
+                "com.docker.compose.project.working_dir": "/tmp/campus-v2-fault",
+                "com.docker.compose.service": "redis",
+                "com.docker.compose.version": "5.6.0"
+            }
+        },
+        "NetworkSettings": {
+            "SandboxID": "c4f81a5dc0a27dc4a4bfdf5ec01f551fa69a6159d24fd2d080e56a434722baad",
+            "SandboxKey": "/var/run/docker/netns/c4f81a5dc0a2",
+            "Ports": {
+                "6379/tcp": null
+            },
+            "Networks": {
+                "campus-v2-fault-20261011060118-571004_default": {
+                    "IPAMConfig": null,
+                    "Links": null,
+                    "Aliases": [
+                        "campus-v2-fault-20261011060118-571004-redis-1",
+                        "redis"
+                    ],
+                    "DriverOpts": null,
+                    "GwPriority": 0,
+                    "NetworkID": "c6cac202fe2b6320f8507ba5b413b9c82b9d46a8a8f5c00ebddd4eefe3db77c0",
+                    "EndpointID": "08ff8c268c026d22840d5920d0899fdbb3857248e7c6b5a2dc9ac047605b2894",
+                    "Gateway": "172.23.0.1",
+                    "IPAddress": "172.23.0.3",
+                    "MacAddress": "46:d4:07:40:5b:29",
+                    "IPPrefixLen": 16,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "DNSNames": [
+                        "campus-v2-fault-20261011060118-571004-redis-1",
+                        "redis",
+                        "abfee6fd74f2"
+                    ]
+                }
+            }
+        },
+        "ImageManifestDescriptor": {
+            "mediaType": "application/vnd.oci.image.manifest.v1+json",
+            "digest": "sha256:f452836040018082f5383b5969c66ed3009bfd38932ae188a28d206870ae277b",
+            "size": 2483,
+            "annotations": {
+                "com.docker.official-images.bashbrew.arch": "amd64",
+                "org.opencontainers.image.base.digest": "sha256:4b44499bc2a6c78d726f3b281e6798009c0ae1f034b0bfaf6a227147dcff928b",
+                "org.opencontainers.image.base.name": "debian:bookworm-slim",
+                "org.opencontainers.image.created": "2025-04-08T01:21:38Z",
+                "org.opencontainers.image.revision": "8338d86bc3f7b195046138f8c31bf9a839cdedd3",
+                "org.opencontainers.image.source": "https://github.com/redis/docker-library-redis.git#8338d86bc3f7b195046138f8c31bf9a839cdedd3:7.4/debian",
+                "org.opencontainers.image.url": "https://hub.docker.com/_/redis",
+                "org.opencontainers.image.version": "7.4.2"
+            },
+            "platform": {
+                "architecture": "amd64",
+                "os": "linux"
+            }
+        }
+    }
+]

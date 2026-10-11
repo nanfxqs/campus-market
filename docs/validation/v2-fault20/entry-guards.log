@@ -1,0 +1,13 @@
+['scripts/validate-cache-faults.sh', '--output', 'docs/validation/v2-fault20/run-20261011-05']
+exit=1
+mkdir: cannot create directory ‘docs/validation/v2-fault20/run-20261011-05’: File exists
+
+['scripts/validate-cache-faults.sh', '--output', '/tmp/campus-fault-invalid-port-must-not-exist', '--port', '1']
+exit=2
+Invalid port
+
+['python3', 'scripts/wait-v2-mongo.py', '--project', 'campus-market-validation']
+exit=2
+usage: wait-v2-mongo.py [-h] --project PROJECT [--timeout TIMEOUT]
+wait-v2-mongo.py: error: an isolated campus-v2-* project and positive timeout are required
+
