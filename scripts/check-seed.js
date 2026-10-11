@@ -62,3 +62,26 @@ printjson(db.priceChanges.aggregate([
   {$group: {_id: null, min: {$min: "$n"}, max: {$max: "$n"}, mean: {$avg: "$n"}}}
 ]).toArray());
 print("Seed observations passed. Listing counts are wall-clock sensitive; see seed documentation.");
+if (metadata.mode === "v2") {
+  check("background active", db.products.countDocuments({seedCohort:"background",sold:false}), 20000);
+  check("background sold", db.products.countDocuments({seedCohort:"background",sold:true}), 180000);
+  check("dedicated active", db.products.countDocuments({seedCohort:"dedicated",sold:false}), 30000);
+  check("dedicated eligible", db.products.countDocuments({seedCohort:"dedicated",sold:false,expiresAt:{$gt:new Date(Date.now()+86400000)}}), 30000);
+  check("listing archive violations", count("listings", [
+    {$lookup:{from:"products",localField:"_id",foreignField:"_id",as:"product"}},
+    {$unwind:{path:"$product",preserveNullAndEmptyArrays:true}},
+    {$match:{$expr:{$or:[{$ne:["$product.sold",false]},{$ne:["$expiresAt","$product.expiresAt"]}]}}}
+  ]), 0);
+  check("duplicate successful products", count("transactions", [
+    {$match:{success:true}},{$group:{_id:"$productId",n:{$sum:1}}},{$match:{n:{$ne:1}}}
+  ]), 0);
+  const sellerSales = new Map(db.transactions.aggregate([
+    {$match:{success:true}}, {$group:{_id:"$sellerId",n:{$sum:1}}}
+  ], {allowDiskUse:true}).toArray().map(row => [row._id,row.n]));
+  let sellerViolations = 0;
+  db.users.find({}, {_id:1,completedSales:1}).forEach(user => {
+    if (user.completedSales !== (sellerSales.get(user._id)||0)) sellerViolations++;
+    sellerSales.delete(user._id);
+  });
+  check("all seller counts", sellerViolations+sellerSales.size, 0);
+}

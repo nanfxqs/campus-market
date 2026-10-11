@@ -2,9 +2,11 @@ package market
 
 import (
 	"context"
+	"encoding/json"
 	"errors"
 	"fmt"
 	"math/rand"
+	"os"
 	"strings"
 	"time"
 
@@ -16,10 +18,11 @@ import (
 // SeedOptions identifies a reproducible experiment. BaseTime is deliberately
 // independent of the wall clock; TTL and HTTP eligibility still use real time.
 type SeedOptions struct {
-	Mode       string
-	RandomSeed int64
-	BaseTime   time.Time
-	Reset      bool
+	Mode         string
+	RandomSeed   int64
+	BaseTime     time.Time
+	Reset        bool
+	ManifestPath string
 }
 
 // Public demonstration credentials only; fixed salt makes restores reproducible.
@@ -40,6 +43,8 @@ type SeedCounts struct {
 func SeedDataset(ctx context.Context, db *mongo.Database, o SeedOptions) (SeedCounts, error) {
 	counts := SeedCounts{}
 	switch o.Mode {
+	case "v2":
+		counts = SeedCounts{10000, 50000, 180000, 300000, 575000}
 	case "full":
 		counts = SeedCounts{10000, 20000, 180000, 300000, 500000}
 	case "small":
@@ -49,7 +54,7 @@ func SeedDataset(ctx context.Context, db *mongo.Database, o SeedOptions) (SeedCo
 	case "demo":
 		counts = SeedCounts{Users: 2}
 	default:
-		return counts, errors.New("mode must be full, small, stress or demo")
+		return counts, errors.New("mode must be v2, full, small, stress or demo")
 	}
 	name := db.Name()
 	if name == "" || strings.EqualFold(name, "admin") || strings.EqualFold(name, "local") || strings.EqualFold(name, "config") {
@@ -59,6 +64,15 @@ func SeedDataset(ctx context.Context, db *mongo.Database, o SeedOptions) (SeedCo
 		return counts, errors.New("base time must be RFC3339 in years 1971..9998")
 	}
 	o.BaseTime = o.BaseTime.UTC().Truncate(time.Millisecond)
+	if o.Mode == "v2" && o.BaseTime.Add(35*24*time.Hour).Before(time.Now().Add(24*time.Hour)) {
+		return counts, errors.New("V2 base time must leave at least 24 hours of valid load eligibility")
+	}
+	if o.Mode == "v2" && o.BaseTime.After(time.Now()) {
+		return counts, errors.New("V2 base time cannot be in the future")
+	}
+	if o.ManifestPath != "" && o.Mode != "v2" {
+		return counts, errors.New("--manifest requires mode v2")
+	}
 	if o.Reset {
 		if err := db.Drop(ctx); err != nil {
 			return counts, err
@@ -90,6 +104,8 @@ func SeedDataset(ctx context.Context, db *mongo.Database, o SeedOptions) (SeedCo
 	if _, err := db.Collection("sessions").Indexes().CreateOne(ctx, mongo.IndexModel{Keys: bson.D{{Key: "expiresAt", Value: 1}}, Options: options.Index().SetExpireAfterSeconds(0)}); err != nil {
 		return counts, err
 	}
+	// V2 uses unchanged V1 background IDs and PRNG sequence, then appends its
+	// dedicated cohort. Refuse an expired experiment before any import work.
 	rng := rand.New(rand.NewSource(o.RandomSeed))
 	users := make([]Profile, counts.Users)
 	userID := func(i int) string {
@@ -106,10 +122,17 @@ func SeedDataset(ctx context.Context, db *mongo.Database, o SeedOptions) (SeedCo
 		users[i] = Profile{ID: id, Username: id, Nickname: fmt.Sprintf("校园卖家%d（已更新）", i), Avatar: fmt.Sprintf("https://example.com/avatars/current-%d.png", i), CreditScore: 60 + rng.Intn(41), PasswordHash: seedPasswordHash}
 	}
 	writer := seedWriter{ctx: ctx, db: db, batches: map[string][]any{}}
+	backgroundActive := counts.Active
+	if o.Mode == "v2" {
+		backgroundActive = 20000
+	}
+	manifest := SeedManifest{Version: 1, Database: name, Mode: o.Mode, RandomSeed: o.RandomSeed, BaseTime: o.BaseTime, Counts: counts}
 	for i := 0; i < counts.Active+counts.Sold; i++ {
 		id := fmt.Sprintf("%024x", i+1)
 		seller := i % counts.Users
-		sold := i >= counts.Active
+		sold := i >= backgroundActive && i < backgroundActive+counts.Sold
+		dedicated := o.Mode == "v2" && i >= backgroundActive+counts.Sold
+ if dedicated { seller = i % 50 }
 		published := o.BaseTime.Add(-time.Duration(1+rng.Intn(25)) * 24 * time.Hour)
 		if sold {
 			published = o.BaseTime.Add(-time.Duration(40+rng.Intn(15)) * 24 * time.Hour)
@@ -162,12 +185,28 @@ func SeedDataset(ctx context.Context, db *mongo.Database, o SeedOptions) (SeedCo
 				return counts, err
 			}
 		}
-		if err := writer.add("products", p); err != nil {
+		doc := bson.M{}
+		encoded, err := bson.Marshal(p)
+		if err != nil {
+			return counts, err
+		}
+		if err := bson.Unmarshal(encoded, &doc); err != nil {
+			return counts, err
+		}
+		doc["contentVersion"] = int64(1)
+		if o.Mode == "v2" {
+			doc["seedCohort"] = "background"
+			if dedicated {
+				doc["seedCohort"] = "dedicated"
+				manifest.Products = append(manifest.Products, SeedManifestProduct{ProductID: id, SellerID: p.SellerID, BuyerID: userID((seller + 1) % counts.Users), PriceCents: p.PriceCents, ExpiresAt: p.ExpiresAt, IdempotencyKey: "v2-sale-" + id})
+			}
+		}
+		if err := writer.add("products", doc); err != nil {
 			return counts, err
 		}
 	}
 	for i := counts.Sold; i < counts.Transactions; i++ {
-		product := counts.Active + (i-counts.Sold)%counts.Sold
+		product := backgroundActive + (i-counts.Sold)%counts.Sold
 		seller := product % counts.Users
 		a := SaleAttempt{SellerID: userID(seller), ProductID: fmt.Sprintf("%024x", product+1), BuyerID: userID((seller + 1) % counts.Users), PriceCents: 10000, IdempotencyKey: fmt.Sprintf("seed-failure-%d", i), Code: "product_sold", ConfirmedAt: o.BaseTime.Add(-time.Hour)}
 		a.ID = saleAttemptID(a.SellerID, a.IdempotencyKey)
@@ -176,6 +215,7 @@ func SeedDataset(ctx context.Context, db *mongo.Database, o SeedOptions) (SeedCo
 		}
 	}
 	for _, u := range users {
+		manifest.Accounts = append(manifest.Accounts, SeedManifestAccount{ID: u.ID, Username: u.Username, Password: "CampusDemo123!", CompletedSales: u.CompletedSales})
 		if err := writer.add("users", u); err != nil {
 			return counts, err
 		}
@@ -196,7 +236,46 @@ func SeedDataset(ctx context.Context, db *mongo.Database, o SeedOptions) (SeedCo
 		return counts, err
 	}
 	_, err := db.Collection("seed_metadata").InsertOne(ctx, bson.M{"_id": "dataset", "version": 1, "mode": o.Mode, "randomSeed": o.RandomSeed, "baseTime": o.BaseTime, "counts": counts, "synonymsVersion": "bicycles_v1"})
-	return counts, err
+	if err != nil {
+		return counts, err
+	}
+	if o.ManifestPath != "" {
+		data, err := json.Marshal(manifest)
+		if err != nil {
+			return counts, err
+		}
+		if err := os.WriteFile(o.ManifestPath, append(data, '\n'), 0644); err != nil {
+			return counts, err
+		}
+	}
+	return counts, nil
+}
+
+// SeedManifest contains only designated load products and the registered accounts
+// they reuse. Credentials are deliberately public synthetic experiment accounts.
+type SeedManifest struct {
+	Version    int                   `json:"version"`
+	Database   string                `json:"database"`
+	Mode       string                `json:"mode"`
+	RandomSeed int64                 `json:"randomSeed"`
+	BaseTime   time.Time             `json:"baseTime"`
+	Counts     SeedCounts            `json:"counts"`
+	Accounts   []SeedManifestAccount `json:"accounts"`
+	Products   []SeedManifestProduct `json:"products"`
+}
+type SeedManifestAccount struct {
+	ID             string `json:"id"`
+	Username       string `json:"username"`
+	Password       string `json:"password"`
+	CompletedSales int    `json:"completedSales"`
+}
+type SeedManifestProduct struct {
+	ProductID      string    `json:"productId"`
+	SellerID       string    `json:"sellerId"`
+	BuyerID        string    `json:"buyerId"`
+	PriceCents     int64     `json:"priceCents"`
+	ExpiresAt      time.Time `json:"expiresAt"`
+	IdempotencyKey string    `json:"idempotencyKey"`
 }
 
 // A bounded batch keeps the full dataset import memory independent of its size.
