@@ -1,0 +1,68 @@
+{
+  "result": "PASS",
+  "timeout_seconds": 180,
+  "observations": [
+    {
+      "product_id": "6acb2814b5d15f0110c8f30d",
+      "deletion_delay_lower_seconds": 56.784,
+      "deletion_delay_upper_seconds": 59.319,
+      "observed_at": "2026-10-11T06:10:27.102Z"
+    },
+    {
+      "product_id": "6acb2814b5d15f0110c8f30f",
+      "deletion_delay_lower_seconds": 56.784,
+      "deletion_delay_upper_seconds": 59.319,
+      "observed_at": "2026-10-11T06:10:27.102Z"
+    },
+    {
+      "product_id": "6acb2814b5d15f0110c8f311",
+      "deletion_delay_lower_seconds": 56.784,
+      "deletion_delay_upper_seconds": 59.319,
+      "observed_at": "2026-10-11T06:10:27.102Z"
+    },
+    {
+      "product_id": "6acb2814b5d15f0110c8f313",
+      "deletion_delay_lower_seconds": 56.784,
+      "deletion_delay_upper_seconds": 59.319,
+      "observed_at": "2026-10-11T06:10:27.102Z"
+    },
+    {
+      "product_id": "6acb2814b5d15f0110c8f315",
+      "deletion_delay_lower_seconds": 56.784,
+      "deletion_delay_upper_seconds": 59.319,
+      "observed_at": "2026-10-11T06:10:27.102Z"
+    },
+    {
+      "product_id": "6acb2814b5d15f0110c8f317",
+      "deletion_delay_lower_seconds": 56.784,
+      "deletion_delay_upper_seconds": 59.319,
+      "observed_at": "2026-10-11T06:10:27.102Z"
+    },
+    {
+      "product_id": "6acb2814b5d15f0110c8f319",
+      "deletion_delay_lower_seconds": 56.784,
+      "deletion_delay_upper_seconds": 59.319,
+      "observed_at": "2026-10-11T06:10:27.102Z"
+    },
+    {
+      "product_id": "6acb2814b5d15f0110c8f31b",
+      "deletion_delay_lower_seconds": 56.784,
+      "deletion_delay_upper_seconds": 59.319,
+      "observed_at": "2026-10-11T06:10:27.102Z"
+    },
+    {
+      "product_id": "6acb2814b5d15f0110c8f31d",
+      "deletion_delay_lower_seconds": 56.784,
+      "deletion_delay_upper_seconds": 59.319,
+      "observed_at": "2026-10-11T06:10:27.102Z"
+    },
+    {
+      "product_id": "6acb2814b5d15f0110c8f31f",
+      "deletion_delay_lower_seconds": 56.784,
+      "deletion_delay_upper_seconds": 59.319,
+      "observed_at": "2026-10-11T06:10:27.102Z"
+    }
+  ],
+  "remaining": [],
+  "meaning": "interval-censored observed cleanup delay, not a TTL SLA"
+}

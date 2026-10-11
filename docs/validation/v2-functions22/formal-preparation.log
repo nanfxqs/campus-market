@@ -1,0 +1,139 @@
+ Container campus-v2-functions22-api-a-1 Stopping 
+ Container campus-v2-functions22-api-a-1 Stopped 
+ Container campus-v2-functions22-mongo-1 Starting 
+ Container campus-v2-functions22-mongo-1 Started 
+ Container campus-v2-functions22-mongo-1 Waiting 
+ Container campus-v2-functions22-mongo-1 Healthy 
+ Image campus-v2-functions22-api-a Building 
+ Image campus-v2-functions22-api-b Building 
+ Image campus-v2-functions22-api-c1 Building 
+ Image campus-v2-functions22-api-c2 Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 1.84kB done
+#1 DONE 0.0s
+
+#2 [api-c1 internal] load build definition from Dockerfile
+#2 transferring dockerfile: 491B done
+#2 DONE 0.0s
+
+#3 [api-c2 internal] load metadata for docker.io/library/golang:1.24.2-bookworm@sha256:79390b5e5af9ee6e7b1173ee3eac7fadf6751a545297672916b59bfa0ecf6f71
+#3 DONE 0.0s
+
+#4 [api-a internal] load metadata for docker.io/library/debian:bookworm-slim@sha256:7c7b2c966bc9ee8cedfeef67e0e279108992c77681fa595db4a9d65c06ccc587
+#4 DONE 0.0s
+
+#5 [api-a internal] load .dockerignore
+#5 transferring context: 192B done
+#5 DONE 0.0s
+
+#6 [api-b tools 1/7] FROM docker.io/library/golang:1.24.2-bookworm@sha256:79390b5e5af9ee6e7b1173ee3eac7fadf6751a545297672916b59bfa0ecf6f71
+#6 resolve docker.io/library/golang:1.24.2-bookworm@sha256:79390b5e5af9ee6e7b1173ee3eac7fadf6751a545297672916b59bfa0ecf6f71 0.0s done
+#6 DONE 0.0s
+
+#7 [api-c2 stage-1 1/3] FROM docker.io/library/debian:bookworm-slim@sha256:7c7b2c966bc9ee8cedfeef67e0e279108992c77681fa595db4a9d65c06ccc587
+#7 resolve docker.io/library/debian:bookworm-slim@sha256:7c7b2c966bc9ee8cedfeef67e0e279108992c77681fa595db4a9d65c06ccc587 0.0s done
+#7 DONE 0.0s
+
+#8 [api-a internal] load build context
+#8 transferring context: 40.66kB done
+#8 DONE 0.0s
+
+#9 [api-b tools 3/7] COPY go.mod go.sum ./
+#9 CACHED
+
+#10 [api-b tools 2/7] WORKDIR /src
+#10 CACHED
+
+#11 [api-b tools 4/7] RUN go mod download
+#11 CACHED
+
+#9 [api-c1 tools 3/7] COPY go.mod go.sum ./
+#9 CACHED
+
+#10 [api-c1 tools 2/7] WORKDIR /src
+#10 CACHED
+
+#12 [api-c2 tools 5/7] COPY . .
+#12 DONE 0.1s
+
+#13 [api-b tools 6/7] RUN go build -o /validation ./validation
+#13 DONE 11.5s
+
+#14 [api-a tools 7/7] RUN go build -o /market ./cmd/market
+#14 DONE 1.3s
+
+#15 [api-a stage-1 2/3] COPY --from=tools /validation /validation
+#15 CACHED
+
+#16 [api-a stage-1 3/3] COPY --from=tools /market /market
+#16 CACHED
+
+#15 [api-c2 stage-1 2/3] COPY --from=tools /validation /validation
+#15 CACHED
+
+#16 [api-c2 stage-1 3/3] COPY --from=tools /market /market
+#16 CACHED
+
+#17 [api-a] exporting to image
+#17 exporting layers 0.0s done
+#17 exporting manifest sha256:5befd5d7c7eea656f62a40521a490b4b0b8d84f54b54016a3de59c493f6b9c1a done
+#17 exporting config sha256:1130debd70a0801fa8ac63d5b75c8485acb93a5a8a9aae96e7292c258b7b1f6e done
+#17 exporting attestation manifest sha256:782e56dde7f29164a900755c0e17aa6fd803e18d8a3ffe7dbffa67c4c0275ade 0.0s done
+#17 exporting manifest list sha256:a9dc09bdee4e366a077bafdd8dde57ec57e3e6be41ae6b907ef1d3ad17475bf9
+#17 exporting manifest list sha256:a9dc09bdee4e366a077bafdd8dde57ec57e3e6be41ae6b907ef1d3ad17475bf9 0.0s done
+#17 naming to docker.io/library/campus-v2-functions22-api-a:latest done
+#17 unpacking to docker.io/library/campus-v2-functions22-api-a:latest 0.0s done
+#17 DONE 0.2s
+
+#18 [api-c1] exporting to image
+#18 exporting layers done
+#18 exporting manifest sha256:42cade4d928bb2cb5038e259d5ad175ea867c40c63b5b49ee58de80cec441baf 0.0s done
+#18 exporting config sha256:c19ed05d248ea3dda16649cf722442b46a89ad66c31d34eb83e9425aed953257 done
+#18 exporting attestation manifest sha256:f3c4e1187276fe205ac73827fad08dfceb07caea28f1c7e1ba151d666dab90c4 0.0s done
+#18 exporting manifest list sha256:b3733647d88b371509de553441c4f496b958a2d81b6218d77742033887e63346 0.0s done
+#18 naming to docker.io/library/campus-v2-functions22-api-c1:latest 0.0s done
+#18 unpacking to docker.io/library/campus-v2-functions22-api-c1:latest 0.0s done
+#18 DONE 0.2s
+
+#19 [api-c2] exporting to image
+#19 exporting layers 0.0s done
+#19 exporting manifest sha256:dabfc6e33c7a00cda928070adea6ad920d3b4dc408f77d1d3a4c937452f248e4 done
+#19 exporting config sha256:cb39899f84191875c2a88943d5e1db7dfa5b71bb0e5ff81fed9ffe16ac1f6077 done
+#19 exporting attestation manifest sha256:798245982a9437a415a884415437e008f3ac76910a83446079ca296aa5ed0a45 0.0s done
+#19 exporting manifest list sha256:060a4f8496290d7013cf5309c4d98e70284444dd359987441acb9db8ca4243bd 0.0s done
+#19 naming to docker.io/library/campus-v2-functions22-api-c2:latest done
+#19 unpacking to docker.io/library/campus-v2-functions22-api-c2:latest 0.0s done
+#19 DONE 0.2s
+
+#20 [api-b] exporting to image
+#20 exporting layers done
+#20 exporting manifest sha256:727b5ce15788019f9d6f5b627f102a663044ebdda598d664a83eecf3915d9c26 done
+#20 exporting config sha256:0a85da47ce93e2a09db2ccb6eca9a18b3401c62d535a69b0c0988e30ce45cfae done
+#20 exporting attestation manifest sha256:841c74a58764383ed295c955c46dad0938db67feb11f0f99484723c67775c3db 0.0s done
+#20 exporting manifest list sha256:024a9216bed9cd7464263793bb73c8511de53912ab6ff915ac08a880820c52c3 0.0s done
+#20 naming to docker.io/library/campus-v2-functions22-api-b:latest done
+#20 unpacking to docker.io/library/campus-v2-functions22-api-b:latest 0.0s done
+#20 DONE 0.1s
+
+#21 [api-c1] resolving provenance for metadata file
+#21 DONE 0.1s
+
+#22 [api-a] resolving provenance for metadata file
+#22 DONE 0.1s
+
+#23 [api-c2] resolving provenance for metadata file
+#23 DONE 0.0s
+
+#24 [api-b] resolving provenance for metadata file
+#24 DONE 0.0s
+ Image campus-v2-functions22-api-c1 Built 
+ Image campus-v2-functions22-api-c2 Built 
+ Image campus-v2-functions22-api-a Built 
+ Image campus-v2-functions22-api-b Built 
+ Container campus-v2-functions22-redis-1 Starting 
+ Container campus-v2-functions22-redis-1 Started 
+ Container campus-v2-functions22-redis-1 Waiting 
+ Container campus-v2-functions22-redis-1 Healthy 
+ campus-v2-functions22-mongo-1 Copying /tmp/functions22-formal-prepare/manifest.json to campus-v2-functions22-mongo-1:/tmp/v2-manifest.json
+ campus-v2-functions22-mongo-1 Copied /tmp/functions22-formal-prepare/manifest.json to campus-v2-functions22-mongo-1:/tmp/v2-manifest.json
+Restored A; preparation=93s. Load must log in again and wait for Search readiness before timing.

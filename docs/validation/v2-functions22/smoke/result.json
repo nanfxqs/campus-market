@@ -1,0 +1,13 @@
+{
+  "result": "PASS",
+  "formal": false,
+  "finished_at": "2026-10-11T06:10:36.648073+00:00",
+  "final_scale": {
+    "users": 10000,
+    "products": 230016,
+    "sold": 180003,
+    "listings": 50003,
+    "transactions": 300016,
+    "priceChanges": 575010
+  }
+}

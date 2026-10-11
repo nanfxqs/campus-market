@@ -1,0 +1,5 @@
+{"at": "2026-10-11T06:18:30Z", "database": "campus_v2_readiness_1394d6be48180d7019790add1165803d", "returnCode": 0, "stdout": "[]\n", "stderr": ""}
+{"at": "2026-10-11T06:18:33Z", "database": "campus_v2_readiness_1394d6be48180d7019790add1165803d", "returnCode": 0, "stdout": "[]\n", "stderr": ""}
+{"at": "2026-10-11T06:18:36Z", "database": "campus_v2_readiness_1394d6be48180d7019790add1165803d", "returnCode": 0, "stdout": "[]\n", "stderr": ""}
+{"at": "2026-10-11T06:18:36Z", "database": "campus_v2_readiness_1394d6be48180d7019790add1165803d", "returnCode": 0, "stdout": "{\"ok\":1,\"dropped\":\"campus_v2_readiness_1394d6be48180d7019790add1165803d\"}\n", "stderr": ""}
+{"result": "ready", "project": "campus-v2-functions22", "probeDatabaseDropped": "campus_v2_readiness_1394d6be48180d7019790add1165803d"}

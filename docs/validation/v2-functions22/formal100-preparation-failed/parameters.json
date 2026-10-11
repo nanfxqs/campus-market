@@ -1,0 +1,42 @@
+{
+  "source_sha256": "ec5d6ced37d70737dba527de843dd6541677ab850b353fbcb8ce592c6a259dc7",
+  "run_id": "feature221791699603933023875",
+  "started_at": "2026-10-11T06:20:07.513265+00:00",
+  "project": "campus-v2-functions22",
+  "database": "campus_v2_functions22",
+  "url": "http://127.0.0.1:8085",
+  "samples_per_feature": 100,
+  "formal": true,
+  "single_client": true,
+  "warmups_per_feature": 1,
+  "percentile_method": "nearest rank ceil(p*n), milliseconds",
+  "initial_scale": {
+    "mode": "v2",
+    "metadata": {
+      "users": 10000,
+      "active": 50000,
+      "sold": 180000,
+      "transactions": 300000,
+      "priceChanges": 575000
+    },
+    "users": 10000,
+    "products": 230000,
+    "sold": 180000,
+    "listings": 50000,
+    "transactions": 300000,
+    "priceChanges": 575000,
+    "bicycles": 16667,
+    "buyerActive": 602
+  },
+  "read_cases": {
+    "category": "bicycles",
+    "search_query": "单车",
+    "detail_product": "000000000000000000000001",
+    "seller": "buyer"
+  },
+  "write_price_cents": 12345,
+  "sale_price_cents": 10001,
+  "expiry_samples": 10,
+  "ttl_poll_seconds": 2,
+  "ttl_timeout_seconds": 180
+}
